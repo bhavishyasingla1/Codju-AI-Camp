@@ -1999,137 +1999,381 @@ button {
    FINAL CTA SECTION
    ============================================ */
 .final-cta {
-  background: var(--gradient-hero);
+  background: linear-gradient(135deg, var(--purple-50) 0%, #ffffff 100%);
+  border-top: 1px solid var(--gray-200);
   position: relative;
   overflow: hidden;
-  padding: 120px 0;
+  padding: 100px 0;
+}
+
+/* Background ambient glows */
+.final-cta__glow-1 {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(124, 58, 237, 0.06) 0%, transparent 70%);
+  top: -150px;
+  left: -150px;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.final-cta__glow-2 {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.06) 0%, transparent 70%);
+  bottom: -100px;
+  right: -100px;
+  z-index: 0;
+  pointer-events: none;
 }
 
 .final-cta::before {
   content: "";
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 600px;
-  height: 600px;
-  background: radial-gradient(circle, rgba(124, 58, 237, 0.15) 0%, transparent 70%);
-  pointer-events: none;
-  z-index: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--purple-200), transparent);
 }
 
-.final-cta__card {
+.final-cta__grid {
+  display: grid;
+  grid-template-columns: 1.25fr 1fr;
+  gap: 80px;
+  align-items: center;
+  max-width: var(--container-max);
+  margin: 0 auto;
   position: relative;
   z-index: 1;
-  background: linear-gradient(135deg, rgba(30, 10, 62, 0.4) 0%, rgba(20, 5, 40, 0.6) 100%);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 32px;
-  padding: 80px 40px;
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
-  max-width: 960px;
-  margin: 0 auto;
-  text-align: center;
-  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.35), 0 0 50px rgba(124, 58, 237, 0.1);
 }
 
+.final-cta__left-col {
+  text-align: left;
+}
 
+/* Eyebrow label */
+.final-cta__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(124, 58, 237, 0.08);
+  color: var(--purple-700);
+  padding: 6px 14px;
+  border-radius: 99px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  border: 1px solid rgba(124, 58, 237, 0.1);
+}
 
 .final-cta__title {
   font-family: var(--font-heading);
   font-weight: 800;
-  font-size: clamp(2rem, 5vw, 3rem);
-  color: var(--white);
-  margin-bottom: 20px;
-  letter-spacing: -0.03em;
-  line-height: 1.15;
+  font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+  color: var(--gray-900);
+  margin-bottom: 16px;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+/* Text gradient utility */
+.text-gradient {
+  background: linear-gradient(135deg, var(--purple-600) 0%, var(--indigo-600) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .final-cta__subtitle {
   font-size: 1.15rem;
-  color: rgba(255, 255, 255, 0.7);
-  margin-bottom: 48px;
-  max-width: 580px;
-  margin-left: auto;
-  margin-right: auto;
-  line-height: 1.6;
+  color: var(--gray-600);
+  margin-bottom: 32px;
+  max-width: 540px;
+  line-height: 1.65;
 }
-
-
 
 .final-cta__buttons {
   display: flex;
-  justify-content: center;
-  gap: 20px;
+  justify-content: flex-start;
+  gap: 16px;
   flex-wrap: wrap;
   margin-bottom: 24px;
 }
 
-.final-cta__footer-note {
-  font-size: 0.85rem;
-  color: rgba(255, 255, 255, 0.45);
-  max-width: 440px;
-  margin: 0 auto 40px;
-  line-height: 1.5;
-}
-
-.final-cta__contact {
-  display: flex;
-  justify-content: center;
-  gap: 16px;
-  margin-top: 40px;
-  flex-wrap: wrap;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-  padding-top: 40px;
-}
-
-.final-cta__contact-badge {
+/* Upgraded button with icon */
+.btn--outline-purple {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  color: rgba(255, 255, 255, 0.7);
-  padding: 10px 20px;
-  border-radius: 12px;
-  font-size: 0.9rem;
-  font-weight: 500;
-  text-decoration: none;
+  gap: 8px;
+  background: transparent;
+  border: 2px solid var(--purple-600);
+  color: var(--purple-600);
   transition: all 0.3s var(--ease-out);
 }
 
-.final-cta__contact-badge:hover {
-  background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(255, 255, 255, 0.18);
-  color: var(--white);
+.btn--outline-purple:hover {
+  background: rgba(124, 58, 237, 0.04);
+  color: var(--purple-700);
+  border-color: var(--purple-700);
   transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.btn-icon {
+  transition: transform 0.3s var(--ease-out);
+}
+
+.btn--outline-purple:hover .btn-icon {
+  transform: translateY(2px);
+}
+
+/* Guarantee Box */
+.final-cta__guarantee {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.85rem;
+  color: var(--gray-600);
+  background: rgba(124, 58, 237, 0.03);
+  padding: 12px 16px;
+  border-radius: 12px;
+  border: 1px dashed rgba(124, 58, 237, 0.15);
+  max-width: max-content;
+}
+
+.guarantee-icon {
+  color: var(--purple-500);
+  flex-shrink: 0;
+}
+
+/* Right Column: Contact Card */
+.final-cta__right-col {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.final-cta__contact-card {
+  background: var(--white);
+  border: 1px solid rgba(124, 58, 237, 0.1);
+  border-radius: 24px;
+  padding: 40px;
+  width: 100%;
+  max-width: 440px;
+  box-shadow: var(--shadow-lg);
+  position: relative;
+  transition: transform 0.3s var(--ease-out), box-shadow 0.3s var(--ease-out);
+}
+
+.final-cta__contact-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-xl);
+}
+
+/* Admissions Counselors Header */
+.mentor-card__header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--gray-100);
+}
+
+.mentor-card__avatar-group {
+  display: flex;
+  position: relative;
+  align-items: center;
+}
+
+.mentor-card__avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--white);
+  border: 2px solid var(--white);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+.mentor-card__avatar--1 {
+  background: var(--purple-600);
+  z-index: 2;
+}
+
+.mentor-card__avatar--2 {
+  background: var(--indigo-500);
+  margin-left: -12px;
+  z-index: 1;
+}
+
+.mentor-card__status-dot {
+  width: 10px;
+  height: 10px;
+  background: var(--success);
+  border: 2px solid var(--white);
+  border-radius: 50%;
+  position: absolute;
+  bottom: -2px;
+  right: -2px;
+  z-index: 3;
+  box-shadow: 0 0 0 2px rgba(34, 197, 94, 0.4);
+  animation: pulse-green 2s infinite;
+}
+
+@keyframes pulse-green {
+  0% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7); }
+  70% { box-shadow: 0 0 0 6px rgba(34, 197, 94, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
+}
+
+.mentor-card__meta {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.mentor-card__status-text {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--gray-900);
+  line-height: 1.2;
+}
+
+.mentor-card__response-time {
+  font-size: 0.75rem;
+  color: var(--gray-500);
+  margin-top: 2px;
+}
+
+.final-cta__contact-title {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1.35rem;
+  color: var(--gray-900);
+  margin-bottom: 8px;
+  text-align: left;
+}
+
+.final-cta__contact-desc {
+  font-size: 0.95rem;
+  color: var(--gray-600);
+  margin-bottom: 24px;
+  line-height: 1.5;
+  text-align: left;
+}
+
+.final-cta__contact-badges {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.final-cta__contact-badge {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--gray-50);
+  border: 1px solid var(--gray-200);
+  color: var(--gray-700);
+  padding: 14px 20px;
+  border-radius: 12px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s var(--ease-out);
+  box-sizing: border-box;
 }
 
 .contact-icon {
-  opacity: 0.85;
-  transition: opacity 0.3s ease;
+  color: var(--purple-500);
+  flex-shrink: 0;
+  transition: color 0.3s var(--ease-out);
 }
 
-.final-cta__contact-badge:hover .contact-icon {
+.badge-arrow {
+  opacity: 0;
+  transform: translateX(-8px);
+  transition: all 0.3s var(--ease-out);
+  color: inherit;
+}
+
+.final-cta__contact-badge:hover {
+  transform: translateX(6px);
+  box-shadow: var(--shadow-sm);
+}
+
+.final-cta__contact-badge:hover .badge-arrow {
   opacity: 1;
+  transform: translateX(0);
 }
 
-@media (max-width: 768px) {
-  .final-cta__card {
-    padding: 60px 24px;
-    border-radius: 24px;
+/* Individual badge hovers */
+.phone-badge:hover {
+  background: var(--purple-50);
+  border-color: var(--purple-200);
+  color: var(--purple-700);
+}
+
+.whatsapp-badge:hover {
+  background: #eafaf1;
+  border-color: #c2f0d5;
+  color: #1a8a47;
+}
+
+.whatsapp-badge:hover .contact-icon {
+  color: #25D366;
+}
+
+.email-badge:hover {
+  background: #eef2ff;
+  border-color: #c7d2fe;
+  color: #3730a3;
+}
+
+.email-badge:hover .contact-icon {
+  color: #4f46e5;
+}
+
+.web-badge:hover {
+  background: #faf5ff;
+  border-color: #f3e8ff;
+  color: #6b21a8;
+}
+
+.web-badge:hover .contact-icon {
+  color: #9333ea;
+}
+
+@media (max-width: 992px) {
+  .final-cta__grid {
+    grid-template-columns: 1fr;
+    gap: 48px;
   }
-  .final-cta__contact {
-    flex-direction: column;
-    align-items: stretch;
-    max-width: 320px;
+  .final-cta__left-col,
+  .final-cta__right-col {
+    text-align: center;
+    justify-content: center;
+  }
+  .final-cta__subtitle {
     margin-left: auto;
     margin-right: auto;
-    gap: 12px;
   }
-  .final-cta__contact-badge {
+  .final-cta__buttons {
     justify-content: center;
+  }
+  .final-cta__guarantee {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .final-cta__contact-card {
+    max-width: 100%;
   }
 }
 
@@ -2430,13 +2674,27 @@ button {
 
   .final-cta__buttons {
     flex-direction: column;
-    align-items: center;
+    align-items: stretch;
+    width: 100%;
+    max-width: 320px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
-  .final-cta__contact {
+  .final-cta__buttons .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .final-cta__contact-card {
+    padding: 30px 20px;
+  }
+
+  .final-cta__guarantee {
     flex-direction: column;
-    align-items: center;
-    gap: 16px;
+    text-align: center;
+    gap: 8px;
+    padding: 12px;
   }
 
   .footer__inner {
