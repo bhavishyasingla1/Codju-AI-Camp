@@ -2592,6 +2592,7 @@ button {
   .hero__visual {
     max-width: 500px;
     margin: 0 auto;
+    order: -1;
   }
 
   /* Scale down hero assets on tablet */
@@ -2847,7 +2848,9 @@ button {
 
   /* Hero video area mobile */
   .hero__visual {
-    max-width: 100%;
+    max-width: 90%;
+    width: 100%;
+    margin: 0 auto 24px;
   }
 
   .hero__video-wrapper {
