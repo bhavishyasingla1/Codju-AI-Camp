@@ -271,23 +271,22 @@
     });
   });
 
-  // --- Hero Video Play Handler ---
-  const playBtn = document.querySelector('.hero__play-btn');
-  const heroVideo = document.querySelector('.hero__video-wrapper video');
-
-  if (playBtn && heroVideo) {
-    playBtn.addEventListener('click', () => {
-      // Add a high-quality video clip fitting the programming/creator theme
-      heroVideo.src = 'https://assets.mixkit.co/videos/preview/mixkit-hands-of-a-programmer-typing-on-a-keyboard-41718-large.mp4';
-      heroVideo.load();
-      heroVideo.play().then(() => {
-        heroVideo.controls = true;
-        playBtn.style.opacity = '0';
-        playBtn.style.pointerEvents = 'none';
-      }).catch(err => {
-        console.log('Video play failed:', err);
+  // --- Hero Video Play/Pause on Scroll ---
+  const heroIframe = document.getElementById('hero-youtube-video');
+  if (heroIframe && 'IntersectionObserver' in window) {
+    const videoObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (heroIframe.contentWindow) {
+          if (entry.isIntersecting) {
+            heroIframe.contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
+          } else {
+            heroIframe.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
+          }
+        }
       });
-    });
+    }, { threshold: 0.1 });
+    
+    videoObserver.observe(heroIframe);
   }
 
 })();
