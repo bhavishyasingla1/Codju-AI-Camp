@@ -1,12 +1,12 @@
 # AI Creator Camp by Codju
 **Domain:** codju.com
 **Target Audience:** Students in Grades 6–10 (ages 11–16)
-**Dates:** June 22 – 27, 2025
+**Dates:** June 22 – 28, 2025
 **Format:** Live Online (Zoom), 45-minute daily sessions
 **Cost / Refund:** 100% Risk-Free Guarantee (Cancel anytime before Day 1 for full refund)
 
 ## Program Description
-AI Creator Camp by Codju is an immersive 6-day online program designed to teach young students the fundamentals and creative applications of Artificial Intelligence. Rather than teaching students to fear AI, the camp focuses on empowering them to lead with it through hands-on, project-based learning. Students learn to use modern AI tools to build real-world projects such as websites, apps, artwork, and videos.
+AI Creator Camp by Codju is an immersive 7-day online program designed to teach young students the fundamentals and creative applications of Artificial Intelligence. Rather than teaching students to fear AI, the camp focuses on empowering them to lead with it through hands-on, project-based learning. Students learn to use modern AI tools to build real-world projects such as websites, apps, artwork, and videos.
 
 ## Key Outcomes & Deliverables
 - **8 Real Projects:** Students will build practical projects during the camp.
@@ -21,7 +21,8 @@ AI Creator Camp by Codju is an immersive 6-day online program designed to teach 
 - **Day 3: AI for Learning:** Create a personal AI study dashboard, including notes, summaries, and quizzes using NotebookLM, Notion AI, and Gamma.
 - **Day 4: Build a Website:** Learn computational thinking and build a real website from scratch using Canva Websites, Wix AI, and Scratch.
 - **Day 5: Build an App:** Turn ideas into a working mini app using AI-assisted development tools like Lovable, Glide, Replit AI, and Miro AI.
-- **Day 6: Hackathon + Demo Day:** Collaborate in teams, present projects, and showcase the final outcomes to mentors and parents.
+- **Day 6: AI Agents & Automation:** Learn automation fundamentals, custom GPTs, and connect tools to build workflows using Make.com, ChatGPT, and ElevenLabs.
+- **Day 7: Hackathon + Demo Day:** Collaborate in teams, present projects, and showcase the final outcomes to mentors and parents.
 
 ## Mentor Information
 - **Lead Mentor:** Rohit K Bishnoi

@@ -1,6 +1,6 @@
 # AI Creator Camp by Codju
 
-Welcome to the **AI Creator Camp by Codju** repository. This is the official landing page for the AI Creator Camp, an immersive 6-day online program designed to teach young students (Grades 6–10) the fundamentals and creative applications of Artificial Intelligence.
+Welcome to the **AI Creator Camp by Codju** repository. This is the official landing page for the AI Creator Camp, an immersive 7-day online program designed to teach young students (Grades 6–10) the fundamentals and creative applications of Artificial Intelligence.
 
 ## 🌟 Overview
 
@@ -9,7 +9,7 @@ Rather than teaching students to fear AI, this camp focuses on empowering them t
 - **Domain:** [codju.com](https://codju.com)
 - **Target Audience:** Students in Grades 6–10 (ages 11–16)
 - **Format:** Live Online (Zoom), 45-minute daily sessions
-- **Dates:** June 22 – 27, 2025
+- **Dates:** June 22 – 28, 2025
 
 ## 🚀 Key Outcomes & Deliverables
 
