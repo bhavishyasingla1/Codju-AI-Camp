@@ -1,14 +1,14 @@
 /* ============================================
-   CODJU AI CREATOR CAMP — Interactions & Animations
+   CODJU WINTER FEST — Interactions & Modals
    ============================================ */
 
 (function () {
   'use strict';
 
-  // --- Navigation scroll effect ---
+  // --- Navigation Scroll Effect ---
   const nav = document.getElementById('nav');
   const handleNavScroll = () => {
-    if (window.scrollY > 100) {
+    if (window.scrollY > 40) {
       nav.classList.add('nav--scrolled');
     } else {
       nav.classList.remove('nav--scrolled');
@@ -17,9 +17,7 @@
   window.addEventListener('scroll', handleNavScroll, { passive: true });
   handleNavScroll();
 
-
-
-  // --- Mobile menu toggle ---
+  // --- Mobile Menu Toggle ---
   const mobileToggle = document.getElementById('mobileToggle');
   const mobileMenu = document.getElementById('mobileMenu');
 
@@ -28,63 +26,32 @@
       mobileMenu.classList.toggle('active');
       const isOpen = mobileMenu.classList.contains('active');
       mobileToggle.setAttribute('aria-expanded', isOpen);
-      document.body.classList.toggle('mobile-menu-open', isOpen);
     });
 
-    // Close mobile menu on link click
     mobileMenu.querySelectorAll('a').forEach((link) => {
       link.addEventListener('click', () => {
         mobileMenu.classList.remove('active');
         mobileToggle.setAttribute('aria-expanded', 'false');
-        document.body.classList.remove('mobile-menu-open');
       });
     });
 
-    // Handle screen resize to clean up mobile menu state
     window.addEventListener('resize', () => {
       if (window.innerWidth > 1024) {
         mobileMenu.classList.remove('active');
         mobileToggle.setAttribute('aria-expanded', 'false');
-        document.body.classList.remove('mobile-menu-open');
       }
     }, { passive: true });
   }
 
-  // --- Learning Path Tabs ---
-  const tabBtns = document.querySelectorAll('.tab-btn');
-  const tabPanes = document.querySelectorAll('.tab-pane');
-
-  if (tabBtns.length > 0 && tabPanes.length > 0) {
-    tabBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        tabBtns.forEach(b => b.classList.remove('active'));
-        tabPanes.forEach(p => p.classList.remove('active'));
-        
-        btn.classList.add('active');
-        
-        const targetId = btn.getAttribute('data-tab');
-        const targetPane = document.getElementById(targetId);
-        if (targetPane) {
-          targetPane.classList.add('active');
-        }
-        
-        // Smoothly scroll the clicked tab button into view in its horizontal container on mobile
-        btn.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
-      });
-    });
-  }
-
-  // --- Smooth scroll for anchor links ---
+  // --- Smooth Scroll for Anchor Links ---
   document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     anchor.addEventListener('click', function (e) {
       const targetId = this.getAttribute('href');
-      if (targetId === '#') return;
+      if (targetId === '#' || targetId === '') return;
       const targetEl = document.querySelector(targetId);
       if (targetEl) {
         e.preventDefault();
-        // Measure navigation header height (using .nav__inner to ignore open mobile menu height)
-        const navInner = document.querySelector('.nav__inner');
-        const navHeight = navInner ? navInner.offsetHeight : 72;
+        const navHeight = nav ? nav.offsetHeight : 72;
         const targetPosition = targetEl.getBoundingClientRect().top + window.pageYOffset - navHeight - 16;
         window.scrollTo({
           top: targetPosition,
@@ -94,9 +61,8 @@
     });
   });
 
-  // --- Intersection Observer for reveal animations ---
+  // --- Intersection Observer for Reveal Animations ---
   const revealElements = document.querySelectorAll('.reveal');
-
   if ('IntersectionObserver' in window) {
     const revealObserver = new IntersectionObserver(
       (entries) => {
@@ -107,28 +73,21 @@
           }
         });
       },
-      {
-        threshold: 0.1,
-        rootMargin: '0px 0px -40px 0px',
-      }
+      { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
     );
-
     revealElements.forEach((el) => revealObserver.observe(el));
   } else {
-    // Fallback for browsers without IntersectionObserver
     revealElements.forEach((el) => el.classList.add('visible'));
   }
 
-  // --- Animated counter for stats ---
+  // --- Animated Counter for Stats ---
   const animateCounter = (el, target, duration) => {
-    const start = 0;
     const startTime = performance.now();
     const suffix = el.textContent.replace(/[\d.,]/g, '');
 
     const step = (currentTime) => {
       const elapsed = currentTime - startTime;
       const progress = Math.min(elapsed / duration, 1);
-      // Ease-out cubic
       const eased = 1 - Math.pow(1 - progress, 3);
       const current = Math.floor(eased * target);
 
@@ -146,7 +105,6 @@
   };
 
   const statNumbers = document.querySelectorAll('.stat-card__number');
-
   if (statNumbers.length > 0 && 'IntersectionObserver' in window) {
     const statsObserver = new IntersectionObserver(
       (entries) => {
@@ -154,11 +112,10 @@
           if (entry.isIntersecting) {
             const el = entry.target;
             const text = el.textContent.trim();
-            // Extract the numeric value
             const numMatch = text.match(/[\d,]+/);
             if (numMatch) {
               const numVal = parseInt(numMatch[0].replace(/,/g, ''), 10);
-              animateCounter(el, numVal, 1800);
+              animateCounter(el, numVal, 1600);
             }
             statsObserver.unobserve(el);
           }
@@ -166,127 +123,185 @@
       },
       { threshold: 0.3 }
     );
-
     statNumbers.forEach((el) => statsObserver.observe(el));
   }
 
-  // --- Parallax subtle effect on hero glow ---
-  const heroGlow = document.querySelector('.hero__visual-glow');
-  if (heroGlow) {
-    window.addEventListener(
-      'mousemove',
-      (e) => {
-        const x = (e.clientX / window.innerWidth - 0.5) * 20;
-        const y = (e.clientY / window.innerHeight - 0.5) * 20;
-        heroGlow.style.transform = `translate(calc(-50% + ${x}px), calc(-50% + ${y}px))`;
-      },
-      { passive: true }
-    );
-  }
-  // --- Support Interactive Features ---
-  const supportTrack = document.getElementById('support-img-track');
-  const supportBtns = document.querySelectorAll('.support-feature-btn');
-
-  if (supportTrack && supportBtns.length > 0) {
-    let currentSupportIndex = 0;
-    let supportInterval;
-
-    const activateSupportFeature = (index) => {
-      // Update Buttons (modulo 3 because there are only 3 buttons)
-      const realIndex = index % 3;
-      supportBtns.forEach(b => b.classList.remove('support-feature-btn--active'));
-      supportBtns[realIndex].classList.add('support-feature-btn--active');
-      
-      // Ensure transition is on (in case it was turned off by a previous reset)
-      supportTrack.style.transition = 'transform 0.6s cubic-bezier(0.25, 1, 0.5, 1)';
-      
-      // Update Images (Horizontal Slide - multiply by 25% because there are 4 slides)
-      supportTrack.style.transform = `translateX(-${index * 25}%)`;
-
-      // If we just slid to the cloned slide (index 3)
-      if (index === 3) {
-        setTimeout(() => {
-          // Turn off transition
-          supportTrack.style.transition = 'none';
-          // Instantly jump back to the real first slide (index 0)
-          supportTrack.style.transform = `translateX(0%)`;
-          // Update index tracking
-          currentSupportIndex = 0;
-        }, 600); // 600ms matches the CSS transition time exactly
-      }
-    };
-
-    const startSupportRotation = () => {
-      stopSupportRotation();
-      supportInterval = setInterval(() => {
-        // Increment index, can go up to 3 (the clone)
-        currentSupportIndex++;
-        if (currentSupportIndex > 3) currentSupportIndex = 1; // Safeguard
-        
-        activateSupportFeature(currentSupportIndex);
-      }, 3500); // 3.5 seconds is the sweet spot for premium pacing
-    };
-
-    const stopSupportRotation = () => {
-      if (supportInterval) clearInterval(supportInterval);
-    };
-
-    supportBtns.forEach((btn, index) => {
-      btn.addEventListener('click', () => {
-        currentSupportIndex = index;
-        activateSupportFeature(index);
-        startSupportRotation(); // Reset timer
-      });
-      
-      // Pause rotation on hover
-      btn.addEventListener('mouseenter', stopSupportRotation);
-      btn.addEventListener('mouseleave', startSupportRotation);
-    });
-
-    startSupportRotation();
-  }
-
-  // --- FAQ Interactive Logic ---
+  // --- FAQ Accordion ---
   const faqItems = document.querySelectorAll('.faq-item');
-  
-  faqItems.forEach(item => {
+  faqItems.forEach((item) => {
     const header = item.querySelector('.faq-item__header');
     const body = item.querySelector('.faq-item__body');
-    
+
     header.addEventListener('click', () => {
-      // Check if current item is already open
       const isOpen = item.classList.contains('active');
-      
-      // Close all items
-      faqItems.forEach(otherItem => {
-        otherItem.classList.remove('active');
-        otherItem.querySelector('.faq-item__body').style.maxHeight = null;
+
+      faqItems.forEach((other) => {
+        other.classList.remove('active');
+        const otherBody = other.querySelector('.faq-item__body');
+        if (otherBody) otherBody.style.maxHeight = null;
       });
-      
-      // If it wasn't open, open it
+
       if (!isOpen) {
         item.classList.add('active');
-        body.style.maxHeight = body.scrollHeight + "px";
+        body.style.maxHeight = body.scrollHeight + 'px';
       }
     });
   });
 
-  // --- Hero Video Play/Pause on Scroll ---
-  const heroIframe = document.getElementById('hero-youtube-video');
-  if (heroIframe && 'IntersectionObserver' in window) {
-    const videoObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (heroIframe.contentWindow) {
-          if (entry.isIntersecting) {
-            heroIframe.contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
-          } else {
-            heroIframe.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
-          }
-        }
-      });
-    }, { threshold: 0.1 });
-    
-    videoObserver.observe(heroIframe);
-  }
+  // --- Student Projects Data & Modal Logic ---
+  const studentProjects = [
+    {
+      title: 'Cosmic Explorer Storybook',
+      student: 'Aarav S. · Grade 3',
+      domain: 'ScratchJr',
+      desc: 'A multi-scene animated adventure following an astronaut navigating deep space with voiceovers and sound effects.',
+      howBuilt: 'Aarav programmed character movements using visual sequencing blocks in ScratchJr, mapped custom recorded voice lines for dialogues, and used trigger events to transition smoothly between 3 cosmic scenes.',
+      features: [
+        '3 Interactive Animated Story Scenes',
+        'Custom Voice Recordings & Ambient Audio',
+        'Event-Driven Motion Sequencing Blocks'
+      ],
+      tools: ['ScratchJr', 'Visual Blocks', 'Audio FX'],
+      skills: ['Storyboarding', 'Event Logic', 'Creative Sequencing'],
+      img: 'assets/day1.png'
+    },
+    {
+      title: 'Neon Runner 2D Arcade',
+      student: 'Ananya K. · Grade 6',
+      domain: 'Scratch',
+      desc: 'A playable side-scrolling platformer with jump physics, obstacle collision detection, and a live scoring system.',
+      howBuilt: 'Ananya designed custom obstacle sprites in Scratch 3.0, scripted y-velocity jump gravity physics, and coded hit-box collision boundaries that reset player lives and trigger high-score updates.',
+      features: [
+        'Custom Jump Velocity & Gravity Physics',
+        'Dynamic Hit-Box Collision Detection',
+        'Live Score Multiplier & Player Lives System'
+      ],
+      tools: ['Scratch 3.0', 'Physics Engine', 'Game Logic'],
+      skills: ['Coordinate Geometry', 'Variable Tracking', 'Game Mechanics'],
+      img: 'assets/day2.png'
+    },
+    {
+      title: 'Realm of Eldoria (Python RPG)',
+      student: 'Rohan M. · Grade 8',
+      domain: 'Python',
+      desc: 'A text adventure built in Python with dynamic decision branching, character inventory, and combat logic loops.',
+      howBuilt: 'Rohan structured a modular Python codebase using while loops, conditional if/elif branches, and dictionary structures to track player stats, items found, and random turn-based battle rolls.',
+      features: [
+        'Branching Narrative Decision Trees',
+        'Dynamic Inventory Management System',
+        'Turn-Based Battle Calculations & Logic Loops'
+      ],
+      tools: ['Python 3', 'Replit', 'Conditionals'],
+      skills: ['Algorithmic Logic', 'Data Structures', 'Terminal UI'],
+      img: 'assets/day3.png'
+    },
+    {
+      title: 'StudyQuest AI Assistant',
+      student: 'Diya P. · Grade 7',
+      domain: 'AI',
+      desc: 'A personalized study companion created using guided prompt chains, AI visual flashcards, and custom background music.',
+      howBuilt: 'Diya engineered multi-step system prompts in ChatGPT to break down science concepts, synthesized custom character artwork in Canva AI, and prompted custom focus soundscapes in Suno.',
+      features: [
+        'Structured Multi-Step Prompt Chains',
+        'Generated Visual Flashcard Art Assets',
+        'Ambient Focus Soundtracks Prompted via Suno'
+      ],
+      tools: ['ChatGPT', 'Canva AI', 'Suno'],
+      skills: ['Prompt Engineering', 'Multimodal Design', 'Audio Synthesis'],
+      img: 'assets/day4.png'
+    }
+  ];
+
+  const projectModal = document.getElementById('projectModal');
+  const modalContent = document.getElementById('modalContent');
+  const modalCloseBtn = document.getElementById('modalCloseBtn');
+  const modalBackdrop = document.getElementById('modalBackdrop');
+
+  const openProjectModal = (index) => {
+    const data = studentProjects[index];
+    if (!data || !projectModal || !modalContent) return;
+
+    modalContent.innerHTML = `
+      <img src="${data.img}" alt="${data.title}" class="modal-project-img" />
+      <div class="modal-project-header">
+        <div class="modal-project-meta">${data.domain} · ${data.student}</div>
+        <h3 class="modal-project-title" id="modalProjectTitle">${data.title}</h3>
+      </div>
+      <p class="modal-project-desc">${data.desc}</p>
+      
+      <h4 class="modal-section-title">How It Was Built:</h4>
+      <p class="modal-project-desc" style="margin-bottom: 16px;">${data.howBuilt}</p>
+
+      <h4 class="modal-section-title">Key Features:</h4>
+      <ul class="modal-features-list">
+        ${data.features.map(f => `<li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#7c3aed" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> <span>${f}</span></li>`).join('')}
+      </ul>
+
+      <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+        ${data.tools.map(t => `<span class="tool-chip">${t}</span>`).join('')}
+      </div>
+    `;
+
+    projectModal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  };
+
+  const closeProjectModal = () => {
+    if (projectModal) {
+      projectModal.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+  };
+
+  document.querySelectorAll('.project-trigger').forEach((btn) => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const idx = parseInt(btn.getAttribute('data-project'), 10);
+      openProjectModal(idx);
+    });
+  });
+
+  if (modalCloseBtn) modalCloseBtn.addEventListener('click', closeProjectModal);
+  if (modalBackdrop) modalBackdrop.addEventListener('click', closeProjectModal);
+
+  // --- Video Modal Logic ---
+  const videoModal = document.getElementById('videoModal');
+  const videoPlayerIframe = document.getElementById('videoPlayerIframe');
+  const videoModalCloseBtn = document.getElementById('videoModalCloseBtn');
+  const videoModalBackdrop = document.getElementById('videoModalBackdrop');
+
+  const openVideoModal = (url) => {
+    if (!videoModal || !videoPlayerIframe) return;
+    const cleanUrl = url.includes('autoplay') ? url : url + '?autoplay=1';
+    videoPlayerIframe.src = cleanUrl;
+    videoModal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  };
+
+  const closeVideoModal = () => {
+    if (videoModal && videoPlayerIframe) {
+      videoPlayerIframe.src = '';
+      videoModal.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+  };
+
+  document.querySelectorAll('.video-card').forEach((card) => {
+    card.addEventListener('click', () => {
+      const url = card.getAttribute('data-video-url');
+      if (url) openVideoModal(url);
+    });
+  });
+
+  if (videoModalCloseBtn) videoModalCloseBtn.addEventListener('click', closeVideoModal);
+  if (videoModalBackdrop) videoModalBackdrop.addEventListener('click', closeVideoModal);
+
+  // Global ESC key for closing modals
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      closeProjectModal();
+      closeVideoModal();
+    }
+  });
 
 })();
