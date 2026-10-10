@@ -97,12 +97,14 @@
 
   <!-- ========== HERO SECTION ========== -->
   <section class="hero" id="hero">
+    <div class="bg-grid"></div>
+    <div class="ambient-glow ambient-glow--hero"></div>
     <div class="container">
       <div class="hero__grid">
         <!-- Left Column: Copy & CTAs -->
         <div class="hero__content reveal">
           <div class="hero__eyebrow-tag">CODJU WINTER FEST</div>
-          <h1 class="hero__title">Turn Screen Time Into Creation Time.</h1>
+          <h1 class="hero__title">Turn Screen Time Into <span class="text-accent-purple">Creation Time.</span></h1>
           <p class="hero__subtitle">A beginner-friendly coding and AI camp for students in Grades 1–10.</p>
           <p class="hero__supporting">Learn live. Build projects. Share what you create.</p>
 
@@ -124,7 +126,7 @@
 
           <!-- CTAs -->
           <div class="hero__cta-group">
-            <a href="#pricing" class="btn btn--primary btn--hero">Join Winter Fest</a>
+            <a href="#pricing" class="btn btn--primary btn--hero">Join Winter Fest &rarr;</a>
             <a href="#program" class="btn btn--outline btn--hero">Explore the Program</a>
           </div>
           <p class="hero__reassurance">No prior coding experience required.</p>
@@ -140,75 +142,118 @@
     </div>
   </section>
 
-  <!-- ========== PROGRAM AT A GLANCE ========== -->
+  <!-- ========== PROGRAM AT A GLANCE (Collage Bento Layout) ========== -->
   <section class="section section--light" id="program">
+    <div class="bg-grid"></div>
+    <div class="ambient-glow ambient-glow--program"></div>
     <div class="container">
       <div class="section-header reveal">
         <h2 class="section-header__title">A Month of Making</h2>
         <p class="section-header__subtitle">Everything students need to get started.</p>
       </div>
 
-      <!-- 6 Compact Cards Grid (3-col desktop, 2-col tablet, 1-col mobile) -->
-      <div class="glance-grid">
-        <!-- Card 1 -->
-        <div class="glance-card reveal">
-          <div class="glance-card__icon">
-            <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+      <!-- Collage Bento Grid -->
+      <div class="collage-grid">
+        
+        <!-- Collage Card 1 (Span 4 of 6: Four Learning Areas) -->
+        <div class="collage-card collage-card--featured reveal">
+          <div class="collage-card__top">
+            <div class="collage-card__icon">
+              <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+            </div>
+            <span class="collage-sticker collage-sticker--purple">UNIFIED PATH</span>
           </div>
-          <h3 class="glance-card__title">Open to All Grades</h3>
-          <p class="glance-card__desc">Grades 1–10 are welcome.</p>
+          <h3 class="collage-card__title">Four Learning Areas</h3>
+          <p class="collage-card__desc">Explore coding and AI through four creative domains.</p>
+          
+          <!-- Collage Interactive Strip -->
+          <div class="collage-strip">
+            <div class="collage-pill"><span>🎬</span> ScratchJr</div>
+            <div class="collage-pill"><span>🕹️</span> Scratch</div>
+            <div class="collage-pill"><span>🐍</span> Python</div>
+            <div class="collage-pill"><span>🤖</span> AI</div>
+          </div>
         </div>
 
-        <!-- Card 2 -->
-        <div class="glance-card reveal reveal-delay-1">
-          <div class="glance-card__icon">
-            <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <!-- Collage Card 2 (Span 2 of 6: Open to All Grades) -->
+        <div class="collage-card collage-card--badge-heavy reveal reveal-delay-1">
+          <div class="collage-card__top">
+            <div class="collage-card__icon">
+              <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+            </div>
+            <span class="collage-sticker collage-sticker--amber">GRADES 1–10</span>
           </div>
-          <h3 class="glance-card__title">Beginner Friendly</h3>
-          <p class="glance-card__desc">Start without coding experience.</p>
+          <h3 class="collage-card__title">Open to All Grades</h3>
+          <p class="collage-card__desc">Grades 1–10 are welcome.</p>
+          <div class="collage-mini-note">Ages 6–16 · All School Boards</div>
         </div>
 
-        <!-- Card 3 -->
-        <div class="glance-card reveal reveal-delay-2">
-          <div class="glance-card__icon">
-            <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="15" x="2" y="3" rx="2"/><polyline points="8 21 12 17 16 21"/></svg>
+        <!-- Collage Card 3 (Span 2 of 6: Beginner Friendly) -->
+        <div class="collage-card reveal reveal-delay-2">
+          <div class="collage-card__top">
+            <div class="collage-card__icon">
+              <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            </div>
+            <span class="collage-sticker collage-sticker--green">ZERO EXPERIENCE</span>
           </div>
-          <h3 class="glance-card__title">Live Weekend Sessions</h3>
-          <p class="glance-card__desc">Learn with guided instruction.</p>
+          <h3 class="collage-card__title">Beginner Friendly</h3>
+          <p class="collage-card__desc">Start without coding experience.</p>
+          <div class="collage-mini-note">Step-by-Step Fundamentals</div>
         </div>
 
-        <!-- Card 4 -->
-        <div class="glance-card reveal">
-          <div class="glance-card__icon">
-            <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        <!-- Collage Card 4 (Span 4 of 6: Projects & Recognition) -->
+        <div class="collage-card collage-card--featured reveal reveal-delay-3">
+          <div class="collage-card__top">
+            <div class="collage-card__icon">
+              <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
+            </div>
+            <span class="collage-sticker collage-sticker--purple">TANGIBLE PROOF</span>
           </div>
-          <h3 class="glance-card__title">Replay Access</h3>
-          <p class="glance-card__desc">Revisit lessons whenever needed.</p>
+          <h3 class="collage-card__title">Projects & Recognition</h3>
+          <p class="collage-card__desc">Showcase your work and progress with verified credentials.</p>
+          
+          <div class="collage-stickers-wrap">
+            <span class="collage-badge-sticker collage-badge-sticker--1">📜 QR-Verified Certificate</span>
+            <span class="collage-badge-sticker collage-badge-sticker--2">🌟 Public Student Profile</span>
+          </div>
         </div>
 
-        <!-- Card 5 -->
-        <div class="glance-card reveal reveal-delay-1">
-          <div class="glance-card__icon">
-            <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+        <!-- Collage Card 5 (Span 3 of 6: Live Weekend Sessions) -->
+        <div class="collage-card reveal">
+          <div class="collage-card__top">
+            <div class="collage-card__icon">
+              <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="15" x="2" y="3" rx="2"/><polyline points="8 21 12 17 16 21"/></svg>
+            </div>
+            <div class="live-status-pill">
+              <span class="live-status-dot"></span>
+              <span>LIVE ON YOUTUBE</span>
+            </div>
           </div>
-          <h3 class="glance-card__title">Four Learning Areas</h3>
-          <p class="glance-card__desc">Explore coding and AI.</p>
+          <h3 class="collage-card__title">Live Weekend Sessions</h3>
+          <p class="collage-card__desc">Learn with guided instruction.</p>
+          <div class="collage-mini-note">Interactive Live Chat & Q&A</div>
         </div>
 
-        <!-- Card 6 -->
-        <div class="glance-card reveal reveal-delay-2">
-          <div class="glance-card__icon">
-            <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
+        <!-- Collage Card 6 (Span 3 of 6: Replay Access) -->
+        <div class="collage-card reveal reveal-delay-1">
+          <div class="collage-card__top">
+            <div class="collage-card__icon">
+              <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <span class="collage-sticker collage-sticker--gray">24/7 ACCESS</span>
           </div>
-          <h3 class="glance-card__title">Projects & Recognition</h3>
-          <p class="glance-card__desc">Showcase your work and progress.</p>
+          <h3 class="collage-card__title">Replay Access</h3>
+          <p class="collage-card__desc">Revisit lessons whenever needed.</p>
+          <div class="collage-mini-note">Watch at Your Own Pace</div>
         </div>
+
       </div>
     </div>
   </section>
 
   <!-- ========== LEARNING PATH ========== -->
   <section class="section" id="curriculum">
+    <div class="bg-grid"></div>
     <div class="container">
       <div class="section-header reveal">
         <h2 class="section-header__title">Learn by Building</h2>
@@ -342,6 +387,7 @@
 
   <!-- ========== STUDENT PROJECTS SHOWCASE ========== -->
   <section class="section" id="projects">
+    <div class="bg-grid"></div>
     <div class="container">
       <div class="section-header reveal">
         <h2 class="section-header__title">Projects Made by Students</h2>
@@ -717,6 +763,7 @@
 
   <!-- ========== PRICING SECTION ========== -->
   <section class="section" id="pricing">
+    <div class="bg-grid"></div>
     <div class="container">
       <div class="section-header reveal">
         <h2 class="section-header__title">Simple, Accessible Pricing</h2>
@@ -905,6 +952,8 @@
 
   <!-- ========== FINAL CALL TO ACTION ========== -->
   <section class="section final-cta" id="reserve">
+    <div class="bg-grid"></div>
+    <div class="ambient-glow ambient-glow--cta"></div>
     <div class="container">
       <div class="final-cta__box reveal">
         <h2 class="final-cta__title">Ready to Start Creating?</h2>
