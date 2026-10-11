@@ -126,6 +126,106 @@
     statNumbers.forEach((el) => statsObserver.observe(el));
   }
 
+  // --- Stage Plan / Curriculum Interactive Tabs (Screenshot 5) ---
+  const stageData = {
+    1: {
+      badge: 'STAGE 01',
+      title: 'Visual Animation with ScratchJr',
+      bullets: [
+        'How digital animation and logic work in daily life',
+        'Character movement, timing, events and speech bubbles',
+        'Sound effects, interactive triggers and scene transitions',
+        'Build and publish your first animated story project'
+      ],
+      tools: 'ScratchJr, Story Canvas, Sound FX',
+      img: 'assets/day1.png',
+      alt: 'Stage 1 ScratchJr Learning Visual'
+    },
+    2: {
+      badge: 'STAGE 02',
+      title: 'Game Logic & Mechanics with Scratch',
+      bullets: [
+        'Game loops, score counters and coordinate systems',
+        'Sprite animations, jump physics and gravity simulations',
+        'Collision detection, win/lose triggers and sound effects',
+        'Create and test a playable 2D arcade platformer game'
+      ],
+      tools: 'Scratch 3.0, Physics Engine, Collision Detection',
+      img: 'assets/day2.png',
+      alt: 'Stage 2 Scratch Game Logic Learning Visual'
+    },
+    3: {
+      badge: 'STAGE 03',
+      title: 'Real Code & Logic with Python',
+      bullets: [
+        'Variables, data types and conditional branching (if/else)',
+        'Interactive terminal input, score tracking and calculations',
+        'While loops, functions and structured modular code',
+        'Build a text adventure RPG and math quiz engine'
+      ],
+      tools: 'Python 3, Replit, Logic Loops',
+      img: 'assets/day3.png',
+      alt: 'Stage 3 Python Apps Learning Visual'
+    },
+    4: {
+      badge: 'STAGE 04',
+      title: 'Smart Creations with AI Studio',
+      bullets: [
+        'Prompt engineering structures with ChatGPT and Gemini',
+        'Generate custom character visuals and story art via Canva AI',
+        'Compose personalized theme songs and soundscapes using Suno',
+        'Combine coding + AI to publish a complete creative portfolio'
+      ],
+      tools: 'ChatGPT, Gemini, Canva AI, Suno',
+      img: 'assets/day4.png',
+      alt: 'Stage 4 AI Studio Learning Visual'
+    }
+  };
+
+  const stageButtons = document.querySelectorAll('.stage-tab-btn');
+  const stageBadgeEl = document.getElementById('stageBadge');
+  const stageTitleEl = document.getElementById('stageTitle');
+  const stageBulletsEl = document.getElementById('stageBullets');
+  const stageToolsStripEl = document.getElementById('stageToolsStrip');
+  const stageIllustrationEl = document.getElementById('stageIllustration');
+  const stageCard = document.getElementById('stageShowcaseCard');
+
+  if (stageButtons.length > 0 && stageBadgeEl && stageTitleEl && stageBulletsEl && stageIllustrationEl) {
+    stageButtons.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const stageNum = btn.getAttribute('data-stage');
+        const data = stageData[stageNum];
+        if (!data) return;
+
+        stageButtons.forEach((b) => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        // Smooth fade effect
+        if (stageCard) {
+          stageCard.style.opacity = '0.4';
+          stageCard.style.transform = 'translateY(4px)';
+          stageCard.style.transition = 'opacity 0.2s ease, transform 0.2s ease';
+        }
+
+        setTimeout(() => {
+          stageBadgeEl.textContent = data.badge;
+          stageTitleEl.textContent = data.title;
+          stageBulletsEl.innerHTML = data.bullets.map((b) => `<li><span>•</span> ${b}</li>`).join('');
+          if (stageToolsStripEl) {
+            stageToolsStripEl.innerHTML = `<strong>Covering Creative Tools:</strong> ${data.tools}`;
+          }
+          stageIllustrationEl.src = data.img;
+          stageIllustrationEl.alt = data.alt;
+
+          if (stageCard) {
+            stageCard.style.opacity = '1';
+            stageCard.style.transform = 'translateY(0)';
+          }
+        }, 150);
+      });
+    });
+  }
+
   // --- FAQ Accordion ---
   const faqItems = document.querySelectorAll('.faq-item');
   faqItems.forEach((item) => {

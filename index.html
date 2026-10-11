@@ -64,16 +64,18 @@
 
       <ul class="nav__links">
         <li><a href="#program">Program</a></li>
-        <li><a href="#curriculum">Learning Path</a></li>
-        <li><a href="#projects">Student Projects</a></li>
-        <li><a href="#workshops">Workshops</a></li>
-        <li><a href="#recognition">Certificate & Profile</a></li>
-        <li><a href="#faq">FAQs</a></li>
+        <li><a href="#mentor">Mentor</a></li>
+        <li><a href="#curriculum">Curriculum</a></li>
+        <li><a href="#tools">Tools</a></li>
+        <li><a href="#projects">Portfolios</a></li>
+        <li><a href="#recognition">Certificate</a></li>
+        <li><a href="#partner-schools">Partner Schools</a></li>
+        <li><a href="#faq">FAQ</a></li>
       </ul>
 
       <div class="nav__cta">
-        <a href="#partner-schools" class="nav__school-link">School Access</a>
-        <a href="#pricing" class="btn btn--primary btn--nav">Join Winter Fest</a>
+        <a href="#partner-schools" class="btn btn--nav-outline">Student Login</a>
+        <a href="#pricing" class="btn btn--primary btn--nav">Join Waitlist</a>
         <button class="nav__mobile-toggle" id="mobileToggle" aria-label="Toggle navigation menu">
           <span></span>
           <span></span>
@@ -85,13 +87,17 @@
     <!-- Mobile Navigation Drawer -->
     <div class="nav__mobile-menu" id="mobileMenu">
       <a href="#program">Program</a>
-      <a href="#curriculum">Learning Path</a>
-      <a href="#projects">Student Projects</a>
-      <a href="#workshops">Workshops</a>
-      <a href="#recognition">Certificate & Profile</a>
-      <a href="#faq">FAQs</a>
-      <a href="#partner-schools" class="nav__mobile-school">School Access</a>
-      <a href="#pricing" class="btn btn--primary" style="margin-top: 12px; text-align: center;">Join Winter Fest</a>
+      <a href="#mentor">Mentor</a>
+      <a href="#curriculum">Curriculum</a>
+      <a href="#tools">Tools</a>
+      <a href="#projects">Portfolios</a>
+      <a href="#recognition">Certificate</a>
+      <a href="#partner-schools">Partner Schools</a>
+      <a href="#faq">FAQ</a>
+      <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 14px;">
+        <a href="#partner-schools" class="btn btn--nav-outline" style="text-align: center;">Student Login</a>
+        <a href="#pricing" class="btn btn--primary" style="text-align: center;">Enroll for ₹999</a>
+      </div>
     </div>
   </nav>
 
@@ -100,237 +106,286 @@
     <div class="bg-grid"></div>
     <div class="ambient-glow ambient-glow--hero"></div>
     <div class="container">
-      <div class="hero__grid">
-        <!-- Left Column: Copy & CTAs -->
-        <div class="hero__content reveal">
-          <div class="hero__eyebrow-tag">CODJU WINTER FEST</div>
-          <h1 class="hero__title">Turn Screen Time Into <span class="text-accent-purple">Creation Time.</span></h1>
-          <p class="hero__subtitle">A beginner-friendly coding and AI camp for students in Grades 1–10.</p>
-          <p class="hero__supporting">Learn live. Build projects. Share what you create.</p>
+      
+      <!-- Top Centered Header Block (Exact match to Screenshot 1) -->
+      <div class="hero__header-centered reveal">
+        <div class="hero__welcome-tag">
+          WELCOME TO <span class="hero__welcome-accent">CODJU WINTER FEST</span>
+        </div>
+        <h1 class="hero__main-title">Turn Screen Time Into Creation Time</h1>
+        <div class="hero__status-pill">
+          <span class="status-dot"></span>
+          <span>Live Weekend Sessions &nbsp;|&nbsp; YouTube Live + Replays &nbsp;|&nbsp; Grades 1–10</span>
+        </div>
+      </div>
 
-          <!-- 3 Short Trust Points -->
-          <div class="hero__trust-points">
-            <div class="trust-point">
-              <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="trust-icon"><polyline points="20 6 9 17 4 12"/></svg>
-              <span>All Grades Welcome</span>
-            </div>
-            <div class="trust-point">
-              <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="trust-icon"><polyline points="20 6 9 17 4 12"/></svg>
-              <span>No Experience Needed</span>
-            </div>
-            <div class="trust-point">
-              <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="trust-icon"><polyline points="20 6 9 17 4 12"/></svg>
-              <span>Live Sessions + Replays</span>
-            </div>
-          </div>
+      <!-- Two-Column Hero Split -->
+      <div class="hero__grid">
+        <!-- Left Column: Copy & Highlights -->
+        <div class="hero__content reveal">
+          <div class="hero__cohort-badge">WINTER COHORT IS UNDERWAY</div>
+          <h2 class="hero__cohort-title">Coding & AI Camp For Students</h2>
+          <p class="hero__subtitle">Learn 4 creative coding & AI domains, build real projects, and gain future-ready skills with expert guidance.</p>
+
+          <!-- 4 Bullet points with purple stars (✦) -->
+          <ul class="hero__feature-list">
+            <li>
+              <span class="star-icon">✦</span>
+              <span><strong>Grades 1–10</strong> | Beginner Friendly</span>
+            </li>
+            <li>
+              <span class="star-icon">✦</span>
+              <span><strong>Hands-On Exposure</strong> to 4 Creative Domains</span>
+            </li>
+            <li>
+              <span class="star-icon">✦</span>
+              <span><strong>Weekend Live Camp</strong> + Real Projects</span>
+            </li>
+            <li>
+              <span class="star-icon">✦</span>
+              <span><strong>Get Certified</strong> by Codju</span>
+            </li>
+          </ul>
 
           <!-- CTAs -->
           <div class="hero__cta-group">
-            <a href="#pricing" class="btn btn--primary btn--hero">Join Winter Fest &rarr;</a>
-            <a href="#program" class="btn btn--outline btn--hero">Explore the Program</a>
+            <a href="#pricing" class="btn btn--primary btn--hero">Student Login</a>
+            <a href="#projects" class="btn btn--outline btn--hero">View Portfolios</a>
           </div>
-          <p class="hero__reassurance">No prior coding experience required.</p>
+
+          <!-- Lavender Info / Registration Callout Box -->
+          <div class="hero__info-box">
+            <div class="info-box__header">
+              <span class="info-box__radio"></span>
+              <strong>Winter Cohort Registration Open</strong>
+            </div>
+            <p class="info-box__subtext">One pass covers all 4 live weekend sessions, replays and project submissions.</p>
+            <div class="info-box__footer">
+              <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="check-icon"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Session recordings & starter files available in student portal</span>
+            </div>
+          </div>
         </div>
 
-        <!-- Right Column: Workshop Video / Student Creation Visual -->
+        <!-- Right Column: Video Showcase Card -->
         <div class="hero__visual reveal reveal-delay-1">
           <div class="hero__video-wrapper">
             <iframe id="hero-youtube-video" width="100%" height="100%" src="https://www.youtube.com/embed/xoCqW-ngJDQ?enablejsapi=1&controls=1&rel=0&vq=hd1080&playsinline=1&autoplay=1&mute=1" title="Codju Winter Fest Workshop Preview" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <div class="video-overlay-banner">
+              <span>TURN THEIR IMAGINATION INTO AN AI</span>
+              <img src="assets/logo.png" alt="Codju" class="video-watermark-logo" />
+            </div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== PROGRAM AT A GLANCE (Collage Bento Layout) ========== -->
+  <!-- ========== HORIZONTAL STATS BAR (Screenshot 2) ========== -->
+  <section class="stats-bar">
+    <div class="container">
+      <div class="stats-bar__inner">
+        <div class="stat-item">
+          <div class="stat-item__number">150,000+</div>
+          <div class="stat-item__label">Students Reached</div>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <div class="stat-item__number">250+</div>
+          <div class="stat-item__label">Partner Schools</div>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <div class="stat-item__number">12 Months</div>
+          <div class="stat-item__label">AI Support</div>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <div class="stat-item__number">Live</div>
+          <div class="stat-item__label">Mentor-Led Learning</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PROGRAM AT A GLANCE (Screenshots 2 & 3) ========== -->
   <section class="section section--light" id="program">
     <div class="bg-grid"></div>
     <div class="ambient-glow ambient-glow--program"></div>
     <div class="container">
       <div class="section-header reveal">
-        <h2 class="section-header__title">A Month of Making</h2>
-        <p class="section-header__subtitle">Everything students need to get started.</p>
+        <span class="eyebrow-pill">PROGRAM AT A GLANCE</span>
+        <h2 class="section-header__title">Everything You Need to Know</h2>
+        <p class="section-header__subtitle">A carefully designed program that balances structured learning with creative exploration.</p>
       </div>
 
-      <!-- Collage Bento Grid -->
-      <div class="collage-grid">
+      <!-- 8-Card Grid (3 cols + 3 cols + 2 centered cards on bottom row) -->
+      <div class="glance-cards-grid">
         
-        <!-- Collage Card 1 (Span 4 of 6: Four Learning Areas) -->
-        <div class="collage-card collage-card--featured reveal">
-          <div class="collage-card__top">
-            <div class="collage-card__icon">
-              <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-            </div>
-            <span class="collage-sticker collage-sticker--purple">UNIFIED PATH</span>
+        <!-- Card 1: Grades 1–10 -->
+        <div class="glance-card reveal">
+          <div class="glance-card__icon-box">
+            <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
           </div>
-          <h3 class="collage-card__title">Four Learning Areas</h3>
-          <p class="collage-card__desc">Explore coding and AI through four creative domains.</p>
-          
-          <!-- Collage Interactive Strip -->
-          <div class="collage-strip">
-            <div class="collage-pill"><span>🎬</span> ScratchJr</div>
-            <div class="collage-pill"><span>🕹️</span> Scratch</div>
-            <div class="collage-pill"><span>🐍</span> Python</div>
-            <div class="collage-pill"><span>🤖</span> AI</div>
+          <div class="glance-card__content">
+            <h3 class="glance-card__title">Grades 1–10</h3>
+            <p class="glance-card__desc">Open to middle and high school students across all boards</p>
           </div>
         </div>
 
-        <!-- Collage Card 2 (Span 2 of 6: Open to All Grades) -->
-        <div class="collage-card collage-card--badge-heavy reveal reveal-delay-1">
-          <div class="collage-card__top">
-            <div class="collage-card__icon">
-              <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
-            </div>
-            <span class="collage-sticker collage-sticker--amber">GRADES 1–10</span>
+        <!-- Card 2: Beginner Friendly -->
+        <div class="glance-card reveal reveal-delay-1">
+          <div class="glance-card__icon-box">
+            <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
           </div>
-          <h3 class="collage-card__title">Open to All Grades</h3>
-          <p class="collage-card__desc">Grades 1–10 are welcome.</p>
-          <div class="collage-mini-note">Ages 6–16 · All School Boards</div>
-        </div>
-
-        <!-- Collage Card 3 (Span 2 of 6: Beginner Friendly) -->
-        <div class="collage-card reveal reveal-delay-2">
-          <div class="collage-card__top">
-            <div class="collage-card__icon">
-              <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-            </div>
-            <span class="collage-sticker collage-sticker--green">ZERO EXPERIENCE</span>
-          </div>
-          <h3 class="collage-card__title">Beginner Friendly</h3>
-          <p class="collage-card__desc">Start without coding experience.</p>
-          <div class="collage-mini-note">Step-by-Step Fundamentals</div>
-        </div>
-
-        <!-- Collage Card 4 (Span 4 of 6: Projects & Recognition) -->
-        <div class="collage-card collage-card--featured reveal reveal-delay-3">
-          <div class="collage-card__top">
-            <div class="collage-card__icon">
-              <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
-            </div>
-            <span class="collage-sticker collage-sticker--purple">TANGIBLE PROOF</span>
-          </div>
-          <h3 class="collage-card__title">Projects & Recognition</h3>
-          <p class="collage-card__desc">Showcase your work and progress with verified credentials.</p>
-          
-          <div class="collage-stickers-wrap">
-            <span class="collage-badge-sticker collage-badge-sticker--1">📜 QR-Verified Certificate</span>
-            <span class="collage-badge-sticker collage-badge-sticker--2">🌟 Public Student Profile</span>
+          <div class="glance-card__content">
+            <h3 class="glance-card__title">Beginner Friendly</h3>
+            <p class="glance-card__desc">No prior AI or coding experience needed to get started</p>
           </div>
         </div>
 
-        <!-- Collage Card 5 (Span 3 of 6: Live Weekend Sessions) -->
-        <div class="collage-card reveal">
-          <div class="collage-card__top">
-            <div class="collage-card__icon">
-              <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="15" x="2" y="3" rx="2"/><polyline points="8 21 12 17 16 21"/></svg>
-            </div>
-            <div class="live-status-pill">
-              <span class="live-status-dot"></span>
-              <span>LIVE ON YOUTUBE</span>
-            </div>
+        <!-- Card 3: Live on YouTube -->
+        <div class="glance-card reveal reveal-delay-2">
+          <div class="glance-card__icon-box">
+            <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="15" x="2" y="3" rx="2"/><polyline points="8 21 12 17 16 21"/></svg>
           </div>
-          <h3 class="collage-card__title">Live Weekend Sessions</h3>
-          <p class="collage-card__desc">Learn with guided instruction.</p>
-          <div class="collage-mini-note">Interactive Live Chat & Q&A</div>
+          <div class="glance-card__content">
+            <h3 class="glance-card__title">Live on Zoom / YouTube</h3>
+            <p class="glance-card__desc">Interactive sessions with real-time guidance and feedback</p>
+          </div>
         </div>
 
-        <!-- Collage Card 6 (Span 3 of 6: Replay Access) -->
-        <div class="collage-card reveal reveal-delay-1">
-          <div class="collage-card__top">
-            <div class="collage-card__icon">
-              <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-            </div>
-            <span class="collage-sticker collage-sticker--gray">24/7 ACCESS</span>
+        <!-- Card 4: 45 Min / Day -->
+        <div class="glance-card reveal">
+          <div class="glance-card__icon-box">
+            <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
           </div>
-          <h3 class="collage-card__title">Replay Access</h3>
-          <p class="collage-card__desc">Revisit lessons whenever needed.</p>
-          <div class="collage-mini-note">Watch at Your Own Pace</div>
+          <div class="glance-card__content">
+            <h3 class="glance-card__title">45 Min / Day</h3>
+            <p class="glance-card__desc">Focused, distraction-free sessions designed for attention spans</p>
+          </div>
+        </div>
+
+        <!-- Card 5: 6–Day Live Camp -->
+        <div class="glance-card reveal reveal-delay-1">
+          <div class="glance-card__icon-box">
+            <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
+          </div>
+          <div class="glance-card__content">
+            <h3 class="glance-card__title">Weekend Live Camp</h3>
+            <p class="glance-card__desc">A structured learning journey from Day 1 to the final project</p>
+          </div>
+        </div>
+
+        <!-- Card 6: 15+ AI Tools / Creative Domains -->
+        <div class="glance-card reveal reveal-delay-2">
+          <div class="glance-card__icon-box">
+            <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M9 3v18"/><path d="M15 3v18"/><path d="M3 9h18"/><path d="M3 15h18"/></svg>
+          </div>
+          <div class="glance-card__content">
+            <h3 class="glance-card__title">4 Creative Domains</h3>
+            <p class="glance-card__desc">Hands-on practice with ScratchJr, Scratch, Python & AI platforms</p>
+          </div>
+        </div>
+
+        <!-- Card 7: 8 Real Projects (Bottom centered row) -->
+        <div class="glance-card glance-card--bottom reveal">
+          <div class="glance-card__icon-box">
+            <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 8 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"/></svg>
+          </div>
+          <div class="glance-card__content">
+            <h3 class="glance-card__title">4 Real Projects</h3>
+            <p class="glance-card__desc">Build real animations, games, Python apps, and creative projects</p>
+          </div>
+        </div>
+
+        <!-- Card 8: Certificate + More (Bottom centered row) -->
+        <div class="glance-card glance-card--bottom reveal reveal-delay-1">
+          <div class="glance-card__icon-box">
+            <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
+          </div>
+          <div class="glance-card__content">
+            <h3 class="glance-card__title">Certificate + More</h3>
+            <p class="glance-card__desc">Certificate, public student profile, and recording access included</p>
+          </div>
         </div>
 
       </div>
     </div>
   </section>
 
-  <!-- ========== LEARNING PATH ========== -->
+  <!-- ========== THE LEARNING PATH (Screenshot 5) ========== -->
   <section class="section" id="curriculum">
     <div class="bg-grid"></div>
     <div class="container">
       <div class="section-header reveal">
-        <h2 class="section-header__title">Learn by Building</h2>
-        <p class="section-header__subtitle">Four creative learning areas, one guided journey.</p>
+        <span class="eyebrow-pill">THE LEARNING PATH</span>
+        <h2 class="section-header__title">4–Stage Learning Plan</h2>
+        <p class="section-header__subtitle">Each stage builds on the last. By Stage 4, students have real projects they built themselves.</p>
       </div>
 
-      <!-- 4 Stages Grid -->
-      <div class="learning-stages-grid">
-        <!-- Stage 01 -->
-        <div class="stage-card reveal">
-          <div class="stage-card__header">
-            <span class="stage-card__number">01</span>
-            <span class="stage-card__domain">ScratchJr</span>
+      <!-- Interactive Stage Tabs Navigation -->
+      <div class="stage-tabs-nav reveal">
+        <button class="stage-tab-btn active" data-stage="1" type="button">
+          <div class="stage-tab-btn__icon">
+            <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/><path d="M6 6h10"/><path d="M6 10h10"/></svg>
           </div>
-          <h3 class="stage-card__title">Animate Your Stories</h3>
-          <p class="stage-card__desc">Create animated scenes using characters, movement and sound.</p>
-          <div class="stage-card__outcome">
-            <span class="outcome-label">Project:</span>
-            <span class="outcome-value">Animated Story</span>
+          <div class="stage-tab-btn__text">
+            <strong>Foundation</strong>
+            <span>Learn ScratchJr & visual animation</span>
           </div>
-        </div>
+        </button>
 
-        <!-- Stage 02 -->
-        <div class="stage-card reveal reveal-delay-1">
-          <div class="stage-card__header">
-            <span class="stage-card__number">02</span>
-            <span class="stage-card__domain">Scratch</span>
+        <button class="stage-tab-btn" data-stage="2" type="button">
+          <div class="stage-tab-btn__icon">
+            <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" x2="11" y1="2" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
           </div>
-          <h3 class="stage-card__title">Design a Game</h3>
-          <p class="stage-card__desc">Explore game logic, movement, scoring and interactions.</p>
-          <div class="stage-card__outcome">
-            <span class="outcome-label">Project:</span>
-            <span class="outcome-value">2D Arcade Game</span>
+          <div class="stage-tab-btn__text">
+            <strong>Game Logic</strong>
+            <span>Block coding & Scratch games</span>
           </div>
-        </div>
+        </button>
 
-        <!-- Stage 03 -->
-        <div class="stage-card reveal reveal-delay-2">
-          <div class="stage-card__header">
-            <span class="stage-card__number">03</span>
-            <span class="stage-card__domain">Python</span>
+        <button class="stage-tab-btn" data-stage="3" type="button">
+          <div class="stage-tab-btn__icon">
+            <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
           </div>
-          <h3 class="stage-card__title">Write Real Code</h3>
-          <p class="stage-card__desc">Discover variables, conditions, loops and basic programming logic.</p>
-          <div class="stage-card__outcome">
-            <span class="outcome-label">Project:</span>
-            <span class="outcome-value">Interactive Python Adventure</span>
+          <div class="stage-tab-btn__text">
+            <strong>Python Apps</strong>
+            <span>Code logic, loops & programs</span>
           </div>
-        </div>
+        </button>
 
-        <!-- Stage 04 -->
-        <div class="stage-card reveal reveal-delay-3">
-          <div class="stage-card__header">
-            <span class="stage-card__number">04</span>
-            <span class="stage-card__domain">AI</span>
+        <button class="stage-tab-btn" data-stage="4" type="button">
+          <div class="stage-tab-btn__icon">
+            <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3Z"/></svg>
           </div>
-          <h3 class="stage-card__title">Create With AI</h3>
-          <p class="stage-card__desc">Explore AI-assisted ideas, visuals, dialogue and creative content.</p>
-          <div class="stage-card__outcome">
-            <span class="outcome-label">Project:</span>
-            <span class="outcome-value">AI-Assisted Creation</span>
+          <div class="stage-tab-btn__text">
+            <strong>AI Studio</strong>
+            <span>Prompts, storytelling & smart AI</span>
           </div>
-        </div>
+        </button>
       </div>
 
-      <!-- Platforms Chips Bar -->
-      <div class="platforms-bar reveal">
-        <span class="platforms-bar__label">Platforms Covered:</span>
-        <div class="platforms-bar__chips">
-          <span class="platform-chip">ScratchJr</span>
-          <span class="platform-chip">Scratch</span>
-          <span class="platform-chip">Python</span>
-          <span class="platform-chip">Replit</span>
-          <span class="platform-chip">ChatGPT</span>
-          <span class="platform-chip">Gemini</span>
-          <span class="platform-chip">Canva AI</span>
-          <span class="platform-chip">Suno</span>
+      <!-- Active Stage Detailed Card -->
+      <div class="stage-showcase-card reveal" id="stageShowcaseCard">
+        <div class="stage-showcase-card__grid">
+          <div class="stage-showcase-card__visual">
+            <img src="assets/day1.png" alt="Stage 1 ScratchJr Learning Visual" id="stageIllustration" class="stage-mascot-img" />
+          </div>
+          <div class="stage-showcase-card__content">
+            <div class="stage-badge-pill" id="stageBadge">STAGE 01</div>
+            <h3 class="stage-showcase-card__title" id="stageTitle">Visual Animation with ScratchJr</h3>
+            <ul class="stage-bullets-list" id="stageBullets">
+              <li><span>•</span> How digital animation and logic work in daily life</li>
+              <li><span>•</span> Character movement, timing, events and speech bubbles</li>
+              <li><span>•</span> Sound effects, interactive triggers and scene transitions</li>
+              <li><span>•</span> Build and publish your first animated story project</li>
+            </ul>
+          </div>
+        </div>
+        <div class="stage-tools-strip" id="stageToolsStrip">
+          <strong>Covering Creative Tools:</strong> ScratchJr, Story Canvas, Sound FX
         </div>
       </div>
     </div>
@@ -340,6 +395,7 @@
   <section class="section section--light" id="tools">
     <div class="container">
       <div class="section-header reveal">
+        <span class="eyebrow-pill">CREATIVE STACK</span>
         <h2 class="section-header__title">Tools We'll Explore</h2>
         <p class="section-header__subtitle">Simple tools. Real creative possibilities.</p>
       </div>
@@ -390,6 +446,7 @@
     <div class="bg-grid"></div>
     <div class="container">
       <div class="section-header reveal">
+        <span class="eyebrow-pill">STUDENT SHOWCASE</span>
         <h2 class="section-header__title">Projects Made by Students</h2>
         <p class="section-header__subtitle">Real creations. Real learning.</p>
       </div>
@@ -558,6 +615,7 @@
   <section class="section" id="recognition">
     <div class="container">
       <div class="section-header reveal">
+        <span class="eyebrow-pill">RECOGNITION THAT LASTS</span>
         <h2 class="section-header__title">Your Work, Your Profile</h2>
         <p class="section-header__subtitle">Celebrate progress. Showcase projects.</p>
       </div>
@@ -651,6 +709,7 @@
   <section class="section section--light" id="partner-schools">
     <div class="container">
       <div class="section-header reveal">
+        <span class="eyebrow-pill">PARTNER SCHOOLS</span>
         <h2 class="section-header__title">Free for Partner Schools</h2>
         <p class="section-header__subtitle">Check whether your school is eligible.</p>
       </div>
@@ -694,33 +753,40 @@
     </div>
   </section>
 
-  <!-- ========== LEAD MENTOR ========== -->
+  <!-- ========== LEAD MENTOR (Screenshot 4) ========== -->
   <section class="section" id="mentor">
+    <div class="bg-grid"></div>
     <div class="container">
       <div class="section-header reveal">
-        <h2 class="section-header__title">Meet Your Mentor</h2>
-        <p class="section-header__subtitle">Learn with Codju's founder.</p>
+        <span class="eyebrow-pill">MEET THE MENTOR</span>
+        <h2 class="section-header__title">The Mentor Behind Codju Winter Fest</h2>
       </div>
 
-      <div class="mentor-compact-card reveal">
-        <div class="mentor-compact-card__photo-col">
-          <img src="assets/rohit_profile.jpeg" alt="Rohit K. Bishnoi, Founder & Lead Mentor at Codju" class="mentor-compact-card__img" />
+      <div class="mentor-hero-card reveal">
+        <div class="mentor-hero-card__photo-col">
+          <img src="assets/rohit_profile.jpeg" alt="Rohit K Bishnoi, Founder & Lead Mentor at Codju" class="mentor-photo" />
         </div>
-        <div class="mentor-compact-card__info-col">
-          <div class="mentor-compact-card__tag">Lead Mentor</div>
-          <h3 class="mentor-compact-card__name">Rohit K. Bishnoi</h3>
-          <div class="mentor-compact-card__role">Founder & Lead Mentor, Codju</div>
-          <div class="mentor-compact-card__credentials">
-            <span class="cred-chip">IIT Kanpur</span>
-            <span class="cred-chip">IIM Kozhikode</span>
+        <div class="mentor-hero-card__info-col">
+          <div class="mentor-lead-badge">LEAD MENTOR</div>
+          <h3 class="mentor-name">Rohit K Bishnoi</h3>
+          <div class="mentor-creds">
+            <span class="cred-chip">🎓 IIT Kanpur</span>
+            <span class="cred-chip">🎓 IIM Kozhikode</span>
           </div>
-          <p class="mentor-compact-card__bio">
-            With experience mentoring thousands of students across Indian schools, Rohit helps young learners move beyond consuming technology to creating with it.
+          <p class="mentor-bio">
+            Codju Winter Fest is led personally by Rohit K Bishnoi, founder of Codju. He has worked with students across Indian schools and focuses on making coding and AI practical, safe, and useful for real learning and creation.
           </p>
-          <blockquote class="mentor-compact-card__quote">
-            “I'm not teaching students to fear tech or AI. I'm teaching them to lead with it.”
-          </blockquote>
+          <div class="mentor-quote-box">
+            <div class="quote-mark">“</div>
+            <p class="quote-text">I'm not teaching students to fear AI. I'm teaching them to lead with it.</p>
+          </div>
         </div>
+      </div>
+
+      <!-- Bottom Mentor CTA Bar -->
+      <div class="mentor-bottom-cta reveal">
+        <h3 class="mentor-bottom-cta__title">Ready to Learn Directly from Rohit K Bishnoi?</h3>
+        <p class="mentor-bottom-cta__desc">The winter cohort is underway. Enrolled students can continue learning in the student portal.</p>
       </div>
     </div>
   </section>
@@ -729,6 +795,7 @@
   <section class="section section--light" id="impact">
     <div class="container">
       <div class="section-header reveal">
+        <span class="eyebrow-pill">TRUST & IMPACT</span>
         <h2 class="section-header__title">Trusted by Schools and Families</h2>
         <p class="section-header__subtitle">Real numbers from our journey in education.</p>
       </div>
@@ -766,6 +833,7 @@
     <div class="bg-grid"></div>
     <div class="container">
       <div class="section-header reveal">
+        <span class="eyebrow-pill">ENROLLMENT</span>
         <h2 class="section-header__title">Simple, Accessible Pricing</h2>
         <p class="section-header__subtitle">One pass for all sessions, tools and projects.</p>
       </div>
@@ -822,6 +890,7 @@
   <section class="section section--light" id="faq">
     <div class="container">
       <div class="section-header reveal">
+        <span class="eyebrow-pill">FAQS</span>
         <h2 class="section-header__title">Frequently Asked Questions</h2>
         <p class="section-header__subtitle">Everything you need to know about Winter Fest.</p>
       </div>
