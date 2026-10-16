@@ -644,6 +644,122 @@
         </div>
 
       </div>
+
+      <!-- ========== INTERACTIVE CURRICULUM PROJECT EXPLORER ========== -->
+      <div class="project-explorer" id="project-explorer">
+        <div class="explorer-header">
+          <div class="explorer-title-box">
+            <h3>Curriculum Project Explorer</h3>
+            <p>Filter student projects and researched learning blueprints across all grades and formats.</p>
+          </div>
+          <div class="explorer-count-badge" id="explorer-count">Showing 20 Projects</div>
+        </div>
+
+        <div class="explorer-filter-bar">
+          <!-- Track Selector -->
+          <div class="explorer-tracks-nav" id="explorer-tracks">
+            <button type="button" class="explorer-tab-btn active" data-course="all">All Tracks</button>
+            <button type="button" class="explorer-tab-btn" data-course="scratch-junior">Scratch Junior (Grades 1–2)</button>
+            <button type="button" class="explorer-tab-btn" data-course="scratch">MIT Scratch (Grades 3–5)</button>
+            <button type="button" class="explorer-tab-btn" data-course="python">Python (Grades 6–10)</button>
+            <button type="button" class="explorer-tab-btn" data-course="html-css">HTML &amp; CSS (Grades 6–10)</button>
+          </div>
+
+          <!-- Category Pills -->
+          <div class="explorer-pills" id="explorer-cats">
+            <span class="explorer-pills-label">Format:</span>
+            <button type="button" class="explorer-pill-btn active" data-cat="all">All Types</button>
+            <button type="button" class="explorer-pill-btn" data-cat="games">🎮 Games &amp; Arcades</button>
+            <button type="button" class="explorer-pill-btn" data-cat="stories">📖 Stories &amp; Animation</button>
+            <button type="button" class="explorer-pill-btn" data-cat="apps">💻 Terminal Tools &amp; CLI</button>
+            <button type="button" class="explorer-pill-btn" data-cat="web">🌐 Live Websites</button>
+          </div>
+        </div>
+
+        <!-- Dynamic Grid of Project Explorer Cards -->
+        <div class="explorer-grid" id="explorer-grid">
+          <!-- Initial server-rendered / SEO cards -->
+          <div class="explorer-card">
+            <div>
+              <div class="explorer-card__top">
+                <span class="explorer-card__track">Scratch Junior · Grades 1–2</span>
+                <span class="badge-status badge-status--core">Core Curriculum</span>
+              </div>
+              <h4 class="explorer-card__title">The Enchanted Jungle</h4>
+              <p class="explorer-card__summary">A 3-scene interactive storybook where a baby panda navigates rain showers and speaks recorded animal dialogue.</p>
+              <div class="explorer-card__outcome"><strong>Outcome:</strong> Multi-scene animated story with voice recordings and scene transitions.</div>
+              <div class="explorer-card__concepts">
+                <span class="explorer-card__chip">Sequencing</span>
+                <span class="explorer-card__chip">Event Triggers</span>
+                <span class="explorer-card__chip">Sound FX</span>
+              </div>
+            </div>
+            <button type="button" class="explorer-card__btn" onclick="window.openCodjuProjectModal('sjr-jungle')">
+              <span>Inspect Project &amp; Challenge</span> &rarr;
+            </button>
+          </div>
+
+          <div class="explorer-card">
+            <div>
+              <div class="explorer-card__top">
+                <span class="explorer-card__track">MIT Scratch · Grades 3–5</span>
+                <span class="badge-status badge-status--core">Core Curriculum</span>
+              </div>
+              <h4 class="explorer-card__title">Cosmic Galaxy Defender</h4>
+              <p class="explorer-card__summary">Control a starship defending Earth from asteroid waves with laser cloning, energy shield power-ups, and live high-score counters.</p>
+              <div class="explorer-card__outcome"><strong>Outcome:</strong> Full top-down arcade game with projectile cloning and collision math.</div>
+              <div class="explorer-card__concepts">
+                <span class="explorer-card__chip">Cloning</span>
+                <span class="explorer-card__chip">Broadcasts</span>
+                <span class="explorer-card__chip">Variables</span>
+              </div>
+            </div>
+            <button type="button" class="explorer-card__btn" onclick="window.openCodjuProjectModal('scratch-galaxy')">
+              <span>Inspect Project &amp; Challenge</span> &rarr;
+            </button>
+          </div>
+
+          <div class="explorer-card">
+            <div>
+              <div class="explorer-card__top">
+                <span class="explorer-card__track">Python · Grades 6–10</span>
+                <span class="badge-status badge-status--core">Core Curriculum</span>
+              </div>
+              <h4 class="explorer-card__title">CyberQuest: Text RPG</h4>
+              <p class="explorer-card__summary">A modular command-line RPG featuring player health stats, inventory dictionaries, random monster encounters, and combat loops.</p>
+              <div class="explorer-card__outcome"><strong>Outcome:</strong> Structured Python game with while loops, dictionaries, and randomized battle logic.</div>
+              <div class="explorer-card__concepts">
+                <span class="explorer-card__chip">Dictionaries</span>
+                <span class="explorer-card__chip">While Loops</span>
+                <span class="explorer-card__chip">Functions</span>
+              </div>
+            </div>
+            <button type="button" class="explorer-card__btn" onclick="window.openCodjuProjectModal('python-rpg')">
+              <span>Inspect Project &amp; Challenge</span> &rarr;
+            </button>
+          </div>
+
+          <div class="explorer-card">
+            <div>
+              <div class="explorer-card__top">
+                <span class="explorer-card__track">HTML &amp; CSS · Grades 6–10</span>
+                <span class="badge-status badge-status--core">Core Curriculum</span>
+              </div>
+              <h4 class="explorer-card__title">Personal Creator Portfolio</h4>
+              <p class="explorer-card__summary">A personal website introducing hobbies, achievements, bio, and social links with modern typography and card styling.</p>
+              <div class="explorer-card__outcome"><strong>Outcome:</strong> Semantic HTML5 website with external Google Fonts and CSS custom properties.</div>
+              <div class="explorer-card__concepts">
+                <span class="explorer-card__chip">HTML5 Semantics</span>
+                <span class="explorer-card__chip">Box Model</span>
+                <span class="explorer-card__chip">CSS Variables</span>
+              </div>
+            </div>
+            <button type="button" class="explorer-card__btn" onclick="window.openCodjuProjectModal('web-portfolio')">
+              <span>Inspect Project &amp; Challenge</span> &rarr;
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -965,6 +1081,79 @@
         }
       });
     });
+
+    // --- Curriculum Project Explorer Controller ---
+    let currentExplorerTrack = 'all';
+    let currentExplorerCat = 'all';
+
+    function renderExplorerGrid() {
+      const grid = document.getElementById('explorer-grid');
+      const countEl = document.getElementById('explorer-count');
+      if (!grid || !window.filterCodjuProjects) return;
+
+      const results = window.filterCodjuProjects({
+        course: currentExplorerTrack,
+        category: currentExplorerCat
+      });
+
+      if (countEl) {
+        countEl.textContent = `Showing ${results.length} Projects`;
+      }
+
+      grid.innerHTML = results.map(p => {
+        const isCore = p.verificationStatus.includes('Core');
+        const badge = isCore 
+          ? `<span class="badge-status badge-status--core">Core Curriculum</span>`
+          : `<span class="badge-status badge-status--proposed">Proposed Extension</span>`;
+
+        return `
+          <div class="explorer-card">
+            <div>
+              <div class="explorer-card__top">
+                <span class="explorer-card__track">${p.course} · ${p.gradeRange}</span>
+                ${badge}
+              </div>
+              <h4 class="explorer-card__title">${p.title}</h4>
+              <p class="explorer-card__summary">${p.summary}</p>
+              <div class="explorer-card__outcome">
+                <strong>Outcome:</strong> ${p.studentOutcome}
+              </div>
+              <div class="explorer-card__concepts">
+                ${p.learningConcepts.slice(0, 3).map(c => `<span class="explorer-card__chip">${c}</span>`).join('')}
+              </div>
+            </div>
+            <button type="button" class="explorer-card__btn" onclick="window.openCodjuProjectModal('${p.id}')">
+              <span>Inspect Project &amp; Challenge</span> &rarr;
+            </button>
+          </div>
+        `;
+      }).join('');
+    }
+
+    // Set up tab events
+    document.querySelectorAll('.explorer-tab-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.explorer-tab-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentExplorerTrack = btn.dataset.course;
+        renderExplorerGrid();
+      });
+    });
+
+    document.querySelectorAll('.explorer-pill-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.explorer-pill-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentExplorerCat = btn.dataset.cat;
+        renderExplorerGrid();
+      });
+    });
+
+    // Initialize once window and projects-data load
+    window.addEventListener('DOMContentLoaded', () => {
+      renderExplorerGrid();
+    });
   </script>
+  <script src="projects-data.js"></script>
 </body>
 </html>
