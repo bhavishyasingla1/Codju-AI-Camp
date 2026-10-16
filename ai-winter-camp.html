@@ -4,867 +4,247 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Codju AI Winter Camp — 1-Month Generative AI Immersion (Grades 5–12)</title>
-  <meta name="description" content="Master 17+ GenAI tools (ChatGPT, Claude, Midjourney, Suno, Pika), build 20 creations, and earn verified QR certification." />
+  <meta name="description" content="Master 17+ GenAI tools (ChatGPT, Claude, Midjourney, Suno, Pika), build 20 portfolio creations, and earn verified QR certification." />
   <link rel="icon" type="image/png" href="assets/logo.png" />
+  <link rel="stylesheet" href="index.css" />
   <style>
-    /* ==========================================================================
-       CODJU AI WINTER CAMP — MINIMALIST HIGH-IMPACT DESIGN
-       Focus on what actually matters: tools, projects, live schedule, and pricing.
-       ========================================================================== */
     :root {
-      --font: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", -system-ui, "Segoe UI", Roboto, sans-serif;
-      --bg: #faf8f5;
-      --surface: #ffffff;
-      --text: #110826;
-      --text-muted: #6e677c;
-      --text-light: #9d96ab;
-      --border: rgba(17, 8, 38, 0.07);
-      --border-hover: rgba(124, 58, 237, 0.3);
-      
-      --purple-deep: #240763;
-      --purple: #7c3aed;
-      --purple-soft: #f4edff;
-      --gold: #f7d56a;
-      --gold-dark: #b45309;
-
-      --shadow-sm: 0 2px 8px rgba(17, 8, 38, 0.04);
-      --shadow-md: 0 12px 32px rgba(17, 8, 38, 0.06);
-      --shadow-lg: 0 24px 56px rgba(17, 8, 38, 0.1);
-      
-      --radius-sm: 10px;
-      --radius-md: 18px;
-      --radius-lg: 26px;
-      --radius-full: 9999px;
-      --ease: 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      --accent: var(--purple);
+      --accent-soft: var(--purple-soft);
     }
-
-    *, *::before, *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-      -webkit-font-smoothing: antialiased;
-    }
-
     body {
-      font-family: var(--font);
-      background-color: var(--bg);
-      color: var(--text);
-      line-height: 1.5;
-      padding-bottom: 74px; /* sticky bar clearance */
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    img {
-      display: block;
-      max-width: 100%;
-    }
-
-    .container {
-      max-width: 1180px;
-      margin: 0 auto;
-      padding: 0 28px;
-    }
-
-    /* --- Header --- */
-    .nav {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: rgba(250, 248, 245, 0.9);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .nav__inner {
-      height: 70px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-    }
-
-    .nav__logo {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      font-weight: 800;
-      font-size: 1.2rem;
-      letter-spacing: -0.02em;
-      color: var(--purple-deep);
-    }
-
-    .nav__logo img {
-      height: 36px;
-      width: auto;
-    }
-
-    .nav__tag {
-      font-size: 0.74rem;
-      font-weight: 800;
-      background: var(--gold);
-      color: #15033d;
-      padding: 3px 9px;
-      border-radius: var(--radius-full);
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-    }
-
-    .nav__links {
-      display: flex;
-      align-items: center;
-      gap: 24px;
-      list-style: none;
-    }
-
-    .nav__link {
-      font-size: 0.92rem;
-      font-weight: 600;
-      color: var(--text-muted);
-      transition: color var(--ease);
-    }
-
-    .nav__link:hover {
-      color: var(--purple);
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      font-weight: 700;
-      font-size: 0.92rem;
-      padding: 10px 22px;
-      border-radius: var(--radius-full);
-      transition: all var(--ease);
-      white-space: nowrap;
-      cursor: pointer;
-      border: none;
-    }
-
-    .btn--primary {
-      background: var(--purple-deep);
-      color: #ffffff;
-      box-shadow: 0 4px 14px rgba(36, 7, 99, 0.25);
-    }
-
-    .btn--primary:hover {
-      background: var(--purple);
-      transform: translateY(-1px);
-    }
-
-    .btn--gold {
-      background: var(--gold);
-      color: #15033d;
-      font-weight: 800;
-      box-shadow: 0 4px 14px rgba(247, 213, 106, 0.35);
-    }
-
-    .btn--gold:hover {
-      filter: brightness(1.06);
-      transform: translateY(-1px);
-    }
-
-    .btn--ghost {
-      background: #ffffff;
-      color: var(--purple-deep);
-      border: 1px solid var(--border);
-    }
-
-    .btn--ghost:hover {
-      border-color: var(--purple);
-      color: var(--purple);
-    }
-
-    /* --- Hero Section --- */
-    .hero {
-      padding: 76px 0 52px;
-      text-align: center;
-    }
-
-    .hero-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: #ffffff;
-      border: 1px solid var(--border);
-      padding: 6px 16px;
-      border-radius: var(--radius-full);
-      font-size: 0.82rem;
-      font-weight: 800;
-      color: var(--purple);
-      margin-bottom: 22px;
-      box-shadow: var(--shadow-sm);
-    }
-
-    .hero-title {
-      font-size: clamp(2.5rem, 5.5vw, 4.4rem);
-      font-weight: 800;
-      line-height: 1.08;
-      letter-spacing: -0.04em;
-      color: var(--purple-deep);
-      max-width: 900px;
-      margin: 0 auto 18px;
-    }
-
-    .hero-title span {
-      background: linear-gradient(135deg, #7c3aed 0%, #240763 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    .hero-sub {
-      font-size: clamp(1.1rem, 2vw, 1.25rem);
-      color: var(--text-muted);
-      max-width: 680px;
-      margin: 0 auto 34px;
-      line-height: 1.55;
-    }
-
-    /* Countdown Strip */
-    .countdown-box {
-      display: inline-flex;
-      align-items: center;
-      gap: 18px;
-      background: #ffffff;
-      border: 1px solid var(--border);
-      border-radius: var(--radius-xl);
-      padding: 14px 28px;
-      box-shadow: var(--shadow-sm);
-      margin-bottom: 34px;
-    }
-
-    .countdown-lbl {
-      font-size: 0.8rem;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      color: var(--purple-deep);
-      text-align: left;
-    }
-
-    .timer-digits {
-      display: flex;
-      gap: 12px;
-      align-items: baseline;
-    }
-
-    .t-unit {
-      font-size: 1.55rem;
-      font-weight: 800;
-      color: var(--purple);
-      letter-spacing: -0.02em;
-    }
-
-    .t-sub {
-      font-size: 0.72rem;
-      font-weight: 700;
-      color: var(--text-light);
-      text-transform: uppercase;
-      margin-left: 2px;
-    }
-
-    .hero-actions {
-      display: flex;
-      justify-content: center;
-      gap: 14px;
-      flex-wrap: wrap;
-      margin-bottom: 48px;
-    }
-
-    /* 3 Clean Highlight Pills */
-    .hero-chips {
-      display: flex;
-      justify-content: center;
-      gap: 16px;
-      flex-wrap: wrap;
-      max-width: 900px;
-      margin: 0 auto;
-    }
-
-    .hero-chip {
-      background: #ffffff;
-      border: 1px solid var(--border);
-      border-radius: var(--radius-full);
-      padding: 8px 18px;
-      font-size: 0.88rem;
-      font-weight: 700;
-      color: var(--purple-deep);
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      box-shadow: var(--shadow-sm);
-    }
-
-    /* --- Sections Shared --- */
-    .section {
-      padding: 88px 0;
-    }
-
-    .section-head {
-      text-align: center;
-      max-width: 600px;
-      margin: 0 auto 44px;
-    }
-
-    .section-tag {
-      font-size: 0.76rem;
-      font-weight: 800;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--purple);
-      background: var(--purple-soft);
-      padding: 4px 12px;
-      border-radius: var(--radius-full);
-      display: inline-block;
-      margin-bottom: 12px;
-    }
-
-    .section-title {
-      font-size: clamp(1.9rem, 3.4vw, 2.5rem);
-      font-weight: 800;
-      letter-spacing: -0.03em;
-      color: var(--purple-deep);
-      line-height: 1.2;
-      margin-bottom: 10px;
-    }
-
-    .section-sub {
-      font-size: 1.05rem;
-      color: var(--text-muted);
-    }
-
-    /* --- 5 Project Tabs & 20 Projects --- */
-    .ptabs-nav {
-      display: flex;
-      justify-content: center;
-      gap: 8px;
-      overflow-x: auto;
-      padding-bottom: 8px;
-      margin-bottom: 32px;
-    }
-
-    .ptab-btn {
-      padding: 10px 20px;
-      font-size: 0.92rem;
-      font-weight: 700;
-      border-radius: var(--radius-full);
-      background: #ffffff;
-      border: 1px solid var(--border);
-      color: var(--text-muted);
-      cursor: pointer;
-      transition: all var(--ease);
-      white-space: nowrap;
-    }
-
-    .ptab-btn:hover {
-      color: var(--purple);
-      border-color: var(--purple);
-    }
-
-    .ptab-btn.active {
-      background: var(--purple-deep);
-      color: #ffffff;
-      border-color: var(--purple-deep);
-    }
-
-    .ptab-pane {
-      display: none;
-    }
-
-    .ptab-pane.active {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 20px;
-    }
-
-    .proj-card {
-      background: #ffffff;
-      border: 1px solid var(--border);
-      border-radius: var(--radius-md);
-      padding: 24px;
-      box-shadow: var(--shadow-sm);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      transition: all var(--ease);
-    }
-
-    .proj-card:hover {
-      transform: translateY(-3px);
-      box-shadow: var(--shadow-md);
-      border-color: var(--purple);
-    }
-
-    .proj-num {
-      font-size: 0.75rem;
-      font-weight: 800;
-      color: var(--purple);
-      text-transform: uppercase;
-      margin-bottom: 8px;
-    }
-
-    .proj-title {
-      font-size: 1.15rem;
-      font-weight: 800;
-      color: var(--purple-deep);
-      margin-bottom: 8px;
-      line-height: 1.3;
-    }
-
-    .proj-desc {
-      font-size: 0.88rem;
-      color: var(--text-muted);
-      line-height: 1.5;
-      margin-bottom: 16px;
-    }
-
-    .proj-tools {
-      display: flex;
-      gap: 6px;
-      flex-wrap: wrap;
-      padding-top: 12px;
-      border-top: 1px solid var(--border);
-    }
-
-    .tool-badge {
-      font-size: 0.74rem;
-      font-weight: 700;
-      background: var(--bg);
-      color: var(--purple-deep);
-      padding: 3px 8px;
-      border-radius: 4px;
-      border: 1px solid var(--border);
-    }
-
-    /* --- 17 AI Tools Grid --- */
-    .tools-grid {
-      display: grid;
-      grid-template-columns: repeat(6, 1fr);
-      gap: 14px;
-      max-width: 1060px;
-      margin: 0 auto;
-    }
-
-    .tool-card {
-      background: #ffffff;
-      border: 1px solid var(--border);
-      border-radius: var(--radius-md);
-      padding: 18px 12px;
-      text-align: center;
-      box-shadow: var(--shadow-sm);
-      transition: all var(--ease);
-    }
-
-    .tool-card:hover {
-      transform: translateY(-2px);
-      border-color: var(--purple);
-      box-shadow: var(--shadow-md);
-    }
-
-    .tool-icon-img {
-      height: 38px;
-      width: 38px;
-      object-fit: contain;
-      margin: 0 auto 10px;
-    }
-
-    .tool-name {
-      font-size: 0.88rem;
-      font-weight: 800;
-      color: var(--purple-deep);
-    }
-
-    .tool-tag {
-      font-size: 0.74rem;
-      color: var(--text-light);
-      margin-top: 2px;
-    }
-
-    /* --- 5-Week Curriculum (Minimal Timeline) --- */
-    .curriculum-grid {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 16px;
-    }
-
-    .week-box {
-      background: #ffffff;
-      border: 1px solid var(--border);
-      border-radius: var(--radius-md);
-      padding: 24px 20px;
-      box-shadow: var(--shadow-sm);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-
-    .week-num {
-      font-size: 0.78rem;
-      font-weight: 800;
-      color: var(--purple);
-      text-transform: uppercase;
-      margin-bottom: 6px;
-    }
-
-    .week-title {
-      font-size: 1.15rem;
-      font-weight: 800;
-      color: var(--purple-deep);
-      margin-bottom: 12px;
-      line-height: 1.25;
-    }
-
-    .week-sessions {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      font-size: 0.84rem;
-      color: var(--text-muted);
-      margin-bottom: 16px;
-    }
-
-    .week-tools-tag {
-      font-size: 0.76rem;
-      font-weight: 700;
-      background: var(--bg);
-      color: var(--purple-deep);
-      padding: 6px 10px;
-      border-radius: var(--radius-sm);
-      border: 1px solid var(--border);
-    }
-
-    /* --- Mentors (Clean 4 Cards) --- */
-    .mentors-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 20px;
-    }
-
-    .mentor-card {
-      background: #ffffff;
-      border: 1px solid var(--border);
-      border-radius: var(--radius-md);
-      padding: 24px;
-      text-align: center;
-      box-shadow: var(--shadow-sm);
-    }
-
-    .mentor-avatar {
-      width: 90px;
-      height: 90px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin: 0 auto 14px;
-      border: 2px solid var(--purple-soft);
-    }
-
-    .m-name {
-      font-size: 1.15rem;
-      font-weight: 800;
-      color: var(--purple-deep);
-      margin-bottom: 2px;
-    }
-
-    .m-role {
-      font-size: 0.82rem;
-      font-weight: 700;
-      color: var(--purple);
-      margin-bottom: 10px;
-    }
-
-    .m-cred {
-      font-size: 0.8rem;
-      color: var(--text-muted);
-      line-height: 1.4;
-    }
-
-    /* --- 3-Tier Pricing --- */
-    .pricing-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-      max-width: 1020px;
-      margin: 0 auto;
-    }
-
-    .p-card {
-      background: #ffffff;
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      padding: 36px 28px;
-      box-shadow: var(--shadow-sm);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      position: relative;
-      transition: all var(--ease);
-    }
-
-    .p-card--popular {
-      border: 2px solid var(--purple);
-      box-shadow: var(--shadow-md);
-    }
-
-    .p-ribbon {
-      position: absolute;
-      top: -12px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: var(--purple);
-      color: #ffffff;
-      font-size: 0.74rem;
-      font-weight: 800;
-      padding: 3px 14px;
-      border-radius: var(--radius-full);
-      text-transform: uppercase;
-    }
-
-    .p-name {
-      font-size: 1.4rem;
-      font-weight: 800;
-      color: var(--purple-deep);
-      margin-bottom: 4px;
-    }
-
-    .p-price {
-      font-size: 2.6rem;
-      font-weight: 800;
-      color: var(--purple-deep);
-      line-height: 1;
-      margin: 16px 0 20px;
-    }
-
-    .p-price small {
-      font-size: 0.82rem;
-      color: var(--text-light);
-      font-weight: 600;
-    }
-
-    .p-features {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      font-size: 0.9rem;
-      color: var(--text-muted);
-      margin-bottom: 28px;
-      padding-top: 18px;
-      border-top: 1px solid var(--border);
-    }
-
-    .p-features li {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .p-features li strong {
-      color: var(--purple-deep);
-    }
-
-    /* --- FAQ (Clean Accordion) --- */
-    .faq-wrap {
-      max-width: 760px;
-      margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .faq-item {
-      background: #ffffff;
-      border: 1px solid var(--border);
-      border-radius: var(--radius-md);
-      overflow: hidden;
-    }
-
-    .faq-item.active {
-      border-color: var(--purple);
-    }
-
-    .faq-q {
-      width: 100%;
-      padding: 18px 22px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 1rem;
-      font-weight: 700;
-      color: var(--purple-deep);
-      text-align: left;
-      cursor: pointer;
-      border: none;
-      background: none;
-    }
-
-    .faq-sign {
-      color: var(--purple);
-      font-size: 1.2rem;
-      transition: transform var(--ease);
-    }
-
-    .faq-item.active .faq-sign {
-      transform: rotate(45deg);
-    }
-
-    .faq-a {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.25s ease-out;
-      padding: 0 22px;
-      font-size: 0.92rem;
-      color: var(--text-muted);
-      line-height: 1.55;
-    }
-
-    .faq-item.active .faq-a {
-      padding: 0 22px 18px;
-      max-height: 200px;
-    }
-
-    /* --- Sticky Bottom CTA --- */
-    .sticky-bar {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      z-index: 1000;
-      background: rgba(36, 7, 99, 0.96);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border-top: 1px solid rgba(247, 213, 106, 0.3);
-      padding: 10px 24px;
-      color: #ffffff;
-    }
-
-    .sticky-inner {
-      max-width: 1180px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-    }
-
-    .sticky-timer {
-      font-size: 1.05rem;
-      font-weight: 800;
-      color: var(--gold);
-      letter-spacing: 0.03em;
-    }
-
-    @media (max-width: 900px) {
-      .ptab-pane.active {
-        grid-template-columns: repeat(2, 1fr);
-      }
-      .tools-grid {
-        grid-template-columns: repeat(3, 1fr);
-      }
-      .curriculum-grid {
-        grid-template-columns: 1fr;
-      }
-      .mentors-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-      .pricing-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    @media (max-width: 600px) {
-      .nav__links {
-        display: none;
-      }
-      .ptab-pane.active {
-        grid-template-columns: 1fr;
-      }
-      .tools-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-      .mentors-grid {
-        grid-template-columns: 1fr;
-      }
-      .sticky-timer-wrap {
-        display: none;
-      }
-    }
-
-    .footer {
-      background: var(--purple-deep);
-      color: #ffffff;
-      padding: 48px 0 84px;
-      text-align: center;
-      font-size: 0.88rem;
-    }
-    .footer a {
-      color: #ffffff;
-      margin: 0 10px;
-      opacity: 0.8;
-      transition: opacity var(--ease);
-    }
-    .footer a:hover {
-      opacity: 1;
+      padding-bottom: 70px; /* Clearance for sticky bottom bar */
     }
   </style>
 </head>
 <body>
 
-  <!-- ========== NAVIGATION ========== -->
-  <header class="nav">
+  <!-- ========== TOP ANNOUNCEMENT BAR ========== -->
+  <div class="top-bar">
+    <div class="container top-bar__inner">
+      <span class="top-bar__tag">Nationwide Flagship</span>
+      <span class="top-bar__text">Winter '26 Cohort Enrolling · Master 17+ GenAI tools · 100% scholarships for 250+ partner schools.</span>
+      <a href="#pricing" class="top-bar__link">View Tuition Passes &rarr;</a>
+    </div>
+  </div>
+
+  <!-- ========== MAIN HEADER NAVIGATION ========== -->
+  <header class="nav" id="main-nav">
     <div class="container nav__inner">
-      <a href="index.html" class="nav__logo">
-        <img src="assets/logo.png" alt="Codju Logo" />
-        <span>Codju AI Winter Camp</span>
-        <span class="nav__tag">⭐ Flagship</span>
+      
+      <a href="index.html" class="nav__brand">
+        <img src="assets/logo.png" alt="Codju" class="nav__brand-logo" />
+        <span class="nav__brand-divider"></span>
+        <span class="nav__brand-badge" style="background: var(--gold); color: #15033d;">AI Winter Camp</span>
       </a>
 
-      <nav>
-        <ul class="nav__links">
-          <li><a href="index.html" class="nav__link">← All Courses</a></li>
-          <li><a href="#projects" class="nav__link">20 Projects</a></li>
-          <li><a href="#tools" class="nav__link">17 Tools</a></li>
-          <li><a href="#curriculum" class="nav__link">Curriculum</a></li>
-          <li><a href="#pricing" class="nav__link">Pricing</a></li>
-          <li><a href="#faq" class="nav-link">FAQ</a></li>
+      <!-- Desktop Nav Links -->
+      <nav class="nav__menu-wrap">
+        <ul class="nav__menu">
+          
+          <li class="nav__item nav__item--has-dropdown">
+            <button type="button" class="nav__link-btn" aria-expanded="false">
+              <span>All Courses</span>
+              <svg class="nav__caret" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            
+            <div class="nav__dropdown">
+              <div class="dropdown__header">
+                <span class="dropdown__header-title">Browse By Child's Grade</span>
+                <a href="index.html#courses" class="dropdown__header-link">View All Tracks &rarr;</a>
+              </div>
+              <div class="dropdown__grid">
+                
+                <a href="Scratch Junior.dc.html" class="dropdown__card">
+                  <span class="dropdown__card-icon">🐱</span>
+                  <div class="dropdown__card-info">
+                    <span class="dropdown__card-grade">Grades 1–2 · Ages 6–8</span>
+                    <span class="dropdown__card-title">Scratch Junior</span>
+                    <span class="dropdown__card-desc">No typing · Visual logic &amp; story animation</span>
+                  </div>
+                </a>
+
+                <a href="Scratch.dc.html" class="dropdown__card">
+                  <span class="dropdown__card-icon">🕹️</span>
+                  <div class="dropdown__card-info">
+                    <span class="dropdown__card-grade">Grades 3–5 · Ages 8–11</span>
+                    <span class="dropdown__card-title">MIT Scratch</span>
+                    <span class="dropdown__card-desc">Build 4 playable arcade games &amp; physics</span>
+                  </div>
+                </a>
+
+                <a href="Python.dc.html" class="dropdown__card">
+                  <span class="dropdown__card-icon">🐍</span>
+                  <div class="dropdown__card-info">
+                    <span class="dropdown__card-grade">Grades 6–10 · Ages 11–16</span>
+                    <span class="dropdown__card-title">Python Programming</span>
+                    <span class="dropdown__card-desc">Real code syntax, algorithms &amp; automation</span>
+                  </div>
+                </a>
+
+                <a href="HTML and CSS.dc.html" class="dropdown__card">
+                  <span class="dropdown__card-icon">🌐</span>
+                  <div class="dropdown__card-info">
+                    <span class="dropdown__card-grade">Grades 6–10 · Ages 11–16</span>
+                    <span class="dropdown__card-title">HTML &amp; CSS</span>
+                    <span class="dropdown__card-desc">Design &amp; publish live responsive websites</span>
+                  </div>
+                </a>
+
+              </div>
+
+              <a href="Codju AI Winter Camp.dc.html" class="dropdown__flagship">
+                <div>
+                  <div style="display: flex; align-items: center; gap: 8px;">
+                    <span class="dropdown__flagship-title">⭐ Codju AI Winter Camp</span>
+                    <span class="dropdown__flagship-pill">Flagship</span>
+                  </div>
+                  <div class="dropdown__flagship-sub">Grades 5–12 · Master 17+ GenAI tools with 20 portfolio projects</div>
+                </div>
+                <span style="font-size: 1.1rem; color: var(--gold);">&rarr;</span>
+              </a>
+            </div>
+          </li>
+
+          <li class="nav__item"><a href="#projects" class="nav__link-btn">20 Projects</a></li>
+          <li class="nav__item"><a href="#tools" class="nav__link-btn">17 Tools</a></li>
+          <li class="nav__item"><a href="#curriculum" class="nav__link-btn">5-Week Journey</a></li>
+          <li class="nav__item"><a href="#mentors" class="nav__link-btn">Faculty</a></li>
+          <li class="nav__item"><a href="#pricing" class="nav__link-btn">Passes</a></li>
+          <li class="nav__item"><a href="#faq" class="nav__link-btn">FAQ</a></li>
+
         </ul>
       </nav>
 
-      <div>
-        <a href="#pricing" class="btn btn--gold">Claim Pass · ₹999</a>
+      <!-- Right CTAs -->
+      <div class="nav__actions">
+        <a href="https://wa.me/918288863132?text=Hello%20Codju%2C%20inquiry%20about%20AI%20Winter%20Camp" 
+           target="_blank" rel="noopener" class="btn-whatsapp">
+          <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.82 11.82 0 00-3.48-8.413z"/>
+          </svg>
+          <span class="wa-label-desktop">Chat with Advisor</span>
+          <span class="wa-label-compact">WhatsApp</span>
+          <span class="whatsapp-pulse"></span>
+        </a>
+
+        <a href="#pricing" class="btn btn--gold" style="padding: 9px 18px; font-size: 0.86rem;">
+          Reserve Seat &rarr;
+        </a>
+
+        <button type="button" class="nav__mobile-toggle" id="mobile-toggle" aria-label="Open Navigation Menu">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
       </div>
+
     </div>
   </header>
 
-  <!-- ========== HERO SECTION ========== -->
+  <!-- Mobile Drawer Menu -->
+  <div class="mobile-drawer" id="mobile-drawer">
+    <div class="mobile-drawer__backdrop" id="drawer-backdrop"></div>
+    <div class="mobile-drawer__panel">
+      <div class="mobile-drawer__head">
+        <a href="index.html" class="nav__brand">
+          <img src="assets/logo.png" alt="Codju" class="nav__brand-logo" />
+          <span class="nav__brand-divider"></span>
+          <span class="nav__brand-badge">Academy</span>
+        </a>
+        <button type="button" class="mobile-drawer__close" id="drawer-close" aria-label="Close Navigation Menu">&times;</button>
+      </div>
+
+      <div class="mobile-drawer__content">
+        <div class="mobile-group-title">LEARNING TRACKS</div>
+        <ul class="mobile-links">
+          <li>
+            <a href="Scratch Junior.dc.html" class="mobile-link">
+              <span class="mobile-icon">🐱</span>
+              <div>
+                <div class="mobile-link-main">Scratch Junior <span class="mobile-badge">Grades 1–2</span></div>
+                <div class="mobile-link-sub">Ages 6–8 · Visual drag &amp; drop stories</div>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="Scratch.dc.html" class="mobile-link">
+              <span class="mobile-icon">🕹️</span>
+              <div>
+                <div class="mobile-link-main">MIT Scratch <span class="mobile-badge">Grades 3–5</span></div>
+                <div class="mobile-link-sub">Ages 8–11 · 4 Playable arcade games</div>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="Python.dc.html" class="mobile-link">
+              <span class="mobile-icon">🐍</span>
+              <div>
+                <div class="mobile-link-main">Python Programming <span class="mobile-badge">Grades 6–10</span></div>
+                <div class="mobile-link-sub">Ages 11–16 · Real code syntax &amp; apps</div>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="HTML and CSS.dc.html" class="mobile-link">
+              <span class="mobile-icon">🌐</span>
+              <div>
+                <div class="mobile-link-main">HTML &amp; CSS Web Dev <span class="mobile-badge">Grades 6–10</span></div>
+                <div class="mobile-link-sub">Ages 11–16 · Build live websites</div>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="Codju AI Winter Camp.dc.html" class="mobile-link mobile-link--ai active">
+              <span class="mobile-icon">⭐</span>
+              <div>
+                <div class="mobile-link-main">Codju AI Winter Camp <span class="mobile-badge-gold">Flagship</span></div>
+                <div class="mobile-link-sub">Grades 5–12 · 17+ GenAI tools intensive</div>
+              </div>
+            </a>
+          </li>
+        </ul>
+
+        <div class="mobile-group-title" style="margin-top: 24px;">ON THIS PAGE</div>
+        <ul class="mobile-simple-links">
+          <li><a href="#projects" class="drawer-nav-item">20 Creations Showcase</a></li>
+          <li><a href="#tools" class="drawer-nav-item">17 Tools Industry Stack</a></li>
+          <li><a href="#curriculum" class="drawer-nav-item">5-Week Progression</a></li>
+          <li><a href="#mentors" class="drawer-nav-item">Lead Faculty (IIT/IIM)</a></li>
+          <li><a href="#pricing" class="drawer-nav-item">Tuition Passes &amp; Scholarships</a></li>
+          <li><a href="#faq" class="drawer-nav-item">Parent FAQs</a></li>
+        </ul>
+
+        <div class="mobile-actions">
+          <a href="#pricing" class="btn btn--gold drawer-nav-item" style="width: 100%; justify-content: center;">
+            View Passes From ₹999 &rarr;
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== HERO SECTION WITH LIVE COUNTDOWN ========== -->
   <section class="hero">
     <div class="container">
       <div class="hero-pill">
-        <span>🤖 FLAGSHIP IMMERSION · GRADES 5–12 · LIVE ON YOUTUBE &amp; ZOOM</span>
+        <span>🤖 NATIONWIDE FLAGSHIP · GRADES 5–12 · 1-MONTH IMMERSION</span>
       </div>
 
       <h1 class="hero-title">
-        Build with AI <br/>
+        Build with Generative AI <br/>
         <span>this winter.</span>
       </h1>
 
       <p class="hero-sub">
-        1-Month live hands-on camp. Master 17+ industry GenAI tools, create 20 portfolio projects across 5 domains, and graduate with a verified digital certificate.
+        India's deepest hands-on generative AI camp for Grades 5–12. Master 17+ industry GenAI tools, create 20 portfolio creations, and graduate with a verified digital certificate.
       </p>
 
-      <!-- Clean Live Countdown -->
+      <!-- Live Countdown -->
       <div class="countdown-box">
-        <div class="countdown-lbl">Cohort Starts In:</div>
+        <div class="countdown-lbl">Cohort Commences In:</div>
         <div class="timer-digits">
           <div><span class="t-unit" id="d">04</span><span class="t-sub">d</span></div>
           <span>:</span>
@@ -877,15 +257,15 @@
       </div>
 
       <div class="hero-actions">
-        <a href="#pricing" class="btn btn--gold" style="padding: 13px 28px; font-size: 1rem;">
-          View Passes &amp; Reserve Seat →
+        <a href="#pricing" class="btn btn--gold" style="padding: 14px 30px; font-size: 1rem;">
+          View Passes &amp; Reserve Seat &rarr;
         </a>
-        <a href="#projects" class="btn btn--ghost" style="padding: 13px 26px; font-size: 1rem;">
-          Browse 20 Projects ↓
+        <a href="#projects" class="btn btn--ghost" style="padding: 14px 26px; font-size: 1rem;">
+          Browse 20 Projects &darr;
         </a>
       </div>
 
-      <!-- 3 Focused Chips -->
+      <!-- 3 Supported Chips -->
       <div class="hero-chips">
         <div class="hero-chip">🛠️ 17 Real GenAI Tools</div>
         <div class="hero-chip">🎯 20 Finished Creations</div>
@@ -894,30 +274,31 @@
     </div>
   </section>
 
-  <!-- ========== 20 PROJECTS ACROSS 5 TABS ========== -->
+  <!-- ========== 20 CREATIONS ACROSS 5 DOMAINS ========== -->
   <section class="section" id="projects" style="background: #ffffff; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
     <div class="container">
       <div class="section-head">
         <span class="section-tag">WHAT STUDENTS BUILD</span>
         <h2 class="section-title">20 Hands-On Creations</h2>
-        <p class="section-sub">Select any domain to see the 4 real projects built in class.</p>
+        <p class="section-sub">Select any domain to explore real portfolio creations built in class.</p>
       </div>
 
-      <div class="ptabs-nav">
-        <button class="ptab-btn active" data-tab="tab-art">🎨 Creative Media</button>
-        <button class="ptab-btn" data-tab="tab-acad">📚 Academics</button>
-        <button class="ptab-btn" data-tab="tab-apps">⚡ Web Apps</button>
-        <button class="ptab-btn" data-tab="tab-talk">🎙️ Speech &amp; Comms</button>
-        <button class="ptab-btn" data-tab="tab-work">💼 Future Skills</button>
+      <!-- Domain Navigation Tabs -->
+      <div class="ptabs-nav" role="tablist">
+        <button type="button" class="ptab-btn active" data-tab="tab-art" role="tab" aria-selected="true">🎨 Creative Media</button>
+        <button type="button" class="ptab-btn" data-tab="tab-acad" role="tab" aria-selected="false">📚 Academics &amp; Study</button>
+        <button type="button" class="ptab-btn" data-tab="tab-apps" role="tab" aria-selected="false">⚡ No-Code Web Apps</button>
+        <button type="button" class="ptab-btn" data-tab="tab-talk" role="tab" aria-selected="false">🎙️ Speech &amp; Media</button>
+        <button type="button" class="ptab-btn" data-tab="tab-work" role="tab" aria-selected="false">💼 Future Skills</button>
       </div>
 
       <!-- Tab 1: Creative Media -->
       <div class="ptab-pane active" id="tab-art">
         <div class="proj-card">
           <div>
-            <div class="proj-num">Project 01</div>
+            <div class="proj-num">Project 01 · Sci-Fi Video</div>
             <h3 class="proj-title">Cinematic Sci-Fi Trailer</h3>
-            <p class="proj-desc">Write cinematic camera prompts, generate photorealistic frames, and cut a 60-second trailer.</p>
+            <p class="proj-desc">Write cinematic camera prompts, synthesize photorealistic frames, and cut a 60-second sci-fi movie trailer.</p>
           </div>
           <div class="proj-tools">
             <span class="tool-badge">Midjourney</span>
@@ -927,9 +308,9 @@
 
         <div class="proj-card">
           <div>
-            <div class="proj-num">Project 02</div>
+            <div class="proj-num">Project 02 · Music Production</div>
             <h3 class="proj-title">Studio Song &amp; Vocals</h3>
-            <p class="proj-desc">Compose an original vocal soundtrack across genres from lo-fi to orchestral with custom lyrics.</p>
+            <p class="proj-desc">Compose an original vocal soundtrack across genres from lo-fi to orchestral with custom generated lyrics.</p>
           </div>
           <div class="proj-tools">
             <span class="tool-badge">Suno AI</span>
@@ -939,9 +320,9 @@
 
         <div class="proj-card">
           <div>
-            <div class="proj-num">Project 03</div>
+            <div class="proj-num">Project 03 · Graphic Novel</div>
             <h3 class="proj-title">Graphic Novel Episode</h3>
-            <p class="proj-desc">Maintain character consistency across 4 comic book panels with dialogue and sound effects.</p>
+            <p class="proj-desc">Maintain character visual consistency across 4 comic book panels with custom lettering and dialogue.</p>
           </div>
           <div class="proj-tools">
             <span class="tool-badge">Ideogram</span>
@@ -951,9 +332,9 @@
 
         <div class="proj-card">
           <div>
-            <div class="proj-num">Project 04</div>
+            <div class="proj-num">Project 04 · Commercial Art</div>
             <h3 class="proj-title">3D Brand Mascot</h3>
-            <p class="proj-desc">Design a claymation commercial mascot for an eco-product packaging mock-up.</p>
+            <p class="proj-desc">Design a claymation commercial mascot for an eco-product packaging mockup with lighting angles.</p>
           </div>
           <div class="proj-tools">
             <span class="tool-badge">Google Labs</span>
@@ -962,13 +343,13 @@
         </div>
       </div>
 
-      <!-- Tab 2: Academics -->
+      <!-- Tab 2: Academics & Study -->
       <div class="ptab-pane" id="tab-acad">
         <div class="proj-card">
           <div>
-            <div class="proj-num">Project 05</div>
+            <div class="proj-num">Project 05 · Study Assistant</div>
             <h3 class="proj-title">Syllabus Study Bot</h3>
-            <p class="proj-desc">Upload school textbooks and get instant, grounded study flashcards with zero hallucinations.</p>
+            <p class="proj-desc">Upload school textbooks and get instant, grounded study flashcards with zero AI hallucinations.</p>
           </div>
           <div class="proj-tools">
             <span class="tool-badge">NotebookLM</span>
@@ -978,7 +359,7 @@
 
         <div class="proj-card">
           <div>
-            <div class="proj-num">Project 06</div>
+            <div class="proj-num">Project 06 · History Visualization</div>
             <h3 class="proj-title">Historical Mind Map</h3>
             <p class="proj-desc">Convert complex historical eras into interactive, clickable visual relationship diagrams.</p>
           </div>
@@ -990,9 +371,9 @@
 
         <div class="proj-card">
           <div>
-            <div class="proj-num">Project 07</div>
+            <div class="proj-num">Project 07 · Fact Checking</div>
             <h3 class="proj-title">Verified Citations Engine</h3>
-            <p class="proj-desc">Synthesize science fair research backed by peer-reviewed academic citations.</p>
+            <p class="proj-desc">Synthesize science fair research backed by peer-reviewed academic citations and sourced answers.</p>
           </div>
           <div class="proj-tools">
             <span class="tool-badge">Perplexity Pro</span>
@@ -1001,9 +382,9 @@
 
         <div class="proj-card">
           <div>
-            <div class="proj-num">Project 08</div>
+            <div class="proj-num">Project 08 · Linguistics</div>
             <h3 class="proj-title">Accent &amp; Speech Coach</h3>
-            <p class="proj-desc">Clone voice samples to evaluate pronunciation and practice multi-lingual conversations.</p>
+            <p class="proj-desc">Clone voice samples to evaluate pronunciation and practice multi-lingual conversations in real time.</p>
           </div>
           <div class="proj-tools">
             <span class="tool-badge">ElevenLabs</span>
@@ -1012,13 +393,13 @@
         </div>
       </div>
 
-      <!-- Tab 3: Web Apps -->
+      <!-- Tab 3: No-Code Web Apps -->
       <div class="ptab-pane" id="tab-apps">
         <div class="proj-card">
           <div>
-            <div class="proj-num">Project 09</div>
+            <div class="proj-num">Project 09 · Interactive App</div>
             <h3 class="proj-title">Quiz &amp; Flashcard App</h3>
-            <p class="proj-desc">Prompt a working study app in English and publish it live with scoreboards and buttons.</p>
+            <p class="proj-desc">Prompt a working study app in English and publish it live with interactive scoreboards and buttons.</p>
           </div>
           <div class="proj-tools">
             <span class="tool-badge">Lovable.dev</span>
@@ -1027,9 +408,9 @@
 
         <div class="proj-card">
           <div>
-            <div class="proj-num">Project 10</div>
+            <div class="proj-num">Project 10 · Automation</div>
             <h3 class="proj-title">Email Automation Pipeline</h3>
-            <p class="proj-desc">Trigger automated AI summaries when a form is submitted and send custom email alerts.</p>
+            <p class="proj-desc">Trigger automated AI summaries when a form is submitted and send custom formatted email alerts.</p>
           </div>
           <div class="proj-tools">
             <span class="tool-badge">Make.com</span>
@@ -1039,9 +420,9 @@
 
         <div class="proj-card">
           <div>
-            <div class="proj-num">Project 11</div>
+            <div class="proj-num">Project 11 · Custom Agent</div>
             <h3 class="proj-title">Custom Knowledge Bot</h3>
-            <p class="proj-desc">Train a Custom GPT on school club archives to answer questions for parents.</p>
+            <p class="proj-desc">Train a Custom GPT on school club archives to answer questions for students and parents automatically.</p>
           </div>
           <div class="proj-tools">
             <span class="tool-badge">OpenAI GPTs</span>
@@ -1050,9 +431,9 @@
 
         <div class="proj-card">
           <div>
-            <div class="proj-num">Project 12</div>
+            <div class="proj-num">Project 12 · Web Showcase</div>
             <h3 class="proj-title">Personal Link-in-Bio Site</h3>
-            <p class="proj-desc">A responsive mobile portfolio highlighting student certificates and projects.</p>
+            <p class="proj-desc">A responsive mobile portfolio highlighting student certificates and camp achievements online.</p>
           </div>
           <div class="proj-tools">
             <span class="tool-badge">HTML &amp; CSS</span>
@@ -1060,13 +441,13 @@
         </div>
       </div>
 
-      <!-- Tab 4: Speech & Comms -->
+      <!-- Tab 4: Speech & Media -->
       <div class="ptab-pane" id="tab-talk">
         <div class="proj-card">
           <div>
-            <div class="proj-num">Project 13</div>
+            <div class="proj-num">Project 13 · Presentation</div>
             <h3 class="proj-title">TED-Style Keynote Deck</h3>
-            <p class="proj-desc">Transform raw notes into an executive 10-slide visual deck with modern typography.</p>
+            <p class="proj-desc">Transform raw notes into an executive 10-slide visual deck with clean modern typography.</p>
           </div>
           <div class="proj-tools">
             <span class="tool-badge">Gamma.app</span>
@@ -1075,9 +456,9 @@
 
         <div class="proj-card">
           <div>
-            <div class="proj-num">Project 14</div>
+            <div class="proj-num">Project 14 · Video Synthesis</div>
             <h3 class="proj-title">AI Video Avatar Speech</h3>
-            <p class="proj-desc">Synthesize a virtual presenter delivering a student speech with realistic lip sync.</p>
+            <p class="proj-desc">Synthesize a virtual presenter delivering a student speech with realistic lip sync and pacing.</p>
           </div>
           <div class="proj-tools">
             <span class="tool-badge">CapCut AI</span>
@@ -1087,9 +468,9 @@
 
         <div class="proj-card">
           <div>
-            <div class="proj-num">Project 15</div>
+            <div class="proj-num">Project 15 · Debate Training</div>
             <h3 class="proj-title">Debate Rebuttal Engine</h3>
-            <p class="proj-desc">Train an AI debate sparring partner that spots logical fallacies and tests arguments.</p>
+            <p class="proj-desc">Train an AI debate sparring partner that spots logical fallacies and tests counter-arguments.</p>
           </div>
           <div class="proj-tools">
             <span class="tool-badge">Claude 3.5</span>
@@ -1098,7 +479,7 @@
 
         <div class="proj-card">
           <div>
-            <div class="proj-num">Project 16</div>
+            <div class="proj-num">Project 16 · Publishing</div>
             <h3 class="proj-title">School Newsletter</h3>
             <p class="proj-desc">Produce an editorial magazine with catchy headlines and generated feature artwork.</p>
           </div>
@@ -1112,9 +493,9 @@
       <div class="ptab-pane" id="tab-work">
         <div class="proj-card">
           <div>
-            <div class="proj-num">Project 17</div>
+            <div class="proj-num">Project 17 · Permanent Portfolio</div>
             <h3 class="proj-title">Public Digital Portfolio</h3>
-            <p class="proj-desc">Curate all 20 creations into a permanent showcase ready for university admissions.</p>
+            <p class="proj-desc">Curate all 20 creations into a permanent showcase ready for school resumes and university applications.</p>
           </div>
           <div class="proj-tools">
             <span class="tool-badge">Codju Profile</span>
@@ -1123,7 +504,7 @@
 
         <div class="proj-card">
           <div>
-            <div class="proj-num">Project 18</div>
+            <div class="proj-num">Project 18 · Commercial Pitch</div>
             <h3 class="proj-title">Freelance Service Pitch</h3>
             <p class="proj-desc">Draft commercial proposals offering AI image generation and copy editing to local firms.</p>
           </div>
@@ -1134,7 +515,7 @@
 
         <div class="proj-card">
           <div>
-            <div class="proj-num">Project 19</div>
+            <div class="proj-num">Project 19 · Content Strategy</div>
             <h3 class="proj-title">Social Campaign Calendar</h3>
             <p class="proj-desc">Generate a 30-day automated content calendar with prompts, captions, and graphics.</p>
           </div>
@@ -1145,7 +526,7 @@
 
         <div class="proj-card">
           <div>
-            <div class="proj-num">Project 20</div>
+            <div class="proj-num">Project 20 · Entrepreneurship</div>
             <h3 class="proj-title">Startup Pitch Deck</h3>
             <p class="proj-desc">Create a problem-solution investor deck for an AI innovation tackling green energy.</p>
           </div>
@@ -1158,13 +539,13 @@
     </div>
   </section>
 
-  <!-- ========== 17 AI TOOLS (CLEAN GRID) ========== -->
+  <!-- ========== 17 AI TOOLS INDUSTRY STACK ========== -->
   <section class="section" id="tools">
     <div class="container">
       <div class="section-head">
-        <span class="section-tag">INDUSTRY STACK</span>
-        <h2 class="section-title">17 AI Tools Taught</h2>
-        <p class="section-sub">Zero mockups. Students get hands-on experience with real platforms.</p>
+        <span class="section-tag">INDUSTRY TOOLKIT</span>
+        <h2 class="section-title">17 Industry Tools Mastered</h2>
+        <p class="section-sub">Zero simulations. Students get hands-on experience with actual professional platforms.</p>
       </div>
 
       <div class="tools-grid">
@@ -1173,85 +554,95 @@
           <div class="tool-name">ChatGPT 4o</div>
           <div class="tool-tag">Reasoning</div>
         </div>
+
         <div class="tool-card">
           <img src="assets/claude.svg" alt="Claude" class="tool-icon-img" />
           <div class="tool-name">Claude 3.5</div>
-          <div class="tool-tag">Writing</div>
+          <div class="tool-tag">Writing &amp; Code</div>
         </div>
+
         <div class="tool-card">
           <img src="assets/gemini.png" alt="Gemini" class="tool-icon-img" />
           <div class="tool-name">Gemini 1.5</div>
           <div class="tool-tag">Multimodal</div>
         </div>
+
         <div class="tool-card">
           <img src="assets/perplexity.png" alt="Perplexity" class="tool-icon-img" />
           <div class="tool-name">Perplexity</div>
           <div class="tool-tag">Research</div>
         </div>
+
         <div class="tool-card">
           <img src="assets/498133c1-e351-43e0-b495-b7dc478735d6.png" alt="Midjourney" class="tool-icon-img" />
           <div class="tool-name">Midjourney</div>
           <div class="tool-tag">Visual Art</div>
         </div>
+
         <div class="tool-card">
           <img src="assets/ideogram.png" alt="Ideogram" class="tool-icon-img" />
           <div class="tool-name">Ideogram</div>
           <div class="tool-tag">Typography</div>
         </div>
+
         <div class="tool-card">
           <img src="assets/pika.png" alt="Pika" class="tool-icon-img" />
           <div class="tool-name">Pika Labs</div>
-          <div class="tool-tag">Video</div>
+          <div class="tool-tag">Video Generation</div>
         </div>
+
         <div class="tool-card">
           <img src="assets/suno.png" alt="Suno" class="tool-icon-img" />
           <div class="tool-name">Suno AI</div>
-          <div class="tool-tag">Music</div>
+          <div class="tool-tag">Music Synthesis</div>
         </div>
+
         <div class="tool-card">
           <img src="assets/elevenlabs.png" alt="ElevenLabs" class="tool-icon-img" />
           <div class="tool-name">ElevenLabs</div>
-          <div class="tool-tag">Voice</div>
+          <div class="tool-tag">Voice Cloning</div>
         </div>
+
         <div class="tool-card">
           <img src="assets/notebooklm.png" alt="NotebookLM" class="tool-icon-img" />
           <div class="tool-name">NotebookLM</div>
           <div class="tool-tag">Study AI</div>
         </div>
+
         <div class="tool-card">
           <img src="assets/gamma.svg" alt="Gamma" class="tool-icon-img" />
           <div class="tool-name">Gamma.app</div>
-          <div class="tool-tag">Slides</div>
+          <div class="tool-tag">Visual Slides</div>
         </div>
+
         <div class="tool-card">
           <img src="assets/lovable.png" alt="Lovable" class="tool-icon-img" />
           <div class="tool-name">Lovable.dev</div>
-          <div class="tool-tag">App Builder</div>
+          <div class="tool-tag">Web App Builder</div>
         </div>
+
         <div class="tool-card">
           <img src="assets/make.png" alt="Make" class="tool-icon-img" />
           <div class="tool-name">Make.com</div>
           <div class="tool-tag">Automation</div>
         </div>
+
         <div class="tool-card">
           <img src="assets/canva.png" alt="Canva" class="tool-icon-img" />
           <div class="tool-name">Canva Magic</div>
-          <div class="tool-tag">Design</div>
+          <div class="tool-tag">Graphic Design</div>
         </div>
+
         <div class="tool-card">
           <img src="assets/capcut.png" alt="CapCut" class="tool-icon-img" />
           <div class="tool-name">CapCut AI</div>
-          <div class="tool-tag">Editing</div>
+          <div class="tool-tag">Video Editing</div>
         </div>
+
         <div class="tool-card">
           <img src="assets/google_labs.png" alt="Google Labs" class="tool-icon-img" />
           <div class="tool-name">Google Labs</div>
-          <div class="tool-tag">Experiments</div>
-        </div>
-        <div class="tool-card">
-          <div style="font-size: 1.8rem; margin-bottom: 6px;">🎙️</div>
-          <div class="tool-name">Whisper</div>
-          <div class="tool-tag">Speech-to-Text</div>
+          <div class="tool-tag">AI Experiments</div>
         </div>
       </div>
     </div>
@@ -1261,9 +652,9 @@
   <section class="section" id="curriculum" style="background: #ffffff; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
     <div class="container">
       <div class="section-head">
-        <span class="section-tag">STRUCTURED SYLLABUS</span>
-        <h2 class="section-title">5-Week Curriculum</h2>
-        <p class="section-sub">2 live sessions per week with instant HD replays.</p>
+        <span class="section-tag">PROGRESSIVE ROADMAP</span>
+        <h2 class="section-title">5-Week Curriculum Progression</h2>
+        <p class="section-sub">2 live interactive sessions per week with instant HD replays and starter files.</p>
       </div>
 
       <div class="curriculum-grid">
@@ -1330,38 +721,38 @@
     </div>
   </section>
 
-  <!-- ========== MENTORS (FOCUSED 4) ========== -->
+  <!-- ========== ACADEMY FACULTY ========== -->
   <section class="section" id="mentors">
     <div class="container">
       <div class="section-head">
-        <span class="section-tag">ACADEMY FACULTY</span>
-        <h2 class="section-title">Lead Faculty</h2>
-        <p class="section-sub">Mentors with deep backgrounds in engineering and education.</p>
+        <span class="section-tag">LEAD INSTRUCTORS</span>
+        <h2 class="section-title">Academy Faculty</h2>
+        <p class="section-sub">Mentors with deep backgrounds in engineering and elite education.</p>
       </div>
 
       <div class="mentors-grid">
-        <div class="mentor-card">
+        <div class="mentor-faculty-card">
           <img src="assets/rohit_profile.jpeg" alt="Rohit Bishnoi" class="mentor-avatar" />
           <h4 class="m-name">Rohit K. Bishnoi</h4>
           <div class="m-role">Lead Mentor &amp; Founder</div>
           <div class="m-cred">IIT Kanpur · IIM Kozhikode · 16+ Yrs Teaching</div>
         </div>
 
-        <div class="mentor-card">
+        <div class="mentor-faculty-card">
           <img src="assets/media.jpg" alt="Dr. Aanya Sharma" class="mentor-avatar" />
           <h4 class="m-name">Dr. Aanya Sharma</h4>
           <div class="m-role">Cognitive AI Director</div>
           <div class="m-cred">Ex-IISc Fellow · Ph.D Cognitive Science</div>
         </div>
 
-        <div class="mentor-card">
+        <div class="mentor-faculty-card">
           <img src="assets/media copy.jpg" alt="Karanvir Singh" class="mentor-avatar" />
           <h4 class="m-name">Karanvir Singh</h4>
           <div class="m-role">AI Systems Architect</div>
           <div class="m-cred">Full-Stack GenAI · 1M+ User Systems</div>
         </div>
 
-        <div class="mentor-card">
+        <div class="mentor-faculty-card">
           <img src="assets/media copy 2.jpg" alt="Priya Nair" class="mentor-avatar" />
           <h4 class="m-name">Priya Nair</h4>
           <div class="m-role">Creative Visual Director</div>
@@ -1371,40 +762,42 @@
     </div>
   </section>
 
-  <!-- ========== 3-TIER PRICING ========== -->
+  <!-- ========== 3-TIER TUITION PASSES ========== -->
   <section class="section" id="pricing" style="background: #ffffff; border-top: 1px solid var(--border);">
     <div class="container">
       <div class="section-head">
         <span class="section-tag">TUITION PASSES</span>
-        <h2 class="section-title">Choose Your Pass</h2>
-        <p class="section-sub">100% Scholarships available for students of 250+ partner schools.</p>
+        <h2 class="section-title">Choose Your Immersion Pass</h2>
+        <p class="section-sub">100% Scholarships available for students of 250+ partner schools with code.</p>
       </div>
 
       <div class="pricing-grid">
-        <!-- Foundation -->
-        <div class="p-card">
+        
+        <!-- Foundation Tier -->
+        <div class="tier-card">
           <div>
-            <h4 class="p-name">Foundation</h4>
-            <div class="p-price">₹999 <small>all-inclusive</small></div>
-            <ul class="p-features">
+            <h4 class="tier-name">Foundation</h4>
+            <div class="tier-price">₹999 <small>all-inclusive</small></div>
+            <ul class="tier-features">
               <li>✓ <strong>10 Live Sessions</strong> on YouTube</li>
-              <li>✓ Instant Replay Library</li>
+              <li>✓ Instant HD Replay Library</li>
               <li>✓ Master Prompts PDF Playbook</li>
               <li>✓ Digital Completion Certificate</li>
             </ul>
           </div>
-          <a href="https://wa.me/918288863132?text=Hello%20Codju%2C%20I%20want%20the%20Foundation%20Pass%20(₹999)" target="_blank" rel="noopener" class="btn btn--ghost" style="width: 100%;">
-            Enroll for ₹999
+          <a href="https://wa.me/918288863132?text=Hello%20Codju%2C%20I%20want%20the%20Foundation%20Pass%20(₹999)" 
+             target="_blank" rel="noopener" class="btn btn--ghost" style="width: 100%;">
+            Enroll for ₹999 &rarr;
           </a>
         </div>
 
-        <!-- Accelerator (Popular) -->
-        <div class="p-card p-card--popular">
-          <span class="p-ribbon">Most Popular</span>
+        <!-- Accelerator Tier (Popular) -->
+        <div class="tier-card tier-card--popular">
+          <span class="tier-ribbon">Most Popular</span>
           <div>
-            <h4 class="p-name">Accelerator</h4>
-            <div class="p-price" style="color: var(--purple);">₹2,499 <small>all-inclusive</small></div>
-            <ul class="p-features">
+            <h4 class="tier-name">Accelerator</h4>
+            <div class="tier-price" style="color: var(--purple);">₹2,499 <small>all-inclusive</small></div>
+            <ul class="tier-features">
               <li>✓ <strong>Everything in Foundation</strong></li>
               <li>✓ <strong>1-on-1 Mentor Project Reviews</strong></li>
               <li>✓ <strong>Verified Student Portfolio Link</strong></li>
@@ -1412,33 +805,42 @@
               <li>✓ Private VIP WhatsApp Hub</li>
             </ul>
           </div>
-          <a href="https://wa.me/918288863132?text=Hello%20Codju%2C%20I%20want%20the%20Accelerator%20Pass%20(₹2,499)" target="_blank" rel="noopener" class="btn btn--primary" style="width: 100%;">
-            Claim Accelerator Pass →
+          <a href="https://wa.me/918288863132?text=Hello%20Codju%2C%20I%20want%20the%20Accelerator%20Pass%20(₹2,499)" 
+             target="_blank" rel="noopener" class="btn btn--primary" style="width: 100%;">
+            Claim Accelerator Pass &rarr;
           </a>
         </div>
 
-        <!-- Mastery -->
-        <div class="p-card">
+        <!-- Mastery Tier -->
+        <div class="tier-card">
           <div>
-            <h4 class="p-name">Mastery</h4>
-            <div class="p-price">₹4,999 <small>all-inclusive</small></div>
-            <ul class="p-features">
+            <h4 class="tier-name">Mastery</h4>
+            <div class="tier-price">₹4,999 <small>all-inclusive</small></div>
+            <ul class="tier-features">
               <li>✓ <strong>Everything in Accelerator</strong></li>
-              <li>✓ <strong>2 Calls with Rohit Bishnoi</strong></li>
+              <li>✓ <strong>2 Strategy Calls with Rohit Bishnoi</strong></li>
               <li>✓ <strong>Personal Recommendation Letter</strong></li>
-              <li>✓ <strong>Physical Certificate Mailed Home</strong></li>
+              <li>✓ <strong>Physical Hardcopy Certificate Mailed</strong></li>
               <li>✓ 12-Month Ongoing Support</li>
             </ul>
           </div>
-          <a href="https://wa.me/918288863132?text=Hello%20Codju%2C%20I%20want%20the%20Mastery%20Pass%20(₹4,999)" target="_blank" rel="noopener" class="btn btn--ghost" style="width: 100%;">
-            Enroll in Mastery
+          <a href="https://wa.me/918288863132?text=Hello%20Codju%2C%20I%20want%20the%20Mastery%20Pass%20(₹4,999)" 
+             target="_blank" rel="noopener" class="btn btn--ghost" style="width: 100%;">
+            Enroll in Mastery &rarr;
           </a>
         </div>
+
+      </div>
+
+      <div style="text-align: center; margin-top: 32px;">
+        <span style="font-size: 0.88rem; color: var(--text-muted); background: var(--bg); padding: 8px 18px; border-radius: var(--radius-full); border: 1px solid var(--border);">
+          🏫 <strong>Partner School Scholarship:</strong> Attending one of our 250+ partner schools? Enter your school code for 100% scholarship access.
+        </span>
       </div>
     </div>
   </section>
 
-  <!-- ========== FAQ ========== -->
+  <!-- ========== FAQ ACCORDION ========== -->
   <section class="section" id="faq">
     <div class="container">
       <div class="section-head">
@@ -1453,7 +855,7 @@
             <span class="faq-sign">+</span>
           </button>
           <div class="faq-a">
-            No! The camp focuses on prompt engineering, AI logic, and no-code tools. All instructions are in plain English.
+            No! The camp focuses on prompt engineering, AI logic, and modern no-code platforms. All instructions are provided in plain English without syntax barriers.
           </div>
         </div>
 
@@ -1463,7 +865,7 @@
             <span class="faq-sign">+</span>
           </button>
           <div class="faq-a">
-            No. All 17 tools are accessed through free student tiers or teacher sandbox keys provided during class.
+            No. All 17 tools are accessed through free student tiers or teacher sandbox access keys provided during live class sessions.
           </div>
         </div>
 
@@ -1473,7 +875,7 @@
             <span class="faq-sign">+</span>
           </button>
           <div class="faq-a">
-            All classes are recorded in HD and available in your student portal within 2 hours with timestamped notes.
+            All classes are recorded in HD and available in your student portal within 2 hours with timestamped notes, transcripts, and prompt libraries.
           </div>
         </div>
 
@@ -1483,59 +885,97 @@
             <span class="faq-sign">+</span>
           </button>
           <div class="faq-a">
-            If your child's school is a partner institution, enter your school-issued verification code to get ₹0 enrollment.
+            If your child attends one of our 250+ partner institutions nationwide, enter your school-issued verification code at checkout for 100% scholarship access.
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== FOOTER ========== -->
+  <!-- ========== UNIFIED FOOTER ========== -->
   <footer class="footer">
     <div class="container">
-      <p style="margin-bottom: 12px; font-weight: 700;">Codju Academy — Empowering the Next Generation of Builders</p>
-      <div>
-        <a href="index.html">Home</a>
-        <a href="Scratch Junior.dc.html">Scratch Jr</a>
-        <a href="Scratch.dc.html">Scratch</a>
-        <a href="Python.dc.html">Python</a>
-        <a href="HTML and CSS.dc.html">HTML &amp; CSS</a>
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <strong>Codju Academy</strong>
+          <span>AI Winter Camp Flagship · Empowering the next generation of builders.</span>
+        </div>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="Scratch Junior.dc.html">Scratch Jr</a></li>
+          <li><a href="Scratch.dc.html">Scratch</a></li>
+          <li><a href="Python.dc.html">Python</a></li>
+          <li><a href="HTML and CSS.dc.html">HTML &amp; CSS</a></li>
+          <li><a href="Codju AI Winter Camp.dc.html" class="active" style="color: var(--gold);">AI Winter Camp</a></li>
+        </ul>
       </div>
-      <p style="margin-top: 18px; font-size: 0.8rem; opacity: 0.6;">© 2026 Codju Academy. All rights reserved.</p>
+      <div class="footer-bottom">
+        <div>&copy; 2026 Codju EdTech Pvt Ltd. All rights reserved.</div>
+        <div>Helpline: +91 82888 63132 · info@codju.com</div>
+      </div>
     </div>
   </footer>
 
   <!-- ========== STICKY BOTTOM BAR ========== -->
-  <aside class="sticky-bar">
+  <aside class="sticky-bar" id="sticky-bar">
     <div class="sticky-inner">
       <div class="sticky-timer-wrap" style="display: flex; align-items: center; gap: 14px;">
         <span style="font-size: 0.8rem; font-weight: 800; background: rgba(247, 213, 106, 0.2); color: var(--gold); padding: 3px 10px; border-radius: var(--radius-full);">
-          🔥 Limited Cohort Seats
+          🔥 Limited Seats
         </span>
         <span class="sticky-timer" id="stimer">04d : 18h : 42m : 30s</span>
       </div>
       <div style="display: flex; align-items: center; gap: 12px;">
-        <div style="font-size: 0.86rem; color: rgba(255, 255, 255, 0.7);">Starting at <strong>₹999</strong></div>
-        <a href="#pricing" class="btn btn--gold" style="padding: 8px 18px; font-size: 0.88rem;">Reserve Seat →</a>
+        <div style="font-size: 0.86rem; color: rgba(255, 255, 255, 0.85);">Passes from <strong>₹999</strong></div>
+        <a href="#pricing" class="btn btn--gold" style="padding: 8px 18px; font-size: 0.86rem;">Reserve Seat &rarr;</a>
+        <button type="button" id="sticky-close" style="color: rgba(255,255,255,0.6); font-size: 1.2rem; line-height: 1; padding: 4px;" aria-label="Close bar">&times;</button>
       </div>
     </div>
   </aside>
 
   <script>
-    // Project Tabs
+    // --- Mobile Drawer Controller ---
+    const mobileToggle = document.getElementById('mobile-toggle');
+    const mobileDrawer = document.getElementById('mobile-drawer');
+    const drawerClose = document.getElementById('drawer-close');
+    const drawerBackdrop = document.getElementById('drawer-backdrop');
+
+    function openDrawer() {
+      if (mobileDrawer) {
+        mobileDrawer.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      }
+    }
+    function closeDrawer() {
+      if (mobileDrawer) {
+        mobileDrawer.classList.remove('open');
+        document.body.style.overflow = '';
+      }
+    }
+
+    if (mobileToggle) mobileToggle.addEventListener('click', openDrawer);
+    if (drawerClose) drawerClose.addEventListener('click', closeDrawer);
+    if (drawerBackdrop) drawerBackdrop.addEventListener('click', closeDrawer);
+    document.querySelectorAll('.drawer-nav-item, .mobile-link').forEach(l => l.addEventListener('click', closeDrawer));
+
+    // --- Project Showcase Domain Tabs ---
     const tabBtns = document.querySelectorAll('.ptab-btn');
     const tabPanes = document.querySelectorAll('.ptab-pane');
     tabBtns.forEach(btn => {
       btn.addEventListener('click', () => {
-        tabBtns.forEach(b => b.classList.remove('active'));
+        tabBtns.forEach(b => {
+          b.classList.remove('active');
+          b.setAttribute('aria-selected', 'false');
+        });
         tabPanes.forEach(p => p.classList.remove('active'));
         btn.classList.add('active');
+        btn.setAttribute('aria-selected', 'true');
         const target = document.getElementById(btn.getAttribute('data-tab'));
         if (target) target.classList.add('active');
       });
     });
 
-    // FAQ Accordion
+    // --- FAQ Accordion ---
     document.querySelectorAll('.faq-q').forEach(btn => {
       btn.addEventListener('click', () => {
         const item = btn.closest('.faq-item');
@@ -1545,7 +985,7 @@
       });
     });
 
-    // Countdown
+    // --- Real Live Countdown Timer ---
     const target = new Date(Date.now() + 4 * 86400000 + 18 * 3600000 + 42 * 60000);
     function tick() {
       const diff = target - new Date();
@@ -1566,6 +1006,16 @@
     }
     setInterval(tick, 1000);
     tick();
+
+    // Sticky bar dismiss button
+    const stickyClose = document.getElementById('sticky-close');
+    const stickyBar = document.getElementById('sticky-bar');
+    if (stickyClose && stickyBar) {
+      stickyClose.addEventListener('click', () => {
+        stickyBar.style.display = 'none';
+        document.body.style.paddingBottom = '0';
+      });
+    }
   </script>
 </body>
 </html>

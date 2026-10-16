@@ -3,366 +3,760 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>HTML &amp; CSS Web Development — Grades 6–10 | Codju Academy</title>
-  <meta name="description" content="Design and publish real websites. Master modern HTML semantics, CSS Flexbox layouts, responsive design, and launch 4 live websites." />
+  <title>HTML &amp; CSS Web Development (Grades 6–10) | Codju Academy</title>
+  <meta name="description" content="Move beyond templates. Master modern semantic HTML, CSS layout systems, responsive design, and publish 4 live web projects with custom links." />
   <link rel="icon" type="image/png" href="assets/logo.png" />
+  <link rel="stylesheet" href="index.css" />
   <style>
     :root {
-      --font: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", -system-ui, "Segoe UI", Roboto, sans-serif;
-      --bg: #faf8f5;
-      --surface: #ffffff;
-      --text: #110826;
-      --text-muted: #6e677c;
-      --text-light: #9d96ab;
-      --border: rgba(17, 8, 38, 0.07);
-      
-      --purple-deep: #2c0a78;
-      --accent: #ea580c;
-      --accent-soft: rgba(234, 88, 12, 0.1);
-      
-      --shadow-sm: 0 2px 8px rgba(17, 8, 38, 0.04);
-      --shadow-md: 0 12px 32px rgba(17, 8, 38, 0.06);
-      
-      --radius-sm: 10px;
-      --radius-md: 18px;
-      --radius-lg: 26px;
-      --radius-full: 9999px;
-      --ease: 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
-    body { font-family: var(--font); background: var(--bg); color: var(--text); line-height: 1.5; }
-    a { color: inherit; text-decoration: none; }
-    img { display: block; max-width: 100%; }
-    .container { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
-
-    /* Nav */
-    .nav { position: sticky; top: 0; z-index: 100; background: rgba(250, 248, 245, 0.9); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); }
-    .nav__inner { height: 70px; display: flex; align-items: center; justify-content: space-between; }
-    .nav__logo { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 1.2rem; color: var(--purple-deep); }
-    .nav__logo img { height: 36px; }
-    .nav__tag { font-size: 0.74rem; font-weight: 800; background: var(--accent-soft); color: var(--accent); padding: 3px 10px; border-radius: var(--radius-full); }
-    .btn { display: inline-flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.92rem; padding: 10px 22px; border-radius: var(--radius-full); transition: all var(--ease); border: none; cursor: pointer; }
-    .btn--accent { background: var(--accent); color: #fff; box-shadow: 0 4px 14px rgba(234, 88, 12, 0.35); }
-    .btn--accent:hover { filter: brightness(1.08); transform: translateY(-1px); }
-
-    /* Hero */
-    .hero { padding: 72px 0 52px; text-align: center; }
-    .hero-badge { display: inline-flex; align-items: center; gap: 6px; background: #fff; border: 1px solid var(--border); padding: 6px 14px; border-radius: var(--radius-full); font-size: 0.8rem; font-weight: 700; color: var(--accent); margin-bottom: 20px; box-shadow: var(--shadow-sm); }
-    .hero-title { font-size: clamp(2.4rem, 5.2vw, 4rem); font-weight: 800; line-height: 1.1; letter-spacing: -0.035em; color: var(--purple-deep); max-width: 800px; margin: 0 auto 16px; }
-    .hero-title span { color: var(--accent); }
-    .hero-sub { font-size: 1.12rem; color: var(--text-muted); max-width: 600px; margin: 0 auto 32px; }
-    .hero-actions { display: flex; justify-content: center; gap: 14px; margin-bottom: 48px; }
-
-    /* 4 Stats */
-    .stats-strip { display: flex; justify-content: center; gap: 48px; flex-wrap: wrap; padding-top: 24px; border-top: 1px solid var(--border); max-width: 760px; margin: 0 auto; }
-    .stat-val { font-size: 1.7rem; font-weight: 800; color: var(--accent); line-height: 1.1; }
-    .stat-lbl { font-size: 0.8rem; font-weight: 600; color: var(--text-light); text-transform: uppercase; margin-top: 2px; }
-
-    /* Section */
-    .section { padding: 84px 0; }
-    .section-head { text-align: center; max-width: 540px; margin: 0 auto 40px; }
-    .section-title { font-size: 2.1rem; font-weight: 800; letter-spacing: -0.03em; color: var(--purple-deep); margin-bottom: 8px; }
-    .section-sub { font-size: 1rem; color: var(--text-muted); }
-
-    /* 3 Benefits */
-    .benefits-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-    .b-card { background: #fff; border: 1px solid var(--border); border-radius: var(--radius-md); padding: 28px 24px; box-shadow: var(--shadow-sm); }
-    .b-icon { font-size: 1.8rem; margin-bottom: 12px; }
-    .b-title { font-size: 1.15rem; font-weight: 800; color: var(--purple-deep); margin-bottom: 6px; }
-    .b-desc { font-size: 0.9rem; color: var(--text-muted); line-height: 1.5; }
-
-    /* Curriculum Tabs */
-    .tabs-nav { display: flex; justify-content: center; gap: 8px; overflow-x: auto; margin-bottom: 24px; padding-bottom: 6px; }
-    .tab-btn { padding: 8px 18px; font-size: 0.9rem; font-weight: 700; border-radius: var(--radius-full); background: #fff; border: 1px solid var(--border); color: var(--text-muted); cursor: pointer; transition: all var(--ease); white-space: nowrap; }
-    .tab-btn.active { background: var(--accent); color: #fff; border-color: var(--accent); }
-    .tab-pane { display: none; background: #fff; border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 36px 32px; box-shadow: var(--shadow-sm); max-width: 800px; margin: 0 auto; }
-    .tab-pane.active { display: block; }
-    .tab-pane h3 { font-size: 1.35rem; font-weight: 800; color: var(--purple-deep); margin-bottom: 12px; }
-    .tab-pane p { font-size: 0.95rem; color: var(--text-muted); line-height: 1.55; margin-bottom: 20px; }
-    .tab-list { list-style: none; display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; font-size: 0.88rem; color: var(--text); }
-    .tab-list li { background: var(--bg); border: 1px solid var(--border); padding: 10px 14px; border-radius: var(--radius-sm); }
-
-    /* 4 Projects */
-    .projs-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
-    .p-card { background: #fff; border: 1px solid var(--border); border-radius: var(--radius-md); padding: 28px 24px; box-shadow: var(--shadow-sm); }
-    .p-tag { font-size: 0.72rem; font-weight: 800; color: var(--accent); text-transform: uppercase; margin-bottom: 6px; }
-    .p-title { font-size: 1.25rem; font-weight: 800; color: var(--purple-deep); margin-bottom: 8px; }
-    .p-desc { font-size: 0.9rem; color: var(--text-muted); line-height: 1.5; }
-
-    /* Pricing Box */
-    .price-box { max-width: 520px; margin: 0 auto; background: #fff; border: 2px solid var(--accent); border-radius: var(--radius-lg); padding: 40px 32px; text-align: center; box-shadow: var(--shadow-md); }
-    .price-num { font-size: 3rem; font-weight: 800; color: var(--purple-deep); line-height: 1; margin: 12px 0 6px; }
-    .price-sub { font-size: 0.88rem; color: var(--text-light); margin-bottom: 24px; }
-    .price-features { list-style: none; display: flex; flex-direction: column; gap: 10px; font-size: 0.92rem; color: var(--text-muted); text-align: left; margin-bottom: 28px; padding-top: 18px; border-top: 1px solid var(--border); }
-
-    /* FAQ */
-    .faq-wrap { max-width: 720px; margin: 0 auto; display: flex; flex-direction: column; gap: 10px; }
-    .faq-item { background: #fff; border: 1px solid var(--border); border-radius: var(--radius-md); overflow: hidden; }
-    .faq-item.active { border-color: var(--accent); }
-    .faq-q { width: 100%; padding: 18px 22px; display: flex; justify-content: space-between; align-items: center; font-size: 1rem; font-weight: 700; color: var(--purple-deep); text-align: left; cursor: pointer; border: none; background: none; }
-    .faq-a { max-height: 0; overflow: hidden; transition: max-height 0.25s ease-out; padding: 0 22px; font-size: 0.92rem; color: var(--text-muted); line-height: 1.55; }
-    .faq-item.active .faq-a { padding: 0 22px 18px; max-height: 180px; }
-
-    .footer { background: var(--purple-deep); color: #fff; padding: 40px 0; text-align: center; font-size: 0.88rem; }
-    .footer a { color: #fff; margin: 0 10px; opacity: 0.8; }
-    .footer a:hover { opacity: 1; }
-
-    @media (max-width: 768px) {
-      .benefits-grid, .projs-grid, .tab-list { grid-template-columns: 1fr; }
-      .stats-strip { gap: 24px; }
+      --accent: var(--c-web);
+      --accent-soft: var(--c-web-soft);
     }
   </style>
 </head>
 <body>
 
-  <header class="nav">
+  <!-- ========== TOP ANNOUNCEMENT BAR ========== -->
+  <div class="top-bar">
+    <div class="container top-bar__inner">
+      <span class="top-bar__tag">Winter '26</span>
+      <span class="top-bar__text">Web Engineering Cohort · Live 1:8 mentor batches · Deploy 4 websites to live custom URLs.</span>
+      <a href="#pricing" class="top-bar__link">Enroll for ₹6,999 &rarr;</a>
+    </div>
+  </div>
+
+  <!-- ========== MAIN HEADER NAVIGATION ========== -->
+  <header class="nav" id="main-nav">
     <div class="container nav__inner">
-      <a href="index.html" class="nav__logo">
-        <img src="assets/logo.png" alt="Codju Logo" />
-        <span>Codju Academy</span>
-        <span class="nav__tag">HTML &amp; CSS Web</span>
+      
+      <a href="index.html" class="nav__brand">
+        <img src="assets/logo.png" alt="Codju" class="nav__brand-logo" />
+        <span class="nav__brand-divider"></span>
+        <span class="nav__brand-course-badge" style="background: var(--accent-soft); color: var(--accent);">HTML &amp; CSS</span>
       </a>
-      <div style="display: flex; gap: 12px; align-items: center;">
-        <a href="index.html" style="font-size: 0.9rem; font-weight: 600; color: var(--text-muted);">← All Courses</a>
-        <a href="#pricing" class="btn btn--accent">Enroll for ₹6,999</a>
+
+      <!-- Desktop Nav Links -->
+      <nav class="nav__menu-wrap">
+        <ul class="nav__menu">
+          
+          <li class="nav__item nav__item--has-dropdown">
+            <button type="button" class="nav__link-btn" aria-expanded="false">
+              <span>All Courses</span>
+              <svg class="nav__caret" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            
+            <div class="nav__dropdown">
+              <div class="dropdown__header">
+                <span class="dropdown__header-title">Browse By Child's Grade</span>
+                <a href="index.html#courses" class="dropdown__header-link">View All Tracks &rarr;</a>
+              </div>
+              <div class="dropdown__grid">
+                
+                <a href="Scratch Junior.dc.html" class="dropdown__card">
+                  <span class="dropdown__card-icon">🐱</span>
+                  <div class="dropdown__card-info">
+                    <span class="dropdown__card-grade">Grades 1–2 · Ages 6–8</span>
+                    <span class="dropdown__card-title">Scratch Junior</span>
+                    <span class="dropdown__card-desc">No typing · Visual logic &amp; story animation</span>
+                  </div>
+                </a>
+
+                <a href="Scratch.dc.html" class="dropdown__card">
+                  <span class="dropdown__card-icon">🕹️</span>
+                  <div class="dropdown__card-info">
+                    <span class="dropdown__card-grade">Grades 3–5 · Ages 8–11</span>
+                    <span class="dropdown__card-title">MIT Scratch</span>
+                    <span class="dropdown__card-desc">Build 4 playable arcade games &amp; physics</span>
+                  </div>
+                </a>
+
+                <a href="Python.dc.html" class="dropdown__card">
+                  <span class="dropdown__card-icon">🐍</span>
+                  <div class="dropdown__card-info">
+                    <span class="dropdown__card-grade">Grades 6–10 · Ages 11–16</span>
+                    <span class="dropdown__card-title">Python Programming</span>
+                    <span class="dropdown__card-desc">Real code syntax, algorithms &amp; automation</span>
+                  </div>
+                </a>
+
+                <a href="HTML and CSS.dc.html" class="dropdown__card active">
+                  <span class="dropdown__card-icon">🌐</span>
+                  <div class="dropdown__card-info">
+                    <span class="dropdown__card-grade">Grades 6–10 · Ages 11–16</span>
+                    <span class="dropdown__card-title">HTML &amp; CSS</span>
+                    <span class="dropdown__card-desc">Design &amp; publish live responsive websites</span>
+                  </div>
+                </a>
+
+              </div>
+
+              <a href="Codju AI Winter Camp.dc.html" class="dropdown__flagship">
+                <div>
+                  <div style="display: flex; align-items: center; gap: 8px;">
+                    <span class="dropdown__flagship-title">⭐ Codju AI Winter Camp</span>
+                    <span class="dropdown__flagship-pill">Flagship</span>
+                  </div>
+                  <div class="dropdown__flagship-sub">Grades 5–12 · Master 17+ GenAI tools with 20 portfolio projects</div>
+                </div>
+                <span style="font-size: 1.1rem; color: var(--gold);">&rarr;</span>
+              </a>
+            </div>
+          </li>
+
+          <li class="nav__item"><a href="#benefits" class="nav__link-btn">Outcomes</a></li>
+          <li class="nav__item"><a href="#curriculum" class="nav__link-btn">Curriculum</a></li>
+          <li class="nav__item"><a href="#projects" class="nav__link-btn">Live Sites</a></li>
+          <li class="nav__item"><a href="#pricing" class="nav__link-btn">Tuition</a></li>
+          <li class="nav__item"><a href="#faq" class="nav__link-btn">FAQ</a></li>
+
+        </ul>
+      </nav>
+
+      <!-- Right CTAs -->
+      <div class="nav__actions">
+        <a href="https://wa.me/918288863132?text=Hello%20Codju%2C%20inquiry%20about%20HTML%20and%20CSS%20Web%20Dev%20(Grades%206-10)" 
+           target="_blank" rel="noopener" class="btn-whatsapp">
+          <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.82 11.82 0 00-3.48-8.413z"/>
+          </svg>
+          <span class="wa-label-desktop">Chat with Advisor</span>
+          <span class="wa-label-compact">WhatsApp</span>
+          <span class="whatsapp-pulse"></span>
+        </a>
+
+        <a href="#pricing" class="btn btn--accent" style="padding: 9px 18px; font-size: 0.86rem;">
+          Enroll for ₹6,999 &rarr;
+        </a>
+
+        <button type="button" class="nav__mobile-toggle" id="mobile-toggle" aria-label="Open Navigation Menu">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
       </div>
+
     </div>
   </header>
 
-  <section class="hero">
-    <div class="container">
-      <div class="hero-badge">🌐 GRADES 6–10 · AGES 11–16 · DESIGN &amp; PUBLISH WEBSITES</div>
-      <h1 class="hero-title">Design &amp; Publish Real Websites. <br/><span>Live on the Web.</span></h1>
-      <p class="hero-sub">Move beyond templates. Master modern semantic HTML, CSS layout systems, responsive design, and publish 4 live web projects with custom links.</p>
-      
-      <div class="hero-actions">
-        <a href="#pricing" class="btn btn--accent" style="padding: 13px 28px; font-size: 1rem;">Enroll in Cohort · ₹6,999</a>
-        <a href="https://wa.me/918288863132?text=Hello%20Codju%2C%20HTML%20CSS%20inquiry" target="_blank" rel="noopener" class="btn" style="background:#fff; border:1px solid var(--border);">💬 Talk to Mentor</a>
+  <!-- Mobile Drawer Menu -->
+  <div class="mobile-drawer" id="mobile-drawer">
+    <div class="mobile-drawer__backdrop" id="drawer-backdrop"></div>
+    <div class="mobile-drawer__panel">
+      <div class="mobile-drawer__head">
+        <a href="index.html" class="nav__brand">
+          <img src="assets/logo.png" alt="Codju" class="nav__brand-logo" />
+          <span class="nav__brand-divider"></span>
+          <span class="nav__brand-badge">Academy</span>
+        </a>
+        <button type="button" class="mobile-drawer__close" id="drawer-close" aria-label="Close Navigation Menu">&times;</button>
       </div>
 
-      <div class="stats-strip">
-        <div><div class="stat-val">Ages 11–16</div><div class="stat-lbl">Grades 6 to 10</div></div>
-        <div><div class="stat-val">10 Sessions</div><div class="stat-lbl">5 Weeks</div></div>
-        <div><div class="stat-val">1:8 Ratio</div><div class="stat-lbl">Mentor Feedback</div></div>
-        <div><div class="stat-val">4 Sites</div><div class="stat-lbl">Live Deployed</div></div>
+      <div class="mobile-drawer__content">
+        <div class="mobile-group-title">LEARNING TRACKS</div>
+        <ul class="mobile-links">
+          <li>
+            <a href="Scratch Junior.dc.html" class="mobile-link">
+              <span class="mobile-icon">🐱</span>
+              <div>
+                <div class="mobile-link-main">Scratch Junior <span class="mobile-badge">Grades 1–2</span></div>
+                <div class="mobile-link-sub">Ages 6–8 · Visual drag &amp; drop stories</div>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="Scratch.dc.html" class="mobile-link">
+              <span class="mobile-icon">🕹️</span>
+              <div>
+                <div class="mobile-link-main">MIT Scratch <span class="mobile-badge">Grades 3–5</span></div>
+                <div class="mobile-link-sub">Ages 8–11 · 4 Playable arcade games</div>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="Python.dc.html" class="mobile-link">
+              <span class="mobile-icon">🐍</span>
+              <div>
+                <div class="mobile-link-main">Python Programming <span class="mobile-badge">Grades 6–10</span></div>
+                <div class="mobile-link-sub">Ages 11–16 · Real code syntax &amp; apps</div>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="HTML and CSS.dc.html" class="mobile-link active">
+              <span class="mobile-icon">🌐</span>
+              <div>
+                <div class="mobile-link-main">HTML &amp; CSS Web Dev <span class="mobile-badge">Grades 6–10</span></div>
+                <div class="mobile-link-sub">Ages 11–16 · Build live websites</div>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="Codju AI Winter Camp.dc.html" class="mobile-link mobile-link--ai">
+              <span class="mobile-icon">⭐</span>
+              <div>
+                <div class="mobile-link-main">Codju AI Winter Camp <span class="mobile-badge-gold">Flagship</span></div>
+                <div class="mobile-link-sub">Grades 5–12 · 17+ GenAI tools intensive</div>
+              </div>
+            </a>
+          </li>
+        </ul>
+
+        <div class="mobile-group-title" style="margin-top: 24px;">ON THIS PAGE</div>
+        <ul class="mobile-simple-links">
+          <li><a href="#benefits" class="drawer-nav-item">Core Skills</a></li>
+          <li><a href="#curriculum" class="drawer-nav-item">5-Week Curriculum</a></li>
+          <li><a href="#projects" class="drawer-nav-item">4 Live Websites</a></li>
+          <li><a href="#pricing" class="drawer-nav-item">Tuition Pass</a></li>
+          <li><a href="#faq" class="drawer-nav-item">Common Questions</a></li>
+        </ul>
+
+        <div class="mobile-actions">
+          <a href="#pricing" class="btn btn--accent drawer-nav-item" style="width: 100%; justify-content: center;">
+            Enroll for ₹6,999 &rarr;
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== COURSE HERO WITH INTERACTIVE DUAL-PANE WEB PREVIEW ========== -->
+  <section class="course-hero">
+    <div class="container">
+      <div class="course-hero-grid">
+        
+        <!-- Hero Details -->
+        <div>
+          <div class="course-badge">🌐 GRADES 6–10 · AGES 11–16 · DESIGN &amp; PUBLISH WEBSITES</div>
+          <h1 class="course-hero-title">Design &amp; Publish Real Websites. <br/><span>Live on the Web.</span></h1>
+          <p class="course-hero-sub">
+            Move beyond templates. Master modern semantic HTML, CSS layout systems, responsive design, and publish 4 live web projects with custom links.
+          </p>
+
+          <div class="course-hero-actions">
+            <a href="#pricing" class="btn btn--accent" style="padding: 13px 28px; font-size: 1rem;">
+              Enroll in Cohort · ₹6,999
+            </a>
+            <a href="https://wa.me/918288863132?text=Hello%20Codju%2C%20HTML%20CSS%20inquiry" target="_blank" rel="noopener" class="btn btn--ghost">
+              💬 Talk to Mentor
+            </a>
+          </div>
+
+          <div class="course-stats-strip">
+            <div>
+              <div class="c-stat-val">Ages 11–16</div>
+              <div class="c-stat-lbl">Grades 6 to 10</div>
+            </div>
+            <div>
+              <div class="c-stat-val">10 Sessions</div>
+              <div class="c-stat-lbl">5 Weeks</div>
+            </div>
+            <div>
+              <div class="c-stat-val">1:8 Ratio</div>
+              <div class="c-stat-lbl">Mentor Feedback</div>
+            </div>
+            <div>
+              <div class="c-stat-val">4 Sites</div>
+              <div class="c-stat-lbl">Live Deployed</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Interactive Visualizer: Live Dual-Pane Web Sandbox -->
+        <div class="visualizer-frame">
+          <div class="visualizer-header">
+            <div class="visualizer-dots">
+              <span class="visualizer-dot visualizer-dot--red"></span>
+              <span class="visualizer-dot visualizer-dot--yellow"></span>
+              <span class="visualizer-dot visualizer-dot--green"></span>
+            </div>
+            <div class="visualizer-title">portfolio.html — Live Preview Engine</div>
+            <button type="button" id="theme-toggle-btn" style="font-size: 0.72rem; font-weight: 700; color: var(--accent); background: #ffffff; padding: 2px 8px; border-radius: var(--radius-full); border: 1px solid var(--border);">
+              Toggle Dark/Light 🌓
+            </button>
+          </div>
+
+          <div class="visualizer-body" style="padding: 0;">
+            <div class="web-dual">
+              <!-- Mini Browser Chrome -->
+              <div class="browser-bar">
+                <span style="color: #64748b;">🔒</span>
+                <span class="browser-url">https://codju.com/student/alex-portfolio</span>
+                <span style="font-size: 0.7rem; color: #10b981; font-weight: 700;">● 200 OK</span>
+              </div>
+
+              <!-- Live Browser Canvas -->
+              <div class="browser-canvas" id="browser-canvas">
+                <div class="preview-portfolio-card" id="preview-card">
+                  <div style="display: flex; align-items: center; justify-content: center; gap: 8px; margin-bottom: 8px;">
+                    <span style="font-size: 1.6rem;">⚡</span>
+                    <h4 style="font-size: 1.15rem; font-weight: 800; margin: 0;">Alex Sharma</h4>
+                  </div>
+                  <p style="font-size: 0.82rem; color: var(--text-muted); margin-bottom: 12px;">Junior Frontend Engineer · Grade 8</p>
+                  
+                  <div style="display: flex; gap: 6px; justify-content: center; margin-bottom: 14px;">
+                    <span style="font-size: 0.7rem; background: rgba(234, 88, 12, 0.12); color: #ea580c; padding: 2px 8px; border-radius: 9999px; font-weight: 700;">HTML5</span>
+                    <span style="font-size: 0.7rem; background: rgba(59, 130, 246, 0.12); color: #2563eb; padding: 2px 8px; border-radius: 9999px; font-weight: 700;">CSS Flexbox</span>
+                    <span style="font-size: 0.7rem; background: rgba(16, 185, 129, 0.12); color: #059669; padding: 2px 8px; border-radius: 9999px; font-weight: 700;">Responsive</span>
+                  </div>
+
+                  <button type="button" class="btn btn--accent" style="padding: 6px 14px; font-size: 0.78rem; pointer-events: none;">
+                    Explore 4 Projects ➔
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div style="display: flex; justify-content: space-between; align-items: center; padding: 12px 18px; background: #ffffff; border-top: 1px solid var(--border);">
+              <span style="font-size: 0.78rem; color: var(--text-muted);">Real CSS Flexbox layout with responsive viewport:</span>
+              <span style="font-size: 0.76rem; font-weight: 700; color: #10b981;">✓ Live Internet Deployed</span>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
 
-  <!-- 3 Key Benefits -->
-  <section class="section" style="background: #fff; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
+  <!-- ========== 3 CORE SKILLS ========== -->
+  <section class="section" id="benefits" style="background: #ffffff; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
     <div class="container">
       <div class="section-head">
-        <h2 class="section-title">3 Core Skills</h2>
-        <p class="section-sub">Why learning authentic web development builds true creator independence.</p>
+        <span class="section-tag">AUTHENTIC WEB ENGINEERING</span>
+        <h2 class="section-title">3 Core Transformations</h2>
+        <p class="section-sub">Why learning real code builds genuine digital creator independence.</p>
       </div>
 
       <div class="benefits-grid">
         <div class="b-card">
           <div class="b-icon">⚡</div>
           <h3 class="b-title">Instant Visual Feedback</h3>
-          <p class="b-desc">Type code and immediately watch colors, typography, and structure update in real time in the browser.</p>
+          <p class="b-desc">Type code and watch typography, color gradients, and layout structure render live in real time in the browser.</p>
         </div>
+
         <div class="b-card">
           <div class="b-icon">📱</div>
-          <h3 class="b-title">Responsive Modern Layouts</h3>
-          <p class="b-desc">Master CSS Flexbox, grids, and mobile media queries so websites look stunning on phones, tablets, and laptops.</p>
+          <h3 class="b-title">Responsive CSS Flexbox</h3>
+          <p class="b-desc">Master modern CSS Flexbox and media queries so websites adapt seamlessly across mobile phones, iPads, and desktops.</p>
         </div>
+
         <div class="b-card">
           <div class="b-icon">🚀</div>
-          <h3 class="b-title">Real Live Web Hosting</h3>
-          <p class="b-desc">Every student deploys their creations online with live shareable links for family, friends, and school portfolios.</p>
+          <h3 class="b-title">Live Global Deployment</h3>
+          <p class="b-desc">Every student publishes their websites online with custom shareable links ready for school showcases and university portfolios.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 5 Modules (Tabs) -->
-  <section class="section">
+  <!-- ========== 5-MODULE INTERACTIVE CURRICULUM ========== -->
+  <section class="section" id="curriculum">
     <div class="container">
       <div class="section-head">
+        <span class="section-tag">STRUCTURED SYLLABUS</span>
         <h2 class="section-title">5-Week Curriculum</h2>
-        <p class="section-sub">Hands-on, project-driven progression from first tag to live deployment.</p>
+        <p class="section-sub">A hands-on, project-driven progression from your first HTML tag to live web deployment.</p>
       </div>
 
-      <div class="tabs-nav">
-        <button class="tab-btn active" onclick="openModule(0)">Week 1: HTML Structure</button>
-        <button class="tab-btn" onclick="openModule(1)">Week 2: CSS Box Model</button>
-        <button class="tab-btn" onclick="openModule(2)">Week 3: Modern Flexbox</button>
-        <button class="tab-btn" onclick="openModule(3)">Week 4: Mobile &amp; Polish</button>
-        <button class="tab-btn" onclick="openModule(4)">Week 5: Live Publish</button>
-      </div>
+      <div class="curriculum-stepper">
+        <!-- Module Selector Stepper -->
+        <div class="stepper-nav" role="tablist">
+          <button type="button" class="step-btn active" data-step="m1" role="tab" aria-selected="true">
+            <div class="step-num">Week 1</div>
+            <div class="step-label">HTML Semantics</div>
+          </button>
+          <button type="button" class="step-btn" data-step="m2" role="tab" aria-selected="false">
+            <div class="step-num">Week 2</div>
+            <div class="step-label">CSS Box Model</div>
+          </button>
+          <button type="button" class="step-btn" data-step="m3" role="tab" aria-selected="false">
+            <div class="step-num">Week 3</div>
+            <div class="step-label">Modern Flexbox</div>
+          </button>
+          <button type="button" class="step-btn" data-step="m4" role="tab" aria-selected="false">
+            <div class="step-num">Week 4</div>
+            <div class="step-label">Mobile Styling</div>
+          </button>
+          <button type="button" class="step-btn" data-step="m5" role="tab" aria-selected="false">
+            <div class="step-num">Week 5</div>
+            <div class="step-label">Live Hosting</div>
+          </button>
+        </div>
 
-      <div class="tab-pane active" id="pane-0">
-        <h3>Week 1: HTML Foundations &amp; Semantics</h3>
-        <p>Learn how the web works. Structure documents with headings, paragraphs, multimedia tags, hyperlinks, and semantic containers.</p>
-        <ul class="tab-list">
-          <li>✓ Tags, elements, and attributes</li>
-          <li>✓ Hyperlinks &amp; navigation anchors</li>
-          <li>✓ Embedding images &amp; videos</li>
-          <li>✓ Semantic HTML5 hierarchy</li>
-        </ul>
-      </div>
+        <!-- Curriculum Content Container -->
+        <div class="curriculum-panel">
+          
+          <!-- Week 1 -->
+          <div class="curr-pane active" id="m1">
+            <div class="curr-head">
+              <div>
+                <h3 class="curr-title">Week 1: HTML5 Foundations &amp; Document Anatomy</h3>
+                <p class="curr-desc">Understand how the internet operates. Structure pages with headings, multimedia image tags, hyperlinks, and semantic hierarchy.</p>
+              </div>
+              <span class="curr-badge">Sessions 1 &amp; 2</span>
+            </div>
+            <div class="curr-grid">
+              <div class="curr-item"><span>✓</span> HTML5 elements, tags, and attributes</div>
+              <div class="curr-item"><span>✓</span> Hyperlinks, anchors &amp; smooth page scrolling</div>
+              <div class="curr-item"><span>✓</span> Embedding web images, icons, and audio</div>
+              <div class="curr-item"><span>✓</span> Semantic tags: header, main, section, footer</div>
+            </div>
+            <div class="curr-milestone">
+              <span class="curr-milestone-icon">🎯</span>
+              <div class="curr-milestone-text"><strong>Module Project:</strong> Personal Creator Bio &amp; Achievements Page</div>
+            </div>
+          </div>
 
-      <div class="tab-pane" id="pane-1">
-        <h3>Week 2: CSS Box Model &amp; Visual Styling</h3>
-        <p>Bring pages to life with color theory, Google Fonts typography, borders, margins, padding, and CSS selectors.</p>
-        <ul class="tab-list">
-          <li>✓ Margins, padding, and borders</li>
-          <li>✓ Web typography and Google Fonts</li>
-          <li>✓ Color palettes and gradients</li>
-          <li>✓ Class and ID selectors</li>
-        </ul>
-      </div>
+          <!-- Week 2 -->
+          <div class="curr-pane" id="m2">
+            <div class="curr-head">
+              <div>
+                <h3 class="curr-title">Week 2: CSS Box Model &amp; Modern Typography</h3>
+                <p class="curr-desc">Transform raw HTML into visually stunning layouts with Google Fonts typography, color palettes, borders, padding, and margins.</p>
+              </div>
+              <span class="curr-badge">Sessions 3 &amp; 4</span>
+            </div>
+            <div class="curr-grid">
+              <div class="curr-item"><span>✓</span> The CSS Box Model (Margin, Border, Padding)</div>
+              <div class="curr-item"><span>✓</span> Pairing modern Google Fonts &amp; letter-spacing</div>
+              <div class="curr-item"><span>✓</span> Sleek gradient overlays &amp; hex/hsl palettes</div>
+              <div class="curr-item"><span>✓</span> Targeted class and ID selectors</div>
+            </div>
+            <div class="curr-milestone">
+              <span class="curr-milestone-icon">🎯</span>
+              <div class="curr-milestone-text"><strong>Module Project:</strong> Celebrity / Athlete Multimedia Tribute Fan Page</div>
+            </div>
+          </div>
 
-      <div class="tab-pane" id="pane-2">
-        <h3>Week 3: Modern Flexbox &amp; Card Layouts</h3>
-        <p>Master the layout engine used by modern websites like Apple and Netflix. Build responsive navigation bars and multi-column grids.</p>
-        <ul class="tab-list">
-          <li>✓ Flex containers &amp; alignment</li>
-          <li>✓ Responsive multi-column grids</li>
-          <li>✓ Navigation headers &amp; footers</li>
-          <li>✓ Spacing and distribution control</li>
-        </ul>
-      </div>
+          <!-- Week 3 -->
+          <div class="curr-pane" id="m3">
+            <div class="curr-head">
+              <div>
+                <h3 class="curr-title">Week 3: Flexbox Architecture &amp; Navigation Bars</h3>
+                <p class="curr-desc">Master the layout engine powering top modern websites. Build responsive multi-column card grids, navigation bars, and sticky footers.</p>
+              </div>
+              <span class="curr-badge">Sessions 5 &amp; 6</span>
+            </div>
+            <div class="curr-grid">
+              <div class="curr-item"><span>✓</span> Flex container axes &amp; justify-content</div>
+              <div class="curr-item"><span>✓</span> Align-items &amp; responsive wrapping grids</div>
+              <div class="curr-item"><span>✓</span> Professional header navigation bars</div>
+              <div class="curr-item"><span>✓</span> Gap spacing &amp; modern card bento grids</div>
+            </div>
+            <div class="curr-milestone">
+              <span class="curr-milestone-icon">🎯</span>
+              <div class="curr-milestone-text"><strong>Module Project:</strong> EcoPlanet Campaign Landing Page with Action CTA</div>
+            </div>
+          </div>
 
-      <div class="tab-pane" id="pane-3">
-        <h3>Week 4: Mobile Responsiveness &amp; Interactions</h3>
-        <p>Make sites adapt flawlessly to any screen size. Add smooth button hover animations, transitions, and mobile menu styling.</p>
-        <ul class="tab-list">
-          <li>✓ Media queries for mobile &amp; tablet</li>
-          <li>✓ CSS transitions and hover states</li>
-          <li>✓ Drop shadows and modern cards</li>
-          <li>✓ Cross-browser inspection tools</li>
-        </ul>
-      </div>
+          <!-- Week 4 -->
+          <div class="curr-pane" id="m4">
+            <div class="curr-head">
+              <div>
+                <h3 class="curr-title">Week 4: Mobile Responsiveness &amp; Micro-Animations</h3>
+                <p class="curr-desc">Ensure websites render crisply on smartphones and tablets. Program CSS hover micro-interactions, elevation transitions, and shadows.</p>
+              </div>
+              <span class="curr-badge">Sessions 7 &amp; 8</span>
+            </div>
+            <div class="curr-grid">
+              <div class="curr-item"><span>✓</span> Mobile-first viewport media queries (@media)</div>
+              <div class="curr-item"><span>✓</span> CSS transitions &amp; interactive hover elevations</div>
+              <div class="curr-item"><span>✓</span> Smooth drop shadows &amp; glassmorphism filters</div>
+              <div class="curr-item"><span>✓</span> Chrome DevTools inspection &amp; responsive testing</div>
+            </div>
+            <div class="curr-milestone">
+              <span class="curr-milestone-icon">🎯</span>
+              <div class="curr-milestone-text"><strong>Module Project:</strong> Responsive Multi-Device Arcade Hub Portal</div>
+            </div>
+          </div>
 
-      <div class="tab-pane" id="pane-4">
-        <h3>Week 5: Capstone Project &amp; Live Web Hosting</h3>
-        <p>Code an original multi-page website from scratch, perform code reviews, and deploy it live to the internet with a public link.</p>
-        <ul class="tab-list">
-          <li>✓ End-to-end multi-page build</li>
-          <li>✓ Live deployment on GitHub/Vercel</li>
-          <li>✓ Custom shareable portfolio link</li>
-          <li>✓ Capstone showcase &amp; certificate</li>
-        </ul>
+          <!-- Week 5 -->
+          <div class="curr-pane" id="m5">
+            <div class="curr-head">
+              <div>
+                <h3 class="curr-title">Week 5: Capstone Build &amp; Live Cloud Deployment</h3>
+                <p class="curr-desc">Code an original multi-page portfolio website from scratch, perform peer code reviews, and publish live to GitHub / Netlify.</p>
+              </div>
+              <span class="curr-badge">Sessions 9 &amp; 10</span>
+            </div>
+            <div class="curr-grid">
+              <div class="curr-item"><span>✓</span> Multi-page site linking &amp; folder architecture</div>
+              <div class="curr-item"><span>✓</span> Free live web deployment on GitHub Pages</div>
+              <div class="curr-item"><span>✓</span> Custom permanent student portfolio URL</div>
+              <div class="curr-item"><span>✓</span> Verified certificate graduation ceremony</div>
+            </div>
+            <div class="curr-milestone">
+              <span class="curr-milestone-icon">🎯</span>
+              <div class="curr-milestone-text"><strong>Module Project:</strong> Permanent Live Hosted Student Portfolio Showcase</div>
+            </div>
+          </div>
+
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- 4 Projects -->
-  <section class="section" style="background: #fff; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
+  <!-- ========== 4 STUDENT WEBSITES SHOWCASE ========== -->
+  <section class="section" id="projects" style="background: #ffffff; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
     <div class="container">
       <div class="section-head">
+        <span class="section-tag">STUDENT PORTFOLIO</span>
         <h2 class="section-title">4 Portfolio Websites Built</h2>
-        <p class="section-sub">Real websites created line-by-line and deployed online.</p>
+        <p class="section-sub">Real websites coded line-by-line and deployed to the live internet.</p>
       </div>
 
       <div class="projs-grid">
-        <div class="p-card">
-          <div class="p-tag">Project 1</div>
-          <h3 class="p-title">Personal Creator Portfolio</h3>
-          <p class="p-desc">A personal website introducing hobbies, achievements, bio, and social links with modern styling and typography.</p>
+        <div class="p-card-showcase">
+          <div>
+            <div class="p-tag">Project 01 · Bio Site</div>
+            <h3 class="p-title">Personal Creator Portfolio</h3>
+            <p class="p-desc">A personal website introducing hobbies, achievements, bio, and social links with modern typography and card styling.</p>
+          </div>
+          <div class="p-skills">
+            <span class="p-skill-pill">HTML5 Semantics</span>
+            <span class="p-skill-pill">Google Fonts</span>
+            <span class="p-skill-pill">Box Model</span>
+          </div>
         </div>
-        <div class="p-card">
-          <div class="p-tag">Project 2</div>
-          <h3 class="p-title">Athlete / Celebrity Fan Page</h3>
-          <p class="p-desc">A multimedia tribute site featuring embedded video highlights, career stat tables, and an interactive photo gallery.</p>
+
+        <div class="p-card-showcase">
+          <div>
+            <div class="p-tag">Project 02 · Tribute Page</div>
+            <h3 class="p-title">Athlete / Celebrity Fan Page</h3>
+            <p class="p-desc">A multimedia tribute site featuring embedded video highlights, career stat tables, and an interactive image gallery.</p>
+          </div>
+          <div class="p-skills">
+            <span class="p-skill-pill">Media Embedding</span>
+            <span class="p-skill-pill">CSS Gradients</span>
+            <span class="p-skill-pill">Card Grid</span>
+          </div>
         </div>
-        <div class="p-card">
-          <div class="p-tag">Project 3</div>
-          <h3 class="p-title">EcoPlanet Campaign Landing Page</h3>
-          <p class="p-desc">A high-impact cause landing page with hero banners, statistics cards, and an interactive call-to-action layout.</p>
+
+        <div class="p-card-showcase">
+          <div>
+            <div class="p-tag">Project 03 · Cause Campaign</div>
+            <h3 class="p-title">EcoPlanet Campaign Landing Page</h3>
+            <p class="p-desc">A high-impact environmental cause landing page with hero banners, statistics cards, and an interactive petition CTA layout.</p>
+          </div>
+          <div class="p-skills">
+            <span class="p-skill-pill">Flexbox Layout</span>
+            <span class="p-skill-pill">Interactive CTA</span>
+            <span class="p-skill-pill">Spacing Control</span>
+          </div>
         </div>
-        <div class="p-card">
-          <div class="p-tag">Project 4 · Capstone</div>
-          <h3 class="p-title">Retro 90s Arcade Hub</h3>
-          <p class="p-desc">A multi-page gaming portal showcasing games, descriptions, leaderboard grids, and responsive desktop/mobile views.</p>
+
+        <div class="p-card-showcase">
+          <div>
+            <div class="p-tag">Project 04 · Capstone Hub</div>
+            <h3 class="p-title">Retro 90s Arcade Gaming Portal</h3>
+            <p class="p-desc">A multi-page gaming portal showcasing games, descriptions, leaderboard grids, and responsive desktop/mobile views.</p>
+          </div>
+          <div class="p-skills">
+            <span class="p-skill-pill">Media Queries</span>
+            <span class="p-skill-pill">Multi-Page Architecture</span>
+            <span class="p-skill-pill">Live Deployed</span>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Pricing -->
+  <!-- ========== PRICING & ENROLMENT ========== -->
   <section class="section" id="pricing">
     <div class="container">
       <div class="price-box">
-        <span style="font-size: 0.78rem; font-weight: 800; color: var(--accent); text-transform: uppercase;">Winter Cohort Enrolling</span>
+        <span class="price-tag">Full Access Cohort</span>
         <div class="price-num">₹6,999</div>
-        <p class="price-sub">+ GST · 5 Weeks · 10 Live Sessions · 1:8 Ratio</p>
+        <div class="price-sub">5 Weeks · 10 Live Sessions · +18% GST</div>
         
         <ul class="price-features">
-          <li>✓ 10 live interactive mentor sessions (1:8 ratio)</li>
-          <li>✓ 4 fully coded and published live websites</li>
-          <li>✓ Lifetime access to session recordings &amp; starter code</li>
-          <li>✓ Personal portfolio URL to share with school &amp; admissions</li>
-          <li>✓ Verified Codju Web Developer Certificate</li>
+          <li>
+            <span class="price-check">✓</span>
+            <span><strong>10 Live Sessions</strong> (60 mins each, twice a week)</span>
+          </li>
+          <li>
+            <span class="price-check">✓</span>
+            <span><strong>Strictly 1:8 Cohort</strong> with direct mentor code feedback</span>
+          </li>
+          <li>
+            <span class="price-check">✓</span>
+            <span><strong>4 Fully Coded &amp; Deployed Websites</strong> on live internet</span>
+          </li>
+          <li>
+            <span class="price-check">✓</span>
+            <span><strong>Free Cloud Hosting &amp; GitHub Starter Code</strong> included</span>
+          </li>
+          <li>
+            <span class="price-check">✓</span>
+            <span><strong>Verified Certificate &amp; Public Portfolio URL</strong> for school resumes</span>
+          </li>
         </ul>
 
-        <div style="display: flex; flex-direction: column; gap: 10px;">
-          <a href="https://wa.me/918288863132?text=I%20want%20to%20enroll%20in%20Codju%20HTML%20CSS%20course" target="_blank" rel="noopener" class="btn btn--accent" style="padding: 14px; font-size: 1rem;">Enroll Now · ₹6,999</a>
-          <a href="https://wa.me/918288863132?text=I%20have%20questions%20about%20Codju%20HTML%20CSS" target="_blank" rel="noopener" class="btn" style="background: var(--bg); border: 1px solid var(--border);">Chat on WhatsApp</a>
+        <a href="https://wa.me/918288863132?text=Hello%20Codju%2C%20enroll%20in%20HTML%20CSS%20(₹6,999)" 
+           target="_blank" rel="noopener" class="btn btn--accent" style="width: 100%; padding: 14px; font-size: 1rem;">
+          Enroll in HTML &amp; CSS Track &rarr;
+        </a>
+
+        <div class="price-guarantee">
+          🛡️ 100% Session Replay Guarantee · Rescheduling support for missed classes
         </div>
       </div>
     </div>
   </section>
 
-  <!-- FAQ -->
-  <section class="section" style="background: #fff; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
+  <!-- ========== FAQ ACCORDION ========== -->
+  <section class="section" id="faq" style="background: #ffffff; border-top: 1px solid var(--border);">
     <div class="container">
       <div class="section-head">
+        <span class="section-tag">COMMON QUERIES</span>
         <h2 class="section-title">Frequently Asked Questions</h2>
-        <p class="section-sub">Clear answers for parents and young builders.</p>
       </div>
 
       <div class="faq-wrap">
-        <div class="faq-item">
-          <button class="faq-q" onclick="toggleFaq(this)">Does my child need prior coding experience? <span>+</span></button>
-          <div class="faq-a">No prior experience required. HTML &amp; CSS is the friendliest entry point into real text-based coding because changes appear instantly on screen.</div>
+        <div class="faq-item active">
+          <button class="faq-q">
+            <span>Does my child need prior coding experience?</span>
+            <span class="faq-sign">+</span>
+          </button>
+          <div class="faq-a">
+            No prior experience is required! HTML &amp; CSS is universally recognized as the friendliest entry point into authentic code because visual modifications appear instantly in the browser.
+          </div>
         </div>
+
         <div class="faq-item">
-          <button class="faq-q" onclick="toggleFaq(this)">What device or tools are required? <span>+</span></button>
-          <div class="faq-a">Any laptop, Mac, PC, or Chromebook with Google Chrome and VS Code (or a browser-based editor). No powerful hardware required.</div>
+          <button class="faq-q">
+            <span>What computer equipment is required?</span>
+            <span class="faq-sign">+</span>
+          </button>
+          <div class="faq-a">
+            Any standard laptop or desktop (Windows, Mac, or Chromebook) equipped with Google Chrome. No expensive hardware or paid software licenses are necessary.
+          </div>
         </div>
+
         <div class="faq-item">
-          <button class="faq-q" onclick="toggleFaq(this)">Will the websites be viewable on the live internet? <span>+</span></button>
-          <div class="faq-a">Yes! Every student publishes their websites online with a live public URL that can be shared with family, friends, and included in school resumes.</div>
+          <button class="faq-q">
+            <span>Will the websites be accessible on the live public internet?</span>
+            <span class="faq-sign">+</span>
+          </button>
+          <div class="faq-a">
+            Yes! In Week 5, every student deploys their creations live to the internet with a public web URL ready to be shared with family, friends, and admissions officers.
+          </div>
         </div>
+
         <div class="faq-item">
-          <button class="faq-q" onclick="toggleFaq(this)">What happens if my child misses a live session? <span>+</span></button>
-          <div class="faq-a">All live classes are recorded in HD and shared immediately along with lesson notes. Students also get 1-on-1 mentor support to catch up.</div>
+          <button class="faq-q">
+            <span>What happens if my child misses a live session?</span>
+            <span class="faq-sign">+</span>
+          </button>
+          <div class="faq-a">
+            All live classes are recorded in HD and available in your student portal within 2 hours, alongside project starter code and recap walkthrough notes.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q">
+            <span>What is the next step after learning HTML &amp; CSS?</span>
+            <span class="faq-sign">+</span>
+          </button>
+          <div class="faq-a">
+            Graduates can progress into JavaScript to add advanced logic, or explore Python and Generative AI application development.
+          </div>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- ========== UNIFIED FOOTER ========== -->
   <footer class="footer">
     <div class="container">
-      <p style="margin-bottom: 12px; font-weight: 700;">Codju Academy — Empowering the Next Generation of Builders</p>
-      <div>
-        <a href="index.html">Home</a>
-        <a href="Scratch Junior.dc.html">Scratch Junior</a>
-        <a href="Scratch.dc.html">Scratch</a>
-        <a href="Python.dc.html">Python</a>
-        <a href="Codju AI Winter Camp.dc.html">AI Winter Camp</a>
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <strong>Codju Academy</strong>
+          <span>HTML &amp; CSS Track · Empowering future digital designers.</span>
+        </div>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="Scratch Junior.dc.html">Scratch Jr</a></li>
+          <li><a href="Scratch.dc.html">Scratch</a></li>
+          <li><a href="Python.dc.html">Python</a></li>
+          <li><a href="HTML and CSS.dc.html" class="active">HTML &amp; CSS</a></li>
+          <li><a href="Codju AI Winter Camp.dc.html" style="color: var(--gold);">AI Winter Camp</a></li>
+        </ul>
       </div>
-      <p style="margin-top: 20px; font-size: 0.8rem; opacity: 0.6;">© 2026 Codju Academy. All rights reserved.</p>
+      <div class="footer-bottom">
+        <div>&copy; 2026 Codju EdTech Pvt Ltd. All rights reserved.</div>
+        <div>Helpline: +91 82888 63132 · info@codju.com</div>
+      </div>
     </div>
   </footer>
 
   <script>
-    function openModule(idx) {
-      document.querySelectorAll('.tab-btn').forEach((b, i) => b.classList.toggle('active', i === idx));
-      document.querySelectorAll('.tab-pane').forEach((p, i) => p.classList.toggle('active', i === idx));
+    // --- Mobile Drawer Controller ---
+    const mobileToggle = document.getElementById('mobile-toggle');
+    const mobileDrawer = document.getElementById('mobile-drawer');
+    const drawerClose = document.getElementById('drawer-close');
+    const drawerBackdrop = document.getElementById('drawer-backdrop');
+
+    function openDrawer() {
+      if (mobileDrawer) {
+        mobileDrawer.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      }
+    }
+    function closeDrawer() {
+      if (mobileDrawer) {
+        mobileDrawer.classList.remove('open');
+        document.body.style.overflow = '';
+      }
     }
 
-    function toggleFaq(btn) {
-      const item = btn.parentElement;
-      const wasActive = item.classList.contains('active');
-      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
-      if (!wasActive) item.classList.add('active');
+    if (mobileToggle) mobileToggle.addEventListener('click', openDrawer);
+    if (drawerClose) drawerClose.addEventListener('click', closeDrawer);
+    if (drawerBackdrop) drawerBackdrop.addEventListener('click', closeDrawer);
+    document.querySelectorAll('.drawer-nav-item, .mobile-link').forEach(l => l.addEventListener('click', closeDrawer));
+
+    // --- Interactive Stepper Curriculum Explorer ---
+    const stepBtns = document.querySelectorAll('.step-btn');
+    const currPanes = document.querySelectorAll('.curr-pane');
+
+    stepBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const target = btn.dataset.step;
+        stepBtns.forEach(b => {
+          b.classList.remove('active');
+          b.setAttribute('aria-selected', 'false');
+        });
+        currPanes.forEach(p => p.classList.remove('active'));
+
+        btn.classList.add('active');
+        btn.setAttribute('aria-selected', 'true');
+        const activePane = document.getElementById(target);
+        if (activePane) activePane.classList.add('active');
+      });
+    });
+
+    // --- FAQ Accordion ---
+    document.querySelectorAll('.faq-q').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.closest('.faq-item');
+        const active = item.classList.contains('active');
+        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+        if (!active) item.classList.add('active');
+      });
+    });
+
+    // --- Live Theme Toggle for Web Preview Canvas ---
+    const themeBtn = document.getElementById('theme-toggle-btn');
+    const canvas = document.getElementById('browser-canvas');
+    let isDark = false;
+
+    if (themeBtn && canvas) {
+      themeBtn.addEventListener('click', () => {
+        isDark = !isDark;
+        canvas.classList.toggle('dark', isDark);
+        themeBtn.textContent = isDark ? 'Mode: 🌙 Dark' : 'Mode: ☀️ Light';
+      });
     }
   </script>
 </body>
