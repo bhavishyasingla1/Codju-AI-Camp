@@ -3,1090 +3,1589 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Codju Winter Fest — Turn Screen Time Into Creation Time</title>
-  <meta name="description" content="Codju Winter Fest: A beginner-friendly live coding and AI camp for students in Grades 1–10. Learn ScratchJr, Scratch, Python and AI through hands-on projects." />
-  <meta name="keywords" content="Codju Winter Fest, coding camp for kids, ScratchJr, Scratch, Python, AI for school students, winter coding camp, Grades 1-10" />
+  <title>Codju Academy — Future-Ready Coding & AI Tracks for Grades 1–12</title>
+  <meta name="description" content="Codju Academy offers outcome-driven, live mentor-led coding and AI tracks for school students. Explore Scratch Junior, Scratch, Python, HTML & CSS, and the AI Winter Camp." />
+  <meta name="keywords" content="Codju Academy, coding for kids, Scratch Junior, Scratch, Python for schools, HTML CSS web development, AI camp for students" />
   <meta name="author" content="Codju" />
-  <link rel="canonical" href="https://codju.com/" />
-  
-  <!-- Open Graph / Facebook -->
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://codju.com/" />
-  <meta property="og:title" content="Codju Winter Fest — Turn Screen Time Into Creation Time" />
-  <meta property="og:description" content="A beginner-friendly live coding and AI camp for students in Grades 1–10. 4–5 Live Weekend Sessions on YouTube with hands-on projects." />
-  <meta property="og:image" content="assets/DP%20panda.png" />
+  <link rel="icon" type="image/png" href="assets/logo.png" />
+  <style>
+    /* ==========================================================================
+       SHARED DESIGN SYSTEM — CODJU ACADEMY
+       Apple system font stack, deep purple & cream palette, warm gold accent
+       ========================================================================== */
+    :root {
+      --font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      --color-brand-deep: #2c0a78;
+      --color-brand-purple: #7c3aed;
+      --color-brand-purple-light: #9061f9;
+      --color-brand-lavender: #f3e8ff;
+      --color-brand-cream: #fdf9f3;
+      --color-brand-warm: #f7d56a;
+      --color-brand-amber: #f59e0b;
+      --color-bg-page: #fdf9f3;
+      --color-bg-surface: #ffffff;
+      --color-text-primary: #180838;
+      --color-text-secondary: #554d66;
+      --color-text-muted: #827b93;
+      --color-border: rgba(44, 10, 120, 0.08);
+      --color-border-hover: rgba(124, 58, 237, 0.25);
+      --color-shadow: rgba(44, 10, 120, 0.06);
+      --color-shadow-lg: rgba(44, 10, 120, 0.12);
+      
+      /* Course Accents */
+      --accent-scratchjr: #ff7a45;
+      --accent-scratch: #4d97ff;
+      --accent-python: #306998;
+      --accent-web: #e34f26;
+      --accent-aicamp: #7c3aed;
+      
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+      --radius-xl: 28px;
+      --radius-full: 9999px;
+      --transition-base: 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+      --max-width: 1240px;
+    }
 
-  <!-- Twitter -->
-  <meta property="twitter:card" content="summary_large_image" />
-  <meta property="twitter:url" content="https://codju.com/" />
-  <meta property="twitter:title" content="Codju Winter Fest — Turn Screen Time Into Creation Time" />
-  <meta property="twitter:description" content="A beginner-friendly live coding and AI camp for students in Grades 1–10. 4–5 Live Weekend Sessions on YouTube with hands-on projects." />
-  <meta property="twitter:image" content="assets/DP%20panda.png" />
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-  <!-- Structured Data / JSON-LD -->
-  <script type="application/ld+json">
-  [
-    {
-      "@context": "https://schema.org",
-      "@type": "Course",
-      "name": "Codju Winter Fest",
-      "description": "A beginner-friendly live coding and AI camp for students in Grades 1–10 covering ScratchJr, Scratch, Python and AI in dedicated live sessions.",
-      "provider": {
-        "@type": "Organization",
-        "name": "Codju",
-        "sameAs": "https://codju.com"
-      },
-      "offers": {
-        "@type": "Offer",
-        "price": "999",
-        "priceCurrency": "INR"
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      font-family: var(--font-family);
+      background-color: var(--color-bg-page);
+      color: var(--color-text-primary);
+      line-height: 1.55;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    button {
+      font-family: inherit;
+      cursor: pointer;
+      border: none;
+      background: none;
+    }
+
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* --- Navigation Bar --- */
+    .site-nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(253, 249, 243, 0.92);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--color-border);
+      transition: background var(--transition-base), box-shadow var(--transition-base);
+    }
+
+    .site-nav__inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 14px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand-logo-wrap {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      font-size: 1.25rem;
+      letter-spacing: -0.02em;
+      color: var(--color-brand-deep);
+    }
+
+    .brand-logo-img {
+      height: 40px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    .brand-badge {
+      font-size: 0.72rem;
+      font-weight: 700;
+      background: var(--color-brand-lavender);
+      color: var(--color-brand-purple);
+      padding: 3px 8px;
+      border-radius: var(--radius-full);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      list-style: none;
+    }
+
+    .nav-link {
+      font-size: 0.94rem;
+      font-weight: 600;
+      color: var(--color-text-secondary);
+      transition: color var(--transition-base);
+      position: relative;
+    }
+
+    .nav-link:hover, .nav-link.active {
+      color: var(--color-brand-purple);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-weight: 600;
+      font-size: 0.92rem;
+      padding: 10px 20px;
+      border-radius: var(--radius-full);
+      transition: all var(--transition-base);
+      white-space: nowrap;
+      text-decoration: none;
+    }
+
+    .btn--primary {
+      background: linear-gradient(135deg, var(--color-brand-purple) 0%, var(--color-brand-deep) 100%);
+      color: #ffffff;
+      box-shadow: 0 4px 14px rgba(124, 58, 237, 0.28);
+    }
+
+    .btn--primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(124, 58, 237, 0.38);
+    }
+
+    .btn--outline {
+      border: 1.5px solid var(--color-border);
+      color: var(--color-brand-deep);
+      background: #ffffff;
+    }
+
+    .btn--outline:hover {
+      border-color: var(--color-brand-purple);
+      color: var(--color-brand-purple);
+      background: var(--color-brand-lavender);
+    }
+
+    .btn--whatsapp {
+      background: #25d366;
+      color: #ffffff;
+      box-shadow: 0 4px 12px rgba(37, 211, 102, 0.25);
+    }
+
+    .btn--whatsapp:hover {
+      background: #22bf5b;
+      transform: translateY(-1px);
+    }
+
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      padding: 8px;
+    }
+
+    .menu-toggle span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--color-brand-deep);
+      border-radius: 2px;
+      transition: all var(--transition-base);
+    }
+
+    /* --- Hero Section --- */
+    .hero {
+      position: relative;
+      padding: 72px 0 56px;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .hero__ambient {
+      position: absolute;
+      top: -20%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 760px;
+      height: 480px;
+      background: radial-gradient(circle, rgba(124, 58, 237, 0.12) 0%, rgba(247, 213, 106, 0.08) 50%, transparent 70%);
+      filter: blur(60px);
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #ffffff;
+      border: 1px solid var(--color-border-hover);
+      padding: 6px 16px;
+      border-radius: var(--radius-full);
+      font-size: 0.84rem;
+      font-weight: 700;
+      color: var(--color-brand-purple);
+      margin-bottom: 22px;
+      box-shadow: 0 2px 8px rgba(124, 58, 237, 0.08);
+    }
+
+    .hero-title {
+      font-size: clamp(2.4rem, 5.5vw, 4.2rem);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.035em;
+      color: var(--color-brand-deep);
+      max-width: 920px;
+      margin: 0 auto 20px;
+    }
+
+    .hero-title .gradient-text {
+      background: linear-gradient(135deg, #7c3aed 0%, #2c0a78 60%, #ff7a45 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-subtitle {
+      font-size: clamp(1.05rem, 2vw, 1.3rem);
+      color: var(--color-text-secondary);
+      max-width: 760px;
+      margin: 0 auto 36px;
+      line-height: 1.6;
+    }
+
+    .hero-cta-group {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 48px;
+    }
+
+    /* Stats Bar */
+    .stats-bar {
+      background: #ffffff;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-xl);
+      padding: 24px 32px;
+      box-shadow: 0 10px 30px var(--color-shadow);
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      max-width: 1040px;
+      margin: 0 auto;
+    }
+
+    .stat-card {
+      text-align: center;
+      position: relative;
+    }
+
+    .stat-card:not(:last-child)::after {
+      content: "";
+      position: absolute;
+      right: 0;
+      top: 15%;
+      height: 70%;
+      width: 1px;
+      background: var(--color-border);
+    }
+
+    .stat-number {
+      font-size: clamp(1.7rem, 3vw, 2.4rem);
+      font-weight: 800;
+      color: var(--color-brand-deep);
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+    }
+
+    .stat-label {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--color-text-muted);
+      margin-top: 4px;
+    }
+
+    /* Section Styling */
+    .section {
+      padding: 88px 0;
+      position: relative;
+    }
+
+    .section--white {
+      background: #ffffff;
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 720px;
+      margin: 0 auto 56px;
+    }
+
+    .section-tag {
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--color-brand-purple);
+      background: var(--color-brand-lavender);
+      padding: 4px 14px;
+      border-radius: var(--radius-full);
+      display: inline-block;
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-size: clamp(2rem, 3.8vw, 2.8rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: var(--color-brand-deep);
+      line-height: 1.2;
+      margin-bottom: 14px;
+    }
+
+    .section-subtitle {
+      font-size: 1.1rem;
+      color: var(--color-text-secondary);
+      line-height: 1.6;
+    }
+
+    /* --- Course Catalog Grid --- */
+    .courses-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .course-card {
+      background: #ffffff;
+      border: 1.5px solid var(--color-border);
+      border-radius: var(--radius-xl);
+      padding: 32px 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all var(--transition-base);
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 4px 16px var(--color-shadow);
+    }
+
+    .course-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 18px 40px var(--color-shadow-lg);
+      border-color: var(--card-accent, var(--color-brand-purple));
+    }
+
+    .course-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 5px;
+      background: var(--card-accent, var(--color-brand-purple));
+    }
+
+    .course-card--flagship {
+      grid-column: span 3;
+      background: linear-gradient(135deg, #2c0a78 0%, #1e0655 100%);
+      color: #ffffff;
+      border-color: rgba(247, 213, 106, 0.4);
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 36px;
+      padding: 44px 40px;
+    }
+
+    .course-card--flagship::before {
+      height: 6px;
+      background: linear-gradient(90deg, #f7d56a, #ff7a45, #7c3aed);
+    }
+
+    .course-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .course-badge {
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 5px 12px;
+      border-radius: var(--radius-full);
+      background: var(--badge-bg, rgba(124, 58, 237, 0.1));
+      color: var(--badge-color, var(--color-brand-purple));
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .course-grade-pill {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--color-text-muted);
+      background: var(--color-brand-cream);
+      padding: 4px 10px;
+      border-radius: var(--radius-full);
+      border: 1px solid var(--color-border);
+    }
+
+    .course-title {
+      font-size: 1.55rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: var(--color-brand-deep);
+      margin-bottom: 12px;
+      line-height: 1.25;
+    }
+
+    .course-desc {
+      font-size: 0.96rem;
+      color: var(--color-text-secondary);
+      line-height: 1.6;
+      margin-bottom: 22px;
+    }
+
+    .course-highlights {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 26px;
+      padding-top: 18px;
+      border-top: 1px solid var(--color-border);
+    }
+
+    .course-highlight-item {
+      font-size: 0.88rem;
+      color: var(--color-text-secondary);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .course-highlight-icon {
+      color: var(--card-accent, var(--color-brand-purple));
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+
+    .course-meta {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: 20px;
+      padding-top: 16px;
+      border-top: 1px dashed var(--color-border);
+    }
+
+    .course-duration {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--color-text-muted);
+    }
+
+    .course-price {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--color-brand-deep);
+    }
+
+    .course-price small {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--color-text-muted);
+    }
+
+    .btn--explore {
+      width: 100%;
+      background: var(--card-accent, var(--color-brand-purple));
+      color: #ffffff;
+      padding: 12px 20px;
+      font-weight: 700;
+      border-radius: var(--radius-md);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+
+    .btn--explore:hover {
+      filter: brightness(1.08);
+      transform: translateY(-2px);
+    }
+
+    /* Flagship styling overrides */
+    .course-card--flagship .course-title {
+      color: #ffffff;
+      font-size: 2.1rem;
+    }
+
+    .course-card--flagship .course-desc {
+      color: rgba(255, 255, 255, 0.82);
+      font-size: 1.05rem;
+    }
+
+    .course-card--flagship .course-highlight-item {
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    .course-card--flagship .course-price {
+      color: var(--color-brand-warm);
+      font-size: 1.8rem;
+    }
+
+    .course-card--flagship .course-grade-pill {
+      background: rgba(255, 255, 255, 0.12);
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    /* --- Schools Marquee --- */
+    .marquee-section {
+      background: #ffffff;
+      border-top: 1px solid var(--color-border);
+      border-bottom: 1px solid var(--color-border);
+      padding: 40px 0;
+      overflow: hidden;
+    }
+
+    .marquee-label {
+      text-align: center;
+      font-size: 0.82rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--color-text-muted);
+      margin-bottom: 24px;
+    }
+
+    .marquee-track {
+      display: flex;
+      gap: 48px;
+      width: max-content;
+      animation: scrollMarquee 36s linear infinite;
+    }
+
+    .marquee-item {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--color-text-secondary);
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .marquee-item span.dot {
+      color: var(--color-brand-purple);
+      font-size: 0.7rem;
+    }
+
+    @keyframes scrollMarquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* --- Why Codju Section --- */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+
+    .feature-card {
+      background: #ffffff;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: 30px 24px;
+      box-shadow: 0 4px 14px var(--color-shadow);
+      transition: all var(--transition-base);
+    }
+
+    .feature-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 28px var(--color-shadow-lg);
+    }
+
+    .feature-icon-box {
+      width: 52px;
+      height: 52px;
+      border-radius: var(--radius-md);
+      background: var(--color-brand-lavender);
+      color: var(--color-brand-purple);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+    }
+
+    .feature-title {
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: var(--color-brand-deep);
+      margin-bottom: 10px;
+    }
+
+    .feature-desc {
+      font-size: 0.92rem;
+      color: var(--color-text-secondary);
+      line-height: 1.55;
+    }
+
+    /* --- Lead Mentor --- */
+    .mentor-box {
+      background: #ffffff;
+      border: 1.5px solid var(--color-border);
+      border-radius: var(--radius-xl);
+      padding: 48px;
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 40px;
+      align-items: center;
+      box-shadow: 0 12px 36px var(--color-shadow);
+    }
+
+    .mentor-photo-wrap {
+      position: relative;
+    }
+
+    .mentor-photo {
+      width: 100%;
+      border-radius: var(--radius-lg);
+      object-fit: cover;
+      aspect-ratio: 1;
+      box-shadow: 0 12px 28px rgba(44, 10, 120, 0.15);
+    }
+
+    .mentor-badge {
+      position: absolute;
+      bottom: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--color-brand-deep);
+      color: #ffffff;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 6px 14px;
+      border-radius: var(--radius-full);
+      white-space: nowrap;
+      border: 2px solid #ffffff;
+    }
+
+    .mentor-name {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--color-brand-deep);
+      margin-bottom: 6px;
+    }
+
+    .mentor-role {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--color-brand-purple);
+      margin-bottom: 16px;
+    }
+
+    .mentor-bio {
+      font-size: 1.02rem;
+      color: var(--color-text-secondary);
+      line-height: 1.65;
+      margin-bottom: 24px;
+    }
+
+    .mentor-credentials {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .credential-tag {
+      background: var(--color-brand-cream);
+      border: 1px solid var(--color-border);
+      padding: 8px 16px;
+      border-radius: var(--radius-md);
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--color-brand-deep);
+    }
+
+    /* --- Testimonials --- */
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .testimonial-card {
+      background: #ffffff;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-xl);
+      padding: 32px 28px;
+      box-shadow: 0 4px 16px var(--color-shadow);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .quote-mark {
+      font-size: 2.5rem;
+      font-family: Georgia, serif;
+      color: var(--color-brand-purple);
+      line-height: 1;
+      margin-bottom: 12px;
+    }
+
+    .testimonial-text {
+      font-size: 0.98rem;
+      color: var(--color-text-secondary);
+      line-height: 1.6;
+      margin-bottom: 24px;
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding-top: 16px;
+      border-top: 1px solid var(--color-border);
+    }
+
+    .author-name {
+      font-size: 0.98rem;
+      font-weight: 800;
+      color: var(--color-brand-deep);
+    }
+
+    .author-role {
+      font-size: 0.84rem;
+      color: var(--color-text-muted);
+    }
+
+    /* --- FAQ Accordion --- */
+    .faq-accordion {
+      max-width: 820px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .faq-item {
+      background: #ffffff;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      transition: all var(--transition-base);
+    }
+
+    .faq-item.active {
+      border-color: var(--color-brand-purple);
+      box-shadow: 0 6px 20px var(--color-shadow);
+    }
+
+    .faq-trigger {
+      width: 100%;
+      padding: 22px 24px;
+      text-align: left;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--color-brand-deep);
+    }
+
+    .faq-icon {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: var(--color-brand-cream);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-brand-purple);
+      font-weight: bold;
+      transition: transform var(--transition-base);
+      flex-shrink: 0;
+    }
+
+    .faq-item.active .faq-icon {
+      transform: rotate(45deg);
+      background: var(--color-brand-purple);
+      color: #ffffff;
+    }
+
+    .faq-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease-out;
+      padding: 0 24px;
+      color: var(--color-text-secondary);
+      font-size: 0.96rem;
+      line-height: 1.6;
+    }
+
+    .faq-item.active .faq-content {
+      padding: 0 24px 22px;
+      max-height: 300px;
+    }
+
+    /* --- Footer --- */
+    .site-footer {
+      background: #180838;
+      color: #ffffff;
+      padding: 72px 0 36px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.6fr 1fr 1fr 1.2fr;
+      gap: 48px;
+      margin-bottom: 56px;
+    }
+
+    .footer-col-title {
+      font-size: 1rem;
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 20px;
+      letter-spacing: -0.01em;
+    }
+
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .footer-link {
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 0.92rem;
+      transition: color var(--transition-base);
+    }
+
+    .footer-link:hover {
+      color: #ffffff;
+    }
+
+    .footer-bottom {
+      padding-top: 32px;
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.86rem;
+      color: rgba(255, 255, 255, 0.55);
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    /* --- Responsive Breakpoints --- */
+    @media (max-width: 1024px) {
+      .courses-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .course-card--flagship {
+        grid-column: span 2;
+        grid-template-columns: 1fr;
+      }
+      .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .stats-bar {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .stat-card:nth-child(2)::after {
+        display: none;
+      }
+      .mentor-box {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      .mentor-photo {
+        max-width: 220px;
+        margin: 0 auto;
+      }
+      .mentor-credentials {
+        justify-content: center;
+      }
+      .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
       }
     }
-  ]
-  </script>
 
-  <!-- Google Font: Nunito -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
-
-  <link rel="stylesheet" href="index.css" />
-  <link rel="icon" type="image/png" href="assets/DP%20panda.png" />
+    @media (max-width: 768px) {
+      .nav-links, .nav-actions .btn--outline {
+        display: none;
+      }
+      .menu-toggle {
+        display: flex;
+      }
+      .courses-grid {
+        grid-template-columns: 1fr;
+      }
+      .course-card--flagship {
+        grid-column: span 1;
+      }
+      .features-grid {
+        grid-template-columns: 1fr;
+      }
+      .testimonials-grid {
+        grid-template-columns: 1fr;
+      }
+      .stats-bar {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+      .stat-card::after {
+        display: none !important;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 36px;
+      }
+    }
+  </style>
 </head>
 <body>
 
-  <!-- ========== NAVIGATION ========== -->
-  <nav class="nav" id="nav">
-    <div class="nav__inner">
-      <a href="#" class="nav__logo">
-        <img src="assets/logo.png" alt="Codju Logo" class="nav__logo-img" />
+  <!-- ========== TOP NAVIGATION ========== -->
+  <header class="site-nav" id="siteNav">
+    <div class="site-nav__inner">
+      <a href="Codju Academy Home.dc.html" class="brand-logo-wrap" title="Codju Academy Home">
+        <img src="assets/logo.png" alt="Codju Logo" class="brand-logo-img" />
+        <span>Codju Academy</span>
+        <span class="brand-badge">Grades 1–12</span>
       </a>
 
-      <ul class="nav__links">
-        <li><a href="#program">Program</a></li>
-        <li><a href="#mentor">Mentor</a></li>
-        <li><a href="#curriculum">Curriculum</a></li>
-        <li><a href="#tools">Tools</a></li>
-        <li><a href="#projects">Portfolios</a></li>
-        <li><a href="#recognition">Certificate</a></li>
-        <li><a href="#partner-schools">Partner Schools</a></li>
-        <li><a href="#faq">FAQ</a></li>
-      </ul>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#courses" class="nav-link">Courses</a></li>
+          <li><a href="Scratch Junior.dc.html" class="nav-link">Scratch Jr</a></li>
+          <li><a href="Scratch.dc.html" class="nav-link">Scratch</a></li>
+          <li><a href="Python.dc.html" class="nav-link">Python</a></li>
+          <li><a href="HTML and CSS.dc.html" class="nav-link">HTML &amp; CSS</a></li>
+          <li><a href="Codju AI Winter Camp.dc.html" class="nav-link" style="color: var(--color-brand-purple); font-weight: 700;">AI Winter Camp ❄️</a></li>
+          <li><a href="#mentor" class="nav-link">Mentor</a></li>
+          <li><a href="#faq" class="nav-link">FAQ</a></li>
+        </ul>
+      </nav>
 
-      <div class="nav__cta">
-        <a href="#partner-schools" class="btn btn--nav-outline">Student Login</a>
-        <a href="#pricing" class="btn btn--primary btn--nav">Join Waitlist</a>
-        <button class="nav__mobile-toggle" id="mobileToggle" aria-label="Toggle navigation menu">
+      <div class="nav-actions">
+        <a href="https://wa.me/918288863132?text=Hello%20Codju%2C%20I%20am%20interested%20in%20Codju%20Academy%20Courses" target="_blank" rel="noopener" class="btn btn--whatsapp" aria-label="WhatsApp Support">
+          💬 WhatsApp
+        </a>
+        <a href="#courses" class="btn btn--primary">
+          Explore Courses
+        </a>
+        <button class="menu-toggle" id="menuToggle" aria-label="Toggle mobile menu">
           <span></span>
           <span></span>
           <span></span>
         </button>
       </div>
     </div>
-
-    <!-- Mobile Navigation Drawer -->
-    <div class="nav__mobile-menu" id="mobileMenu">
-      <a href="#program">Program</a>
-      <a href="#mentor">Mentor</a>
-      <a href="#curriculum">Curriculum</a>
-      <a href="#tools">Tools</a>
-      <a href="#projects">Portfolios</a>
-      <a href="#recognition">Certificate</a>
-      <a href="#partner-schools">Partner Schools</a>
-      <a href="#faq">FAQ</a>
-      <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 14px;">
-        <a href="#partner-schools" class="btn btn--nav-outline" style="text-align: center;">Student Login</a>
-        <a href="#pricing" class="btn btn--primary" style="text-align: center;">Enroll for ₹999</a>
-      </div>
-    </div>
-  </nav>
+  </header>
 
   <!-- ========== HERO SECTION ========== -->
-  <section class="hero" id="hero">
-    <div class="bg-grid"></div>
-    <div class="ambient-glow ambient-glow--hero"></div>
+  <section class="hero">
+    <div class="hero__ambient"></div>
     <div class="container">
-      
-      <!-- Top Centered Header Block (Exact match to Screenshot 1) -->
-      <div class="hero__header-centered reveal">
-        <div class="hero__welcome-tag">
-          WELCOME TO <span class="hero__welcome-accent">CODJU WINTER FEST</span>
-        </div>
-        <h1 class="hero__main-title">Turn Screen Time Into Creation Time</h1>
-        <div class="hero__status-pill">
-          <span class="status-dot"></span>
-          <span>Live Weekend Sessions &nbsp;|&nbsp; YouTube Live + Replays &nbsp;|&nbsp; Grades 1–10</span>
-        </div>
+      <div class="hero-eyebrow">
+        <span>✨ FUTURE-READY SKILLS FOR NEXT-GEN STUDENTS</span>
+      </div>
+      <h1 class="hero-title">
+        Empowering Young Minds with <br/>
+        <span class="gradient-text">Coding &amp; Artificial Intelligence</span>
+      </h1>
+      <p class="hero-subtitle">
+        Structured, NEP 2020-aligned experiential learning tracks designed by IIT &amp; IIM educators. 
+        From visual block animation to real-world Python and cutting-edge GenAI applications.
+      </p>
+
+      <div class="hero-cta-group">
+        <a href="#courses" class="btn btn--primary" style="padding: 14px 28px; font-size: 1.05rem;">
+          View All 5 Courses ↓
+        </a>
+        <a href="Codju AI Winter Camp.dc.html" class="btn btn--outline" style="padding: 14px 28px; font-size: 1.05rem;">
+          Explore AI Winter Camp ❄️
+        </a>
       </div>
 
-      <!-- Two-Column Hero Split -->
-      <div class="hero__grid">
-        <!-- Left Column: Copy & Highlights -->
-        <div class="hero__content reveal">
-          <div class="hero__cohort-badge">WINTER COHORT IS UNDERWAY</div>
-          <h2 class="hero__cohort-title">Coding & AI Camp For Students</h2>
-          <p class="hero__subtitle">Learn 4 creative coding & AI domains, build real projects, and gain future-ready skills with expert guidance.</p>
-
-          <!-- 4 Bullet points with purple stars (✦) -->
-          <ul class="hero__feature-list">
-            <li>
-              <span class="star-icon">✦</span>
-              <span><strong>Grades 1–10</strong> | Beginner Friendly</span>
-            </li>
-            <li>
-              <span class="star-icon">✦</span>
-              <span><strong>Hands-On Exposure</strong> to 4 Creative Domains</span>
-            </li>
-            <li>
-              <span class="star-icon">✦</span>
-              <span><strong>Weekend Live Camp</strong> + Real Projects</span>
-            </li>
-            <li>
-              <span class="star-icon">✦</span>
-              <span><strong>Get Certified</strong> by Codju</span>
-            </li>
-          </ul>
-
-          <!-- CTAs -->
-          <div class="hero__cta-group">
-            <a href="#pricing" class="btn btn--primary btn--hero">Student Login</a>
-            <a href="#projects" class="btn btn--outline btn--hero">View Portfolios</a>
-          </div>
-
-          <!-- Lavender Info / Registration Callout Box -->
-          <div class="hero__info-box">
-            <div class="info-box__header">
-              <span class="info-box__radio"></span>
-              <strong>Winter Cohort Registration Open</strong>
-            </div>
-            <p class="info-box__subtext">One pass covers all 4 live weekend sessions, replays and project submissions.</p>
-            <div class="info-box__footer">
-              <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="check-icon"><polyline points="20 6 9 17 4 12"/></svg>
-              <span>Session recordings & starter files available in student portal</span>
-            </div>
-          </div>
+      <!-- Stats Bar -->
+      <div class="stats-bar">
+        <div class="stat-card">
+          <div class="stat-number">70,000+</div>
+          <div class="stat-label">Students Empowered</div>
         </div>
-
-        <!-- Right Column: Video Showcase Card -->
-        <div class="hero__visual reveal reveal-delay-1">
-          <div class="hero__video-wrapper">
-            <iframe id="hero-youtube-video" width="100%" height="100%" src="https://www.youtube.com/embed/xoCqW-ngJDQ?enablejsapi=1&controls=1&rel=0&vq=hd1080&playsinline=1&autoplay=1&mute=1" title="Codju Winter Fest Workshop Preview" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            <div class="video-overlay-banner">
-              <span>TURN THEIR IMAGINATION INTO AN AI</span>
-              <img src="assets/logo.png" alt="Codju" class="video-watermark-logo" />
-            </div>
-          </div>
+        <div class="stat-card">
+          <div class="stat-number">250+</div>
+          <div class="stat-label">Partner Schools</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">100% Live</div>
+          <div class="stat-label">Mentor-Led Classes</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">4.9 / 5.0</div>
+          <div class="stat-label">Parent &amp; School Rating</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== HORIZONTAL STATS BAR (Screenshot 2) ========== -->
-  <section class="stats-bar">
-    <div class="container">
-      <div class="stats-bar__inner">
-        <div class="stat-item">
-          <div class="stat-item__number">150,000+</div>
-          <div class="stat-item__label">Students Reached</div>
-        </div>
-        <div class="stat-divider"></div>
-        <div class="stat-item">
-          <div class="stat-item__number">250+</div>
-          <div class="stat-item__label">Partner Schools</div>
-        </div>
-        <div class="stat-divider"></div>
-        <div class="stat-item">
-          <div class="stat-item__number">12 Months</div>
-          <div class="stat-item__label">AI Support</div>
-        </div>
-        <div class="stat-divider"></div>
-        <div class="stat-item">
-          <div class="stat-item__number">Live</div>
-          <div class="stat-item__label">Mentor-Led Learning</div>
-        </div>
-      </div>
+  <!-- ========== SCHOOLS MARQUEE ========== -->
+  <section class="marquee-section">
+    <div class="marquee-label">Trusted by Leading Schools Across India</div>
+    <div class="marquee-track">
+      <div class="marquee-item">Delhi Public School Patiala <span class="dot">✦</span></div>
+      <div class="marquee-item">Sri Venkateshwar International School Dwarka <span class="dot">✦</span></div>
+      <div class="marquee-item">Bhavan Vidyalaya Panchkula <span class="dot">✦</span></div>
+      <div class="marquee-item">The Hyderabad Public School Begumpet <span class="dot">✦</span></div>
+      <div class="marquee-item">St. John's High School Chandigarh <span class="dot">✦</span></div>
+      <div class="marquee-item">St. Soldier's School Panchkula <span class="dot">✦</span></div>
+      <div class="marquee-item">Guru Teg Bahadur Public School <span class="dot">✦</span></div>
+      <!-- Duplicate for infinite marquee effect -->
+      <div class="marquee-item">Delhi Public School Patiala <span class="dot">✦</span></div>
+      <div class="marquee-item">Sri Venkateshwar International School Dwarka <span class="dot">✦</span></div>
+      <div class="marquee-item">Bhavan Vidyalaya Panchkula <span class="dot">✦</span></div>
+      <div class="marquee-item">The Hyderabad Public School Begumpet <span class="dot">✦</span></div>
+      <div class="marquee-item">St. John's High School Chandigarh <span class="dot">✦</span></div>
+      <div class="marquee-item">St. Soldier's School Panchkula <span class="dot">✦</span></div>
+      <div class="marquee-item">Guru Teg Bahadur Public School <span class="dot">✦</span></div>
     </div>
   </section>
 
-  <!-- ========== PROGRAM AT A GLANCE (Screenshots 2 & 3) ========== -->
-  <section class="section section--light" id="program">
-    <div class="bg-grid"></div>
-    <div class="ambient-glow ambient-glow--program"></div>
+  <!-- ========== ALL 5 COURSES CATALOG ========== -->
+  <section class="section" id="courses">
     <div class="container">
-      <div class="section-header reveal">
-        <span class="eyebrow-pill">PROGRAM AT A GLANCE</span>
-        <h2 class="section-header__title">Everything You Need to Know</h2>
-        <p class="section-header__subtitle">A carefully designed program that balances structured learning with creative exploration.</p>
+      <div class="section-header">
+        <span class="section-tag">CURATED LEARNING PATHWAYS</span>
+        <h2 class="section-title">Explore Our 5 Specialized Tracks</h2>
+        <p class="section-subtitle">
+          Every course is tailored to specific age cohorts, ensuring maximum engagement, real project output, and cognitive growth.
+        </p>
       </div>
 
-      <!-- 8-Card Grid (3 cols + 3 cols + 2 centered cards on bottom row) -->
-      <div class="glance-cards-grid">
+      <div class="courses-grid">
         
-        <!-- Card 1: Grades 1–10 -->
-        <div class="glance-card reveal">
-          <div class="glance-card__icon-box">
-            <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
-          </div>
-          <div class="glance-card__content">
-            <h3 class="glance-card__title">Grades 1–10</h3>
-            <p class="glance-card__desc">Open to middle and high school students across all boards</p>
-          </div>
-        </div>
-
-        <!-- Card 2: Beginner Friendly -->
-        <div class="glance-card reveal reveal-delay-1">
-          <div class="glance-card__icon-box">
-            <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          </div>
-          <div class="glance-card__content">
-            <h3 class="glance-card__title">Beginner Friendly</h3>
-            <p class="glance-card__desc">No prior AI or coding experience needed to get started</p>
-          </div>
-        </div>
-
-        <!-- Card 3: Live on YouTube -->
-        <div class="glance-card reveal reveal-delay-2">
-          <div class="glance-card__icon-box">
-            <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="15" x="2" y="3" rx="2"/><polyline points="8 21 12 17 16 21"/></svg>
-          </div>
-          <div class="glance-card__content">
-            <h3 class="glance-card__title">Live on Zoom / YouTube</h3>
-            <p class="glance-card__desc">Interactive sessions with real-time guidance and feedback</p>
-          </div>
-        </div>
-
-        <!-- Card 4: 45 Min / Day -->
-        <div class="glance-card reveal">
-          <div class="glance-card__icon-box">
-            <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-          </div>
-          <div class="glance-card__content">
-            <h3 class="glance-card__title">45 Min / Day</h3>
-            <p class="glance-card__desc">Focused, distraction-free sessions designed for attention spans</p>
-          </div>
-        </div>
-
-        <!-- Card 5: 6–Day Live Camp -->
-        <div class="glance-card reveal reveal-delay-1">
-          <div class="glance-card__icon-box">
-            <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
-          </div>
-          <div class="glance-card__content">
-            <h3 class="glance-card__title">Weekend Live Camp</h3>
-            <p class="glance-card__desc">A structured learning journey from Day 1 to the final project</p>
-          </div>
-        </div>
-
-        <!-- Card 6: 15+ AI Tools / Creative Domains -->
-        <div class="glance-card reveal reveal-delay-2">
-          <div class="glance-card__icon-box">
-            <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M9 3v18"/><path d="M15 3v18"/><path d="M3 9h18"/><path d="M3 15h18"/></svg>
-          </div>
-          <div class="glance-card__content">
-            <h3 class="glance-card__title">4 Creative Domains</h3>
-            <p class="glance-card__desc">Hands-on practice with ScratchJr, Scratch, Python & AI platforms</p>
-          </div>
-        </div>
-
-        <!-- Card 7: 8 Real Projects (Bottom centered row) -->
-        <div class="glance-card glance-card--bottom reveal">
-          <div class="glance-card__icon-box">
-            <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 8 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"/></svg>
-          </div>
-          <div class="glance-card__content">
-            <h3 class="glance-card__title">4 Real Projects</h3>
-            <p class="glance-card__desc">Build real animations, games, Python apps, and creative projects</p>
-          </div>
-        </div>
-
-        <!-- Card 8: Certificate + More (Bottom centered row) -->
-        <div class="glance-card glance-card--bottom reveal reveal-delay-1">
-          <div class="glance-card__icon-box">
-            <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
-          </div>
-          <div class="glance-card__content">
-            <h3 class="glance-card__title">Certificate + More</h3>
-            <p class="glance-card__desc">Certificate, public student profile, and recording access included</p>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ========== THE LEARNING PATH (Screenshot 5) ========== -->
-  <section class="section" id="curriculum">
-    <div class="bg-grid"></div>
-    <div class="container">
-      <div class="section-header reveal">
-        <span class="eyebrow-pill">THE LEARNING PATH</span>
-        <h2 class="section-header__title">4–Stage Learning Plan</h2>
-        <p class="section-header__subtitle">Each stage builds on the last. By Stage 4, students have real projects they built themselves.</p>
-      </div>
-
-      <!-- Interactive Stage Tabs Navigation -->
-      <div class="stage-tabs-nav reveal">
-        <button class="stage-tab-btn active" data-stage="1" type="button">
-          <div class="stage-tab-btn__icon">
-            <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/><path d="M6 6h10"/><path d="M6 10h10"/></svg>
-          </div>
-          <div class="stage-tab-btn__text">
-            <strong>Foundation</strong>
-            <span>Learn ScratchJr & visual animation</span>
-          </div>
-        </button>
-
-        <button class="stage-tab-btn" data-stage="2" type="button">
-          <div class="stage-tab-btn__icon">
-            <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" x2="11" y1="2" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
-          </div>
-          <div class="stage-tab-btn__text">
-            <strong>Game Logic</strong>
-            <span>Block coding & Scratch games</span>
-          </div>
-        </button>
-
-        <button class="stage-tab-btn" data-stage="3" type="button">
-          <div class="stage-tab-btn__icon">
-            <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-          </div>
-          <div class="stage-tab-btn__text">
-            <strong>Python Apps</strong>
-            <span>Code logic, loops & programs</span>
-          </div>
-        </button>
-
-        <button class="stage-tab-btn" data-stage="4" type="button">
-          <div class="stage-tab-btn__icon">
-            <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3Z"/></svg>
-          </div>
-          <div class="stage-tab-btn__text">
-            <strong>AI Studio</strong>
-            <span>Prompts, storytelling & smart AI</span>
-          </div>
-        </button>
-      </div>
-
-      <!-- Active Stage Detailed Card -->
-      <div class="stage-showcase-card reveal" id="stageShowcaseCard">
-        <div class="stage-showcase-card__grid">
-          <div class="stage-showcase-card__visual">
-            <img src="assets/day1.png" alt="Stage 1 ScratchJr Learning Visual" id="stageIllustration" class="stage-mascot-img" />
-          </div>
-          <div class="stage-showcase-card__content">
-            <div class="stage-badge-pill" id="stageBadge">STAGE 01</div>
-            <h3 class="stage-showcase-card__title" id="stageTitle">Visual Animation with ScratchJr</h3>
-            <ul class="stage-bullets-list" id="stageBullets">
-              <li><span>•</span> How digital animation and logic work in daily life</li>
-              <li><span>•</span> Character movement, timing, events and speech bubbles</li>
-              <li><span>•</span> Sound effects, interactive triggers and scene transitions</li>
-              <li><span>•</span> Build and publish your first animated story project</li>
-            </ul>
-          </div>
-        </div>
-        <div class="stage-tools-strip" id="stageToolsStrip">
-          <strong>Covering Creative Tools:</strong> ScratchJr, Story Canvas, Sound FX
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========== TOOLS AND CREATIVE STACK ========== -->
-  <section class="section section--light" id="tools">
-    <div class="container">
-      <div class="section-header reveal">
-        <span class="eyebrow-pill">CREATIVE STACK</span>
-        <h2 class="section-header__title">Tools We'll Explore</h2>
-        <p class="section-header__subtitle">Simple tools. Real creative possibilities.</p>
-      </div>
-
-      <!-- 4 Compact Category Cards -->
-      <div class="tools-compact-grid">
-        <!-- Tool 1 -->
-        <div class="tool-compact-card reveal">
-          <div class="tool-compact-card__icon">
-            <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-          </div>
-          <h3 class="tool-compact-card__title">Animation</h3>
-          <p class="tool-compact-card__desc">ScratchJr · Create animated stories.</p>
-        </div>
-
-        <!-- Tool 2 -->
-        <div class="tool-compact-card reveal reveal-delay-1">
-          <div class="tool-compact-card__icon">
-            <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="6 3 18 3 18 21 6 21"/><line x1="10" y1="8" x2="14" y2="8"/><line x1="10" y1="12" x2="14" y2="12"/><line x1="10" y1="16" x2="14" y2="16"/></svg>
-          </div>
-          <h3 class="tool-compact-card__title">Game Development</h3>
-          <p class="tool-compact-card__desc">Scratch · Build a playable game.</p>
-        </div>
-
-        <!-- Tool 3 -->
-        <div class="tool-compact-card reveal reveal-delay-2">
-          <div class="tool-compact-card__icon">
-            <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-          </div>
-          <h3 class="tool-compact-card__title">Programming</h3>
-          <p class="tool-compact-card__desc">Python + Replit · Write and run code.</p>
-        </div>
-
-        <!-- Tool 4 -->
-        <div class="tool-compact-card reveal reveal-delay-3">
-          <div class="tool-compact-card__icon">
-            <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a4 4 0 0 0-4 4v1a4 4 0 0 0 8 0V6a4 4 0 0 0-4-4Z"/><path d="M16 14a4 4 0 0 1-8 0v-1a4 4 0 0 1 8 0v1Z"/><path d="M19 12a7 7 0 0 1-14 0"/></svg>
-          </div>
-          <h3 class="tool-compact-card__title">Artificial Intelligence</h3>
-          <p class="tool-compact-card__desc">ChatGPT, Gemini, Canva AI and Suno · Explore ideas, visuals and sound.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========== STUDENT PROJECTS SHOWCASE ========== -->
-  <section class="section" id="projects">
-    <div class="bg-grid"></div>
-    <div class="container">
-      <div class="section-header reveal">
-        <span class="eyebrow-pill">STUDENT SHOWCASE</span>
-        <h2 class="section-header__title">Projects Made by Students</h2>
-        <p class="section-header__subtitle">Real creations. Real learning.</p>
-      </div>
-
-      <!-- Projects Grid (2x2 layout on desktop, 1-col on mobile) -->
-      <div class="projects-grid">
-        <!-- Project 1 -->
-        <div class="project-card reveal" data-project-id="project-1">
-          <div class="project-card__media">
-            <img src="assets/day1.png" alt="Cosmic Explorer Animated Story Preview" class="project-card__img" loading="lazy" />
-            <span class="project-card__badge">ScratchJr</span>
-          </div>
-          <div class="project-card__body">
-            <div class="project-card__meta">
-              <span class="student-name">Aarav S.</span>
-              <span class="student-dot">·</span>
-              <span class="student-grade">Grade 3</span>
+        <!-- Course 1: Scratch Junior -->
+        <article class="course-card" style="--card-accent: var(--accent-scratchjr); --badge-bg: rgba(255, 122, 69, 0.12); --badge-color: #ff7a45;">
+          <div>
+            <div class="course-header">
+              <span class="course-badge">🐱 Visual Coding</span>
+              <span class="course-grade-pill">Grades 1–2 · Ages 6–8</span>
             </div>
-            <h3 class="project-card__title">Cosmic Explorer Storybook</h3>
-            <p class="project-card__desc">A multi-scene animated adventure following an astronaut navigating deep space with voiceovers and sound effects.</p>
-            <div class="project-card__tools">
-              <span class="tool-chip">ScratchJr</span>
-              <span class="tool-chip">Audio FX</span>
-              <span class="tool-chip">Visual Blocks</span>
-            </div>
-            <button type="button" class="btn btn--text project-trigger" data-project="0">View Project &rarr;</button>
-          </div>
-        </div>
-
-        <!-- Project 2 -->
-        <div class="project-card reveal reveal-delay-1" data-project-id="project-2">
-          <div class="project-card__media">
-            <img src="assets/day2.png" alt="Neon Runner 2D Arcade Game Preview" class="project-card__img" loading="lazy" />
-            <span class="project-card__badge">Scratch</span>
-          </div>
-          <div class="project-card__body">
-            <div class="project-card__meta">
-              <span class="student-name">Ananya K.</span>
-              <span class="student-dot">·</span>
-              <span class="student-grade">Grade 6</span>
-            </div>
-            <h3 class="project-card__title">Neon Runner 2D Arcade</h3>
-            <p class="project-card__desc">A playable side-scrolling platformer with jump physics, obstacle collision detection, and a live scoring system.</p>
-            <div class="project-card__tools">
-              <span class="tool-chip">Scratch 3.0</span>
-              <span class="tool-chip">Physics</span>
-              <span class="tool-chip">Game Logic</span>
-            </div>
-            <button type="button" class="btn btn--text project-trigger" data-project="1">View Project &rarr;</button>
-          </div>
-        </div>
-
-        <!-- Project 3 -->
-        <div class="project-card reveal reveal-delay-2" data-project-id="project-3">
-          <div class="project-card__media">
-            <img src="assets/day3.png" alt="Realm of Eldoria Python Game Preview" class="project-card__img" loading="lazy" />
-            <span class="project-card__badge">Python</span>
-          </div>
-          <div class="project-card__body">
-            <div class="project-card__meta">
-              <span class="student-name">Rohan M.</span>
-              <span class="student-dot">·</span>
-              <span class="student-grade">Grade 8</span>
-            </div>
-            <h3 class="project-card__title">Realm of Eldoria (Python RPG)</h3>
-            <p class="project-card__desc">A text adventure built in Python with dynamic decision branching, character inventory, and combat logic loops.</p>
-            <div class="project-card__tools">
-              <span class="tool-chip">Python 3</span>
-              <span class="tool-chip">Replit</span>
-              <span class="tool-chip">Conditionals</span>
-            </div>
-            <button type="button" class="btn btn--text project-trigger" data-project="2">View Project &rarr;</button>
-          </div>
-        </div>
-
-        <!-- Project 4 -->
-        <div class="project-card reveal reveal-delay-3" data-project-id="project-4">
-          <div class="project-card__media">
-            <img src="assets/day4.png" alt="StudyQuest AI Assistant Project Preview" class="project-card__img" loading="lazy" />
-            <span class="project-card__badge">AI</span>
-          </div>
-          <div class="project-card__body">
-            <div class="project-card__meta">
-              <span class="student-name">Diya P.</span>
-              <span class="student-dot">·</span>
-              <span class="student-grade">Grade 7</span>
-            </div>
-            <h3 class="project-card__title">StudyQuest AI Assistant</h3>
-            <p class="project-card__desc">A personalized study companion created using guided prompt chains, AI visual flashcards, and custom background music.</p>
-            <div class="project-card__tools">
-              <span class="tool-chip">ChatGPT</span>
-              <span class="tool-chip">Canva AI</span>
-              <span class="tool-chip">Suno</span>
-            </div>
-            <button type="button" class="btn btn--text project-trigger" data-project="3">View Project &rarr;</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========== PAST WORKSHOPS AND CAMP VIDEOS ========== -->
-  <section class="section section--light" id="workshops">
-    <div class="container">
-      <div class="section-header reveal">
-        <h2 class="section-header__title">See Codju in Action</h2>
-        <p class="section-header__subtitle">A glimpse into our learning experiences.</p>
-      </div>
-
-      <div class="videos-grid">
-        <!-- Video Card 1 -->
-        <div class="video-card reveal" data-video-url="https://www.youtube.com/embed/xoCqW-ngJDQ">
-          <div class="video-card__thumb-wrap">
-            <img src="assets/day2.png" alt="Live Game Building Workshop Thumbnail" class="video-card__thumb" loading="lazy" />
-            <div class="video-card__overlay">
-              <div class="video-card__play-btn">
-                <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-              </div>
-            </div>
-            <span class="video-card__label">Live Workshop</span>
-          </div>
-          <div class="video-card__content">
-            <h3 class="video-card__title">Hands-On Game Development</h3>
-            <p class="video-card__desc">Students building and testing their first interactive games live with mentor guidance.</p>
-          </div>
-        </div>
-
-        <!-- Video Card 2 -->
-        <div class="video-card reveal reveal-delay-1" data-video-url="https://www.youtube.com/embed/xoCqW-ngJDQ">
-          <div class="video-card__thumb-wrap">
-            <img src="assets/day3.png" alt="Python Adventure Game Lab Thumbnail" class="video-card__thumb" loading="lazy" />
-            <div class="video-card__overlay">
-              <div class="video-card__play-btn">
-                <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-              </div>
-            </div>
-            <span class="video-card__label">Code Lab</span>
-          </div>
-          <div class="video-card__content">
-            <h3 class="video-card__title">Python Logic & Game Building</h3>
-            <p class="video-card__desc">Young coders taking their first steps from block programming to real Python syntax.</p>
-          </div>
-        </div>
-
-        <!-- Video Card 3 -->
-        <div class="video-card reveal reveal-delay-2" data-video-url="https://www.youtube.com/embed/xoCqW-ngJDQ">
-          <div class="video-card__thumb-wrap">
-            <img src="assets/day4.png" alt="Creative AI Prototyping Cohort Thumbnail" class="video-card__thumb" loading="lazy" />
-            <div class="video-card__overlay">
-              <div class="video-card__play-btn">
-                <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-              </div>
-            </div>
-            <span class="video-card__label">AI Cohort</span>
-          </div>
-          <div class="video-card__content">
-            <h3 class="video-card__title">Creative AI Prototyping</h3>
-            <p class="video-card__desc">Exploring prompt engineering, digital art, and generative audio in an interactive session.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========== CERTIFICATE AND PUBLIC STUDENT PROFILE ========== -->
-  <section class="section" id="recognition">
-    <div class="container">
-      <div class="section-header reveal">
-        <span class="eyebrow-pill">RECOGNITION THAT LASTS</span>
-        <h2 class="section-header__title">Your Work, Your Profile</h2>
-        <p class="section-header__subtitle">Celebrate progress. Showcase projects.</p>
-      </div>
-
-      <div class="recognition-grid">
-        <!-- Left Column: Certificate of Completion -->
-        <div class="recognition-card reveal">
-          <div class="recognition-card__media">
-            <img src="assets/codju_certificate.png" alt="Official Codju Certificate of Completion Preview" class="recognition-card__img" loading="lazy" />
-          </div>
-          <div class="recognition-card__content">
-            <h3 class="recognition-card__title">Certificate of Completion</h3>
-            <p class="recognition-card__desc">Earn a Codju certificate recognising your participation and completed learning experience.</p>
-            <ul class="recognition-card__list">
-              <li>
-                <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="check-icon"><polyline points="20 6 9 17 4 12"/></svg>
-                <span>Tamper-proof verifiable digital credential</span>
+            <h3 class="course-title">Scratch Junior</h3>
+            <p class="course-desc">
+              Symbol-based coding where early learners bring whimsical characters, animated tales, and interactive picture books to life without typing.
+            </p>
+            <ul class="course-highlights">
+              <li class="course-highlight-item">
+                <span class="course-highlight-icon">✓</span>
+                <span>Visual block snapping — no reading/typing required</span>
               </li>
-              <li>
-                <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="check-icon"><polyline points="20 6 9 17 4 12"/></svg>
-                <span>QR-based digital verification</span>
+              <li class="course-highlight-item">
+                <span class="course-highlight-icon">✓</span>
+                <span>Voice recordings &amp; animated storytelling</span>
               </li>
-              <li>
-                <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="check-icon"><polyline points="20 6 9 17 4 12"/></svg>
-                <span>Co-branded with your school</span>
+              <li class="course-highlight-item">
+                <span class="course-highlight-icon">✓</span>
+                <span>4 portfolio projects (Animal Race, Interactive Tale)</span>
               </li>
             </ul>
           </div>
-        </div>
-
-        <!-- Right Column: Public Student Profile -->
-        <div class="recognition-card reveal reveal-delay-1">
-          <!-- Browser Mockup -->
-          <div class="profile-mockup">
-            <div class="profile-mockup__bar">
-              <span class="mockup-dot mockup-dot--red"></span>
-              <span class="mockup-dot mockup-dot--yellow"></span>
-              <span class="mockup-dot mockup-dot--green"></span>
-              <span class="profile-mockup__url">codju.com/student/aarav-sharma</span>
+          <div>
+            <div class="course-meta">
+              <span class="course-duration">4 Weeks · 8 Sessions</span>
+              <span class="course-price">₹3,999 <small>+ GST</small></span>
             </div>
-            <div class="profile-mockup__inner">
-              <div class="mockup-header">
-                <div class="mockup-avatar">AS</div>
-                <div class="mockup-meta">
-                  <div class="mockup-name">Aarav Sharma</div>
-                  <div class="mockup-sub">Grade 5 · Winter Fest Creator</div>
-                </div>
-              </div>
-              <div class="mockup-badges">
-                <span class="mockup-badge">Scratch Master</span>
-                <span class="mockup-badge">Python Explorer</span>
-                <span class="mockup-badge">AI Builder</span>
-              </div>
-              <div class="mockup-projects">
-                <div class="mockup-pcard">
-                  <div class="mockup-pcard__title">Cosmic Explorer</div>
-                  <div class="mockup-pcard__tag">ScratchJr Animation</div>
-                </div>
-                <div class="mockup-pcard">
-                  <div class="mockup-pcard__title">Neon Runner 2D</div>
-                  <div class="mockup-pcard__tag">Arcade Game</div>
-                </div>
-              </div>
-            </div>
+            <a href="Scratch Junior.dc.html" class="btn btn--explore">
+              Explore Course →
+            </a>
           </div>
+        </article>
 
-          <div class="recognition-card__content">
-            <h3 class="recognition-card__title">A Profile for Every Student</h3>
-            <p class="recognition-card__desc">Every student gets a shareable public profile to showcase projects created during Winter Fest.</p>
-            <ul class="recognition-card__list">
-              <li>
-                <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="check-icon"><polyline points="20 6 9 17 4 12"/></svg>
-                <span>Shareable online portfolio link</span>
+        <!-- Course 2: Scratch -->
+        <article class="course-card" style="--card-accent: var(--accent-scratch); --badge-bg: rgba(77, 151, 255, 0.12); --badge-color: #4d97ff;">
+          <div>
+            <div class="course-header">
+              <span class="course-badge">🕹️ Game Design</span>
+              <span class="course-grade-pill">Grades 3–5 · Ages 8–11</span>
+            </div>
+            <h3 class="course-title">MIT Scratch</h3>
+            <p class="course-desc">
+              Master computational logic, loops, coordinate math, and event broadcasts while programming playable 2D arcade games and interactive simulations.
+            </p>
+            <ul class="course-highlights">
+              <li class="course-highlight-item">
+                <span class="course-highlight-icon">✓</span>
+                <span>Game physics, collision detection &amp; scoreboards</span>
               </li>
-              <li>
-                <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="check-icon"><polyline points="20 6 9 17 4 12"/></svg>
-                <span>Showcase completed games, code and animations</span>
+              <li class="course-highlight-item">
+                <span class="course-highlight-icon">✓</span>
+                <span>Broadcast messages &amp; multi-level worlds</span>
               </li>
-              <li>
-                <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="check-icon"><polyline points="20 6 9 17 4 12"/></svg>
-                <span>Safe, parent-friendly privacy controls</span>
+              <li class="course-highlight-item">
+                <span class="course-highlight-icon">✓</span>
+                <span>4 games built &amp; published to MIT Scratch studio</span>
               </li>
             </ul>
           </div>
-        </div>
+          <div>
+            <div class="course-meta">
+              <span class="course-duration">5 Weeks · 10 Sessions</span>
+              <span class="course-price">₹5,999 <small>+ GST</small></span>
+            </div>
+            <a href="Scratch.dc.html" class="btn btn--explore">
+              Explore Course →
+            </a>
+          </div>
+        </article>
+
+        <!-- Course 3: Python -->
+        <article class="course-card" style="--card-accent: var(--accent-python); --badge-bg: rgba(48, 105, 152, 0.12); --badge-color: #306998;">
+          <div>
+            <div class="course-header">
+              <span class="course-badge">🐍 Real Code</span>
+              <span class="course-grade-pill">Grades 6–10 · Ages 11–16</span>
+            </div>
+            <h3 class="course-title">Python Programming</h3>
+            <p class="course-desc">
+              Transition from visual blocks to the world's most popular language. Build real algorithms, automation scripts, and interactive text-based applications.
+            </p>
+            <ul class="course-highlights">
+              <li class="course-highlight-item">
+                <span class="course-highlight-icon">✓</span>
+                <span>Variables, conditionals, loops &amp; data structures</span>
+              </li>
+              <li class="course-highlight-item">
+                <span class="course-highlight-icon">✓</span>
+                <span>Functions, math modules &amp; algorithmic thinking</span>
+              </li>
+              <li class="course-highlight-item">
+                <span class="course-highlight-icon">✓</span>
+                <span>4 real Python apps (CyberQuest RPG, Caesar Cipher)</span>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <div class="course-meta">
+              <span class="course-duration">6 Weeks · 12 Sessions</span>
+              <span class="course-price">₹7,999 <small>+ GST</small></span>
+            </div>
+            <a href="Python.dc.html" class="btn btn--explore">
+              Explore Course →
+            </a>
+          </div>
+        </article>
+
+        <!-- Course 4: HTML & CSS -->
+        <article class="course-card" style="--card-accent: var(--accent-web); --badge-bg: rgba(227, 79, 38, 0.12); --badge-color: #e34f26;">
+          <div>
+            <div class="course-header">
+              <span class="course-badge">🌐 Web Development</span>
+              <span class="course-grade-pill">Grades 6–10 · Ages 11–16</span>
+            </div>
+            <h3 class="course-title">HTML &amp; CSS</h3>
+            <p class="course-desc">
+              Design, build, and publish modern responsive websites. Master semantic HTML structure, CSS Flexbox layouts, Google Fonts, and live hosting.
+            </p>
+            <ul class="course-highlights">
+              <li class="course-highlight-item">
+                <span class="course-highlight-icon">✓</span>
+                <span>Semantic HTML5, CSS Flexbox &amp; box model</span>
+              </li>
+              <li class="course-highlight-item">
+                <span class="course-highlight-icon">✓</span>
+                <span>Mobile-responsive layouts &amp; micro-interactions</span>
+              </li>
+              <li class="course-highlight-item">
+                <span class="course-highlight-icon">✓</span>
+                <span>4 live published websites with custom URLs</span>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <div class="course-meta">
+              <span class="course-duration">5 Weeks · 10 Sessions</span>
+              <span class="course-price">₹6,999 <small>+ GST</small></span>
+            </div>
+            <a href="HTML and CSS.dc.html" class="btn btn--explore">
+              Explore Course →
+            </a>
+          </div>
+        </article>
+
+        <!-- Course 5: Flagship AI Winter Camp (Full-Width Card) -->
+        <article class="course-card course-card--flagship" style="--card-accent: #f7d56a;">
+          <div>
+            <div class="course-header">
+              <span class="course-badge" style="background: rgba(247, 213, 106, 0.2); color: #f7d56a;">
+                ⭐ Flagship Cohort
+              </span>
+              <span class="course-grade-pill">Grades 5–12 · Ages 10–18</span>
+            </div>
+            <h3 class="course-title">Codju AI Winter Camp</h3>
+            <p class="course-desc">
+              India's deepest hands-on generative AI immersion. Master 17+ industry-standard AI tools across creative media, academics, no-code web apps, and autonomous agents.
+            </p>
+            <ul class="course-highlights" style="border-top-color: rgba(255, 255, 255, 0.15);">
+              <li class="course-highlight-item">
+                <span class="course-highlight-icon" style="color: #f7d56a;">✦</span>
+                <span>17 AI Tools: ChatGPT, Claude, Midjourney, Suno, Pika, Lovable, NotebookLM</span>
+              </li>
+              <li class="course-highlight-item">
+                <span class="course-highlight-icon" style="color: #f7d56a;">✦</span>
+                <span>20 real creations across 5 skill tracks (Creative, Academic, No-Code, Communication, Career)</span>
+              </li>
+              <li class="course-highlight-item">
+                <span class="course-highlight-icon" style="color: #f7d56a;">✦</span>
+                <span>Verified QR certificate + permanent digital portfolio profile at codju.com</span>
+              </li>
+            </ul>
+          </div>
+          <div style="display: flex; flex-direction: column; justify-content: space-between; background: rgba(255, 255, 255, 0.05); padding: 28px; border-radius: var(--radius-lg); border: 1px solid rgba(255, 255, 255, 0.1);">
+            <div>
+              <div style="font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.06em; color: rgba(255, 255, 255, 0.7); margin-bottom: 6px;">5 Weeks · 10 Live Sessions</div>
+              <div class="course-price">Starting from ₹999 <small style="color: rgba(255, 255, 255, 0.7);">to ₹4,999</small></div>
+              <p style="font-size: 0.88rem; color: rgba(255, 255, 255, 0.75); margin-top: 10px;">
+                Free scholarships available for eligible Codju Partner School students.
+              </p>
+            </div>
+            <a href="Codju AI Winter Camp.dc.html" class="btn" style="background: #f7d56a; color: #180838; font-weight: 800; font-size: 1.05rem; padding: 14px 20px; border-radius: var(--radius-md); margin-top: 24px; text-align: center;">
+              Explore Flagship Camp →
+            </a>
+          </div>
+        </article>
+
       </div>
     </div>
   </section>
 
-  <!-- ========== PARTNER SCHOOLS ========== -->
-  <section class="section section--light" id="partner-schools">
+  <!-- ========== WHY CODJU ACADEMY ========== -->
+  <section class="section section--white">
     <div class="container">
-      <div class="section-header reveal">
-        <span class="eyebrow-pill">PARTNER SCHOOLS</span>
-        <h2 class="section-header__title">Free for Partner Schools</h2>
-        <p class="section-header__subtitle">Check whether your school is eligible.</p>
+      <div class="section-header">
+        <span class="section-tag">THE CODJU DIFFERENCE</span>
+        <h2 class="section-title">Why Parents &amp; Schools Trust Us</h2>
+        <p class="section-subtitle">
+          We go beyond passive screen time. Our students transform into confident problem solvers, digital creators, and future-ready thinkers.
+        </p>
       </div>
 
-      <div class="partner-card reveal">
-        <div class="partner-card__content">
-          <div class="partner-card__badge">PARTNER SCHOLARSHIP</div>
-          <h3 class="partner-card__title">100% Free Access for Partner School Students</h3>
-          <p class="partner-card__desc">Eligible students from Codju Partner Schools can attend Winter Fest free of charge.</p>
-
-          <ul class="partner-card__perks">
-            <li>
-              <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="check-icon"><polyline points="20 6 9 17 4 12"/></svg>
-              <span>Access to all camp sessions.</span>
-            </li>
-            <li>
-              <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="check-icon"><polyline points="20 6 9 17 4 12"/></svg>
-              <span>Guided project-based learning.</span>
-            </li>
-            <li>
-              <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="check-icon"><polyline points="20 6 9 17 4 12"/></svg>
-              <span>Certificate and student profile.</span>
-            </li>
-          </ul>
-
-          <div class="partner-card__actions">
-            <a href="https://wa.me/918288863132?text=Hi%20Codju!%20I%20want%20to%20check%20if%20my%20school%20is%20eligible%20for%20free%20Winter%20Fest%20access." target="_blank" rel="noopener noreferrer" class="btn btn--primary">Check School Access</a>
-            <span class="partner-card__note">Partner-school registration via school code opening soon.</span>
-          </div>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon-box">🎯</div>
+          <h3 class="feature-title">Outcome Driven</h3>
+          <p class="feature-desc">Every student leaves each course with multiple finished, tangible projects published online to show family and college admissions.</p>
         </div>
 
-        <div class="partner-card__seal-side">
-          <div class="partner-seal">
-            <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="seal-icon"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-            <strong>Codju Partner Network</strong>
-            <small>Recognised School Collaboration</small>
-            <span class="seal-chip">100% Free Scholarship</span>
-          </div>
+        <div class="feature-card">
+          <div class="feature-icon-box">🌟</div>
+          <h3 class="feature-title">Public Student Portfolio</h3>
+          <p class="feature-desc">Graduates receive a verified personal profile link (<code>codju.com/student/name</code>) showcasing their badges and achievements.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon-box">👥</div>
+          <h3 class="feature-title">Small Cohorts &amp; Live Mentorship</h3>
+          <p class="feature-desc">No pre-recorded videos. Highly engaging live sessions with real-time feedback, interactive breakout rooms, and continuous doubt clearing.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon-box">📜</div>
+          <h3 class="feature-title">Verified QR Certificate</h3>
+          <p class="feature-desc">Authenticated graduation certificate co-branded with their school, verifiable on the blockchain and recognized by 250+ partner institutions.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== LEAD MENTOR (Screenshot 4) ========== -->
+  <!-- ========== LEAD MENTOR SPOTLIGHT ========== -->
   <section class="section" id="mentor">
-    <div class="bg-grid"></div>
     <div class="container">
-      <div class="section-header reveal">
-        <span class="eyebrow-pill">MEET THE MENTOR</span>
-        <h2 class="section-header__title">The Mentor Behind Codju Winter Fest</h2>
-      </div>
-
-      <div class="mentor-hero-card reveal">
-        <div class="mentor-hero-card__photo-col">
-          <img src="assets/rohit_profile.jpeg" alt="Rohit K Bishnoi, Founder & Lead Mentor at Codju" class="mentor-photo" />
+      <div class="mentor-box">
+        <div class="mentor-photo-wrap">
+          <img src="assets/rohit_profile.jpeg" alt="Rohit K. Bishnoi, Lead Mentor" class="mentor-photo" />
+          <span class="mentor-badge">IIT Kanpur · IIM Kozhikode</span>
         </div>
-        <div class="mentor-hero-card__info-col">
-          <div class="mentor-lead-badge">LEAD MENTOR</div>
-          <h3 class="mentor-name">Rohit K Bishnoi</h3>
-          <div class="mentor-creds">
-            <span class="cred-chip">🎓 IIT Kanpur</span>
-            <span class="cred-chip">🎓 IIM Kozhikode</span>
-          </div>
+        <div>
+          <h2 class="mentor-name">Rohit K. Bishnoi</h2>
+          <div class="mentor-role">Founder &amp; Lead Mentor, Codju</div>
           <p class="mentor-bio">
-            Codju Winter Fest is led personally by Rohit K Bishnoi, founder of Codju. He has worked with students across Indian schools and focuses on making coding and AI practical, safe, and useful for real learning and creation.
+            "I left an oilfield engineering career 16 years ago to pursue my true calling: teaching. Having trained more than 70,000 students and 10,000 teachers across India, I believe children must not simply consume technology—they must create with it. At Codju Academy, we nurture computational courage, creative curiosity, and ethical thinking."
           </p>
-          <div class="mentor-quote-box">
+          <div class="mentor-credentials">
+            <span class="credential-tag">🎓 B.Tech — IIT Kanpur</span>
+            <span class="credential-tag">🏛️ PGP — IIM Kozhikode</span>
+            <span class="credential-tag">📚 16+ Years Teaching Experience</span>
+            <span class="credential-tag">🏫 250+ School Partnerships</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== TESTIMONIALS ========== -->
+  <section class="section section--white">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">COMMUNITY VOICES</span>
+        <h2 class="section-title">Loved by Principals &amp; Parents</h2>
+        <p class="section-subtitle">Real experiences from our community across 250+ partner schools.</p>
+      </div>
+
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <div>
             <div class="quote-mark">“</div>
-            <p class="quote-text">I'm not teaching students to fear AI. I'm teaching them to lead with it.</p>
+            <p class="testimonial-text">
+              Codju’s NEP-aligned, hands-on curriculum has elevated digital literacy and strengthened students’ computational thinking. It delivers true experiential learning and remains one of the most impactful EdTech platforms.
+            </p>
           </div>
-        </div>
-      </div>
-
-      <!-- Bottom Mentor CTA Bar -->
-      <div class="mentor-bottom-cta reveal">
-        <h3 class="mentor-bottom-cta__title">Ready to Learn Directly from Rohit K Bishnoi?</h3>
-        <p class="mentor-bottom-cta__desc">The winter cohort is underway. Enrolled students can continue learning in the student portal.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========== TRUST AND IMPACT ========== -->
-  <section class="section section--light" id="impact">
-    <div class="container">
-      <div class="section-header reveal">
-        <span class="eyebrow-pill">TRUST & IMPACT</span>
-        <h2 class="section-header__title">Trusted by Schools and Families</h2>
-        <p class="section-header__subtitle">Real numbers from our journey in education.</p>
-      </div>
-
-      <div class="impact-metrics-grid">
-        <div class="impact-metric-card reveal">
-          <div class="impact-metric-card__icon">
-            <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-          </div>
-          <div class="impact-metric-card__number stat-card__number">9,700+</div>
-          <div class="impact-metric-card__label">Students Mentored</div>
-        </div>
-
-        <div class="impact-metric-card reveal reveal-delay-1">
-          <div class="impact-metric-card__icon">
-            <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22v-4"/><path d="M14 22v-4"/><path d="M10 22v-4"/><path d="M12 2L2 7l10 5 10-5Z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
-          </div>
-          <div class="impact-metric-card__number stat-card__number">97+</div>
-          <div class="impact-metric-card__label">Partner Schools</div>
-        </div>
-
-        <div class="impact-metric-card reveal reveal-delay-2">
-          <div class="impact-metric-card__icon">
-            <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="8" height="8" x="3" y="3" rx="2"/><rect width="8" height="8" x="13" y="3" rx="2"/><rect width="8" height="8" x="3" y="13" rx="2"/><rect width="8" height="8" x="13" y="13" rx="2"/></svg>
-          </div>
-          <div class="impact-metric-card__number stat-card__number">4</div>
-          <div class="impact-metric-card__label">Creative Learning Domains</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========== PRICING SECTION ========== -->
-  <section class="section" id="pricing">
-    <div class="bg-grid"></div>
-    <div class="container">
-      <div class="section-header reveal">
-        <span class="eyebrow-pill">ENROLLMENT</span>
-        <h2 class="section-header__title">Simple, Accessible Pricing</h2>
-        <p class="section-header__subtitle">One pass for all sessions, tools and projects.</p>
-      </div>
-
-      <div class="pricing-card reveal">
-        <div class="pricing-card__left">
-          <div class="pricing-card__badge">SPECIAL WINTER OFFER</div>
-          <div class="pricing-card__cost">
-            <span class="price-symbol">₹</span>
-            <span class="price-val">999</span>
-            <span class="price-period">· Complete One-Month Pass</span>
-          </div>
-          <div class="pricing-card__regular">
-            <span>Regular Fee: <span class="price-strikethrough">₹2,499</span></span>
-          </div>
-          <p class="pricing-card__desc">Full access to 4–5 live weekend sessions on YouTube, complete recordings, guided projects, certificate and student profile.</p>
-
-          <div class="pricing-card__actions">
-            <a href="https://wa.me/918288863132?text=Hi%20Codju!%20I%20want%20to%20enroll%20in%20Winter%20Fest%20for%20Rs%20999." target="_blank" rel="noopener noreferrer" class="btn btn--primary btn--large">Enroll for ₹999</a>
-            <a href="#partner-schools" class="btn btn--outline btn--large">Check School Access</a>
+          <div class="testimonial-author">
+            <div>
+              <div class="author-name">Principal</div>
+              <div class="author-role">Delhi Public School, Patiala</div>
+            </div>
           </div>
         </div>
 
-        <div class="pricing-card__right">
-          <h4 class="pricing-features-title">Everything Included:</h4>
-          <ul class="pricing-features-list">
-            <li>
-              <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="check-icon"><polyline points="20 6 9 17 4 12"/></svg>
-              <span>4–5 Live Weekend Sessions on YouTube</span>
-            </li>
-            <li>
-              <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="check-icon"><polyline points="20 6 9 17 4 12"/></svg>
-              <span>Instant 24/7 Replay Access Anytime</span>
-            </li>
-            <li>
-              <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="check-icon"><polyline points="20 6 9 17 4 12"/></svg>
-              <span>4 Guided Hands-On Creative Projects</span>
-            </li>
-            <li>
-              <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="check-icon"><polyline points="20 6 9 17 4 12"/></svg>
-              <span>Codju Certificate with QR-Based Verification</span>
-            </li>
-            <li>
-              <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="check-icon"><polyline points="20 6 9 17 4 12"/></svg>
-              <span>Personal Public Codju Student Profile</span>
-            </li>
-          </ul>
+        <div class="testimonial-card">
+          <div>
+            <div class="quote-mark">“</div>
+            <p class="testimonial-text">
+              Codju provides an experiential-based learning platform that equips students with essential tech skills. Their programs are designed considering the practical aspects of ICT. Loved it!
+            </p>
+          </div>
+          <div class="testimonial-author">
+            <div>
+              <div class="author-name">HOD — Computer Science</div>
+              <div class="author-role">Sri Venkateshwar International School, Dwarka</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div>
+            <div class="quote-mark">“</div>
+            <p class="testimonial-text">
+              My 10-year-old son Aarav joined the Scratch course and ended up building two full games on his own! He doesn't play random mobile games anymore; he's obsessed with building his own characters!
+            </p>
+          </div>
+          <div class="testimonial-author">
+            <div>
+              <div class="author-name">Meenakshi Sharma</div>
+              <div class="author-role">Parent of Grade 5 Student (Chandigarh)</div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- ========== FREQUENTLY ASKED QUESTIONS ========== -->
-  <section class="section section--light" id="faq">
+  <section class="section" id="faq">
     <div class="container">
-      <div class="section-header reveal">
-        <span class="eyebrow-pill">FAQS</span>
-        <h2 class="section-header__title">Frequently Asked Questions</h2>
-        <p class="section-header__subtitle">Everything you need to know about Winter Fest.</p>
+      <div class="section-header">
+        <span class="section-tag">GOT QUESTIONS?</span>
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        <p class="section-subtitle">Everything you need to know about enrollments, devices, and course schedules.</p>
       </div>
 
-      <div class="faq-accordion reveal">
-        <!-- Q1 -->
-        <div class="faq-item">
-          <button class="faq-item__header" type="button">
-            <span class="faq-item__question">Who can join Codju Winter Fest?</span>
-            <div class="faq-item__trigger-btn">
-              <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="faq-item__icon-svg"><path d="m6 9 6 6 6-6"/></svg>
-            </div>
+      <div class="faq-accordion">
+        <div class="faq-item active">
+          <button class="faq-trigger" aria-expanded="true">
+            <span>Which course is right for my child?</span>
+            <span class="faq-icon">+</span>
           </button>
-          <div class="faq-item__body">
-            <div class="faq-item__content">
-              School students in Grades 1–10. No previous coding experience is required.
-            </div>
+          <div class="faq-content">
+            Our pathways are strictly age-benchmarked: Scratch Junior is tailored for Grades 1–2 (ages 6–8); MIT Scratch is designed for Grades 3–5 (ages 8–11); Python and HTML &amp; CSS are for Grades 6–10 (ages 11–16); and the AI Winter Camp covers Grades 5–12. If you're unsure, message us on WhatsApp and our academic counsellors will guide you.
           </div>
         </div>
 
-        <!-- Q2 -->
         <div class="faq-item">
-          <button class="faq-item__header" type="button">
-            <span class="faq-item__question">Does my child need coding experience?</span>
-            <div class="faq-item__trigger-btn">
-              <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="faq-item__icon-svg"><path d="m6 9 6 6 6-6"/></svg>
-            </div>
+          <button class="faq-trigger" aria-expanded="false">
+            <span>What hardware or software do we need?</span>
+            <span class="faq-icon">+</span>
           </button>
-          <div class="faq-item__body">
-            <div class="faq-item__content">
-              No previous experience is needed. Every session starts with fundamentals and guides students step-by-step.
-            </div>
+          <div class="faq-content">
+            For Scratch Junior, any tablet (iPad or Android) or a laptop with Google Chrome is fine. For Scratch, Python, HTML &amp; CSS, and the AI Camp, a standard laptop or desktop with internet access is recommended. All coding environments are 100% cloud-based—no paid software installation required.
           </div>
         </div>
 
-        <!-- Q3 -->
         <div class="faq-item">
-          <button class="faq-item__header" type="button">
-            <span class="faq-item__question">What will students learn?</span>
-            <div class="faq-item__trigger-btn">
-              <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="faq-item__icon-svg"><path d="m6 9 6 6 6-6"/></svg>
-            </div>
+          <button class="faq-trigger" aria-expanded="false">
+            <span>What if a student misses a live session?</span>
+            <span class="faq-icon">+</span>
           </button>
-          <div class="faq-item__body">
-            <div class="faq-item__content">
-              The learning path includes dedicated sessions for ScratchJr, Scratch, Python and AI, with a guided project in each area.
-            </div>
+          <div class="faq-content">
+            All live sessions are automatically recorded and uploaded to the student's personal portal within 2 hours, alongside session recap notes, starter code, and prompt files. Dedicated teaching assistants are available during weekly office hours to assist with any missed topics.
           </div>
         </div>
 
-        <!-- Q4 -->
         <div class="faq-item">
-          <button class="faq-item__header" type="button">
-            <span class="faq-item__question">When are the live sessions scheduled?</span>
-            <div class="faq-item__trigger-btn">
-              <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="faq-item__icon-svg"><path d="m6 9 6 6 6-6"/></svg>
-            </div>
+          <button class="faq-trigger" aria-expanded="false">
+            <span>How do partner school students claim free scholarships?</span>
+            <span class="faq-icon">+</span>
           </button>
-          <div class="faq-item__body">
-            <div class="faq-item__content">
-              Sessions are held on weekends. Confirmed dates and session timings will be shared with enrolled students.
-            </div>
+          <div class="faq-content">
+            If your school is an official Codju Partner Institution, your school IT department will issue a dedicated school verification code. Simply select 'Partner School Login' upon registration to unlock 100% scholarship access.
           </div>
         </div>
 
-        <!-- Q5 -->
         <div class="faq-item">
-          <button class="faq-item__header" type="button">
-            <span class="faq-item__question">Can students watch recordings later?</span>
-            <div class="faq-item__trigger-btn">
-              <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="faq-item__icon-svg"><path d="m6 9 6 6 6-6"/></svg>
-            </div>
+          <button class="faq-trigger" aria-expanded="false">
+            <span>Are certificates recognized and verifiable?</span>
+            <span class="faq-icon">+</span>
           </button>
-          <div class="faq-item__body">
-            <div class="faq-item__content">
-              Yes. Students can join the live sessions on YouTube and access replays to revisit the lessons anytime.
-            </div>
+          <div class="faq-content">
+            Yes! Every graduate earns a verified certificate with a unique QR code. Scanning the QR code brings up the student's permanent public Codju profile displaying completed projects, mentor remarks, and verifiable skill competencies.
           </div>
         </div>
-
-        <!-- Q6 -->
-        <div class="faq-item">
-          <button class="faq-item__header" type="button">
-            <span class="faq-item__question">What is included in the student profile?</span>
-            <div class="faq-item__trigger-btn">
-              <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="faq-item__icon-svg"><path d="m6 9 6 6 6-6"/></svg>
-            </div>
-          </button>
-          <div class="faq-item__body">
-            <div class="faq-item__content">
-              Every graduate gets a shareable online profile showcasing completed projects, skill badges, and verified credentials.
-            </div>
-          </div>
-        </div>
-
-        <!-- Q7 -->
-        <div class="faq-item">
-          <button class="faq-item__header" type="button">
-            <span class="faq-item__question">How does certificate verification work?</span>
-            <div class="faq-item__trigger-btn">
-              <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="faq-item__icon-svg"><path d="m6 9 6 6 6-6"/></svg>
-            </div>
-          </button>
-          <div class="faq-item__body">
-            <div class="faq-item__content">
-              Each completion certificate includes a digital QR code that verifies the student's participation and project achievements.
-            </div>
-          </div>
-        </div>
-
-        <!-- Q8 -->
-        <div class="faq-item">
-          <button class="faq-item__header" type="button">
-            <span class="faq-item__question">Can students from partner schools join for free?</span>
-            <div class="faq-item__trigger-btn">
-              <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="faq-item__icon-svg"><path d="m6 9 6 6 6-6"/></svg>
-            </div>
-          </button>
-          <div class="faq-item__body">
-            <div class="faq-item__content">
-              Eligible students can register through their school's Codju registration code. Partner-school registration details will be announced soon.
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========== FINAL CALL TO ACTION ========== -->
-  <section class="section final-cta" id="reserve">
-    <div class="bg-grid"></div>
-    <div class="ambient-glow ambient-glow--cta"></div>
-    <div class="container">
-      <div class="final-cta__box reveal">
-        <h2 class="final-cta__title">Ready to Start Creating?</h2>
-        <p class="final-cta__subtitle">Explore coding, build projects and share what you make.</p>
-        
-        <div class="final-cta__buttons">
-          <a href="#pricing" class="btn btn--primary btn--large">Join Winter Fest</a>
-          <a href="#partner-schools" class="btn btn--outline btn--large">Check School Access</a>
-        </div>
-        
-        <p class="final-cta__guarantee">Certificate and student profile included.</p>
       </div>
     </div>
   </section>
 
   <!-- ========== FOOTER ========== -->
-  <footer class="footer">
+  <footer class="site-footer">
     <div class="container">
-      <div class="footer__inner">
-        <div class="footer__brand-col">
-          <a href="#" class="footer__logo-text">Codju</a>
-          <p class="footer__tagline">Helping students learn, create and grow with technology.</p>
+      <div class="footer-grid">
+        <div>
+          <div class="brand-logo-wrap" style="color: #ffffff; margin-bottom: 16px;">
+            <img src="assets/logo.png" alt="Codju Logo" class="brand-logo-img" />
+            <span>Codju Academy</span>
+          </div>
+          <p style="color: rgba(255, 255, 255, 0.7); font-size: 0.92rem; line-height: 1.6; margin-bottom: 20px;">
+            Empowering 2 million Indian school students with future-ready coding, AI, and digital skills by 2030. Partnered with 250+ leading schools across India.
+          </p>
+          <a href="https://wa.me/918288863132?text=Hello%20Codju%20Academy" target="_blank" rel="noopener" class="btn btn--whatsapp" style="display: inline-flex;">
+            💬 Chat with Academic Counsellor
+          </a>
         </div>
 
-        <div class="footer__links-col">
-          <a href="#program">Program</a>
-          <a href="#curriculum">Learning Path</a>
-          <a href="#projects">Student Projects</a>
-          <a href="#workshops">Workshops</a>
-          <a href="#faq">FAQs</a>
-          <a href="mailto:info@codju.com">Contact</a>
+        <div>
+          <div class="footer-col-title">Courses</div>
+          <ul class="footer-links">
+            <li><a href="Scratch Junior.dc.html" class="footer-link">Scratch Junior (Grades 1–2)</a></li>
+            <li><a href="Scratch.dc.html" class="footer-link">MIT Scratch (Grades 3–5)</a></li>
+            <li><a href="Python.dc.html" class="footer-link">Python Programming (Grades 6–10)</a></li>
+            <li><a href="HTML and CSS.dc.html" class="footer-link">HTML &amp; CSS Web Dev (Grades 6–10)</a></li>
+            <li><a href="Codju AI Winter Camp.dc.html" class="footer-link">AI Winter Camp (Grades 5–12)</a></li>
+          </ul>
         </div>
 
-        <div class="footer__contact-col">
-          <a href="mailto:info@codju.com" class="footer__contact-link">info@codju.com</a>
-          <a href="tel:+918288863132" class="footer__contact-link">+91 82888 63132</a>
-          <div class="footer__copy">© 2026 Codju. All rights reserved.</div>
+        <div>
+          <div class="footer-col-title">Codju Ecosystem</div>
+          <ul class="footer-links">
+            <li><a href="https://codju.com" target="_blank" rel="noopener" class="footer-link">Codju School Partner Portal</a></li>
+            <li><a href="https://inspirepunjab.com" target="_blank" rel="noopener" class="footer-link">Inspire India With AI</a></li>
+            <li><a href="#mentor" class="footer-link">About Founder Rohit Bishnoi</a></li>
+            <li><a href="#faq" class="footer-link">Help &amp; FAQs</a></li>
+          </ul>
         </div>
+
+        <div>
+          <div class="footer-col-title">Contact &amp; Support</div>
+          <ul class="footer-links" style="color: rgba(255, 255, 255, 0.7); font-size: 0.92rem;">
+            <li>📍 <strong>Headquarters:</strong> Codju EdTech, India</li>
+            <li>📞 <strong>Helpline:</strong> +91 82888 63132</li>
+            <li>✉️ <strong>Email:</strong> info@codju.com</li>
+            <li>⏰ <strong>Office Hours:</strong> Mon – Sat, 9:00 AM – 7:00 PM IST</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 Codju EdTech Pvt Ltd. All rights reserved.</div>
+        <div>Designed for young creators with passion &amp; purpose.</div>
       </div>
     </div>
   </footer>
 
-  <!-- ========== PROJECT DETAIL MODAL ========== -->
-  <div class="modal" id="projectModal" role="dialog" aria-modal="true" aria-labelledby="modalProjectTitle">
-    <div class="modal__backdrop" id="modalBackdrop"></div>
-    <div class="modal__dialog">
-      <button class="modal__close-btn" id="modalCloseBtn" aria-label="Close dialog">&times;</button>
-      <div class="modal__content" id="modalContent">
-        <!-- Dynamically injected via JavaScript -->
-      </div>
-    </div>
-  </div>
+  <!-- ========== ACCORDION & MENU SCRIPT ========== -->
+  <script>
+    // FAQ Accordion Toggle
+    document.querySelectorAll('.faq-trigger').forEach(button => {
+      button.addEventListener('click', () => {
+        const item = button.closest('.faq-item');
+        const isActive = item.classList.contains('active');
+        
+        document.querySelectorAll('.faq-item').forEach(other => {
+          other.classList.remove('active');
+          other.querySelector('.faq-trigger').setAttribute('aria-expanded', 'false');
+        });
 
-  <!-- ========== VIDEO PLAYER MODAL ========== -->
-  <div class="modal" id="videoModal" role="dialog" aria-modal="true" aria-labelledby="modalVideoTitle">
-    <div class="modal__backdrop" id="videoModalBackdrop"></div>
-    <div class="modal__dialog modal__dialog--video">
-      <button class="modal__close-btn" id="videoModalCloseBtn" aria-label="Close video player">&times;</button>
-      <div class="modal__video-wrapper">
-        <iframe id="videoPlayerIframe" width="100%" height="100%" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-      </div>
-    </div>
-  </div>
+        if (!isActive) {
+          item.classList.add('active');
+          button.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
 
-  <script src="index.js"></script>
+    // Mobile Menu Toggle
+    const menuToggle = document.getElementById('menuToggle');
+    if (menuToggle) {
+      menuToggle.addEventListener('click', () => {
+        const nav = document.querySelector('.nav-links');
+        if (nav.style.display === 'flex') {
+          nav.style.display = '';
+        } else {
+          nav.style.display = 'flex';
+          nav.style.flexDirection = 'column';
+          nav.style.position = 'absolute';
+          nav.style.top = '100%';
+          nav.style.left = '0';
+          nav.style.right = '0';
+          nav.style.background = '#fdf9f3';
+          nav.style.padding = '20px';
+          nav.style.boxShadow = '0 10px 20px rgba(0,0,0,0.1)';
+        }
+      });
+    }
+  </script>
 </body>
 </html>

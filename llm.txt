@@ -1,35 +1,85 @@
-# AI Creator Camp by Codju
+# Codju Academy
 **Domain:** codju.com
-**Target Audience:** Students in Grades 6–10 (ages 11–16)
-**Dates:** June 22 – 28, 2025
-**Format:** Live Online (Zoom), 45-minute daily sessions
-**Cost / Refund:** 100% Risk-Free Guarantee (Cancel anytime before Day 1 for full refund)
+**Target Audience:** Students in Grades 1–12 (ages 6–18)
+**Lead Mentor:** Rohit K. Bishnoi (IIT Kanpur, IIM Kozhikode)
+**Helpline:** +91 82888 63132
+**Email:** info@codju.com
 
-## Program Description
-AI Creator Camp by Codju is an immersive 7-day online program designed to teach young students the fundamentals and creative applications of Artificial Intelligence. Rather than teaching students to fear AI, the camp focuses on empowering them to lead with it through hands-on, project-based learning. Students learn to use modern AI tools to build real-world projects such as websites, apps, artwork, and videos.
+---
 
-## Key Outcomes & Deliverables
-- **8 Real Projects:** Students will build practical projects during the camp.
-- **15+ AI Tools Taught:** Students get hands-on experience with tools like ChatGPT, Gemini, Perplexity, Canva AI, Leonardo AI, CapCut AI, HeyGen, Suno, Gamma, NotebookLM, Notion AI, Scratch, Miro AI, Wix AI, Lovable, Glide, and Replit AI.
-- **Certificate of Completion:** A verified certificate is awarded to students who complete the camp.
-- **12 Months of Support:** Enrolled students receive a full year of AI support, including monthly update sessions, access to future live batches, and an AI mentor hotline.
-- **Demo Day:** The camp concludes with a team hackathon and a live Demo Day presentation.
+## Overview
+Codju Academy is an outcome-driven coding and artificial intelligence education platform designed for school students from Grades 1 to 12. Partnered with 250+ premier institutions across India, Codju delivers NEP 2020-aligned experiential tracks where students build real-world software, games, animations, and generative AI artifacts.
 
-## Daily Curriculum
-- **Day 1: Prompt Engineering:** Learn the mechanics of talking to AI, drafting research outlines, and breaking down complex topics using tools like ChatGPT, Gemini, and Perplexity.
-- **Day 2: Creativity with AI:** Generate visual art, stories, and videos using Leonardo AI, Midjourney, Suno, CapCut, and HeyGen.
-- **Day 3: AI for Learning:** Create a personal AI study dashboard, including notes, summaries, and quizzes using NotebookLM, Notion AI, and Gamma.
-- **Day 4: Build a Website:** Learn computational thinking and build a real website from scratch using Canva Websites, Wix AI, and Scratch.
-- **Day 5: Build an App:** Turn ideas into a working mini app using AI-assisted development tools like Lovable, Glide, Replit AI, and Miro AI.
-- **Day 6: AI Agents & Automation:** Learn automation fundamentals, custom GPTs, and connect tools to build workflows using Make.com, ChatGPT, and ElevenLabs.
-- **Day 7: Hackathon + Demo Day:** Collaborate in teams, present projects, and showcase the final outcomes to mentors and parents.
+Every graduate receives a verified digital certificate with QR code verification and a permanent public portfolio profile (`codju.com/student/name`).
 
-## Mentor Information
-- **Lead Mentor:** Rohit K Bishnoi
-- **Credentials:** IIT Kanpur, IIM Kozhikode
-- **Philosophy:** "I'm not teaching students to fear AI. I'm teaching them to lead with it."
+---
 
-## Contact Information
-- **WhatsApp:** +91 82888 63132
-- **Email:** info@codju.com
-- **Website:** codju.com
+## 1. Scratch Junior Track
+- **Target Audience:** Grades 1–2 (Ages 6–8)
+- **Duration:** 4 Weeks · 8 Live Sessions (45 mins each)
+- **Batch Ratio:** 1:6 Max Personal Cohort
+- **Tuition:** ₹3,999 + GST
+- **Format:** Tablet & Desktop friendly (iPad, Android, Chrome). No typing required.
+- **Curriculum:** 5 Modules (Meet the Blocks → Characters & Voices → Motion & Loops → Interactive Games → Share It & Celebrate)
+- **Key Projects:** The Enchanted Jungle Adventure, Underwater Coral Reef Race, Musical Birthday Greeting Card, Cosmic Rocket Blast Off.
+- **Page File:** `Scratch Junior.dc.html` / `scratch-junior.html`
+
+---
+
+## 2. MIT Scratch Track
+- **Target Audience:** Grades 3–5 (Ages 8–11)
+- **Duration:** 5 Weeks · 10 Live Sessions (60 mins each)
+- **Batch Ratio:** 1:8 Interactive Peer Studio
+- **Tuition:** ₹5,999 + GST
+- **Format:** Cloud-based Scratch 3.0 in web browser.
+- **Curriculum:** 5 Modules (Blocks & Logic → Variables & Scores → Game Physics & Collisions → Broadcasts & Multi-Level Worlds → Publish & Share to MIT Community)
+- **Key Projects:** Cosmic Galaxy Defender (Space Shooter), Maze Runner: The Pharaoh's Tomb, Flappy Bird Remastered, Virtual Pet Dragon Simulator.
+- **Page File:** `Scratch.dc.html` / `scratch.html`
+
+---
+
+## 3. Python Programming Track
+- **Target Audience:** Grades 6–10 (Ages 11–16)
+- **Duration:** 6 Weeks · 12 Live Sessions (75 mins each)
+- **Batch Ratio:** 1:8 Cohort with Live Code Reviews
+- **Tuition:** ₹7,999 + GST
+- **Format:** Browser-based cloud IDE with zero local configuration.
+- **Curriculum:** 5 Modules (Basics & Syntax → Decision Making & Logic → Loops & Collections → Modular Functions → Problem Solving & Capstone Demo)
+- **Key Projects:** CyberQuest: Text RPG Adventure, Caesar Cipher & Secret Messenger, Smart Study Quiz & Flashcard Bot, Weather Data Analyzer & Converter.
+- **Page File:** `Python.dc.html` / `python.html`
+
+---
+
+## 4. HTML & CSS Web Development Track
+- **Target Audience:** Grades 6–10 (Ages 11–16)
+- **Duration:** 5 Weeks · 10 Live Sessions (60 mins each)
+- **Batch Ratio:** 1:8 Studio Batch
+- **Tuition:** ₹6,999 + GST
+- **Format:** Modern HTML5, CSS3, Flexbox, Box Model, and Live Web Deployment.
+- **Curriculum:** 5 Modules (HTML Structure & Semantics → CSS Styling & Box Model → Modern Flexbox Layouts → Visual Polish & Mobile Media Queries → Build & Publish)
+- **Key Projects:** Personal Creator Portfolio, Tribute / Fan Page for an Idol, EcoPlanet: Climate Action Campaign, Retro 90s Arcade Lounge.
+- **Page File:** `HTML and CSS.dc.html` / `html-css.html`
+
+---
+
+## 5. Flagship Codju AI Winter Camp
+- **Target Audience:** Grades 5–12 (Ages 10–18)
+- **Duration:** 5 Weeks · 10 Live Sessions
+- **Tuition Tiers:** Foundation (₹999) · Accelerator (₹2,499) · Mastery (₹4,999). 100% Scholarships for Partner Schools.
+- **Format:** Live on YouTube + Zoom with interactive polls and TA support.
+- **Tools Taught (17 Tools):** ChatGPT 4o, Claude 3.5, Gemini 1.5, Perplexity, Midjourney, Ideogram, Pika Labs, Suno AI, ElevenLabs, NotebookLM, Gamma.app, Lovable.dev, Make.com, Canva Magic, CapCut AI, Google Labs, Whisper AI.
+- **5 Project Domains (20 Projects):**
+  1. Creative Arts & Media (Cinematic Video, Studio Music, Graphic Novel, 3D Mascot)
+  2. Academic Excellence (Grounded Syllabus Study Bot, Historical Mind Map, Citations Engine, Accent Coach)
+  3. No-Code Web Apps (AI Quiz Web App, Automation Pipeline, Custom Knowledge Bot, Link Portal)
+  4. Communication & Speech (TED Keynote Deck, AI Video Avatar, Debate Rebuttal Engine, School Newsletter)
+  5. Career & Future Skills (Digital Portfolio, Freelance Proposal, Campaign Calendar, Startup Pitch Deck)
+- **Page File:** `Codju AI Winter Camp.dc.html` / `ai-winter-camp.html`
+
+---
+
+## Institutional Trust & Credentials
+- **Schools Reached:** 250+ partner schools (DPS Patiala, SVIS Dwarka, Bhavan Vidyalaya, St. John's, HPS Begumpet)
+- **Students Empowered:** 70,000+
+- **Educators Trained:** 10,000+ through Inspire India With AI
+- **Average Rating:** 4.9 / 5.0

@@ -1,0 +1,1229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MIT Scratch — Game Design & Logic (Grades 3–5, Ages 8–11) | Codju Academy</title>
+  <meta name="description" content="MIT Scratch coding course for students in Grades 3–5 (Ages 8–11). Master game logic, physics, variables, coordinate planes, and publish 4 playable arcade games." />
+  <link rel="icon" type="image/png" href="assets/logo.png" />
+  <style>
+    /* ==========================================================================
+       CODJU ACADEMY — MIT SCRATCH TRACK (GRADES 3–5, AGES 8–11)
+       Accent: Scratch Blue (#4d97ff) | Shared Purple/Cream Foundation
+       ========================================================================== */
+    :root {
+      --font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      --color-brand-deep: #2c0a78;
+      --color-brand-purple: #7c3aed;
+      --color-brand-lavender: #f3e8ff;
+      --color-brand-cream: #fdf9f3;
+      --color-brand-warm: #f7d56a;
+      
+      /* Course Signature Accent */
+      --color-accent: #4d97ff;
+      --color-accent-light: rgba(77, 151, 255, 0.12);
+      --color-accent-hover: #3685f5;
+      
+      --color-bg-page: #fdf9f3;
+      --color-bg-surface: #ffffff;
+      --color-text-primary: #180838;
+      --color-text-secondary: #554d66;
+      --color-text-muted: #827b93;
+      --color-border: rgba(44, 10, 120, 0.08);
+      --color-shadow: rgba(44, 10, 120, 0.06);
+      --color-shadow-lg: rgba(44, 10, 120, 0.14);
+      
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+      --radius-xl: 28px;
+      --radius-full: 9999px;
+      --transition-base: 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+      --max-width: 1200px;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      font-family: var(--font-family);
+      background-color: var(--color-bg-page);
+      color: var(--color-text-primary);
+      line-height: 1.55;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    button {
+      font-family: inherit;
+      cursor: pointer;
+      border: none;
+      background: none;
+    }
+
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* --- Navigation Bar --- */
+    .site-nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(253, 249, 243, 0.94);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .site-nav__inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 14px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand-logo-wrap {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      font-size: 1.25rem;
+      color: var(--color-brand-deep);
+    }
+
+    .brand-logo-img {
+      height: 38px;
+      width: auto;
+    }
+
+    .course-pill-tag {
+      font-size: 0.76rem;
+      font-weight: 800;
+      background: var(--color-accent-light);
+      color: var(--color-accent);
+      padding: 4px 10px;
+      border-radius: var(--radius-full);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      list-style: none;
+    }
+
+    .nav-link {
+      font-size: 0.94rem;
+      font-weight: 600;
+      color: var(--color-text-secondary);
+      transition: color var(--transition-base);
+    }
+
+    .nav-link:hover {
+      color: var(--color-accent);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-weight: 700;
+      font-size: 0.94rem;
+      padding: 10px 22px;
+      border-radius: var(--radius-full);
+      transition: all var(--transition-base);
+      white-space: nowrap;
+    }
+
+    .btn--accent {
+      background: var(--color-accent);
+      color: #ffffff;
+      box-shadow: 0 4px 16px rgba(77, 151, 255, 0.35);
+    }
+
+    .btn--accent:hover {
+      background: var(--color-accent-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(77, 151, 255, 0.45);
+    }
+
+    .btn--outline {
+      border: 1.5px solid var(--color-border);
+      color: var(--color-brand-deep);
+      background: #ffffff;
+    }
+
+    .btn--outline:hover {
+      border-color: var(--color-accent);
+      color: var(--color-accent);
+    }
+
+    /* --- Hero Section --- */
+    .hero {
+      position: relative;
+      padding: 64px 0 52px;
+      overflow: hidden;
+    }
+
+    .hero__glow {
+      position: absolute;
+      top: -10%;
+      right: 10%;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(77, 151, 255, 0.16) 0%, rgba(124, 58, 237, 0.08) 50%, transparent 70%);
+      filter: blur(60px);
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.25fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #ffffff;
+      border: 1.5px solid var(--color-accent);
+      padding: 6px 16px;
+      border-radius: var(--radius-full);
+      font-size: 0.85rem;
+      font-weight: 800;
+      color: var(--color-accent);
+      margin-bottom: 20px;
+    }
+
+    .hero-title {
+      font-size: clamp(2.3rem, 4.8vw, 3.8rem);
+      font-weight: 800;
+      line-height: 1.12;
+      letter-spacing: -0.035em;
+      color: var(--color-brand-deep);
+      margin-bottom: 18px;
+    }
+
+    .hero-title .highlight {
+      color: var(--color-accent);
+    }
+
+    .hero-subtitle {
+      font-size: 1.15rem;
+      color: var(--color-text-secondary);
+      line-height: 1.6;
+      margin-bottom: 32px;
+    }
+
+    .hero-cta-group {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .hero-card {
+      background: #ffffff;
+      border: 1.5px solid var(--color-border);
+      border-radius: var(--radius-xl);
+      padding: 32px;
+      box-shadow: 0 16px 40px var(--color-shadow);
+    }
+
+    .hero-card__tag {
+      background: rgba(77, 151, 255, 0.12);
+      color: var(--color-accent);
+      font-size: 0.78rem;
+      font-weight: 800;
+      padding: 4px 12px;
+      border-radius: var(--radius-full);
+      display: inline-block;
+      margin-bottom: 16px;
+    }
+
+    .hero-card__price-box {
+      background: var(--color-brand-cream);
+      border: 1px dashed var(--color-accent);
+      border-radius: var(--radius-md);
+      padding: 16px 20px;
+      margin: 20px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    /* 4 Highlight Stats */
+    .stats-strip {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      background: #ffffff;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-xl);
+      padding: 24px 32px;
+      margin-top: 48px;
+      box-shadow: 0 6px 20px var(--color-shadow);
+    }
+
+    .stat-item {
+      text-align: center;
+      position: relative;
+    }
+
+    .stat-item:not(:last-child)::after {
+      content: "";
+      position: absolute;
+      right: 0;
+      top: 15%;
+      height: 70%;
+      width: 1px;
+      background: var(--color-border);
+    }
+
+    .stat-value {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--color-accent);
+      line-height: 1.1;
+    }
+
+    .stat-label {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--color-text-muted);
+      margin-top: 4px;
+    }
+
+    /* --- 3 Key Benefits --- */
+    .section {
+      padding: 80px 0;
+      position: relative;
+    }
+
+    .section--white {
+      background: #ffffff;
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto 52px;
+    }
+
+    .section-eyebrow {
+      font-size: 0.8rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      background: var(--color-accent-light);
+      padding: 4px 14px;
+      border-radius: var(--radius-full);
+      display: inline-block;
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-size: clamp(2rem, 3.5vw, 2.7rem);
+      font-weight: 800;
+      color: var(--color-brand-deep);
+      letter-spacing: -0.03em;
+      margin-bottom: 14px;
+    }
+
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .benefit-card {
+      background: #ffffff;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: 36px 28px;
+      box-shadow: 0 4px 16px var(--color-shadow);
+      transition: transform var(--transition-base);
+    }
+
+    .benefit-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 28px var(--color-shadow-lg);
+      border-color: var(--color-accent);
+    }
+
+    .benefit-icon-box {
+      width: 56px;
+      height: 56px;
+      border-radius: var(--radius-md);
+      background: var(--color-accent-light);
+      color: var(--color-accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      margin-bottom: 22px;
+    }
+
+    .benefit-title {
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: var(--color-brand-deep);
+      margin-bottom: 12px;
+    }
+
+    .benefit-desc {
+      font-size: 0.98rem;
+      color: var(--color-text-secondary);
+      line-height: 1.6;
+    }
+
+    /* --- 5-Module Curriculum Tabs --- */
+    .tabs-wrapper {
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    .tabs-nav {
+      display: flex;
+      gap: 10px;
+      overflow-x: auto;
+      padding-bottom: 14px;
+      margin-bottom: 32px;
+      border-bottom: 2px solid var(--color-border);
+      scrollbar-width: none;
+    }
+
+    .tabs-nav::-webkit-scrollbar {
+      display: none;
+    }
+
+    .tab-btn {
+      padding: 12px 20px;
+      font-weight: 700;
+      font-size: 0.96rem;
+      color: var(--color-text-muted);
+      border-radius: var(--radius-md);
+      white-space: nowrap;
+      transition: all var(--transition-base);
+    }
+
+    .tab-btn:hover {
+      color: var(--color-accent);
+      background: rgba(77, 151, 255, 0.08);
+    }
+
+    .tab-btn.active {
+      color: #ffffff;
+      background: var(--color-accent);
+      box-shadow: 0 4px 12px rgba(77, 151, 255, 0.3);
+    }
+
+    .tab-content {
+      display: none;
+      background: #ffffff;
+      border: 1.5px solid var(--color-border);
+      border-radius: var(--radius-xl);
+      padding: 40px;
+      box-shadow: 0 10px 30px var(--color-shadow);
+      animation: fadeIn 0.25s ease-in-out;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .curriculum-module-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .curriculum-module-title {
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: var(--color-brand-deep);
+    }
+
+    .curriculum-sessions-tag {
+      font-size: 0.85rem;
+      font-weight: 700;
+      background: var(--color-brand-cream);
+      color: var(--color-brand-deep);
+      border: 1px solid var(--color-border);
+      padding: 6px 14px;
+      border-radius: var(--radius-full);
+    }
+
+    .curriculum-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin-top: 24px;
+    }
+
+    .curriculum-item {
+      display: flex;
+      gap: 12px;
+      font-size: 0.98rem;
+      color: var(--color-text-secondary);
+      background: var(--color-brand-cream);
+      padding: 16px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--color-border);
+    }
+
+    .curriculum-item-check {
+      color: var(--color-accent);
+      font-weight: 800;
+    }
+
+    /* --- 4 Sample Student Projects --- */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 28px;
+    }
+
+    .project-card {
+      background: #ffffff;
+      border: 1.5px solid var(--color-border);
+      border-radius: var(--radius-xl);
+      padding: 32px 28px;
+      box-shadow: 0 6px 20px var(--color-shadow);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all var(--transition-base);
+    }
+
+    .project-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 36px var(--color-shadow-lg);
+      border-color: var(--color-accent);
+    }
+
+    .project-tag {
+      font-size: 0.78rem;
+      font-weight: 800;
+      background: var(--color-accent-light);
+      color: var(--color-accent);
+      padding: 4px 12px;
+      border-radius: var(--radius-full);
+      display: inline-block;
+      margin-bottom: 14px;
+    }
+
+    .project-title {
+      font-size: 1.45rem;
+      font-weight: 800;
+      color: var(--color-brand-deep);
+      margin-bottom: 12px;
+    }
+
+    .project-desc {
+      font-size: 0.96rem;
+      color: var(--color-text-secondary);
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .project-skills {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .project-skill-pill {
+      font-size: 0.78rem;
+      background: var(--color-brand-cream);
+      color: var(--color-text-muted);
+      border: 1px solid var(--color-border);
+      padding: 4px 10px;
+      border-radius: var(--radius-full);
+      font-weight: 600;
+    }
+
+    /* --- Pricing Section --- */
+    .pricing-box {
+      max-width: 640px;
+      margin: 0 auto;
+      background: #ffffff;
+      border: 2px solid var(--color-accent);
+      border-radius: var(--radius-xl);
+      padding: 48px;
+      box-shadow: 0 16px 40px rgba(77, 151, 255, 0.15);
+      text-align: center;
+      position: relative;
+    }
+
+    .pricing-ribbon {
+      position: absolute;
+      top: -14px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--color-accent);
+      color: #ffffff;
+      font-size: 0.8rem;
+      font-weight: 800;
+      padding: 6px 18px;
+      border-radius: var(--radius-full);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .pricing-amount {
+      font-size: 3.5rem;
+      font-weight: 800;
+      color: var(--color-brand-deep);
+      line-height: 1;
+      margin: 20px 0 6px;
+    }
+
+    .pricing-subtitle {
+      font-size: 0.95rem;
+      color: var(--color-text-muted);
+      margin-bottom: 28px;
+    }
+
+    .pricing-features {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      text-align: left;
+      margin: 28px 0;
+      padding-top: 24px;
+      border-top: 1px solid var(--color-border);
+    }
+
+    .pricing-feature-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 1rem;
+      color: var(--color-text-secondary);
+    }
+
+    .pricing-feature-check {
+      color: var(--color-accent);
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+
+    /* --- FAQ Accordion --- */
+    .faq-accordion {
+      max-width: 780px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .faq-item {
+      background: #ffffff;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      transition: all var(--transition-base);
+    }
+
+    .faq-item.active {
+      border-color: var(--color-accent);
+      box-shadow: 0 6px 20px var(--color-shadow);
+    }
+
+    .faq-trigger {
+      width: 100%;
+      padding: 22px 24px;
+      text-align: left;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--color-brand-deep);
+    }
+
+    .faq-icon {
+      font-size: 1.2rem;
+      color: var(--color-accent);
+      font-weight: 800;
+      transition: transform var(--transition-base);
+    }
+
+    .faq-item.active .faq-icon {
+      transform: rotate(45deg);
+    }
+
+    .faq-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease-out;
+      padding: 0 24px;
+      color: var(--color-text-secondary);
+      font-size: 0.96rem;
+      line-height: 1.6;
+    }
+
+    .faq-item.active .faq-content {
+      padding: 0 24px 22px;
+      max-height: 250px;
+    }
+
+    /* --- Footer --- */
+    .site-footer {
+      background: #180838;
+      color: #ffffff;
+      padding: 60px 0 32px;
+      margin-top: 60px;
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      font-size: 0.88rem;
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+      .benefits-grid {
+        grid-template-columns: 1fr;
+      }
+      .stats-strip {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+      .curriculum-list {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .stats-strip {
+        grid-template-columns: 1fr;
+      }
+      .stat-item::after {
+        display: none !important;
+      }
+      .nav-links {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ========== NAVIGATION ========== -->
+  <header class="site-nav">
+    <div class="site-nav__inner">
+      <a href="Codju Academy Home.dc.html" class="brand-logo-wrap">
+        <img src="assets/logo.png" alt="Codju Logo" class="brand-logo-img" />
+        <span>Codju Academy</span>
+        <span class="course-pill-tag">MIT Scratch</span>
+      </a>
+
+      <nav>
+        <ul class="nav-links">
+          <li><a href="Codju Academy Home.dc.html" class="nav-link">← All Courses</a></li>
+          <li><a href="#benefits" class="nav-link">Benefits</a></li>
+          <li><a href="#curriculum" class="nav-link">Curriculum</a></li>
+          <li><a href="#projects" class="nav-link">Projects</a></li>
+          <li><a href="#pricing" class="nav-link">Pricing</a></li>
+          <li><a href="#faq" class="nav-link">FAQ</a></li>
+        </ul>
+      </nav>
+
+      <div>
+        <a href="#pricing" class="btn btn--accent">Enroll for ₹5,999</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========== HERO SECTION ========== -->
+  <section class="hero">
+    <div class="hero__glow"></div>
+    <div class="container">
+      <div class="hero-grid">
+        <div>
+          <div class="hero-badge">
+            <span>🕹️ GRADES 3–5 · AGES 8–11 · 2D GAME DEVELOPMENT</span>
+          </div>
+          <h1 class="hero-title">
+            Build Games &amp; <br/>
+            <span class="highlight">Interactive Worlds</span>
+          </h1>
+          <p class="hero-subtitle">
+            Step into computational logic with MIT Scratch. Master variables, broadcast events, coordinate planes, and game physics while programming 4 playable arcade games!
+          </p>
+          <div class="hero-cta-group">
+            <a href="#pricing" class="btn btn--accent" style="padding: 14px 28px; font-size: 1.05rem;">
+              Enroll Now · ₹5,999 + GST
+            </a>
+            <a href="https://wa.me/918288863132?text=Hello%20Codju%2C%20I%20want%20to%20know%20more%20about%20MIT%20Scratch" target="_blank" rel="noopener" class="btn btn--outline" style="padding: 14px 28px; font-size: 1.05rem;">
+              💬 Talk to Mentor
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <div class="hero-card">
+            <span class="hero-card__tag">Next Cohort Starts Saturday</span>
+            <h3 style="font-size: 1.4rem; color: var(--color-brand-deep); margin-bottom: 8px;">MIT Scratch 3.0 Masterclass</h3>
+            <p style="font-size: 0.92rem; color: var(--color-text-secondary);">
+              Live interactive game studio where every student creates, debugs, and shares their games with friends.
+            </p>
+            <div class="hero-card__price-box">
+              <div>
+                <strong style="font-size: 1.4rem; color: var(--color-brand-deep);">₹5,999</strong>
+                <span style="font-size: 0.8rem; color: var(--color-text-muted);"> + GST</span>
+              </div>
+              <span style="font-size: 0.82rem; font-weight: 700; color: var(--color-accent); background: #ffffff; padding: 4px 10px; border-radius: var(--radius-full);">
+                5 Weeks · 10 Sessions
+              </span>
+            </div>
+            <ul style="list-style: none; display: flex; flex-direction: column; gap: 8px; font-size: 0.88rem; color: var(--color-text-secondary);">
+              <li>✓ Web browser-based (Chrome / Edge on Windows / Mac / Chromebook)</li>
+              <li>✓ Sound effects, sprite graphics &amp; animations included</li>
+              <li>✓ Verified Codju certificate &amp; permanent portfolio badge</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4 Highlight Stats -->
+      <div class="stats-strip">
+        <div class="stat-item">
+          <div class="stat-value">Ages 8–11</div>
+          <div class="stat-label">Grades 3 to 5</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value">10 Sessions</div>
+          <div class="stat-label">5 Weeks · 60 mins each</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value">1:8 Ratio</div>
+          <div class="stat-label">Collaborative Peer Studio</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value">4 Games</div>
+          <div class="stat-label">Published to Scratch Studio</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 3 KEY BENEFITS ========== -->
+  <section class="section section--white" id="benefits">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow">COMPUTATIONAL THINKING</span>
+        <h2 class="section-title">3 Key Learning Outcomes</h2>
+        <p style="font-size: 1.05rem; color: var(--color-text-secondary);">From consumer of games to game architect.</p>
+      </div>
+
+      <div class="benefits-grid">
+        <div class="benefit-card">
+          <div class="benefit-icon-box">🧠</div>
+          <h3 class="benefit-title">Core CS Principles</h3>
+          <p class="benefit-desc">Understand coordinate planes (X &amp; Y grids), algorithmic conditional branching (If/Else), variables, and mathematical loops.</p>
+        </div>
+
+        <div class="benefit-card">
+          <div class="benefit-icon-box">🎮</div>
+          <h3 class="benefit-title">Real Game Mechanics</h3>
+          <p class="benefit-desc">Build gravity physics, jump velocity, health bars, high scores, collision boundaries, and enemy spawn systems.</p>
+        </div>
+
+        <div class="benefit-card">
+          <div class="benefit-icon-box">🌐</div>
+          <h3 class="benefit-title">MIT Global Community</h3>
+          <p class="benefit-desc">Publish playable games to the global MIT Scratch community. Share links with school friends and teachers worldwide.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 5-MODULE CURRICULUM TABS ========== -->
+  <section class="section" id="curriculum">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow">ROADMAP TO MASTERY</span>
+        <h2 class="section-title">5-Module Curriculum</h2>
+        <p style="font-size: 1.05rem; color: var(--color-text-secondary);">From Blocks &amp; Logic to Publishing &amp; Sharing.</p>
+      </div>
+
+      <div class="tabs-wrapper">
+        <div class="tabs-nav" role="tablist">
+          <button class="tab-btn active" data-tab="tab-1">1. Blocks &amp; Logic</button>
+          <button class="tab-btn" data-tab="tab-2">2. Variables &amp; Scores</button>
+          <button class="tab-btn" data-tab="tab-3">3. Physics &amp; Collisions</button>
+          <button class="tab-btn" data-tab="tab-4">4. Broadcasts &amp; Worlds</button>
+          <button class="tab-btn" data-tab="tab-5">5. Publish &amp; Share</button>
+        </div>
+
+        <!-- Module 1 -->
+        <div class="tab-content active" id="tab-1">
+          <div class="curriculum-module-header">
+            <h3 class="curriculum-module-title">Module 1: Blocks &amp; Logic Foundations</h3>
+            <span class="curriculum-sessions-tag">Sessions 1 &amp; 2</span>
+          </div>
+          <p style="color: var(--color-text-secondary); line-height: 1.6;">
+            Get acquainted with the Scratch 3.0 interface. Master coordinate systems (X: -240 to 240, Y: -180 to 180), glide mechanics, arrow key controls, and event triggers.
+          </p>
+          <ul class="curriculum-list">
+            <li class="curriculum-item"><span class="curriculum-item-check">✓</span><span>Understanding the 2D Cartesian Coordinate Grid</span></li>
+            <li class="curriculum-item"><span class="curriculum-item-check">✓</span><span>Keypress event listeners &amp; smooth movement</span></li>
+            <li class="curriculum-item"><span class="curriculum-item-check">✓</span><span>Costume animations &amp; sprite flipping</span></li>
+            <li class="curriculum-item"><span class="curriculum-item-check">✓</span><span>Forever loops vs Repeat Until blocks</span></li>
+          </ul>
+        </div>
+
+        <!-- Module 2 -->
+        <div class="tab-content" id="tab-2">
+          <div class="curriculum-module-header">
+            <h3 class="curriculum-module-title">Module 2: Variables &amp; Scoring Systems</h3>
+            <span class="curriculum-sessions-tag">Sessions 3 &amp; 4</span>
+          </div>
+          <p style="color: var(--color-text-secondary); line-height: 1.6;">
+            Learn how computer programs store information in memory. Create variables for Score, Player Lives, Level Timer, and high score tracking with cloud variables.
+          </p>
+          <ul class="curriculum-list">
+            <li class="curriculum-item"><span class="curriculum-item-check">✓</span><span>Creating, modifying &amp; resetting variables</span></li>
+            <li class="curriculum-item"><span class="curriculum-item-check">✓</span><span>Countdown timers using the built-in clock</span></li>
+            <li class="curriculum-item"><span class="curriculum-item-check">✓</span><span>Random number generation (<code>pick random 1 to 10</code>)</span></li>
+            <li class="curriculum-item"><span class="curriculum-item-check">✓</span><span>Conditionals: If score &gt; 100 then You Win</span></li>
+          </ul>
+        </div>
+
+        <!-- Module 3 -->
+        <div class="tab-content" id="tab-3">
+          <div class="curriculum-module-header">
+            <h3 class="curriculum-module-title">Module 3: Game Physics &amp; Collisions</h3>
+            <span class="curriculum-sessions-tag">Sessions 5 &amp; 6</span>
+          </div>
+          <p style="color: var(--color-text-secondary); line-height: 1.6;">
+            Transform static sprites into dynamic arcade games! Program gravity simulation, jump velocities, edge bouncing, obstacle cloning, and hitbox sensing.
+          </p>
+          <ul class="curriculum-list">
+            <li class="curriculum-item"><span class="curriculum-item-check">✓</span><span>Gravity formula: Change Y by Velocity</span></li>
+            <li class="curriculum-item"><span class="curriculum-item-check">✓</span><span>Sensing blocks: <code>touching color</code> &amp; <code>touching sprite</code></span></li>
+            <li class="curriculum-item"><span class="curriculum-item-check">✓</span><span>Sprite cloning for laser blasts &amp; falling coins</span></li>
+            <li class="curriculum-item"><span class="curriculum-item-check">✓</span><span>Sound effects &amp; audio pitch modulation</span></li>
+          </ul>
+        </div>
+
+        <!-- Module 4 -->
+        <div class="tab-content" id="tab-4">
+          <div class="curriculum-module-header">
+            <h3 class="curriculum-module-title">Module 4: Broadcasts &amp; Multi-Level Worlds</h3>
+            <span class="curriculum-sessions-tag">Sessions 7 &amp; 8</span>
+          </div>
+          <p style="color: var(--color-text-secondary); line-height: 1.6;">
+            Learn inter-sprite communication using Broadcast Messages. Build multi-stage level transitions, Start Menu screens, Game Over screens, and a Boss Battle encounter.
+          </p>
+          <ul class="curriculum-list">
+            <li class="curriculum-item"><span class="curriculum-item-check">✓</span><span>Broadcast &amp; Receive message triggers</span></li>
+            <li class="curriculum-item"><span class="curriculum-item-check">✓</span><span>Designing Start Menus &amp; Game Over interfaces</span></li>
+            <li class="curriculum-item"><span class="curriculum-item-check">✓</span><span>Boss battle AI logic &amp; attack patterns</span></li>
+            <li class="curriculum-item"><span class="curriculum-item-check">✓</span><span>Multi-backdrop level progression</span></li>
+          </ul>
+        </div>
+
+        <!-- Module 5 -->
+        <div class="tab-content" id="tab-5">
+          <div class="curriculum-module-header">
+            <h3 class="curriculum-module-title">Module 5: Publish &amp; Share to MIT Community</h3>
+            <span class="curriculum-sessions-tag">Sessions 9 &amp; 10</span>
+          </div>
+          <p style="color: var(--color-text-secondary); line-height: 1.6;">
+            Professional game polish! Add instructions, notes, credits, custom animated game thumbnails, and publish to the Codju Scratch Studio. Final demo day presentation.
+          </p>
+          <ul class="curriculum-list">
+            <li class="curriculum-item"><span class="curriculum-item-check">✓</span><span>Code refactoring &amp; comment documentation</span></li>
+            <li class="curriculum-item"><span class="curriculum-item-check">✓</span><span>Writing clear player instructions &amp; credits</span></li>
+            <li class="curriculum-item"><span class="curriculum-item-check">✓</span><span>Publishing to MIT Scratch public studio</span></li>
+            <li class="curriculum-item"><span class="curriculum-item-check">✓</span><span>Graduation showcase &amp; verified digital certificate</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 4 SAMPLE STUDENT PROJECTS ========== -->
+  <section class="section section--white" id="projects">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow">STUDENT PORTFOLIO HIGHLIGHTS</span>
+        <h2 class="section-title">4 Sample Student Games</h2>
+        <p style="font-size: 1.05rem; color: var(--color-text-secondary);">Real playable arcade games built during the 5 weeks.</p>
+      </div>
+
+      <div class="projects-grid">
+        <div class="project-card">
+          <div>
+            <span class="project-tag">Project 1 · Arcade Shooter</span>
+            <h3 class="project-title">Cosmic Galaxy Defender</h3>
+            <p class="project-desc">
+              Control a starship defending Earth from falling meteor showers and alien drones. Features laser cloning, shield power-ups, and an escalating difficulty curve.
+            </p>
+          </div>
+          <div class="project-skills">
+            <span class="project-skill-pill">Cloning mechanics</span>
+            <span class="project-skill-pill">Hitbox detection</span>
+            <span class="project-skill-pill">High-score counter</span>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div>
+            <span class="project-tag">Project 2 · Puzzle Adventure</span>
+            <h3 class="project-title">Maze Runner: The Pharaoh's Tomb</h3>
+            <p class="project-desc">
+              A 2D top-down dungeon crawler where the explorer must navigate moving mummies, find golden keys, and unlock the temple exit before time runs out.
+            </p>
+          </div>
+          <div class="project-skills">
+            <span class="project-skill-pill">Wall collision math</span>
+            <span class="project-skill-pill">Enemy patrol AI</span>
+            <span class="project-skill-pill">Inventory variables</span>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div>
+            <span class="project-tag">Project 3 · Physics Game</span>
+            <h3 class="project-title">Flappy Bird Remastered</h3>
+            <p class="project-desc">
+              A faithful recreation of the mobile hit with smooth gravity curves, flapping velocity, random pipe generation, and high-score saving.
+            </p>
+          </div>
+          <div class="project-skills">
+            <span class="project-skill-pill">Gravity physics</span>
+            <span class="project-skill-pill">Scrolling background</span>
+            <span class="project-skill-pill">Color boundary sensing</span>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div>
+            <span class="project-tag">Project 4 · Simulation</span>
+            <h3 class="project-title">Virtual Pet Dragon Simulator</h3>
+            <p class="project-desc">
+              Care for a virtual baby dragon! Feed treats, play fetch, and put it to sleep to keep hunger, happiness, and energy meters in the green.
+            </p>
+          </div>
+          <div class="project-skills">
+            <span class="project-skill-pill">Multi-variable states</span>
+            <span class="project-skill-pill">Timer decay loops</span>
+            <span class="project-skill-pill">Interactive buttons</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PRICING SECTION ========== -->
+  <section class="section" id="pricing">
+    <div class="container">
+      <div class="pricing-box">
+        <span class="pricing-ribbon">Full Access Pass</span>
+        <h3 style="font-size: 1.8rem; color: var(--color-brand-deep);">MIT Scratch Masterclass</h3>
+        <div class="pricing-amount">₹5,999</div>
+        <div class="pricing-subtitle">One-time enrollment · +18% GST Applicable · No recurring fees</div>
+        
+        <ul class="pricing-features">
+          <li class="pricing-feature-item">
+            <span class="pricing-feature-check">✓</span>
+            <span><strong>5 Weeks · 10 Live Sessions</strong> (60 mins each, twice a week)</span>
+          </li>
+          <li class="pricing-feature-item">
+            <span class="pricing-feature-check">✓</span>
+            <span><strong>Interactive Batch of 1:8</strong> for optimal peer collaboration</span>
+          </li>
+          <li class="pricing-feature-item">
+            <span class="pricing-feature-check">✓</span>
+            <span><strong>Scratch Asset Pack</strong> (sprites, backdrops, SFX audio library)</span>
+          </li>
+          <li class="pricing-feature-item">
+            <span class="pricing-feature-check">✓</span>
+            <span><strong>4 Finished Playable Games</strong> published to student profile</span>
+          </li>
+          <li class="pricing-feature-item">
+            <span class="pricing-feature-check">✓</span>
+            <span><strong>Verified Certificate of Achievement</strong> co-branded with school</span>
+          </li>
+        </ul>
+
+        <a href="https://wa.me/918288863132?text=Hello%20Codju%2C%20I%20want%20to%20enroll%20my%20child%20in%20MIT%20Scratch%20(₹5,999)" target="_blank" rel="noopener" class="btn btn--accent" style="width: 100%; padding: 16px; font-size: 1.1rem; border-radius: var(--radius-md);">
+          Enroll in MIT Scratch Now →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 5 FAQS ========== -->
+  <section class="section section--white" id="faq">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow">COMMON QUESTIONS</span>
+        <h2 class="section-title">Frequently Asked Questions</h2>
+      </div>
+
+      <div class="faq-accordion">
+        <div class="faq-item active">
+          <button class="faq-trigger" aria-expanded="true">
+            <span>Is Scratch suitable for a child with zero prior coding experience?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-content">
+            Absolutely! MIT Scratch was specifically created for beginners aged 8–11. It completely eliminates syntax errors (like missing semicolons or brackets) by using interlocking blocks, letting kids focus 100% on logical reasoning and game design.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-trigger" aria-expanded="false">
+            <span>Do we need to install any heavy software?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-content">
+            No software installation is necessary. Scratch 3.0 runs directly in modern web browsers (Google Chrome, Microsoft Edge, Safari). All projects are automatically saved to the student's cloud account.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-trigger" aria-expanded="false">
+            <span>How is this course different from Scratch Junior?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-content">
+            Scratch Junior is designed for younger kids (ages 6–8) using symbol-only blocks on tablets. MIT Scratch is for older students (ages 8–11) and introduces real programming concepts: variables, numerical mathematics, Cartesian coordinates, broadcast messaging, and sprite cloning.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-trigger" aria-expanded="false">
+            <span>Can parents play what their child builds each week?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-content">
+            Yes! Every project gets a unique web link that works on any phone, tablet, or laptop. Parents and family members can open the link and play the games immediately.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-trigger" aria-expanded="false">
+            <span>What can the student learn next after completing Scratch?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-content">
+            After mastering logic and variables in Scratch, students naturally graduate to Python Programming (Grades 6–10) or HTML &amp; CSS Web Development to start writing professional text-based code.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <div><strong>Codju Academy</strong> · MIT Scratch Track (Grades 3–5)</div>
+        <div style="display: flex; gap: 20px;">
+          <a href="Codju Academy Home.dc.html" style="color: #ffffff;">Home</a>
+          <a href="Scratch Junior.dc.html" style="color: #ffffff;">Scratch Jr (Grades 1–2)</a>
+          <a href="Python.dc.html" style="color: #ffffff;">Python (Grades 6–10)</a>
+          <a href="Codju AI Winter Camp.dc.html" style="color: #f7d56a;">AI Winter Camp</a>
+        </div>
+        <div>&copy; 2026 Codju EdTech Pvt Ltd.</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========== TAB INTERACTION & ACCORDION JAVASCRIPT ========== -->
+  <script>
+    const tabButtons = document.querySelectorAll('.tab-btn');
+    const tabContents = document.querySelectorAll('.tab-content');
+
+    tabButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        tabButtons.forEach(b => b.classList.remove('active'));
+        tabContents.forEach(c => c.classList.remove('active'));
+
+        btn.classList.add('active');
+        const targetId = btn.getAttribute('data-tab');
+        const targetContent = document.getElementById(targetId);
+        if (targetContent) {
+          targetContent.classList.add('active');
+        }
+      });
+    });
+
+    document.querySelectorAll('.faq-trigger').forEach(trigger => {
+      trigger.addEventListener('click', () => {
+        const item = trigger.closest('.faq-item');
+        const isActive = item.classList.contains('active');
+
+        document.querySelectorAll('.faq-item').forEach(other => {
+          other.classList.remove('active');
+          other.querySelector('.faq-trigger').setAttribute('aria-expanded', 'false');
+        });
+
+        if (!isActive) {
+          item.classList.add('active');
+          trigger.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
