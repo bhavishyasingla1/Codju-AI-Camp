@@ -4,1228 +4,370 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Scratch Junior — Coding for Kids (Grades 1–2, Ages 6–8) | Codju Academy</title>
-  <meta name="description" content="Scratch Junior coding course for early learners in Grades 1–2 (Ages 6–8). Symbol-based visual coding, creative storytelling, 4 projects, 8 live mentor sessions." />
+  <meta name="description" content="Visual block coding for early learners. 4 projects, 8 live mentor sessions in micro-batches." />
   <link rel="icon" type="image/png" href="assets/logo.png" />
   <style>
-    /* ==========================================================================
-       CODJU ACADEMY — SCRATCH JUNIOR TRACK (GRADES 1–2, AGES 6–8)
-       Accent: Orange (#ff7a45) | Shared Purple/Cream Foundation
-       ========================================================================== */
     :root {
-      --font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      --color-brand-deep: #2c0a78;
-      --color-brand-purple: #7c3aed;
-      --color-brand-lavender: #f3e8ff;
-      --color-brand-cream: #fdf9f3;
-      --color-brand-warm: #f7d56a;
+      --font: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", -system-ui, "Segoe UI", Roboto, sans-serif;
+      --bg: #faf8f5;
+      --surface: #ffffff;
+      --text: #110826;
+      --text-muted: #6e677c;
+      --text-light: #9d96ab;
+      --border: rgba(17, 8, 38, 0.07);
       
-      /* Course Signature Accent */
-      --color-accent: #ff7a45;
-      --color-accent-light: rgba(255, 122, 69, 0.12);
-      --color-accent-hover: #fa652d;
+      --purple-deep: #2c0a78;
+      --accent: #ff7a45;
+      --accent-soft: rgba(255, 122, 69, 0.1);
       
-      --color-bg-page: #fdf9f3;
-      --color-bg-surface: #ffffff;
-      --color-text-primary: #180838;
-      --color-text-secondary: #554d66;
-      --color-text-muted: #827b93;
-      --color-border: rgba(44, 10, 120, 0.08);
-      --color-shadow: rgba(44, 10, 120, 0.06);
-      --color-shadow-lg: rgba(44, 10, 120, 0.14);
+      --shadow-sm: 0 2px 8px rgba(17, 8, 38, 0.04);
+      --shadow-md: 0 12px 32px rgba(17, 8, 38, 0.06);
       
-      --radius-sm: 8px;
-      --radius-md: 14px;
-      --radius-lg: 20px;
-      --radius-xl: 28px;
+      --radius-sm: 10px;
+      --radius-md: 18px;
+      --radius-lg: 26px;
       --radius-full: 9999px;
-      --transition-base: 0.22s cubic-bezier(0.16, 1, 0.3, 1);
-      --max-width: 1200px;
-    }
-
-    *, *::before, *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-      font-size: 16px;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    body {
-      font-family: var(--font-family);
-      background-color: var(--color-bg-page);
-      color: var(--color-text-primary);
-      line-height: 1.55;
-      overflow-x: hidden;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    img {
-      max-width: 100%;
-      height: auto;
-      display: block;
-    }
-
-    button {
-      font-family: inherit;
-      cursor: pointer;
-      border: none;
-      background: none;
-    }
-
-    .container {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 0 24px;
-    }
-
-    /* --- Navigation Bar --- */
-    .site-nav {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: rgba(253, 249, 243, 0.94);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border-bottom: 1px solid var(--color-border);
-    }
-
-    .site-nav__inner {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 14px 24px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-    }
-
-    .brand-logo-wrap {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      font-weight: 800;
-      font-size: 1.25rem;
-      color: var(--color-brand-deep);
-    }
-
-    .brand-logo-img {
-      height: 38px;
-      width: auto;
-    }
-
-    .course-pill-tag {
-      font-size: 0.76rem;
-      font-weight: 800;
-      background: var(--color-accent-light);
-      color: var(--color-accent);
-      padding: 4px 10px;
-      border-radius: var(--radius-full);
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 24px;
-      list-style: none;
-    }
-
-    .nav-link {
-      font-size: 0.94rem;
-      font-weight: 600;
-      color: var(--color-text-secondary);
-      transition: color var(--transition-base);
-    }
-
-    .nav-link:hover {
-      color: var(--color-accent);
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      font-weight: 700;
-      font-size: 0.94rem;
-      padding: 10px 22px;
-      border-radius: var(--radius-full);
-      transition: all var(--transition-base);
-      white-space: nowrap;
-    }
-
-    .btn--accent {
-      background: var(--color-accent);
-      color: #ffffff;
-      box-shadow: 0 4px 16px rgba(255, 122, 69, 0.35);
-    }
-
-    .btn--accent:hover {
-      background: var(--color-accent-hover);
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(255, 122, 69, 0.45);
-    }
-
-    .btn--outline {
-      border: 1.5px solid var(--color-border);
-      color: var(--color-brand-deep);
-      background: #ffffff;
-    }
-
-    .btn--outline:hover {
-      border-color: var(--color-accent);
-      color: var(--color-accent);
-    }
-
-    /* --- Hero Section --- */
-    .hero {
-      position: relative;
-      padding: 64px 0 52px;
-      overflow: hidden;
-    }
-
-    .hero__glow {
-      position: absolute;
-      top: -10%;
-      right: 10%;
-      width: 500px;
-      height: 500px;
-      background: radial-gradient(circle, rgba(255, 122, 69, 0.15) 0%, rgba(247, 213, 106, 0.08) 50%, transparent 70%);
-      filter: blur(60px);
-      z-index: -1;
-      pointer-events: none;
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.25fr 1fr;
-      gap: 48px;
-      align-items: center;
-    }
-
-    .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: #ffffff;
-      border: 1.5px solid var(--color-accent);
-      padding: 6px 16px;
-      border-radius: var(--radius-full);
-      font-size: 0.85rem;
-      font-weight: 800;
-      color: var(--color-accent);
-      margin-bottom: 20px;
-    }
-
-    .hero-title {
-      font-size: clamp(2.3rem, 4.8vw, 3.8rem);
-      font-weight: 800;
-      line-height: 1.12;
-      letter-spacing: -0.035em;
-      color: var(--color-brand-deep);
-      margin-bottom: 18px;
-    }
-
-    .hero-title .highlight {
-      color: var(--color-accent);
-      position: relative;
-    }
-
-    .hero-subtitle {
-      font-size: 1.15rem;
-      color: var(--color-text-secondary);
-      line-height: 1.6;
-      margin-bottom: 32px;
-    }
-
-    .hero-cta-group {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-
-    .hero-card {
-      background: #ffffff;
-      border: 1.5px solid var(--color-border);
-      border-radius: var(--radius-xl);
-      padding: 32px;
-      box-shadow: 0 16px 40px var(--color-shadow);
-      position: relative;
-    }
-
-    .hero-card__tag {
-      background: var(--color-brand-lavender);
-      color: var(--color-brand-purple);
-      font-size: 0.78rem;
-      font-weight: 800;
-      padding: 4px 12px;
-      border-radius: var(--radius-full);
-      display: inline-block;
-      margin-bottom: 16px;
-    }
-
-    .hero-card__price-box {
-      background: var(--color-brand-cream);
-      border: 1px dashed var(--color-accent);
-      border-radius: var(--radius-md);
-      padding: 16px 20px;
-      margin: 20px 0;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    /* 4 Highlight Stats */
-    .stats-strip {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 16px;
-      background: #ffffff;
-      border: 1px solid var(--color-border);
-      border-radius: var(--radius-xl);
-      padding: 24px 32px;
-      margin-top: 48px;
-      box-shadow: 0 6px 20px var(--color-shadow);
-    }
-
-    .stat-item {
-      text-align: center;
-      position: relative;
-    }
-
-    .stat-item:not(:last-child)::after {
-      content: "";
-      position: absolute;
-      right: 0;
-      top: 15%;
-      height: 70%;
-      width: 1px;
-      background: var(--color-border);
-    }
-
-    .stat-value {
-      font-size: 2rem;
-      font-weight: 800;
-      color: var(--color-accent);
-      line-height: 1.1;
-    }
-
-    .stat-label {
-      font-size: 0.88rem;
-      font-weight: 600;
-      color: var(--color-text-muted);
-      margin-top: 4px;
-    }
-
-    /* --- 3 Key Benefits Section --- */
-    .section {
-      padding: 80px 0;
-      position: relative;
-    }
-
-    .section--white {
-      background: #ffffff;
-    }
-
-    .section-header {
-      text-align: center;
-      max-width: 680px;
-      margin: 0 auto 52px;
-    }
-
-    .section-eyebrow {
-      font-size: 0.8rem;
-      font-weight: 800;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--color-accent);
-      background: var(--color-accent-light);
-      padding: 4px 14px;
-      border-radius: var(--radius-full);
-      display: inline-block;
-      margin-bottom: 12px;
-    }
-
-    .section-title {
-      font-size: clamp(2rem, 3.5vw, 2.7rem);
-      font-weight: 800;
-      color: var(--color-brand-deep);
-      letter-spacing: -0.03em;
-      margin-bottom: 14px;
-    }
-
-    .benefits-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 28px;
-    }
-
-    .benefit-card {
-      background: #ffffff;
-      border: 1px solid var(--color-border);
-      border-radius: var(--radius-lg);
-      padding: 36px 28px;
-      box-shadow: 0 4px 16px var(--color-shadow);
-      transition: transform var(--transition-base);
-    }
-
-    .benefit-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 12px 28px var(--color-shadow-lg);
-      border-color: var(--color-accent);
-    }
-
-    .benefit-icon-box {
-      width: 56px;
-      height: 56px;
-      border-radius: var(--radius-md);
-      background: var(--color-accent-light);
-      color: var(--color-accent);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.8rem;
-      margin-bottom: 22px;
-    }
-
-    .benefit-title {
-      font-size: 1.3rem;
-      font-weight: 800;
-      color: var(--color-brand-deep);
-      margin-bottom: 12px;
-    }
-
-    .benefit-desc {
-      font-size: 0.98rem;
-      color: var(--color-text-secondary);
-      line-height: 1.6;
-    }
-
-    /* --- 5-Module Curriculum Tabs --- */
-    .tabs-wrapper {
-      max-width: 960px;
-      margin: 0 auto;
-    }
-
-    .tabs-nav {
-      display: flex;
-      gap: 10px;
-      overflow-x: auto;
-      padding-bottom: 14px;
-      margin-bottom: 32px;
-      border-bottom: 2px solid var(--color-border);
-      scrollbar-width: none;
-    }
-
-    .tabs-nav::-webkit-scrollbar {
-      display: none;
-    }
-
-    .tab-btn {
-      padding: 12px 20px;
-      font-weight: 700;
-      font-size: 0.96rem;
-      color: var(--color-text-muted);
-      border-radius: var(--radius-md);
-      white-space: nowrap;
-      transition: all var(--transition-base);
-    }
-
-    .tab-btn:hover {
-      color: var(--color-accent);
-      background: rgba(255, 122, 69, 0.08);
-    }
-
-    .tab-btn.active {
-      color: #ffffff;
-      background: var(--color-accent);
-      box-shadow: 0 4px 12px rgba(255, 122, 69, 0.3);
-    }
-
-    .tab-content {
-      display: none;
-      background: #ffffff;
-      border: 1.5px solid var(--color-border);
-      border-radius: var(--radius-xl);
-      padding: 40px;
-      box-shadow: 0 10px 30px var(--color-shadow);
-      animation: fadeIn 0.25s ease-in-out;
-    }
-
-    .tab-content.active {
-      display: block;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(6px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .curriculum-module-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 20px;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-
-    .curriculum-module-title {
-      font-size: 1.6rem;
-      font-weight: 800;
-      color: var(--color-brand-deep);
-    }
-
-    .curriculum-sessions-tag {
-      font-size: 0.85rem;
-      font-weight: 700;
-      background: var(--color-brand-cream);
-      color: var(--color-brand-deep);
-      border: 1px solid var(--color-border);
-      padding: 6px 14px;
-      border-radius: var(--radius-full);
-    }
-
-    .curriculum-list {
-      list-style: none;
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 16px;
-      margin-top: 24px;
-    }
-
-    .curriculum-item {
-      display: flex;
-      gap: 12px;
-      font-size: 0.98rem;
-      color: var(--color-text-secondary);
-      background: var(--color-brand-cream);
-      padding: 16px;
-      border-radius: var(--radius-md);
-      border: 1px solid var(--color-border);
-    }
-
-    .curriculum-item-check {
-      color: var(--color-accent);
-      font-weight: 800;
-    }
-
-    /* --- 4 Sample Student Projects --- */
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 28px;
-    }
-
-    .project-card {
-      background: #ffffff;
-      border: 1.5px solid var(--color-border);
-      border-radius: var(--radius-xl);
-      padding: 32px 28px;
-      box-shadow: 0 6px 20px var(--color-shadow);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      transition: all var(--transition-base);
-    }
-
-    .project-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 16px 36px var(--color-shadow-lg);
-      border-color: var(--color-accent);
-    }
-
-    .project-tag {
-      font-size: 0.78rem;
-      font-weight: 800;
-      background: var(--color-accent-light);
-      color: var(--color-accent);
-      padding: 4px 12px;
-      border-radius: var(--radius-full);
-      display: inline-block;
-      margin-bottom: 14px;
-    }
-
-    .project-title {
-      font-size: 1.45rem;
-      font-weight: 800;
-      color: var(--color-brand-deep);
-      margin-bottom: 12px;
-    }
-
-    .project-desc {
-      font-size: 0.96rem;
-      color: var(--color-text-secondary);
-      line-height: 1.6;
-      margin-bottom: 20px;
-    }
-
-    .project-skills {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-    }
-
-    .project-skill-pill {
-      font-size: 0.78rem;
-      background: var(--color-brand-cream);
-      color: var(--color-text-muted);
-      border: 1px solid var(--color-border);
-      padding: 4px 10px;
-      border-radius: var(--radius-full);
-      font-weight: 600;
-    }
-
-    /* --- Pricing Section --- */
-    .pricing-box {
-      max-width: 640px;
-      margin: 0 auto;
-      background: #ffffff;
-      border: 2px solid var(--color-accent);
-      border-radius: var(--radius-xl);
-      padding: 48px;
-      box-shadow: 0 16px 40px rgba(255, 122, 69, 0.15);
-      text-align: center;
-      position: relative;
-    }
-
-    .pricing-ribbon {
-      position: absolute;
-      top: -14px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: var(--color-accent);
-      color: #ffffff;
-      font-size: 0.8rem;
-      font-weight: 800;
-      padding: 6px 18px;
-      border-radius: var(--radius-full);
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-    }
-
-    .pricing-amount {
-      font-size: 3.5rem;
-      font-weight: 800;
-      color: var(--color-brand-deep);
-      line-height: 1;
-      margin: 20px 0 6px;
-    }
-
-    .pricing-subtitle {
-      font-size: 0.95rem;
-      color: var(--color-text-muted);
-      margin-bottom: 28px;
-    }
-
-    .pricing-features {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-      text-align: left;
-      margin: 28px 0;
-      padding-top: 24px;
-      border-top: 1px solid var(--color-border);
-    }
-
-    .pricing-feature-item {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      font-size: 1rem;
-      color: var(--color-text-secondary);
-    }
-
-    .pricing-feature-check {
-      color: var(--color-accent);
-      font-size: 1.2rem;
-      font-weight: bold;
-    }
-
-    /* --- FAQ Accordion --- */
-    .faq-accordion {
-      max-width: 780px;
-      margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-    }
-
-    .faq-item {
-      background: #ffffff;
-      border: 1px solid var(--color-border);
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-      transition: all var(--transition-base);
-    }
-
-    .faq-item.active {
-      border-color: var(--color-accent);
-      box-shadow: 0 6px 20px var(--color-shadow);
-    }
-
-    .faq-trigger {
-      width: 100%;
-      padding: 22px 24px;
-      text-align: left;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      font-size: 1.05rem;
-      font-weight: 700;
-      color: var(--color-brand-deep);
-    }
-
-    .faq-icon {
-      font-size: 1.2rem;
-      color: var(--color-accent);
-      font-weight: 800;
-      transition: transform var(--transition-base);
-    }
-
-    .faq-item.active .faq-icon {
-      transform: rotate(45deg);
-    }
-
-    .faq-content {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.3s ease-out;
-      padding: 0 24px;
-      color: var(--color-text-secondary);
-      font-size: 0.96rem;
-      line-height: 1.6;
-    }
-
-    .faq-item.active .faq-content {
-      padding: 0 24px 22px;
-      max-height: 250px;
-    }
-
-    /* --- Footer --- */
-    .site-footer {
-      background: #180838;
-      color: #ffffff;
-      padding: 60px 0 32px;
-      margin-top: 60px;
-    }
-
-    .footer-bottom {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 16px;
-      font-size: 0.88rem;
-      color: rgba(255, 255, 255, 0.6);
-    }
-
-    @media (max-width: 900px) {
-      .hero-grid {
-        grid-template-columns: 1fr;
-      }
-      .benefits-grid {
-        grid-template-columns: 1fr;
-      }
-      .stats-strip {
-        grid-template-columns: repeat(2, 1fr);
-      }
-      .projects-grid {
-        grid-template-columns: 1fr;
-      }
-      .curriculum-list {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    @media (max-width: 600px) {
-      .stats-strip {
-        grid-template-columns: 1fr;
-      }
-      .stat-item::after {
-        display: none !important;
-      }
-      .nav-links {
-        display: none;
-      }
+      --ease: 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+    body { font-family: var(--font); background: var(--bg); color: var(--text); line-height: 1.5; }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+    .container { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+
+    /* Nav */
+    .nav { position: sticky; top: 0; z-index: 100; background: rgba(250, 248, 245, 0.9); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); }
+    .nav__inner { height: 70px; display: flex; align-items: center; justify-content: space-between; }
+    .nav__logo { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 1.2rem; color: var(--purple-deep); }
+    .nav__logo img { height: 36px; }
+    .nav__tag { font-size: 0.74rem; font-weight: 800; background: var(--accent-soft); color: var(--accent); padding: 3px 10px; border-radius: var(--radius-full); }
+    .btn { display: inline-flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.92rem; padding: 10px 22px; border-radius: var(--radius-full); transition: all var(--ease); border: none; cursor: pointer; }
+    .btn--accent { background: var(--accent); color: #fff; box-shadow: 0 4px 14px rgba(255, 122, 69, 0.35); }
+    .btn--accent:hover { filter: brightness(1.08); transform: translateY(-1px); }
+
+    /* Hero */
+    .hero { padding: 72px 0 52px; text-align: center; }
+    .hero-badge { display: inline-flex; align-items: center; gap: 6px; background: #fff; border: 1px solid var(--border); padding: 6px 14px; border-radius: var(--radius-full); font-size: 0.8rem; font-weight: 700; color: var(--accent); margin-bottom: 20px; box-shadow: var(--shadow-sm); }
+    .hero-title { font-size: clamp(2.4rem, 5.2vw, 4rem); font-weight: 800; line-height: 1.1; letter-spacing: -0.035em; color: var(--purple-deep); max-width: 800px; margin: 0 auto 16px; }
+    .hero-title span { color: var(--accent); }
+    .hero-sub { font-size: 1.12rem; color: var(--text-muted); max-width: 600px; margin: 0 auto 32px; }
+    .hero-actions { display: flex; justify-content: center; gap: 14px; margin-bottom: 48px; }
+
+    /* 4 Stats */
+    .stats-strip { display: flex; justify-content: center; gap: 48px; flex-wrap: wrap; padding-top: 24px; border-top: 1px solid var(--border); max-width: 760px; margin: 0 auto; }
+    .stat-val { font-size: 1.7rem; font-weight: 800; color: var(--accent); line-height: 1.1; }
+    .stat-lbl { font-size: 0.8rem; font-weight: 600; color: var(--text-light); text-transform: uppercase; margin-top: 2px; }
+
+    /* Section */
+    .section { padding: 84px 0; }
+    .section-head { text-align: center; max-width: 540px; margin: 0 auto 40px; }
+    .section-title { font-size: 2.1rem; font-weight: 800; letter-spacing: -0.03em; color: var(--purple-deep); margin-bottom: 8px; }
+    .section-sub { font-size: 1rem; color: var(--text-muted); }
+
+    /* 3 Benefits */
+    .benefits-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .b-card { background: #fff; border: 1px solid var(--border); border-radius: var(--radius-md); padding: 28px 24px; box-shadow: var(--shadow-sm); }
+    .b-icon { font-size: 1.8rem; margin-bottom: 12px; }
+    .b-title { font-size: 1.15rem; font-weight: 800; color: var(--purple-deep); margin-bottom: 6px; }
+    .b-desc { font-size: 0.9rem; color: var(--text-muted); line-height: 1.5; }
+
+    /* Curriculum Tabs */
+    .tabs-nav { display: flex; justify-content: center; gap: 8px; overflow-x: auto; margin-bottom: 24px; padding-bottom: 6px; }
+    .tab-btn { padding: 8px 18px; font-size: 0.9rem; font-weight: 700; border-radius: var(--radius-full); background: #fff; border: 1px solid var(--border); color: var(--text-muted); cursor: pointer; transition: all var(--ease); white-space: nowrap; }
+    .tab-btn.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+    .tab-pane { display: none; background: #fff; border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 36px 32px; box-shadow: var(--shadow-sm); max-width: 800px; margin: 0 auto; }
+    .tab-pane.active { display: block; }
+    .tab-pane h3 { font-size: 1.35rem; font-weight: 800; color: var(--purple-deep); margin-bottom: 12px; }
+    .tab-pane p { font-size: 0.95rem; color: var(--text-muted); line-height: 1.55; margin-bottom: 20px; }
+    .tab-list { list-style: none; display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; font-size: 0.88rem; color: var(--text); }
+    .tab-list li { background: var(--bg); border: 1px solid var(--border); padding: 10px 14px; border-radius: var(--radius-sm); }
+
+    /* 4 Projects */
+    .projs-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+    .p-card { background: #fff; border: 1px solid var(--border); border-radius: var(--radius-md); padding: 28px 24px; box-shadow: var(--shadow-sm); }
+    .p-tag { font-size: 0.72rem; font-weight: 800; color: var(--accent); text-transform: uppercase; margin-bottom: 6px; }
+    .p-title { font-size: 1.25rem; font-weight: 800; color: var(--purple-deep); margin-bottom: 8px; }
+    .p-desc { font-size: 0.9rem; color: var(--text-muted); line-height: 1.5; }
+
+    /* Pricing Box */
+    .price-box { max-width: 520px; margin: 0 auto; background: #fff; border: 2px solid var(--accent); border-radius: var(--radius-lg); padding: 40px 32px; text-align: center; box-shadow: var(--shadow-md); }
+    .price-num { font-size: 3rem; font-weight: 800; color: var(--purple-deep); line-height: 1; margin: 12px 0 6px; }
+    .price-sub { font-size: 0.88rem; color: var(--text-light); margin-bottom: 24px; }
+    .price-features { list-style: none; display: flex; flex-direction: column; gap: 10px; font-size: 0.92rem; color: var(--text-muted); text-align: left; margin-bottom: 28px; padding-top: 18px; border-top: 1px solid var(--border); }
+
+    /* FAQ */
+    .faq-wrap { max-width: 720px; margin: 0 auto; display: flex; flex-direction: column; gap: 10px; }
+    .faq-item { background: #fff; border: 1px solid var(--border); border-radius: var(--radius-md); overflow: hidden; }
+    .faq-item.active { border-color: var(--accent); }
+    .faq-q { width: 100%; padding: 18px 22px; display: flex; justify-content: space-between; align-items: center; font-size: 1rem; font-weight: 700; color: var(--purple-deep); text-align: left; cursor: pointer; border: none; background: none; }
+    .faq-a { max-height: 0; overflow: hidden; transition: max-height 0.25s ease-out; padding: 0 22px; font-size: 0.92rem; color: var(--text-muted); line-height: 1.55; }
+    .faq-item.active .faq-a { padding: 0 22px 18px; max-height: 180px; }
+
+    .footer { background: var(--purple-deep); color: #fff; padding: 40px 0; text-align: center; font-size: 0.88rem; }
+    .footer a { color: #fff; margin: 0 10px; opacity: 0.8; }
+    .footer a:hover { opacity: 1; }
+
+    @media (max-width: 768px) {
+      .benefits-grid, .projs-grid, .tab-list { grid-template-columns: 1fr; }
+      .stats-strip { gap: 24px; }
     }
   </style>
 </head>
 <body>
 
-  <!-- ========== NAVIGATION ========== -->
-  <header class="site-nav">
-    <div class="site-nav__inner">
-      <a href="Codju Academy Home.dc.html" class="brand-logo-wrap">
-        <img src="assets/logo.png" alt="Codju Logo" class="brand-logo-img" />
+  <header class="nav">
+    <div class="container nav__inner">
+      <a href="index.html" class="nav__logo">
+        <img src="assets/logo.png" alt="Codju Logo" />
         <span>Codju Academy</span>
-        <span class="course-pill-tag">Scratch Junior</span>
+        <span class="nav__tag">Scratch Junior</span>
       </a>
-
-      <nav>
-        <ul class="nav-links">
-          <li><a href="Codju Academy Home.dc.html" class="nav-link">← All Courses</a></li>
-          <li><a href="#benefits" class="nav-link">Benefits</a></li>
-          <li><a href="#curriculum" class="nav-link">Curriculum</a></li>
-          <li><a href="#projects" class="nav-link">Projects</a></li>
-          <li><a href="#pricing" class="nav-link">Pricing</a></li>
-          <li><a href="#faq" class="nav-link">FAQ</a></li>
-        </ul>
-      </nav>
-
-      <div>
+      <div style="display: flex; gap: 12px; align-items: center;">
+        <a href="index.html" style="font-size: 0.9rem; font-weight: 600; color: var(--text-muted);">← All Courses</a>
         <a href="#pricing" class="btn btn--accent">Enroll for ₹3,999</a>
       </div>
     </div>
   </header>
 
-  <!-- ========== HERO SECTION ========== -->
   <section class="hero">
-    <div class="hero__glow"></div>
     <div class="container">
-      <div class="hero-grid">
-        <div>
-          <div class="hero-badge">
-            <span>🐱 GRADES 1–2 · AGES 6–8 · NO TYPING REQUIRED</span>
-          </div>
-          <h1 class="hero-title">
-            Early Coding for <br/>
-            <span class="highlight">Curious Young Minds</span>
-          </h1>
-          <p class="hero-subtitle">
-            Turn passive screen time into playful computational thinking. Kids snap together symbol-based visual blocks to create animated stories, colorful characters, and interactive picture games!
-          </p>
-          <div class="hero-cta-group">
-            <a href="#pricing" class="btn btn--accent" style="padding: 14px 28px; font-size: 1.05rem;">
-              Enroll Now · ₹3,999 + GST
-            </a>
-            <a href="https://wa.me/918288863132?text=Hello%20Codju%2C%20I%20want%20to%20know%20more%20about%20Scratch%20Junior" target="_blank" rel="noopener" class="btn btn--outline" style="padding: 14px 28px; font-size: 1.05rem;">
-              💬 Talk to Mentor
-            </a>
-          </div>
-        </div>
-
-        <div>
-          <div class="hero-card">
-            <span class="hero-card__tag">Cohort Starting This Weekend</span>
-            <h3 style="font-size: 1.4rem; color: var(--color-brand-deep); margin-bottom: 8px;">Scratch Junior Track</h3>
-            <p style="font-size: 0.92rem; color: var(--color-text-secondary);">
-              Guided live by certified early childhood coding mentors in micro-groups of 6 students.
-            </p>
-            <div class="hero-card__price-box">
-              <div>
-                <strong style="font-size: 1.4rem; color: var(--color-brand-deep);">₹3,999</strong>
-                <span style="font-size: 0.8rem; color: var(--color-text-muted);"> + GST</span>
-              </div>
-              <span style="font-size: 0.82rem; font-weight: 700; color: var(--color-accent); background: #ffffff; padding: 4px 10px; border-radius: var(--radius-full);">
-                4 Weeks · 8 Sessions
-              </span>
-            </div>
-            <ul style="list-style: none; display: flex; flex-direction: column; gap: 8px; font-size: 0.88rem; color: var(--color-text-secondary);">
-              <li>✓ Tablet or Desktop compatible (iPad / Android / PC)</li>
-              <li>✓ 100% Kid-Safe MIT ScratchJr sandbox</li>
-              <li>✓ Verified Codju certificate &amp; digital showcase</li>
-            </ul>
-          </div>
-        </div>
+      <div class="hero-badge">🐱 GRADES 1–2 · AGES 6–8 · NO TYPING NEEDED</div>
+      <h1 class="hero-title">Early Coding for <br/><span>Curious Minds.</span></h1>
+      <p class="hero-sub">Children snap visual blocks to animate characters, invent whimsical picture stories, and build foundational sequencing logic.</p>
+      
+      <div class="hero-actions">
+        <a href="#pricing" class="btn btn--accent" style="padding: 13px 28px; font-size: 1rem;">Enroll in Cohort · ₹3,999</a>
+        <a href="https://wa.me/918288863132?text=Hello%20Codju%2C%20Scratch%20Junior%20inquiry" target="_blank" rel="noopener" class="btn" style="background:#fff; border:1px solid var(--border);">💬 Talk to Mentor</a>
       </div>
 
-      <!-- 4 Highlight Stats -->
       <div class="stats-strip">
-        <div class="stat-item">
-          <div class="stat-value">Ages 6–8</div>
-          <div class="stat-label">Grades 1 &amp; 2</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-value">8 Sessions</div>
-          <div class="stat-label">4 Weeks · 2 per week</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-value">1:6 Max</div>
-          <div class="stat-label">Small Personal Batch</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-value">4 Projects</div>
-          <div class="stat-label">Stories &amp; Games Built</div>
-        </div>
+        <div><div class="stat-val">Ages 6–8</div><div class="stat-lbl">Grades 1 &amp; 2</div></div>
+        <div><div class="stat-val">8 Sessions</div><div class="stat-lbl">4 Weeks</div></div>
+        <div><div class="stat-val">1:6 Ratio</div><div class="stat-lbl">Micro Cohort</div></div>
+        <div><div class="stat-val">4 Projects</div><div class="stat-lbl">Stories &amp; Games</div></div>
       </div>
     </div>
   </section>
 
-  <!-- ========== 3 KEY BENEFITS ========== -->
-  <section class="section section--white" id="benefits">
+  <!-- 3 Key Benefits -->
+  <section class="section" style="background: #fff; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
     <div class="container">
-      <div class="section-header">
-        <span class="section-eyebrow">DESIGNED FOR EARLY LEARNERS</span>
-        <h2 class="section-title">3 Core Learning Transformations</h2>
-        <p style="font-size: 1.05rem; color: var(--color-text-secondary);">How Scratch Junior builds foundational logic before middle school.</p>
+      <div class="section-head">
+        <h2 class="section-title">3 Core Transformations</h2>
+        <p class="section-sub">Gentle, playful, and developmentally targeted for early childhood.</p>
       </div>
 
       <div class="benefits-grid">
-        <div class="benefit-card">
-          <div class="benefit-icon-box">🧩</div>
-          <h3 class="benefit-title">Symbol-Based Logic</h3>
-          <p class="benefit-desc">No reading or keyboard typing needed. Kids snap visual arrows, sound triggers, and color-coded blocks to direct animated characters.</p>
+        <div class="b-card">
+          <div class="b-icon">🧩</div>
+          <h3 class="b-title">Symbol Logic</h3>
+          <p class="b-desc">No reading or keyboard required. Snap color-coded movement arrows and trigger blocks.</p>
         </div>
-
-        <div class="benefit-card">
-          <div class="benefit-icon-box">🎨</div>
-          <h3 class="benefit-title">Creative Storytelling</h3>
-          <p class="benefit-desc">Children design their own characters, draw backdrops, record their personal voices, and invent whimsical narrative arcs.</p>
+        <div class="b-card">
+          <div class="b-icon">🎨</div>
+          <h3 class="b-title">Creative Narration</h3>
+          <p class="b-desc">Children paint custom character costumes and record their own voices for animated dialogue.</p>
         </div>
-
-        <div class="benefit-card">
-          <div class="benefit-icon-box">💡</div>
-          <h3 class="benefit-title">Confidence &amp; Problem Solving</h3>
-          <p class="benefit-desc">Through gentle debugging, early learners discover sequencing, cause-and-effect reasoning, and computational patience.</p>
+        <div class="b-card">
+          <div class="b-icon">💡</div>
+          <h3 class="b-title">Cause &amp; Effect</h3>
+          <p class="b-desc">Discover sequencing, loops, and gentle debugging through interactive play.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== 5-MODULE CURRICULUM TABS ========== -->
-  <section class="section" id="curriculum">
+  <!-- 5-Module Curriculum Tabs -->
+  <section class="section">
     <div class="container">
-      <div class="section-header">
-        <span class="section-eyebrow">STEP-BY-STEP SYLLABUS</span>
+      <div class="section-head">
         <h2 class="section-title">5-Module Curriculum</h2>
-        <p style="font-size: 1.05rem; color: var(--color-text-secondary);">From meeting the first blocks to publishing and celebrating their final animated storybook.</p>
+        <p class="section-sub">Step-by-step from meeting the first blocks to the graduation showcase.</p>
       </div>
 
-      <div class="tabs-wrapper">
-        <div class="tabs-nav" role="tablist">
-          <button class="tab-btn active" data-tab="tab-1">1. Meet the Blocks</button>
-          <button class="tab-btn" data-tab="tab-2">2. Characters &amp; Voices</button>
-          <button class="tab-btn" data-tab="tab-3">3. Motion &amp; Loops</button>
-          <button class="tab-btn" data-tab="tab-4">4. Interactive Games</button>
-          <button class="tab-btn" data-tab="tab-5">5. Share It &amp; Celebrate</button>
-        </div>
+      <div class="tabs-nav">
+        <button class="tab-btn active" data-tab="t1">1. Meet the Blocks</button>
+        <button class="tab-btn" data-tab="t2">2. Characters &amp; Voices</button>
+        <button class="tab-btn" data-tab="t3">3. Motion &amp; Loops</button>
+        <button class="tab-btn" data-tab="t4">4. Interactive Games</button>
+        <button class="tab-btn" data-tab="t5">5. Share It &amp; Celebrate</button>
+      </div>
 
-        <!-- Module 1 -->
-        <div class="tab-content active" id="tab-1">
-          <div class="curriculum-module-header">
-            <h3 class="curriculum-module-title">Module 1: Meet the Blocks &amp; First Animation</h3>
-            <span class="curriculum-sessions-tag">Sessions 1 &amp; 2</span>
-          </div>
-          <p style="color: var(--color-text-secondary); line-height: 1.6;">
-            Introduce young minds to the playful world of ScratchJr. Learn the interface tour, understand green flag triggers, forward and backward motion, and create a dancing cat sprite.
-          </p>
-          <ul class="curriculum-list">
-            <li class="curriculum-item"><span class="curriculum-item-check">✓</span><span>Interface tour: Canvas, palette &amp; character tray</span></li>
-            <li class="curriculum-item"><span class="curriculum-item-check">✓</span><span>Start on Green Flag block triggers</span></li>
-            <li class="curriculum-item"><span class="curriculum-item-check">✓</span><span>Motion blocks: Right, left, up, down &amp; hop</span></li>
-            <li class="curriculum-item"><span class="curriculum-item-check">✓</span><span>Resetting sprite starting positions</span></li>
-          </ul>
-        </div>
+      <div class="tab-pane active" id="t1">
+        <h3>Module 1: Meet the Blocks &amp; First Animation</h3>
+        <p>Tour the canvas, learn green flag triggers, forward and backward motion, and create a dancing cat sprite.</p>
+        <ul class="tab-list">
+          <li>✓ Green Flag start triggers</li>
+          <li>✓ Motion arrows &amp; hopping</li>
+          <li>✓ Resetting sprite positions</li>
+          <li>✓ Fun background selection</li>
+        </ul>
+      </div>
 
-        <!-- Module 2 -->
-        <div class="tab-content" id="tab-2">
-          <div class="curriculum-module-header">
-            <h3 class="curriculum-module-title">Module 2: Custom Characters &amp; Voice Recording</h3>
-            <span class="curriculum-sessions-tag">Sessions 3 &amp; 4</span>
-          </div>
-          <p style="color: var(--color-text-secondary); line-height: 1.6;">
-            Bring stories to life! Children customize sprites using the built-in paint editor, choose whimsical outdoor backgrounds, and record their own voices to speak dialogues.
-          </p>
-          <ul class="curriculum-list">
-            <li class="curriculum-item"><span class="curriculum-item-check">✓</span><span>Using the Paint Editor to recolor characters</span></li>
-            <li class="curriculum-item"><span class="curriculum-item-check">✓</span><span>Importing multiple stage backgrounds</span></li>
-            <li class="curriculum-item"><span class="curriculum-item-check">✓</span><span>Microphone audio recording blocks</span></li>
-            <li class="curriculum-item"><span class="curriculum-item-check">✓</span><span>Triggering actions when a character is tapped</span></li>
-          </ul>
-        </div>
+      <div class="tab-pane" id="t2">
+        <h3>Module 2: Custom Characters &amp; Voice Recording</h3>
+        <p>Customize sprites with the paint editor, add multi-page backdrops, and record personal voices to speak dialogue.</p>
+        <ul class="tab-list">
+          <li>✓ Paint editor tools</li>
+          <li>✓ Microphone audio recording</li>
+          <li>✓ Tap-to-speak triggers</li>
+          <li>✓ Multi-character scenes</li>
+        </ul>
+      </div>
 
-        <!-- Module 3 -->
-        <div class="tab-content" id="tab-3">
-          <div class="curriculum-module-header">
-            <h3 class="curriculum-module-title">Module 3: Speed, Loops &amp; Scene Transitions</h3>
-            <span class="curriculum-sessions-tag">Sessions 5 &amp; 6</span>
-          </div>
-          <p style="color: var(--color-text-secondary); line-height: 1.6;">
-            Learn how repeat loops save block space. Program characters moving at slow, medium, and supersonic speeds, and seamlessly flip from one scene to the next.
-          </p>
-          <ul class="curriculum-list">
-            <li class="curriculum-item"><span class="curriculum-item-check">✓</span><span>Orange control blocks &amp; Repeat loops</span></li>
-            <li class="curriculum-item"><span class="curriculum-item-check">✓</span><span>Speed modifiers: Walk vs Sprint vs Glide</span></li>
-            <li class="curriculum-item"><span class="curriculum-item-check">✓</span><span>Growing &amp; shrinking character sizing blocks</span></li>
-            <li class="curriculum-item"><span class="curriculum-item-check">✓</span><span>Multi-page scene flipping triggers</span></li>
-          </ul>
-        </div>
+      <div class="tab-pane" id="t3">
+        <h3>Module 3: Motion, Speed &amp; Repeat Loops</h3>
+        <p>Learn repeat blocks, control speeds from snail walk to supersonic sprint, and flip seamlessly between scenes.</p>
+        <ul class="tab-list">
+          <li>✓ Repeat loop blocks</li>
+          <li>✓ Speed modifiers</li>
+          <li>✓ Grow and shrink sizing</li>
+          <li>✓ Multi-page scene flipping</li>
+        </ul>
+      </div>
 
-        <!-- Module 4 -->
-        <div class="tab-content" id="tab-4">
-          <div class="curriculum-module-header">
-            <h3 class="curriculum-module-title">Module 4: Collisions &amp; Interactive Mini-Games</h3>
-            <span class="curriculum-sessions-tag">Session 7</span>
-          </div>
-          <p style="color: var(--color-text-secondary); line-height: 1.6;">
-            Introduce game mechanics. What happens when two characters bump into each other? Learn collision triggers and secret color-coded mail messaging.
-          </p>
-          <ul class="curriculum-list">
-            <li class="curriculum-item"><span class="curriculum-item-check">✓</span><span>Start on Bump (character collision trigger)</span></li>
-            <li class="curriculum-item"><span class="curriculum-item-check">✓</span><span>Sending and opening color-coded letter blocks</span></li>
-            <li class="curriculum-item"><span class="curriculum-item-check">✓</span><span>Disappearing &amp; re-appearing magic blocks</span></li>
-            <li class="curriculum-item"><span class="curriculum-item-check">✓</span><span>Building a two-player animal race</span></li>
-          </ul>
-        </div>
+      <div class="tab-pane" id="t4">
+        <h3>Module 4: Collisions &amp; Interactive Mini-Games</h3>
+        <p>Program character bumping triggers, secret color-coded letters, and create a two-player animal race.</p>
+        <ul class="tab-list">
+          <li>✓ Start on Bump collision</li>
+          <li>✓ Color letter messaging</li>
+          <li>✓ Disappearing magic blocks</li>
+          <li>✓ Tap-dash animal game</li>
+        </ul>
+      </div>
 
-        <!-- Module 5 -->
-        <div class="tab-content" id="tab-5">
-          <div class="curriculum-module-header">
-            <h3 class="curriculum-module-title">Module 5: Share It, Showcase &amp; Certificate</h3>
-            <span class="curriculum-sessions-tag">Session 8</span>
-          </div>
-          <p style="color: var(--color-text-secondary); line-height: 1.6;">
-            The grand graduation! Students record a live video walkthrough of their completed storybook, present it to fellow classmates, and receive their Codju certificate.
-          </p>
-          <ul class="curriculum-list">
-            <li class="curriculum-item"><span class="curriculum-item-check">✓</span><span>Final project polish &amp; bug fixes</span></li>
-            <li class="curriculum-item"><span class="curriculum-item-check">✓</span><span>Screen recording &amp; parent presentation</span></li>
-            <li class="curriculum-item"><span class="curriculum-item-check">✓</span><span>Publishing to personal Codju student profile</span></li>
-            <li class="curriculum-item"><span class="curriculum-item-check">✓</span><span>Felicitation ceremony &amp; graduation badge</span></li>
-          </ul>
-        </div>
+      <div class="tab-pane" id="t5">
+        <h3>Module 5: Share It, Showcase &amp; Certificate</h3>
+        <p>Record a walkthrough video, present stories during demo day, and receive the verified Codju certificate.</p>
+        <ul class="tab-list">
+          <li>✓ Project polish &amp; bug fixing</li>
+          <li>✓ Screen recording walkthrough</li>
+          <li>✓ Permanent student portfolio link</li>
+          <li>✓ Verified certificate ceremony</li>
+        </ul>
       </div>
     </div>
   </section>
 
-  <!-- ========== 4 SAMPLE STUDENT PROJECTS ========== -->
-  <section class="section section--white" id="projects">
+  <!-- 4 Sample Projects -->
+  <section class="section" style="background: #fff; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
     <div class="container">
-      <div class="section-header">
-        <span class="section-eyebrow">PORTFOLIO ARTIFACTS</span>
+      <div class="section-head">
         <h2 class="section-title">4 Sample Student Projects</h2>
-        <p style="font-size: 1.05rem; color: var(--color-text-secondary);">Real projects built by 6 to 8 year olds during the 4-week program.</p>
+        <p class="section-sub">Tangible outcomes built by students aged 6–8.</p>
       </div>
 
-      <div class="projects-grid">
-        <div class="project-card">
-          <div>
-            <span class="project-tag">Project 1 · Storytelling</span>
-            <h3 class="project-title">The Enchanted Jungle Adventure</h3>
-            <p class="project-desc">
-              An interactive 3-page storybook where a baby panda meets a talking monkey, solves a jungle riddle, and finds a hidden fruit treasure.
-            </p>
-          </div>
-          <div class="project-skills">
-            <span class="project-skill-pill">Multi-page navigation</span>
-            <span class="project-skill-pill">Voice dialogue</span>
-            <span class="project-skill-pill">Sequential timing</span>
-          </div>
+      <div class="projs-grid">
+        <div class="p-card">
+          <div class="p-tag">Project 01 · Storytelling</div>
+          <h3 class="p-title">The Enchanted Jungle</h3>
+          <p class="p-desc">A 3-page interactive storybook where a baby panda solves jungle riddles with voice dialogue.</p>
         </div>
-
-        <div class="project-card">
-          <div>
-            <span class="project-tag">Project 2 · Mini-Game</span>
-            <h3 class="project-title">Underwater Coral Reef Race</h3>
-            <p class="project-desc">
-              A playful dash where two sea turtles and a clownfish race across the screen with randomized tap boosts and sound splash effects.
-            </p>
-          </div>
-          <div class="project-skills">
-            <span class="project-skill-pill">Speed blocks</span>
-            <span class="project-skill-pill">Tap triggers</span>
-            <span class="project-skill-pill">Collision finish line</span>
-          </div>
+        <div class="p-card">
+          <div class="p-tag">Project 02 · Mini-Game</div>
+          <h3 class="p-title">Coral Reef Animal Race</h3>
+          <p class="p-desc">A two-player dash where sea creatures swim at different speeds with sound effects.</p>
         </div>
-
-        <div class="project-card">
-          <div>
-            <span class="project-tag">Project 3 · Creative Greeting</span>
-            <h3 class="project-title">Musical Birthday Celebration Card</h3>
-            <p class="project-desc">
-              An interactive animated greeting card with customizable cake candles that blow out on tap and play a recorded birthday song.
-            </p>
-          </div>
-          <div class="project-skills">
-            <span class="project-skill-pill">Custom paint editor</span>
-            <span class="project-skill-pill">Audio mixing</span>
-            <span class="project-skill-pill">Hide &amp; reveal logic</span>
-          </div>
+        <div class="p-card">
+          <div class="p-tag">Project 03 · Greeting Card</div>
+          <h3 class="p-title">Musical Birthday Card</h3>
+          <p class="p-desc">Interactive candles that blow out on tap, playing a recorded child's celebration song.</p>
         </div>
-
-        <div class="project-card">
-          <div>
-            <span class="project-tag">Project 4 · Space Simulation</span>
-            <h3 class="project-title">Cosmic Rocket Blast Off</h3>
-            <p class="project-desc">
-              A space expedition simulation featuring a countdown sequence, smoke particles, soaring rocket propulsion, and planet landings.
-            </p>
-          </div>
-          <div class="project-skills">
-            <span class="project-skill-pill">Repeat loops</span>
-            <span class="project-skill-pill">Size expansion</span>
-            <span class="project-skill-pill">Backdrop switching</span>
-          </div>
+        <div class="p-card">
+          <div class="p-tag">Project 04 · Simulation</div>
+          <h3 class="p-title">Cosmic Rocket Blast Off</h3>
+          <p class="p-desc">A space launch sequence with countdown timing, size expansion, and planet exploration.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== PRICING SECTION ========== -->
+  <!-- Pricing -->
   <section class="section" id="pricing">
     <div class="container">
-      <div class="pricing-box">
-        <span class="pricing-ribbon">All-Inclusive Pass</span>
-        <h3 style="font-size: 1.8rem; color: var(--color-brand-deep);">Scratch Junior Cohort</h3>
-        <div class="pricing-amount">₹3,999</div>
-        <div class="pricing-subtitle">One-time payment · +18% GST Applicable · No hidden fees</div>
-        
-        <ul class="pricing-features">
-          <li class="pricing-feature-item">
-            <span class="pricing-feature-check">✓</span>
-            <span><strong>4 Weeks · 8 Live Sessions</strong> (45 mins each, twice a week)</span>
-          </li>
-          <li class="pricing-feature-item">
-            <span class="pricing-feature-check">✓</span>
-            <span><strong>Micro-Group of 1:6</strong> for dedicated mentor attention</span>
-          </li>
-          <li class="pricing-feature-item">
-            <span class="pricing-feature-check">✓</span>
-            <span><strong>ScratchJr Activity Workbook</strong> (printable PDF)</span>
-          </li>
-          <li class="pricing-feature-item">
-            <span class="pricing-feature-check">✓</span>
-            <span><strong>Permanent Student Portfolio Link</strong> at codju.com</span>
-          </li>
-          <li class="pricing-feature-item">
-            <span class="pricing-feature-check">✓</span>
-            <span><strong>Verified Certificate of Achievement</strong> with school co-branding</span>
-          </li>
+      <div class="price-box">
+        <span style="font-size: 0.8rem; font-weight: 800; color: var(--accent); text-transform: uppercase;">All-Inclusive Pass</span>
+        <div class="price-num">₹3,999</div>
+        <div class="price-sub">4 Weeks · 8 Sessions · +18% GST</div>
+        <ul class="price-features">
+          <li>✓ 8 Live Weekend Sessions (45 mins each)</li>
+          <li>✓ Micro-Group of strictly 1:6 students</li>
+          <li>✓ Tablet &amp; Laptop compatible (No typing needed)</li>
+          <li>✓ ScratchJr Activity Workbook (PDF)</li>
+          <li>✓ Verified Certificate &amp; Portfolio URL</li>
         </ul>
-
-        <a href="https://wa.me/918288863132?text=Hello%20Codju%2C%20I%20want%20to%20enroll%20my%20child%20in%20Scratch%20Junior%20(₹3,999)" target="_blank" rel="noopener" class="btn btn--accent" style="width: 100%; padding: 16px; font-size: 1.1rem; border-radius: var(--radius-md);">
-          Enroll in Scratch Junior Now →
+        <a href="https://wa.me/918288863132?text=Hello%20Codju%2C%20enroll%20in%20Scratch%20Junior" target="_blank" rel="noopener" class="btn btn--accent" style="width: 100%; padding: 14px; font-size: 1rem;">
+          Enroll in Scratch Junior →
         </a>
       </div>
     </div>
   </section>
 
-  <!-- ========== 5 FAQS ========== -->
-  <section class="section section--white" id="faq">
+  <!-- FAQ -->
+  <section class="section" id="faq" style="background: #fff; border-top: 1px solid var(--border);">
     <div class="container">
-      <div class="section-header">
-        <span class="section-eyebrow">COMMON QUERIES</span>
+      <div class="section-head">
         <h2 class="section-title">Frequently Asked Questions</h2>
       </div>
 
-      <div class="faq-accordion">
+      <div class="faq-wrap">
         <div class="faq-item active">
-          <button class="faq-trigger" aria-expanded="true">
-            <span>Does my child need to know how to read or type?</span>
-            <span class="faq-icon">+</span>
-          </button>
-          <div class="faq-content">
-            No! Scratch Junior was created specifically by MIT for early childhood education (ages 5–7). It uses colorful visual symbols, arrows, and intuitive snap-fit blocks. Children don't need any prior keyboard typing or reading fluency.
-          </div>
+          <button class="faq-q"><span>Does my child need to read or type?</span><span>+</span></button>
+          <div class="faq-a">No! Scratch Junior uses visual icons and color blocks specifically designed for early learners aged 5–7.</div>
         </div>
-
         <div class="faq-item">
-          <button class="faq-trigger" aria-expanded="false">
-            <span>What devices are supported for class?</span>
-            <span class="faq-icon">+</span>
-          </button>
-          <div class="faq-content">
-            Scratch Junior runs on iPad, Android tablets, Fire tablets, and laptop/desktop computers via the free ScratchJr desktop app or Google Chrome browser. A touch tablet is ideal, but a computer with a mouse works great as well.
-          </div>
+          <button class="faq-q"><span>What devices are supported?</span><span>+</span></button>
+          <div class="faq-a">Any iPad, Android tablet, Fire tablet, or desktop Chrome browser runs ScratchJr smoothly.</div>
         </div>
-
         <div class="faq-item">
-          <button class="faq-trigger" aria-expanded="false">
-            <span>What if my child misses a live class?</span>
-            <span class="faq-icon">+</span>
-          </button>
-          <div class="faq-content">
-            All classes are recorded and available instantly inside your student dashboard. Additionally, because batches are small (maximum 6 students), our mentors check in individually to help catch up on any missed activities.
-          </div>
+          <button class="faq-q"><span>What if we miss a class?</span><span>+</span></button>
+          <div class="faq-a">All live classes are recorded and available in the student dashboard within 2 hours.</div>
         </div>
-
         <div class="faq-item">
-          <button class="faq-trigger" aria-expanded="false">
-            <span>How are batches formed and scheduled?</span>
-            <span class="faq-icon">+</span>
-          </button>
-          <div class="faq-content">
-            Batches run on weekends with morning slots (10:00 AM – 10:45 AM IST) and evening slots (4:30 PM – 5:15 PM IST). Each batch is strictly capped at 6 children to ensure every single child gets to share their screen and ask questions.
-          </div>
+          <button class="faq-q"><span>How many students per class?</span><span>+</span></button>
+          <div class="faq-a">Each batch is strictly capped at 6 students to ensure individual mentor screen time.</div>
         </div>
-
         <div class="faq-item">
-          <button class="faq-trigger" aria-expanded="false">
-            <span>Will my child receive a certificate after completion?</span>
-            <span class="faq-icon">+</span>
-          </button>
-          <div class="faq-content">
-            Yes! Upon finishing the 4th project and participating in the graduation showcase, students receive a verified digital certificate with a QR code and their permanent portfolio URL.
-          </div>
+          <button class="faq-q"><span>Will they receive a certificate?</span><span>+</span></button>
+          <div class="faq-a">Yes! Every graduate earns a verified certificate with a scannable QR code and portfolio link.</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== FOOTER ========== -->
-  <footer class="site-footer">
+  <footer class="footer">
     <div class="container">
-      <div class="footer-bottom">
-        <div><strong>Codju Academy</strong> · Scratch Junior Track (Grades 1–2)</div>
-        <div style="display: flex; gap: 20px;">
-          <a href="Codju Academy Home.dc.html" style="color: #ffffff;">Home</a>
-          <a href="Scratch.dc.html" style="color: #ffffff;">Scratch (Grades 3–5)</a>
-          <a href="Python.dc.html" style="color: #ffffff;">Python (Grades 6–10)</a>
-          <a href="Codju AI Winter Camp.dc.html" style="color: #f7d56a;">AI Winter Camp</a>
-        </div>
-        <div>&copy; 2026 Codju EdTech Pvt Ltd.</div>
+      <p style="margin-bottom: 10px;"><strong>Codju Academy</strong> · Scratch Junior Track</p>
+      <div>
+        <a href="index.html">Home</a>
+        <a href="Scratch.dc.html">Scratch</a>
+        <a href="Python.dc.html">Python</a>
+        <a href="HTML and CSS.dc.html">HTML &amp; CSS</a>
+        <a href="Codju AI Winter Camp.dc.html">AI Winter Camp</a>
       </div>
+      <p style="margin-top: 14px; opacity: 0.6; font-size: 0.8rem;">&copy; 2026 Codju EdTech Pvt Ltd.</p>
     </div>
   </footer>
 
-  <!-- ========== TAB INTERACTION & ACCORDION JAVASCRIPT ========== -->
   <script>
-    // Tab Switching Logic
-    const tabButtons = document.querySelectorAll('.tab-btn');
-    const tabContents = document.querySelectorAll('.tab-content');
-
-    tabButtons.forEach(btn => {
+    document.querySelectorAll('.tab-btn').forEach(btn => {
       btn.addEventListener('click', () => {
-        tabButtons.forEach(b => b.classList.remove('active'));
-        tabContents.forEach(c => c.classList.remove('active'));
-
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
         btn.classList.add('active');
-        const targetId = btn.getAttribute('data-tab');
-        const targetContent = document.getElementById(targetId);
-        if (targetContent) {
-          targetContent.classList.add('active');
-        }
+        document.getElementById(btn.getAttribute('data-tab')).classList.add('active');
       });
     });
 
-    // FAQ Accordion
-    document.querySelectorAll('.faq-trigger').forEach(trigger => {
-      trigger.addEventListener('click', () => {
-        const item = trigger.closest('.faq-item');
-        const isActive = item.classList.contains('active');
-
-        document.querySelectorAll('.faq-item').forEach(other => {
-          other.classList.remove('active');
-          other.querySelector('.faq-trigger').setAttribute('aria-expanded', 'false');
-        });
-
-        if (!isActive) {
-          item.classList.add('active');
-          trigger.setAttribute('aria-expanded', 'true');
-        }
+    document.querySelectorAll('.faq-q').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.closest('.faq-item');
+        const active = item.classList.contains('active');
+        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+        if (!active) item.classList.add('active');
       });
     });
   </script>
