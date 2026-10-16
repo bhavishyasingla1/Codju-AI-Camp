@@ -3,8 +3,25 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>HTML &amp; CSS Web Development (Grades 6–10) | Codju Academy</title>
-  <meta name="description" content="Move beyond templates. Master modern semantic HTML, CSS layout systems, responsive design, and publish 4 live web projects with custom links." />
+  <title>HTML &amp; CSS Web Development for Kids (Grades 6–10) | Codju Academy</title>
+  <meta name="description" content="Live online HTML &amp; CSS web design classes for students in Grades 6–10 (ages 11–16). Learn Flexbox, responsive design, and publish 4 live websites on GitHub Pages." />
+  <meta name="keywords" content="HTML and CSS classes for kids, web development for students, coding for grade 6, coding for grade 8, front-end web design, Codju Academy" />
+  <link rel="canonical" href="https://codju.com/html-css.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://codju.com/html-css.html" />
+  <meta property="og:title" content="HTML &amp; CSS Web Development for Kids (Grades 6–10) | Codju Academy" />
+  <meta property="og:description" content="From a blank page to a website of their own. Master semantic HTML, modern Flexbox layouts, and publish live websites on GitHub Pages." />
+  <meta property="og:image" content="assets/logo.png" />
+  <meta property="og:site_name" content="Codju Academy" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="HTML &amp; CSS Web Development for Kids (Grades 6–10) | Codju Academy" />
+  <meta name="twitter:description" content="From a blank page to a website of their own. Learn web design and deploy 4 live websites in 1:8 micro-groups." />
+  <meta name="twitter:image" content="assets/logo.png" />
+
   <link rel="icon" type="image/png" href="assets/logo.png" />
   <link rel="stylesheet" href="index.css" />
   <style>
@@ -13,6 +30,52 @@
       --accent-soft: var(--c-web-soft);
     }
   </style>
+
+  <!-- Structured Data: Course & BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Course",
+        "name": "HTML & CSS Web Development & Responsive Design",
+        "description": "Front-end web development for students in Grades 6–10 (ages 11–16). Covers semantic HTML5, modern CSS styling, Flexbox layout systems, media queries, and live web deployment on GitHub Pages.",
+        "provider": {
+          "@type": "EducationalOrganization",
+          "name": "Codju Academy",
+          "url": "https://codju.com/"
+        },
+        "educationalLevel": "Grades 6–10 (Ages 11–16)",
+        "timeToComplete": "P5W",
+        "offers": {
+          "@type": "Offer",
+          "category": "Tuition",
+          "price": "6999",
+          "priceCurrency": "INR",
+          "url": "https://codju.com/html-css.html",
+          "availability": "https://schema.org/InStock"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://codju.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "HTML & CSS",
+            "item": "https://codju.com/html-css.html"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
 
@@ -30,17 +93,17 @@
     <div class="container nav__inner">
       
       <a href="index.html" class="nav__brand">
-        <img src="assets/logo.png" alt="Codju" class="nav__brand-logo" />
+        <img src="assets/logo.png" alt="Codju Academy Logo" class="nav__brand-logo" width="124" height="34" />
         <span class="nav__brand-divider"></span>
         <span class="nav__brand-course-badge" style="background: var(--accent-soft); color: var(--accent);">HTML &amp; CSS</span>
       </a>
 
       <!-- Desktop Nav Links -->
-      <nav class="nav__menu-wrap">
+      <nav class="nav__menu-wrap" aria-label="Course Navigation">
         <ul class="nav__menu">
           
           <li class="nav__item nav__item--has-dropdown">
-            <button type="button" class="nav__link-btn" aria-expanded="false">
+            <button type="button" class="nav__link-btn" aria-expanded="false" aria-haspopup="true">
               <span>All Courses</span>
               <svg class="nav__caret" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
             </button>
@@ -115,7 +178,7 @@
       <!-- Right CTAs -->
       <div class="nav__actions">
         <a href="https://wa.me/918288863132?text=Hello%20Codju%2C%20inquiry%20about%20HTML%20and%20CSS%20Web%20Dev%20(Grades%206-10)" 
-           target="_blank" rel="noopener" class="btn-whatsapp">
+           target="_blank" rel="noopener" class="btn-whatsapp" title="Chat with Advisor on WhatsApp">
           <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor">
             <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.82 11.82 0 00-3.48-8.413z"/>
           </svg>
@@ -146,7 +209,7 @@
     <div class="mobile-drawer__panel">
       <div class="mobile-drawer__head">
         <a href="index.html" class="nav__brand">
-          <img src="assets/logo.png" alt="Codju" class="nav__brand-logo" />
+          <img src="assets/logo.png" alt="Codju Academy" class="nav__brand-logo" width="110" height="30" />
           <span class="nav__brand-divider"></span>
           <span class="nav__brand-badge">Academy</span>
         </a>
@@ -205,6 +268,7 @@
 
         <div class="mobile-group-title" style="margin-top: 24px;">ON THIS PAGE</div>
         <ul class="mobile-simple-links">
+          <li><a href="#browser" class="drawer-nav-item">Live Web Preview Engine</a></li>
           <li><a href="#benefits" class="drawer-nav-item">Core Skills</a></li>
           <li><a href="#curriculum" class="drawer-nav-item">5-Week Curriculum</a></li>
           <li><a href="#projects" class="drawer-nav-item">4 Live Websites</a></li>
@@ -222,16 +286,16 @@
   </div>
 
   <!-- ========== COURSE HERO WITH INTERACTIVE DUAL-PANE WEB PREVIEW ========== -->
-  <section class="course-hero">
+  <section class="course-hero" id="browser">
     <div class="container">
       <div class="course-hero-grid">
         
         <!-- Hero Details -->
         <div>
           <div class="course-badge">🌐 GRADES 6–10 · AGES 11–16 · DESIGN &amp; PUBLISH WEBSITES</div>
-          <h1 class="course-hero-title">Design &amp; Publish Real Websites. <br/><span>Live on the Web.</span></h1>
+          <h1 class="course-hero-title">From a blank page <br/><span>to a website of their own.</span></h1>
           <p class="course-hero-sub">
-            Move beyond templates. Master modern semantic HTML, CSS layout systems, responsive design, and publish 4 live web projects with custom links.
+            Web design and front-end engineering for Grades 6–10 (ages 11–16). Turn ideas into live, responsive websites published on the internet for family and friends to explore.
           </p>
 
           <div class="course-hero-actions">
@@ -272,7 +336,7 @@
               <span class="visualizer-dot visualizer-dot--green"></span>
             </div>
             <div class="visualizer-title">portfolio.html — Live Preview Engine</div>
-            <button type="button" id="theme-toggle-btn" style="font-size: 0.72rem; font-weight: 700; color: var(--accent); background: #ffffff; padding: 2px 8px; border-radius: var(--radius-full); border: 1px solid var(--border);">
+            <button type="button" id="theme-toggle-btn" style="font-size: 0.72rem; font-weight: 700; color: var(--accent); background: #ffffff; padding: 2px 8px; border-radius: var(--radius-full); border: 1px solid var(--border); cursor: pointer;">
               Toggle Dark/Light 🌓
             </button>
           </div>
@@ -350,21 +414,20 @@
     </div>
   </section>
 
-  <!-- ========== 5-MODULE INTERACTIVE CURRICULUM ========== -->
+  <!-- ========== 5-WEEK INTERACTIVE CURRICULUM ========== -->
   <section class="section" id="curriculum">
     <div class="container">
       <div class="section-head">
         <span class="section-tag">STRUCTURED SYLLABUS</span>
         <h2 class="section-title">5-Week Curriculum</h2>
-        <p class="section-sub">A hands-on, project-driven progression from your first HTML tag to live web deployment.</p>
+        <p class="section-sub">A progressive front-end journey from blank text document to live web application deployment.</p>
       </div>
 
       <div class="curriculum-stepper">
-        <!-- Module Selector Stepper -->
         <div class="stepper-nav" role="tablist">
           <button type="button" class="step-btn active" data-step="m1" role="tab" aria-selected="true">
             <div class="step-num">Week 1</div>
-            <div class="step-label">HTML Semantics</div>
+            <div class="step-label">HTML5 Skeleton</div>
           </button>
           <button type="button" class="step-btn" data-step="m2" role="tab" aria-selected="false">
             <div class="step-num">Week 2</div>
@@ -372,111 +435,110 @@
           </button>
           <button type="button" class="step-btn" data-step="m3" role="tab" aria-selected="false">
             <div class="step-num">Week 3</div>
-            <div class="step-label">Modern Flexbox</div>
+            <div class="step-label">CSS Flexbox</div>
           </button>
           <button type="button" class="step-btn" data-step="m4" role="tab" aria-selected="false">
             <div class="step-num">Week 4</div>
-            <div class="step-label">Mobile Styling</div>
+            <div class="step-label">Mobile Queries</div>
           </button>
           <button type="button" class="step-btn" data-step="m5" role="tab" aria-selected="false">
             <div class="step-num">Week 5</div>
-            <div class="step-label">Live Hosting</div>
+            <div class="step-label">Live Deploy</div>
           </button>
         </div>
 
-        <!-- Curriculum Content Container -->
         <div class="curriculum-panel">
           
-          <!-- Week 1 -->
+          <!-- Module 1 -->
           <div class="curr-pane active" id="m1">
             <div class="curr-head">
               <div>
-                <h3 class="curr-title">Week 1: HTML5 Foundations &amp; Document Anatomy</h3>
-                <p class="curr-desc">Understand how the internet operates. Structure pages with headings, multimedia image tags, hyperlinks, and semantic hierarchy.</p>
+                <h3 class="curr-title">Week 1: Semantic HTML5 Structure &amp; Page Skeleton</h3>
+                <p class="curr-desc">Construct clean semantic page markup using headings, paragraphs, lists, anchor hyperlinks, and optimized images.</p>
               </div>
               <span class="curr-badge">Sessions 1 &amp; 2</span>
             </div>
             <div class="curr-grid">
-              <div class="curr-item"><span>✓</span> HTML5 elements, tags, and attributes</div>
-              <div class="curr-item"><span>✓</span> Hyperlinks, anchors &amp; smooth page scrolling</div>
-              <div class="curr-item"><span>✓</span> Embedding web images, icons, and audio</div>
-              <div class="curr-item"><span>✓</span> Semantic tags: header, main, section, footer</div>
+              <div class="curr-item"><span>✓</span> HTML document structure: &lt;head&gt;, &lt;body&gt;, &lt;meta&gt;</div>
+              <div class="curr-item"><span>✓</span> Semantic elements: &lt;header&gt;, &lt;main&gt;, &lt;section&gt;, &lt;footer&gt;</div>
+              <div class="curr-item"><span>✓</span> Image embedding with alt text and responsive widths</div>
+              <div class="curr-item"><span>✓</span> Hyperlinks (&lt;a href&gt;) and relative page paths</div>
             </div>
             <div class="curr-milestone">
               <span class="curr-milestone-icon">🎯</span>
-              <div class="curr-milestone-text"><strong>Module Project:</strong> Personal Creator Bio &amp; Achievements Page</div>
+              <div class="curr-milestone-text"><strong>Module Project:</strong> Personal Creator Bio &amp; Profile Page</div>
             </div>
           </div>
 
-          <!-- Week 2 -->
+          <!-- Module 2 -->
           <div class="curr-pane" id="m2">
             <div class="curr-head">
               <div>
-                <h3 class="curr-title">Week 2: CSS Box Model &amp; Modern Typography</h3>
-                <p class="curr-desc">Transform raw HTML into visually stunning layouts with Google Fonts typography, color palettes, borders, padding, and margins.</p>
+                <h3 class="curr-title">Week 2: CSS Styling, Typography &amp; The Box Model</h3>
+                <p class="curr-desc">Style pages with modern Google Fonts, custom color palettes, borders, margins, padding, and box-sizing.</p>
               </div>
               <span class="curr-badge">Sessions 3 &amp; 4</span>
             </div>
             <div class="curr-grid">
-              <div class="curr-item"><span>✓</span> The CSS Box Model (Margin, Border, Padding)</div>
-              <div class="curr-item"><span>✓</span> Pairing modern Google Fonts &amp; letter-spacing</div>
-              <div class="curr-item"><span>✓</span> Sleek gradient overlays &amp; hex/hsl palettes</div>
-              <div class="curr-item"><span>✓</span> Targeted class and ID selectors</div>
+              <div class="curr-item"><span>✓</span> CSS selectors, classes (.card) and IDs (#nav)</div>
+              <div class="curr-item"><span>✓</span> Google Fonts pairing &amp; typography line-heights</div>
+              <div class="curr-item"><span>✓</span> The CSS Box Model: Margin, Border, Padding, Content</div>
+              <div class="curr-item"><span>✓</span> Background colors, gradients, and border-radii</div>
             </div>
             <div class="curr-milestone">
               <span class="curr-milestone-icon">🎯</span>
-              <div class="curr-milestone-text"><strong>Module Project:</strong> Celebrity / Athlete Multimedia Tribute Fan Page</div>
+              <div class="curr-milestone-text"><strong>Module Project:</strong> Multimedia Tribute &amp; Idol Fan Page</div>
             </div>
           </div>
 
-          <!-- Week 3 -->
+          <!-- Module 3 -->
           <div class="curr-pane" id="m3">
             <div class="curr-head">
               <div>
-                <h3 class="curr-title">Week 3: Flexbox Architecture &amp; Navigation Bars</h3>
-                <p class="curr-desc">Master the layout engine powering top modern websites. Build responsive multi-column card grids, navigation bars, and sticky footers.</p>
+                <h3 class="curr-title">Week 3: Modern CSS Flexbox &amp; Card Layouts</h3>
+                <p class="curr-desc">Build 2D multi-column layouts using CSS Flexbox properties: flex-direction, justify-content, align-items, and gap.</p>
               </div>
               <span class="curr-badge">Sessions 5 &amp; 6</span>
             </div>
             <div class="curr-grid">
-              <div class="curr-item"><span>✓</span> Flex container axes &amp; justify-content</div>
-              <div class="curr-item"><span>✓</span> Align-items &amp; responsive wrapping grids</div>
-              <div class="curr-item"><span>✓</span> Professional header navigation bars</div>
-              <div class="curr-item"><span>✓</span> Gap spacing &amp; modern card bento grids</div>
+              <div class="curr-item"><span>✓</span> Display: flex and main vs cross axes</div>
+              <div class="curr-item"><span>✓</span> Justify-content and align-items alignments</div>
+              <div class="curr-item"><span>✓</span> Flex-wrap and multi-column card grids</div>
+              <div class="curr-item"><span>✓</span> Hover transformations (translateY &amp; box-shadow)</div>
             </div>
             <div class="curr-milestone">
               <span class="curr-milestone-icon">🎯</span>
-              <div class="curr-milestone-text"><strong>Module Project:</strong> EcoPlanet Campaign Landing Page with Action CTA</div>
+              <div class="curr-milestone-text"><strong>Module Project:</strong> EcoPlanet Climate Action Campaign Site</div>
             </div>
           </div>
 
-          <!-- Week 4 -->
+          <!-- Module 4 -->
           <div class="curr-pane" id="m4">
             <div class="curr-head">
               <div>
-                <h3 class="curr-title">Week 4: Mobile Responsiveness &amp; Micro-Animations</h3>
-                <p class="curr-desc">Ensure websites render crisply on smartphones and tablets. Program CSS hover micro-interactions, elevation transitions, and shadows.</p>
+                <h3 class="curr-title">Week 4: Responsive Media Queries &amp; Navigation</h3>
+                <p class="curr-desc">Make websites adapt fluidly from wide 4K desktop screens to mobile phone viewports using @media query breakpoints.</p>
               </div>
               <span class="curr-badge">Sessions 7 &amp; 8</span>
             </div>
             <div class="curr-grid">
-              <div class="curr-item"><span>✓</span> Mobile-first viewport media queries (@media)</div>
-              <div class="curr-item"><span>✓</span> CSS transitions &amp; interactive hover elevations</div>
-              <div class="curr-item"><span>✓</span> Smooth drop shadows &amp; glassmorphism filters</div>
-              <div class="curr-item"><span>✓</span> Chrome DevTools inspection &amp; responsive testing</div>
+              <div class="curr-item"><span>✓</span> Viewport meta tag configuration</div>
+              <div class="curr-item"><span>✓</span> @media (max-width: 768px) responsive breakpoints</div>
+              <div class="curr-item"><span>✓</span> Responsive desktop navigation to mobile drawer layout</div>
+              <div class="curr-item"><span>✓</span> Fluid image scaling and percentage widths</div>
             </div>
             <div class="curr-milestone">
               <span class="curr-milestone-icon">🎯</span>
-              <div class="curr-milestone-text"><strong>Module Project:</strong> Responsive Multi-Device Arcade Hub Portal</div>
+              <div class="curr-milestone-text"><strong>Module Project:</strong> Retro 90s Arcade Lounge Gaming Portal</div>
             </div>
           </div>
 
-          <!-- Week 5 -->
+          <!-- Module 5 -->
           <div class="curr-pane" id="m5">
             <div class="curr-head">
               <div>
-                <h3 class="curr-title">Week 5: Capstone Build &amp; Live Cloud Deployment</h3>
-                <p class="curr-desc">Code an original multi-page portfolio website from scratch, perform peer code reviews, and publish live to GitHub / Netlify.</p>
+                <h3 class="curr-title">Week 5: Live Deployment on GitHub &amp; Demo Day</h3>
+                <p class="curr-desc">Publish all 4 projects online to free custom URLs on GitHub Pages, and present during parent graduation.</p>
               </div>
               <span class="curr-badge">Sessions 9 &amp; 10</span>
             </div>
@@ -568,7 +630,7 @@
       <div class="price-box">
         <span class="price-tag">Full Access Cohort</span>
         <div class="price-num">₹6,999</div>
-        <div class="price-sub">5 Weeks · 10 Live Sessions · +18% GST</div>
+        <div class="price-sub">5 Weeks · 10 Live Sessions · +18% GST (₹8,259 total)</div>
         
         <ul class="price-features">
           <li>
@@ -611,11 +673,12 @@
       <div class="section-head">
         <span class="section-tag">COMMON QUERIES</span>
         <h2 class="section-title">Frequently Asked Questions</h2>
+        <p class="section-sub">Direct answers about the HTML &amp; CSS Web Development track.</p>
       </div>
 
       <div class="faq-wrap">
         <div class="faq-item active">
-          <button class="faq-q">
+          <button class="faq-q" aria-expanded="true">
             <span>Does my child need prior coding experience?</span>
             <span class="faq-sign">+</span>
           </button>
@@ -625,7 +688,7 @@
         </div>
 
         <div class="faq-item">
-          <button class="faq-q">
+          <button class="faq-q" aria-expanded="false">
             <span>What computer equipment is required?</span>
             <span class="faq-sign">+</span>
           </button>
@@ -635,7 +698,7 @@
         </div>
 
         <div class="faq-item">
-          <button class="faq-q">
+          <button class="faq-q" aria-expanded="false">
             <span>Will the websites be accessible on the live public internet?</span>
             <span class="faq-sign">+</span>
           </button>
@@ -645,7 +708,7 @@
         </div>
 
         <div class="faq-item">
-          <button class="faq-q">
+          <button class="faq-q" aria-expanded="false">
             <span>What happens if my child misses a live session?</span>
             <span class="faq-sign">+</span>
           </button>
@@ -655,7 +718,7 @@
         </div>
 
         <div class="faq-item">
-          <button class="faq-q">
+          <button class="faq-q" aria-expanded="false">
             <span>What is the next step after learning HTML &amp; CSS?</span>
             <span class="faq-sign">+</span>
           </button>
@@ -741,8 +804,15 @@
       btn.addEventListener('click', () => {
         const item = btn.closest('.faq-item');
         const active = item.classList.contains('active');
-        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
-        if (!active) item.classList.add('active');
+        document.querySelectorAll('.faq-item').forEach(i => {
+          i.classList.remove('active');
+          const q = i.querySelector('.faq-q');
+          if (q) q.setAttribute('aria-expanded', 'false');
+        });
+        if (!active) {
+          item.classList.add('active');
+          btn.setAttribute('aria-expanded', 'true');
+        }
       });
     });
 

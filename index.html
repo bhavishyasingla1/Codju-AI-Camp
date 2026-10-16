@@ -3,10 +3,102 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Codju Academy — Coding &amp; AI for Grades 1–12</title>
-  <meta name="description" content="Outcome-driven live coding & AI tracks for Grades 1–12. ScratchJr, MIT Scratch, Python, HTML & CSS, and AI Winter Camp." />
+  <title>Codju Academy — Coding &amp; AI Classes for Kids (Grades 1–12)</title>
+  <meta name="description" content="Outcome-driven live coding &amp; AI classes for Grades 1–12. Children learn by building real games, stories, websites &amp; AI projects in live 1:8 micro-batches with IIT &amp; IIM mentors." />
+  <meta name="keywords" content="coding classes for kids, AI classes for students, ScratchJr, Scratch coding, Python programming for kids, web development for kids, Codju Academy, school coding camp" />
+  <link rel="canonical" href="https://codju.com/" />
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://codju.com/" />
+  <meta property="og:title" content="Codju Academy — Coding &amp; AI Classes for Kids (Grades 1–12)" />
+  <meta property="og:description" content="Don't just use technology. Create with it. Live coding and AI programmes where children turn ideas into games, stories, websites, and working AI tools." />
+  <meta property="og:image" content="assets/logo.png" />
+  <meta property="og:site_name" content="Codju Academy" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Codju Academy — Coding &amp; AI Classes for Kids" />
+  <meta name="twitter:description" content="Don't just use technology. Create with it. Live coding &amp; AI tracks for Grades 1–12." />
+  <meta name="twitter:image" content="assets/logo.png" />
+
   <link rel="icon" type="image/png" href="assets/logo.png" />
   <link rel="stylesheet" href="index.css" />
+
+  <!-- Structured Data: Organization & Course List -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "EducationalOrganization",
+        "@id": "https://codju.com/#organization",
+        "name": "Codju Academy",
+        "url": "https://codju.com/",
+        "logo": "https://codju.com/assets/logo.png",
+        "description": "Outcome-driven live coding and artificial intelligence education for school students in Grades 1 to 12.",
+        "founder": {
+          "@type": "Person",
+          "name": "Rohit K. Bishnoi",
+          "jobTitle": "Lead Mentor & Founder",
+          "alumniOf": ["IIT Kanpur", "IIM Kozhikode"]
+        },
+        "telephone": "+91 82888 63132",
+        "email": "info@codju.com",
+        "address": {
+          "@type": "PostalAddress",
+          "addressCountry": "IN"
+        }
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://codju.com/#website",
+        "url": "https://codju.com/",
+        "name": "Codju Academy",
+        "publisher": {
+          "@id": "https://codju.com/#organization"
+        }
+      },
+      {
+        "@type": "ItemList",
+        "name": "Codju Academy Learning Tracks",
+        "description": "5 progressive coding and artificial intelligence pathways for school students.",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Scratch Junior (Grades 1–2)",
+            "url": "https://codju.com/scratch-junior.html"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "MIT Scratch (Grades 3–5)",
+            "url": "https://codju.com/scratch.html"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Python Programming (Grades 6–10)",
+            "url": "https://codju.com/python.html"
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "name": "HTML & CSS Web Development (Grades 6–10)",
+            "url": "https://codju.com/html-css.html"
+          },
+          {
+            "@type": "ListItem",
+            "position": 5,
+            "name": "Codju AI Winter Camp (Grades 5–12)",
+            "url": "https://codju.com/ai-winter-camp.html"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
 
@@ -25,18 +117,18 @@
       
       <!-- Brand Logo -->
       <a href="index.html" class="nav__brand">
-        <img src="assets/logo.png" alt="Codju" class="nav__brand-logo" />
+        <img src="assets/logo.png" alt="Codju Academy Logo" class="nav__brand-logo" width="124" height="34" />
         <span class="nav__brand-divider"></span>
         <span class="nav__brand-badge">Academy</span>
       </a>
 
       <!-- Desktop Nav Links -->
-      <nav class="nav__menu-wrap">
+      <nav class="nav__menu-wrap" aria-label="Main Navigation">
         <ul class="nav__menu">
           
           <!-- Dropdown: Programs -->
           <li class="nav__item nav__item--has-dropdown">
-            <button type="button" class="nav__link-btn" aria-expanded="false">
+            <button type="button" class="nav__link-btn" aria-expanded="false" aria-haspopup="true">
               <span>Programs</span>
               <svg class="nav__caret" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
             </button>
@@ -100,19 +192,19 @@
             </div>
           </li>
 
-          <!-- Why Codju -->
+          <!-- Story Journey Link -->
           <li class="nav__item">
-            <a href="#why-codju" class="nav__link-btn">Why Codju</a>
+            <a href="#journey" class="nav__link-btn">How We Teach</a>
+          </li>
+
+          <!-- Student Work -->
+          <li class="nav__item">
+            <a href="#showcase" class="nav__link-btn">Student Work</a>
           </li>
 
           <!-- Mentors -->
           <li class="nav__item">
             <a href="#mentors" class="nav__link-btn">Mentors</a>
-          </li>
-
-          <!-- Partner Schools -->
-          <li class="nav__item">
-            <a href="#schools" class="nav__link-btn">Schools</a>
           </li>
 
           <!-- Flagship Camp direct nav button -->
@@ -170,7 +262,7 @@
     <div class="mobile-drawer__panel">
       <div class="mobile-drawer__head">
         <a href="index.html" class="nav__brand">
-          <img src="assets/logo.png" alt="Codju" class="nav__brand-logo" />
+          <img src="assets/logo.png" alt="Codju Academy" class="nav__brand-logo" width="110" height="30" />
           <span class="nav__brand-divider"></span>
           <span class="nav__brand-badge">Academy</span>
         </a>
@@ -229,7 +321,9 @@
 
         <div class="mobile-group-title" style="margin-top: 24px;">EXPLORE CODJU</div>
         <ul class="mobile-simple-links">
-          <li><a href="#why-codju" class="drawer-nav-item">Why Codju Pedagogy</a></li>
+          <li><a href="#courses" class="drawer-nav-item">Grade Track Finder</a></li>
+          <li><a href="#showcase" class="drawer-nav-item">Student Project Showcase</a></li>
+          <li><a href="#journey" class="drawer-nav-item">The 4-Step Learning Journey</a></li>
           <li><a href="#mentors" class="drawer-nav-item">Lead Mentors (IIT/IIM)</a></li>
           <li><a href="#schools" class="drawer-nav-item">250+ Partner Schools</a></li>
           <li><a href="#faq" class="drawer-nav-item">Common Parent Questions</a></li>
@@ -255,13 +349,13 @@
   <section class="hero">
     <div class="container">
       <div class="hero-pill">
-        <span>✨ GRADES 1–12 · LIVE 1:8 BATCHES</span>
+        <span>✨ GRADES 1–12 · LIVE 1:8 MICRO-BATCHES</span>
       </div>
 
-      <h1 class="hero-title">Next-Gen <span>Coding &amp; AI</span></h1>
+      <h1 class="hero-title">Don't just use technology. <span>Create with it.</span></h1>
 
       <p class="hero-sub">
-        Live 1:8 micro-batches. Build real games, apps &amp; AI.
+        Live coding and AI programmes where children turn their ideas into games, stories, websites and projects of their own.
       </p>
 
       <div class="hero-actions">
@@ -273,7 +367,7 @@
         </a>
       </div>
 
-      <!-- 4 Clean Stats -->
+      <!-- 4 Clean Proof Stats -->
       <div class="stats-strip">
         <div class="stat-item">
           <div class="stat-val">70,000+</div>
@@ -295,7 +389,7 @@
     </div>
   </section>
 
-  <!-- ========== SCHOOLS MARQUEE ========== -->
+  <!-- ========== SCHOOLS MARQUEE (QUIET PROOF STRIP) ========== -->
   <div class="schools-strip" id="schools">
     <div class="schools-lbl">Trusted by Leading Schools Nationwide</div>
     <div class="schools-marquee">
@@ -315,13 +409,13 @@
     </div>
   </div>
 
-  <!-- ========== COURSE CATALOG ========== -->
+  <!-- ========== COURSE DISCOVERY FINDER ========== -->
   <section class="section" id="courses">
     <div class="container">
       <div class="section-head">
         <span class="section-tag">CURRICULUM &amp; PATHWAYS</span>
-        <h2 class="section-title">Explore Our 5 Learning Tracks</h2>
-        <p class="section-sub">Outcome-driven live tracks. Every child finishes real, shareable creations.</p>
+        <h2 class="section-title">Where should your child start?</h2>
+        <p class="section-sub">Choose their grade to find the right learning path.</p>
       </div>
 
       <!-- Interactive Grade Explorer (Guided User Journey) -->
@@ -357,12 +451,12 @@
             </p>
             <div class="card-pills">
               <span class="card-pill">4 Weeks · 8 Sessions</span>
-              <span class="card-pill">1:6 Batch</span>
-              <span class="card-pill">4 Projects</span>
+              <span class="card-pill">1:6 Micro-Batch</span>
+              <span class="card-pill">4 Animated Stories</span>
             </div>
           </div>
           <div class="card-bottom">
-            <div class="card-price">₹3,999 <small>+ GST</small></div>
+            <div class="card-price">₹3,999 <small>+ 18% GST (₹4,719 total)</small></div>
             <a href="Scratch Junior.dc.html" class="btn btn--card">Explore Track →</a>
           </div>
         </div>
@@ -376,16 +470,16 @@
             </div>
             <h3 class="card-title">MIT Scratch</h3>
             <p class="card-one-liner">
-              Master logic, variables, and physics while programming 4 playable arcade games and publishing them to MIT Scratch studio.
+              Go from playing games to building them. Master variables, physics, and game loops while programming 4 playable arcade games.
             </p>
             <div class="card-pills">
               <span class="card-pill">5 Weeks · 10 Sessions</span>
-              <span class="card-pill">1:8 Batch</span>
+              <span class="card-pill">1:8 Micro-Batch</span>
               <span class="card-pill">4 Playable Games</span>
             </div>
           </div>
           <div class="card-bottom">
-            <div class="card-price">₹5,999 <small>+ GST</small></div>
+            <div class="card-price">₹5,999 <small>+ 18% GST (₹7,079 total)</small></div>
             <a href="Scratch.dc.html" class="btn btn--card">Explore Track →</a>
           </div>
         </div>
@@ -399,16 +493,16 @@
             </div>
             <h3 class="card-title">Python Programming</h3>
             <p class="card-one-liner">
-              Transition from visual blocks to text syntax. Learn algorithms, data structures, and automation with 4 terminal applications.
+              Turn ideas into working Python projects. Transition from visual blocks to text code syntax, algorithms, and practical applications.
             </p>
             <div class="card-pills">
               <span class="card-pill">6 Weeks · 12 Sessions</span>
-              <span class="card-pill">1:8 Batch</span>
-              <span class="card-pill">4 Python Apps</span>
+              <span class="card-pill">1:8 Micro-Batch</span>
+              <span class="card-pill">4 Python CLI Apps</span>
             </div>
           </div>
           <div class="card-bottom">
-            <div class="card-price">₹7,999 <small>+ GST</small></div>
+            <div class="card-price">₹7,999 <small>+ 18% GST (₹9,439 total)</small></div>
             <a href="Python.dc.html" class="btn btn--card">Explore Track →</a>
           </div>
         </div>
@@ -422,16 +516,16 @@
             </div>
             <h3 class="card-title">HTML &amp; CSS</h3>
             <p class="card-one-liner">
-              Design and publish responsive websites to the live internet. Master modern Flexbox layouts, Google Fonts, and micro-interactions.
+              From a blank page to a website of their own. Design and publish responsive websites to the live internet using modern Flexbox.
             </p>
             <div class="card-pills">
               <span class="card-pill">5 Weeks · 10 Sessions</span>
-              <span class="card-pill">Live URLs</span>
-              <span class="card-pill">4 Sites Published</span>
+              <span class="card-pill">Live GitHub URL</span>
+              <span class="card-pill">4 Websites Published</span>
             </div>
           </div>
           <div class="card-bottom">
-            <div class="card-price">₹6,999 <small>+ GST</small></div>
+            <div class="card-price">₹6,999 <small>+ 18% GST (₹8,259 total)</small></div>
             <a href="HTML and CSS.dc.html" class="btn btn--card">Explore Track →</a>
           </div>
         </div>
@@ -444,11 +538,11 @@
           <span class="flagship-tag">⭐ NATIONWIDE FLAGSHIP · GRADES 5–12</span>
           <h3 class="flagship-title">Codju AI Winter Camp</h3>
           <p class="flagship-desc">
-            India's deepest 1-month generative AI immersion. Master 17+ industry tools including ChatGPT, Claude, Midjourney &amp; Suno, and build 20 portfolio creations.
+            One month. New skills. Ideas turned into real projects. India's deepest generative AI immersion where students master 17+ industry tools and build 20 portfolio creations.
           </p>
           <div class="flagship-pills">
             <span class="flagship-pill">5 Weeks · 10 Live Sessions</span>
-            <span class="flagship-pill">17 AI Tools</span>
+            <span class="flagship-pill">17 AI Tools Taught</span>
             <span class="flagship-pill">20 Portfolio Projects</span>
             <span class="flagship-pill">Verified QR Certificate</span>
           </div>
@@ -466,112 +560,278 @@
     </div>
   </section>
 
+  <!-- ========== STUDENT WORK SHOWCASE (VISUAL STORYTELLING) ========== -->
+  <section class="section" id="showcase" style="background: #ffffff; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-tag">STUDENT WORK</span>
+        <h2 class="section-title">Small ideas. Real things built.</h2>
+        <p class="section-sub">Every child leaves with real, tangible creations they built themselves and can share with the world.</p>
+      </div>
+
+      <div class="showcase-grid">
+        
+        <!-- Showcase 1: Scratch Jr Story -->
+        <div class="showcase-card" style="--card-color: var(--c-scratchjr); --card-bg: rgba(255, 122, 69, 0.1);">
+          <div>
+            <div class="showcase-visual">
+              <span class="showcase-visual__icon">🦁</span>
+              <span class="showcase-visual__tag">Animated Story</span>
+            </div>
+            <div class="showcase-tag">Scratch Junior · Grade 2</div>
+            <h3 class="showcase-title">Enchanted Jungle Adventure</h3>
+            <p class="showcase-desc">
+              An interactive visual story with custom voice recordings, moving animal characters, and touch-triggered scene changes.
+            </p>
+          </div>
+          <a href="Scratch Junior.dc.html#simulator" class="showcase-link">
+            <span>Try Story Simulator</span> &rarr;
+          </a>
+        </div>
+
+        <!-- Showcase 2: Scratch Arcade Game -->
+        <div class="showcase-card" style="--card-color: var(--c-scratch); --card-bg: rgba(59, 130, 246, 0.1);">
+          <div>
+            <div class="showcase-visual">
+              <span class="showcase-visual__icon">🚀</span>
+              <span class="showcase-visual__tag">Playable Arcade Game</span>
+            </div>
+            <div class="showcase-tag">MIT Scratch · Grade 4</div>
+            <h3 class="showcase-title">Cosmic Galaxy Defender</h3>
+            <p class="showcase-desc">
+              A space shooter built with physics velocity, asteroid collisions, laser firing loops, and a live high-score tracker.
+            </p>
+          </div>
+          <a href="Scratch.dc.html#arcade" class="showcase-link">
+            <span>Play Game Demo</span> &rarr;
+          </a>
+        </div>
+
+        <!-- Showcase 3: Python App -->
+        <div class="showcase-card" style="--card-color: var(--c-python); --card-bg: rgba(37, 99, 235, 0.1);">
+          <div>
+            <div class="showcase-visual">
+              <span class="showcase-visual__icon">⚔️</span>
+              <span class="showcase-visual__tag">Terminal Python CLI</span>
+            </div>
+            <div class="showcase-tag">Python · Grade 8</div>
+            <h3 class="showcase-title">CyberQuest: Text RPG</h3>
+            <p class="showcase-desc">
+              An object-oriented adventure game featuring hero stats, inventory management, random roll mechanics, and battle logic.
+            </p>
+          </div>
+          <a href="Python.dc.html#sandbox" class="showcase-link">
+            <span>Run Python Code</span> &rarr;
+          </a>
+        </div>
+
+        <!-- Showcase 4: HTML/CSS Site -->
+        <div class="showcase-card" style="--card-color: var(--c-web); --card-bg: rgba(234, 88, 12, 0.1);">
+          <div>
+            <div class="showcase-visual">
+              <span class="showcase-visual__icon">💻</span>
+              <span class="showcase-visual__tag">Live Responsive Site</span>
+            </div>
+            <div class="showcase-tag">HTML &amp; CSS · Grade 9</div>
+            <h3 class="showcase-title">Creator Portfolio</h3>
+            <p class="showcase-desc">
+              A clean portfolio website built from scratch with semantic HTML5, CSS Flexbox, custom dark mode, and deployed to GitHub Pages.
+            </p>
+          </div>
+          <a href="HTML and CSS.dc.html#browser" class="showcase-link">
+            <span>View Live Preview</span> &rarr;
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== THE 4-STEP LEARNING JOURNEY (HOW WE TEACH) ========== -->
+  <section class="section" id="journey">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-tag">THE CODJU JOURNEY</span>
+        <h2 class="section-title">From first attempt to something of their own.</h2>
+        <p class="section-sub">A 4-step progression designed to turn natural curiosity into creative confidence.</p>
+      </div>
+
+      <div class="journey-steps">
+        
+        <div class="journey-step">
+          <span class="journey-step__num">STEP 01</span>
+          <h3 class="journey-step__title">Explore an Idea</h3>
+          <p class="journey-step__desc">
+            Learning begins with what children naturally care about — a fantasy story, an arcade game challenge, or an AI concept they want to try.
+          </p>
+        </div>
+
+        <div class="journey-step">
+          <span class="journey-step__num">STEP 02</span>
+          <h3 class="journey-step__title">Learn the Skill</h3>
+          <p class="journey-step__desc">
+            Mentors break complex computing concepts into bite-sized logic blocks, clean syntax, or prompt techniques in interactive micro-groups.
+          </p>
+        </div>
+
+        <div class="journey-step">
+          <span class="journey-step__num">STEP 03</span>
+          <h3 class="journey-step__title">Build &amp; Improve</h3>
+          <p class="journey-step__desc">
+            Students test, debug, and iterate on their project during live studio sessions. Mistakes become lessons in computational thinking.
+          </p>
+        </div>
+
+        <div class="journey-step">
+          <span class="journey-step__num">STEP 04</span>
+          <h3 class="journey-step__title">Share the Result</h3>
+          <p class="journey-step__desc">
+            Every graduate finishes with a permanent public portfolio link and a tamper-proof QR certificate recognized by 250+ partner schools.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
   <!-- ========== THE 4 PILLARS (MINIMAL BENTO) ========== -->
   <section class="section" id="why-codju" style="background: #ffffff; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
     <div class="container">
       <div class="section-head">
         <span class="section-tag">WHY CODJU</span>
         <h2 class="section-title">Built for Real Outcomes</h2>
-        <p class="section-sub">How our pedagogy turns screen time into creation time.</p>
+        <p class="section-sub">How our pedagogy turns passive screen time into active creation time.</p>
       </div>
 
       <div class="pillars-grid">
         <div class="pillar-card">
           <div class="pillar-icon">🎯</div>
-          <h4 class="pillar-title">Project-First</h4>
-          <p class="pillar-desc">No passive listening. Every session ends with a working animation, game, or script.</p>
+          <h3 class="pillar-title">Project-First</h3>
+          <p class="pillar-desc">No passive video lectures. Every session ends with a working animation, game, or script built by the student.</p>
         </div>
 
         <div class="pillar-card">
           <div class="pillar-icon">🌐</div>
-          <h4 class="pillar-title">Public Portfolio</h4>
-          <p class="pillar-desc">Graduates receive a verified profile URL at <code>codju.com/student/name</code>.</p>
+          <h3 class="pillar-title">Public Portfolio</h3>
+          <p class="pillar-desc">Graduates receive a verified creator profile URL at <code>codju.com/student/name</code> to showcase to family and peers.</p>
         </div>
 
         <div class="pillar-card">
           <div class="pillar-icon">👥</div>
-          <h4 class="pillar-title">Micro-Groups</h4>
-          <p class="pillar-desc">Strictly 6 to 8 students per batch. Every child gets dedicated attention and feedback.</p>
+          <h3 class="pillar-title">Micro-Groups</h3>
+          <p class="pillar-desc">Strictly 6 to 8 students per batch. Every child gets individual screen shares, personal debug help, and real-time feedback.</p>
         </div>
 
         <div class="pillar-card">
           <div class="pillar-icon">📜</div>
-          <h4 class="pillar-title">QR Certificate</h4>
-          <p class="pillar-desc">Tamper-proof certificate recognized by 250+ partner schools across India.</p>
+          <h3 class="pillar-title">QR Certificate</h3>
+          <p class="pillar-desc">Tamper-proof digital certificate with QR verification recognized by 250+ premier partner schools across India.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== LEAD MENTOR (FOCUSED) ========== -->
+  <!-- ========== LEAD MENTOR (FOCUSED & CREDIBLE) ========== -->
   <section class="section" id="mentors">
     <div class="container">
       <div class="mentor-card">
-        <img src="assets/rohit_profile.jpeg" alt="Rohit K. Bishnoi" class="mentor-photo" />
+        <img src="assets/rohit_profile.jpeg" alt="Rohit K. Bishnoi, B.Tech IIT Kanpur and Lead Mentor at Codju" class="mentor-photo" width="180" height="180" loading="lazy" />
         <div>
           <h3 class="mentor-title">Rohit K. Bishnoi</h3>
-          <div class="mentor-role">Founder &amp; Lead Mentor, Codju</div>
+          <div class="mentor-role">Founder &amp; Lead Mentor, Codju Academy</div>
           <p class="mentor-quote">
             "Students shouldn't just consume technology — they should create with it. We nurture computational courage, curiosity, and ethical thinking from day one."
           </p>
           <div class="mentor-tags">
-            <span class="mentor-tag">🎓 IIT Kanpur</span>
-            <span class="mentor-tag">🏛️ IIM Kozhikode</span>
+            <span class="mentor-tag">🎓 B.Tech, IIT Kanpur</span>
+            <span class="mentor-tag">🏛️ MBA, IIM Kozhikode</span>
             <span class="mentor-tag">📚 16+ Years Teaching</span>
-            <span class="mentor-tag">🏫 70,000+ Students</span>
+            <span class="mentor-tag">🏫 70,000+ Students Guided</span>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== FAQ (CLEAN ACCORDION) ========== -->
+  <!-- ========== COMMON PARENT QUESTIONS (FAQ ACCORDION) ========== -->
   <section class="section" id="faq" style="background: #ffffff; border-top: 1px solid var(--border);">
     <div class="container">
       <div class="section-head">
         <span class="section-tag">FREQUENT QUERIES</span>
-        <h2 class="section-title">Common Questions</h2>
+        <h2 class="section-title">Common Parent Questions</h2>
+        <p class="section-sub">Direct, transparent answers to help you choose with confidence.</p>
       </div>
 
       <div class="faq-wrap">
         <div class="faq-item active">
-          <button class="faq-q">
+          <button class="faq-q" aria-expanded="true">
             <span>Which course should my child start with?</span>
             <span class="faq-sign">+</span>
           </button>
           <div class="faq-a">
-            Follow our grade benchmarks: Scratch Jr for Grades 1–2; Scratch for Grades 3–5; Python or HTML &amp; CSS for Grades 6–10; and AI Winter Camp for Grades 5–12. If in doubt, message us on WhatsApp for advice.
+            Follow our recommended grade benchmarks: Scratch Jr for Grades 1–2; MIT Scratch for Grades 3–5; Python or HTML &amp; CSS for Grades 6–10; and AI Winter Camp for Grades 5–12. If in doubt, message our academic advisor on WhatsApp for personalized advice.
           </div>
         </div>
 
         <div class="faq-item">
-          <button class="faq-q">
-            <span>What devices do we need?</span>
+          <button class="faq-q" aria-expanded="false">
+            <span>Does my child need any prior coding experience?</span>
             <span class="faq-sign">+</span>
           </button>
           <div class="faq-a">
-            Scratch Jr works on any iPad, tablet, or laptop. For all other tracks, a standard laptop or desktop with Google Chrome is ideal. No paid software downloads required.
+            No prior coding experience is needed for any introductory track. Each course starts from foundational concepts and progressively builds towards independent projects with continuous mentor support.
           </div>
         </div>
 
         <div class="faq-item">
-          <button class="faq-q">
+          <button class="faq-q" aria-expanded="false">
+            <span>What devices and software do we need?</span>
+            <span class="faq-sign">+</span>
+          </button>
+          <div class="faq-a">
+            Scratch Jr works on any iPad, Android tablet, or laptop. For Scratch, Python, HTML &amp; CSS, and the AI Winter Camp, a standard laptop or desktop with Google Chrome and an internet connection is ideal. All coding tools run directly in the browser with zero paid software downloads.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
             <span>What happens if my child misses a live session?</span>
             <span class="faq-sign">+</span>
           </button>
           <div class="faq-a">
-            All live sessions are recorded and posted to the student portal within 2 hours, alongside recap notes and project starter files.
+            All live sessions are recorded and posted to the student portal within 2 hours, alongside recap notes, project starter files, and mentor review support so your child never falls behind.
           </div>
         </div>
 
         <div class="faq-item">
-          <button class="faq-q">
+          <button class="faq-q" aria-expanded="false">
             <span>Are partner school students eligible for free scholarships?</span>
             <span class="faq-sign">+</span>
           </button>
           <div class="faq-a">
-            Yes! If your child attends one of our 250+ partner schools, use your school code to unlock 100% scholarship access.
+            Yes. If your child attends one of our 250+ partner schools (such as DPS Patiala, SVIS Dwarka, Bhavan Vidyalaya, or HPS Begumpet), select your school code at checkout to unlock 100% scholarship access.
           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== REASSURING FINAL CTA BOX ========== -->
+  <section class="section" style="padding-top: 20px;">
+    <div class="container">
+      <div class="final-cta-box">
+        <h2 class="final-cta-title">Start with an idea.<br />End with something they made.</h2>
+        <p class="final-cta-sub">
+          Join thousands of young creators across 250+ schools building games, apps, websites, and AI projects with live mentor guidance.
+        </p>
+        <div class="final-cta-actions">
+          <a href="#courses" class="btn btn--primary" style="background: var(--gold); color: #15033d; font-weight: 800; padding: 14px 32px; font-size: 1rem;">
+            Find Your Child's Track ↓
+          </a>
+          <a href="https://wa.me/918288863132?text=Hello%20Codju%2C%20I%20am%20a%20parent%20interested%20in%20Codju%20Academy%20courses" 
+             target="_blank" rel="noopener" class="btn" style="background: rgba(255, 255, 255, 0.12); color: #ffffff; border: 1px solid rgba(255, 255, 255, 0.25); padding: 14px 28px; font-size: 1rem;">
+            Chat with an Advisor on WhatsApp &rarr;
+          </a>
         </div>
       </div>
     </div>
@@ -583,18 +843,18 @@
       <div class="footer-inner">
         <div>
           <strong style="font-size: 1.15rem; display: block; margin-bottom: 4px;">Codju Academy</strong>
-          <span style="font-size: 0.88rem; color: rgba(255, 255, 255, 0.65);">Empowering 2 million Indian students by 2030.</span>
+          <span style="font-size: 0.88rem; color: rgba(255, 255, 255, 0.65);">Empowering 2 million young Indian creators by 2030.</span>
         </div>
         <ul class="footer-links">
           <li><a href="Scratch Junior.dc.html">Scratch Jr</a></li>
           <li><a href="Scratch.dc.html">Scratch</a></li>
           <li><a href="Python.dc.html">Python</a></li>
           <li><a href="HTML and CSS.dc.html">HTML &amp; CSS</a></li>
-          <li><a href="Codju AI Winter Camp.dc.html" style="color: var(--gold);">AI Winter Camp</a></li>
+          <li><a href="Codju AI Winter Camp.dc.html" style="color: var(--gold); font-weight: 700;">AI Winter Camp ❄️</a></li>
         </ul>
       </div>
       <div class="footer-bottom">
-        <div>&copy; 2026 Codju EdTech Pvt Ltd.</div>
+        <div>&copy; 2026 Codju EdTech Pvt Ltd. All rights reserved.</div>
         <div>Helpline: +91 82888 63132 · info@codju.com</div>
       </div>
     </div>
@@ -694,8 +954,15 @@
       btn.addEventListener('click', () => {
         const item = btn.closest('.faq-item');
         const active = item.classList.contains('active');
-        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
-        if (!active) item.classList.add('active');
+        document.querySelectorAll('.faq-item').forEach(i => {
+          i.classList.remove('active');
+          const q = i.querySelector('.faq-q');
+          if (q) q.setAttribute('aria-expanded', 'false');
+        });
+        if (!active) {
+          item.classList.add('active');
+          btn.setAttribute('aria-expanded', 'true');
+        }
       });
     });
   </script>
